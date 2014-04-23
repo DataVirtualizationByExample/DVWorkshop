@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.metamatrix.com/account_Output" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.metamatrix.com/account_Output">
+  <xs:include schemaLocation="/Projects/jbds711/Financials/Schemas/DataDictionary.xsd"/>
+  <xs:element name="account_Output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="account_Output_Instance" type="account_Output_Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="account_Output_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="accountid" nillable="false" type="AccountID"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="customerid" nillable="false" type="CustomerID"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="accounttype" nillable="true" type="AccountType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="accountstatus" nillable="true" type="AccountStatus"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dateopened" nillable="false" type="DateOpened"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dateclosed" nillable="true" type="DateClosed"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="accountholdings_Output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="accountholdings_Output_Instance" type="accountholdings_Output_Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="accountholdings_Output_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="transactionid" nillable="false" type="TransactionID"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="accountid" nillable="false" type="AccountID"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="productid" nillable="false" type="ProductID"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="purchasedate" nillable="false" type="PurchaseDate"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="productshares" nillable="true" type="ProductShares"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="customer_Output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="customer_Output_Instance" type="customer_Output_Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="customer_Output_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="customerid" nillable="false" type="CustomerID"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="firstname" nillable="false" type="FirstName"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="lastname" nillable="false" type="LastName"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="middlename" nillable="true" type="MiddleInitial"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="streetaddress" nillable="false" type="StreetAddress"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="streetaddress2" nillable="true" type="StreetAddress"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="city" nillable="false" type="City"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="stateprovince" nillable="true" type="StateProvince"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="postalcode" nillable="false" type="PostalCode"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="country" nillable="true" type="Country"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="phonenumber" nillable="true" type="PhoneNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

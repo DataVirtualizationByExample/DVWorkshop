@@ -2,6 +2,7 @@
 The objective of this workshop is to get familiar with JBoss Data Virtualization and Data Virtualization in general.
 
 Prerequisites
+
 1. OpenJDK 1.6 or 1.7 or Oracle JDK 1.6 or 1.7
 
 2. JBoss Data Virtualization 6.0.0.GA

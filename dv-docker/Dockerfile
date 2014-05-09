@@ -8,6 +8,7 @@
 FROM centos
 
 MAINTAINER cvanball <cvanball@redhat.com>
+MAINTAINER kpeeples <kpeeples@redhat.com>
 
 # Update the system
 RUN yum -y update;yum clean all
@@ -122,7 +123,7 @@ RUN echo "echo >> DV Start script" > $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "service postgresql-9.3 start " >> $HOME/run.sh
 RUN echo "service mongod start " >> $HOME/run.sh
-RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/run.sh
+RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
 RUN chmod +x $HOME/run.sh
 
 # Clean up

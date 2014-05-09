@@ -19,11 +19,13 @@ RUN echo '%jboss ALL=(ALL) ALL' >> /etc/sudoers
 # Create jboss user
 RUN useradd -m -d /home/jboss -p jboss jboss
 
+
 ##########################################################
 # Install Java JDK, SSH and other useful cmdline utilities
 ##########################################################
 RUN yum -y install java-1.7.0-openjdk which telnet unzip openssh-server sudo openssh-clients;yum clean all
 ENV JAVA_HOME /usr/lib/jvm/jre
+
 
 ######################
 # Install MySQL Server
@@ -38,6 +40,7 @@ RUN service mysqld start && \
 
 # Install MySQL JDBC Client
 RUN yum -y install mysql-connector-java;yum clean all
+
 
 ########################
 # Install PostgreSQL 9.3
@@ -67,9 +70,9 @@ RUN $PGINST/bin/pg_ctl start -w -D $PGDATA && \
 	$PGINST/bin/psql --command "CREATE DATABASE jboss WITH OWNER jboss;" && \
     $PGINST/bin/psql -a -f financials-psql.sql
 
-
 # Add VOLUMEs to allow backup of config, logs and databases
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
+
 
 #################
 # Install MongoDB
@@ -115,11 +118,11 @@ RUN echo "alias ll='ls -l --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias grep='grep --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias c='clear'" >> $HOME/.bash_profile
 RUN echo "alias sdv='$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
-RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh -commands=connect,:shutdown'" >> $HOME/.bash_profile
+RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
 
 # start.sh
 USER root
-RUN echo "echo >> DV Start script" > $HOME/run.sh
+RUN echo "echo # JBoss Data Virtualization Start script" > $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "service postgresql-9.3 start " >> $HOME/run.sh
 RUN echo "service mongod start " >> $HOME/run.sh
@@ -132,6 +135,6 @@ RUN rm -rf $INSTALLDIR/software
 RUN rm financials-mysql.sql
 RUN rm financials-psql.sql
 
-EXPOSE 22 5432 8080 27017
+EXPOSE 22 5432 8080 9990 27017
 
 # Finished

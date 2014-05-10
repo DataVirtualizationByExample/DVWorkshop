@@ -21,11 +21,9 @@ If you have docker installed you should be able to try it out via:
 		$ cd dv-docker
 		$ docker run -P -d -t jbossdv600 
 
-You can then run **docker attach** or **docker logs** to get the logs at any time.	
+This will run the jbossdv600 container and starts automatically JBoss Data Virtualization, PostgreSQL, MySQL and MongoDB.  You can then run **docker attach $containerID** or **docker logs -f $containerID**  to get the logs at any time.	
 
 Run **docker ps** to see all the running containers or **docker inspect $containerID** to view the IP address and details of a container.
-
-The run.sh sript will start the databases MySQL, PostgreSQL MongoDB and JBoss Data Virtualization 6.0.0.GA.
 
 ## Experimenting
 To spin up a shell in the JBoss Data Virtualization containers try:
@@ -33,3 +31,5 @@ To spin up a shell in the JBoss Data Virtualization containers try:
 		$ docker run -P -i -t jbossdv600 /bin/bash
 
 You can then noodle around the container and run stuff & look at files etc.
+
+The /home/jboss/run.sh sript will start the databases MongoDB, MySQL, PostgreSQL and JBoss Data Virtualization 6.0.0.GA.

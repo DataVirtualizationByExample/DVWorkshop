@@ -32,4 +32,4 @@ To spin up a shell in the JBoss Data Virtualization containers try:
 
 You can then noodle around the container and run stuff & look at files etc.
 
-The /home/jboss/run.sh sript can be used start the databases MongoDB, MySQL, PostgreSQL and JBoss Data Virtualization 6.0.0.GA.
+The /home/jboss/run.sh sript can be used to start the databases MongoDB, MySQL, PostgreSQL and JBoss Data Virtualization 6.0.0.GA.

@@ -122,7 +122,8 @@ RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,
 
 # start.sh
 USER root
-RUN echo "echo # JBoss Data Virtualization Start script" > $HOME/run.sh
+RUN echo "#!/bin/sh"
+RUN echo "echo JBoss Data Virtualization Start script" >> $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "service postgresql-9.3 start " >> $HOME/run.sh
 RUN echo "service mongod start " >> $HOME/run.sh
@@ -136,5 +137,7 @@ RUN rm financials-mysql.sql
 RUN rm financials-psql.sql
 
 EXPOSE 22 5432 8080 9990 27017
+
+CMD /home/jboss/run.sh
 
 # Finished

@@ -13,7 +13,7 @@ If you are on OS X then see How to use [Docker on OS X.](https://github.com/fabr
 
 		$ docker build -t jbossdv600 . 
 
-The JBoss Data Virtualization should the build.
+The JBoss Data Virtualization container then build.
 
 ## Try it out
 If you have docker installed you should be able to try it out via:
@@ -32,4 +32,4 @@ To spin up a shell in the JBoss Data Virtualization containers try:
 
 You can then noodle around the container and run stuff & look at files etc.
 
-The /home/jboss/run.sh sript will start the databases MongoDB, MySQL, PostgreSQL and JBoss Data Virtualization 6.0.0.GA.
+The /home/jboss/run.sh sript can be used start the databases MongoDB, MySQL, PostgreSQL and JBoss Data Virtualization 6.0.0.GA.

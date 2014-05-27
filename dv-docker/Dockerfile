@@ -124,6 +124,7 @@ RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,
 USER root
 RUN echo "#!/bin/sh"
 RUN echo "echo JBoss Data Virtualization Start script" >> $HOME/run.sh
+RUN echo "service sshd start " >> $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "service postgresql-9.3 start " >> $HOME/run.sh
 RUN echo "service mongod start " >> $HOME/run.sh

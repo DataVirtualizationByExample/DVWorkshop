@@ -1,0 +1,18 @@
+= JBoss Data Virtualization Workshop
+Cojan van Ballegooijen <https://twitter.com/cvanball[@cvanball]>
+v1.0, May 14, 2014
+:doctype: book
+:toc:
+:toclevels: 3
+:experimental:
+
+include::labs/introduction.adoc[]
+include::labs/install-dv.adoc[]
+include::labs/install-jbds.adoc[]
+include::labs/create-teiidproject.adoc[]
+include::labs/create-vbl.adoc[]
+include::labs/create-edl.adoc[]
+include::labs/create-fdl.adoc[]
+include::labs/create-ws.adoc[]
+include::labs/vdb-deployment.adoc[]
+include::labs/odata.adoc[]

@@ -1,0 +1,147 @@
+
+:imagesdir: ../images
+
+== Create a Teiid project and Import Data Source
+
+Make sure that Lab 1 and 2 have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.
+
+=== Open the Teiid Perspective
+To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
+To open the “Teiid Designer” perspective, first select menu:Window[Open Perspective > Other...] in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
+
+image::3.1-JBDS-perspective.png[]
+
+Select Teiid Designer from the perspective list as shown below.
+
+image::3.1-JBDS-Teiid-designer.png[]
+
+Click btn:[OK]. 
+This will bring you to a screen that looks like this:
+
+image::3.1-JBDS-Teiid-designer2.png[]
+
+Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid. 
+Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.0.0.GA server in the Server pane.
+For the name simply enter “MyTeiidInstance”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter user / user for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked.
+For the Teiid Admin Connection Info, keep the defaults that are listed and use admin / admin for the username / password combination. Keep the default port number. Both “Save” and “SSL” checkboxes should be checked. When complete, your Teiid Server Connection Information should look like the illustration below.
+As a “sanity” check, be sure to click the btn:[Test] button. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.
+
+The Teiid View along the bottom of JBDS should look like the following illustration. 
+
+image::3.1-JBDS-Teiid-view.png[]
+
+=== Creating a Teiid Project
+Before you can create models of how your data will be exposed or used, you must first create a project. For the purposes of these labs, we will create a project named Financials. This Financials project will be where we create all of our source and view models and Virtual Database (VDB) files. To create the project, from the menu bar on JBDS, select menu:File[New > Teiid Model Project]. 
+The New Model Project wizard will be displayed as below. 
+
+image::3.2-new-model-project.png[]
+
+In the project name, enter “Financials” and keep the remaining defaults. Select the btn:[Next >] button.
+
+After clicking btn:[Next], the following window is presented for Project References. Keep the default and click btn:[Next >] again.
+
+image::3.2-new-model-project2.png[]
+
+The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, WebServices and VirtualBaseLayer. The Model Project Options window should look like that below.
+
+image::3.2-new-model-project3.png[]
+
+At this point, you can click the btn:[Finish] button.
+
+After expanding the Financials Project, the JBDS Teiid Designer Perspective should look similar to the figure below below.
+
+image::3.2-JBDS-Teiid-view.png[]
+
+=== Creating a Source Model
+We must create a source model in order to access physical data or information from a source. The source model (also referred to as the physical model) contains all the metadata necessary for a Virtual Database (VDB) and its associated connectors to access or query data from a target source. There are a few different ways of creating source models. We will first go over the process of creating a source model using the Metadata Import Wizard.
+The Metadata Import Wizard helps you create new models in the workspace by importing metadata information from a physical enterprise information system or other data source. When you import metadata, the Designer creates a new metadata model for you. Once you have created this metadata model, you can alter it as you would any other. Keep in mind that any changes you make to an imported metadata model do not impact the underlying structure of the enterprise information system the model represents.
+In some cases you can also use the Metadata Import Wizard to update the information within the models based on changes to the underlying data source.
+The Teiid Designer comes with a number of plug-ins to import metadata from sources such as JDBC-compliant databases, text files, Salesforce.com, WSDL's, XML Schemas, and DDL files.
+More information on the Import Wizard (and all of the features in the Teiid Designer) is available in the “Designer Users Guide”.
+
+=== Importing Metadata from the Product Database
+Right-click on the “DataSources” folder and select menu:Import...[]. In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options. Now, select “JDBC Database >> Source Model” and click btn:[Next >].
+
+image::3.3-importing-metadata.png[]
+
+In the “Import JDBC Database >> Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the btn:[New...] button to create it.
+The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “PostgreSQL” for the connection profile type. Enter “Products” for the Name and click btn:[Next >].
+
+image::3.3-setup-connection-profile.png[]
+
+The next step of setting up the connection profile is selecting the driver to use. If the driver you need is not listed in the drop-down list of Drivers (and it should not be if this is your first time through these steps).
+
+image::3.3-add-jdbc-driver.png[]
+
+Then select the cross-haired icon “New Driver Definition” which is to the right of Drivers.
+
+image::3.3-setup-connection-profile2.png[]
+
+In the “New Driver Definition” dialog, select the PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click btn:[Remove JAR/Zip] and then click the btn:[Add JAR/Zip] button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your student drive. Select the postgresql-9.3-1101.jdbc41.jar file from folder where this file is saved after download. Click btn:[OK]. After clicking OK, the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
+
+image::3.3-import-db-via-jdbc.png[]
+
+Now that the driver has been selected, you can fill in the database, url, username, and password for the connection profile. 
+Use the following values:
+[cols="4", options="header"] 
+|===
+|Database
+|URL
+|Username
+|Password
+
+|products
+|jdbc:postgresql://localhost:5432/products
+|postgres
+|postgres
+|===
+
+Go ahead and check the “Save password” checkbox. Your JDBC Connection Profile wizard should resemble that below. Click btn:[Test Connection]. A successful ping should return. If it does not, please raise your hand. Click btn:[Finish]. After clicking “Finish”, your Import Database via JDBC wizard should look like that below.
+From this point, clicking btn:[Next >] will take you to the dialog to select the metadata types that will be included when imported. The metadata that will be selected is indicated in the illustration below.
+
+image::3.3-import-db-via-jdbc2.png[]
+
+Once your database metadata selections have been made, click the btn:[Next] button. This will bring up the following dialogue. Be sure to click the arrow icon next to “public” in the Products database. This will select the two tables that we want to import. 
+Specifically, your dialogue for selecting database objects should look like that below.
+
+image::3.3-import-db-via-jdbc3.png[]
+
+If your dialogue looks like that above, click the btn:[Next >] button. This will bring up the final screen of the JDBC Import Wizard as indicated below.
+Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with “...” on it. Click this button and the following screen will be shown.
+
+image::3.3-import-db-via-jdbc4.png[]
+
+Select the DataSources folder as indicated above. Once the folder has been selected, click the btn:[OK] button. This will bring us back to the final screen of the Import Database via JDBC wizard. Your screen should look like the one below. 
+
+image::3.3-import-db-via-jdbc5.png[]
+
+To keep the table names simple, make sure the “Use Fully Qualified Names” checkbox is unchecked. After verifying it matches, click the btn:[Finish] button.
+You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.
+
+image::3.3-Products.png[]
+
+=== Preview Data via the Teiid Server
+With an active Teiid Server connection, all physical models that have been imported, along with any virtual models that are built on top of them, can be sampled (previewed) with the simple click of a button. To do this, let's utilize the Modeling Actions palette on the right-hand side of the Designer. Select Model JDBC Source and to Preview data, double-click on the Preview Data action.
+This will bring up the Preview Data dialogue as indicated below.
+
+image::3.3-Preview-data.png[]
+
+Click the btn:[...] button to open up a Table or Procedure Selection window. This allows us to drill-down into the tables that we wish to preview data for. For this lab, simply expand Financials, DataSources, and Products.xmi in order to select the productdata table as indicated in the illustration below.
+
+image::3.3-productdata.png[]
+
+This will bring us back to the Preview Data window where it should look like the one below.
+
+image::3.3-productdata2.png[]
+
+Once you click btn:[OK], a pop-up window will indicate that there are some temporary artifacts being deployed to the Teiid Server in order to preview the data. Finally, there will be two additional views that will open along the bottom of JBDS. Specifically, the SQL Results and Teiid Execution Plan tab views. A successful execution will yield sample results as indicated in the illustration below.
+
+image::3.3-query-results.png[]
+
+=== Import Metadata from the US_Customers and EU_Customers Databases
+We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the JDBC Database Import Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.
+
+image::3.4-US_Customers.png[]
+
+Congratulations, you have now completed this lab.

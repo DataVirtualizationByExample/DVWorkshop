@@ -524,11 +524,17 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <li><a href="#_dependency_diagrams">9.3. Dependency Diagrams</a></li>
 </ul>
 </li>
-<li><a href="#_odata">10. OData</a></li>
+<li><a href="#_xml_and_service_sources">10. XML and Service Sources</a></li>
 <li>
 <ul class="sectlevel2">
-<li><a href="#_how_to_access_the_data">10.1. How to access the data</a></li>
-<li><a href="#_how_to_query_the_data">10.2. How to query the data</a></li>
+<li><a href="#_create_relational_model_from_wsdl">10.1. Create relational model from WSDL</a></li>
+</ul>
+</li>
+<li><a href="#_odata">11. OData</a></li>
+<li>
+<ul class="sectlevel2">
+<li><a href="#_how_to_access_the_data">11.1. How to access the data</a></li>
+<li><a href="#_how_to_query_the_data">11.2. How to query the data</a></li>
 </ul>
 </li>
 </ul>
@@ -2376,7 +2382,114 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_odata">10. OData</h2>
+<h2 id="_xml_and_service_sources">10. XML and Service Sources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab you will be using the JDBS tool to create a Web Service. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of the JBDS tool to create a Web Service. In this lab you will create the CountryInfoService.xmi model and the CountryInfoServiceView.xmi model. These will be created from the WSDL:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
+</div>
+<div class="sect2">
+<h3 id="_create_relational_model_from_wsdl">10.1. Create relational model from WSDL</h3>
+<div class="paragraph">
+<p>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new folder called WSDL in your Model Explorer view. Right-click on the Financials project and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Folder</span></span>. Call the new folder WSDL.</p>
+</li>
+<li>
+<p>Right-click on the WSDL folder and select Import&#8230; from the right-hand menu.</p>
+</li>
+<li>
+<p>The Import dialog box is opened. Select WSDL File or URL &gt;&gt; Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the <b class="button">Next &gt;</b> button to continue.</p>
+</li>
+<li>
+<p>The Create Relational Model from Web Service Dialog box opens. Click on the <b class="button">New&#8230;</b> button to create a new Connection Profile.</p>
+</li>
+<li>
+<p>The New Connection Profile dialog opens. Type CountryInfo in the Name field and click the <b class="button">Next &gt;</b> button.</p>
+</li>
+<li>
+<p>The New Connection Profile dialog box opens. The WSDL that you will connect to is a URL. Click on the <b class="button">URL&#8230;</b> button to enter a URL.</p>
+</li>
+<li>
+<p>The WSDL URL dialog box opens. In the WSDL URL field enter in the following URL:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
+</div>
+<div class="paragraph">
+<p>The WSDL has no security so leave the Security Type to default of None. Click the OK button. When you click the OK button the software will validate the URL.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You will need an internet connection for this validate correctly.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the Test Connection button to test the URL. Click on the Next &gt; button.</p>
+</li>
+<li>
+<p>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.</p>
+</li>
+<li>
+<p>Click on the <b class="button">Deselect All</b> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select. Click on the <b class="button">Next &gt;</b> button.</p>
+</li>
+<li>
+<p>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <b class="button">&#8230;</b> to select locations and existing models in your workspace. Choose User-specified Procedures and click the <b class="button">Next &gt;</b> button.</p>
+</li>
+<li>
+<p>In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
+In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
+Select the Operation from the Operations pull-down (CountryInfo and FullCountyInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer&#8217;s legacy create and extract procedures choose the Legacy Procedures option in the lower section and click Finish.
+. Click on the <b class="button">Finish</b> button.
+. A status screen is displayed while the models are being created.
+. The models will appear in the Model Explorer and will be open in the right-hand pane.
+. Click the <b class="button">Save All</b> button to save your models.
+. Double-click on the CountryName procedure to open the transformation view for the procedure.
+. Click on the <b class="button">Preview Data</b> button to preview the data.
+. Enter in a country code, such as AU for Australia, to retrieve the data. Click the <b class="button">OK</b> button.
+. View the SQL Status and Result1 tab to see the results returned from the procedure.
+. Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:
+<a href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</a>
+. Save and close the models.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Congratulations, you have now completed this lab.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_odata">11. OData</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
@@ -2384,7 +2497,7 @@ OData is consistent with the way the Web works, it makes a deep commitment to UR
 For more information on OData see <a href="http://www.odata.org">http://www.odata.org</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_how_to_access_the_data">10.1. How to access the data</h3>
+<h3 id="_how_to_access_the_data">11.1. How to access the data</h3>
 <div class="paragraph">
 <p>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
 Now, open up a browser and point it to the following URL: <a href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</a>.
@@ -2407,7 +2520,7 @@ The returned results from OData query can be in Atom/AtomPub XML format or JSON 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_query_the_data">10.2. How to query the data</h3>
+<h3 id="_how_to_query_the_data">11.2. How to query the data</h3>
 <div class="paragraph">
 <p>To search for customer with customerid='CST01033' which is the SQL equivalent of
 SELECT * FROM All_Customers.customer where customerid='CST01033';
@@ -2440,7 +2553,7 @@ and this should return the results as shown below.</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2014-05-27 08:12:14 CEST
+Last updated 2014-05-29 13:24:59 CEST
 </div>
 </div>
 </body>

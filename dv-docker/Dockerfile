@@ -13,19 +13,25 @@ MAINTAINER kpeeples <kpeeples@redhat.com>
 # Update the system
 RUN yum -y update;yum clean all
 
-# enabling sudo group for jboss
-RUN echo '%jboss ALL=(ALL) ALL' >> /etc/sudoers
-
-# Create jboss user
-RUN useradd -m -d /home/jboss -p jboss jboss
-
-
 ##########################################################
 # Install Java JDK, SSH and other useful cmdline utilities
 ##########################################################
-RUN yum -y install java-1.7.0-openjdk which telnet unzip openssh-server sudo openssh-clients;yum clean all
+RUN yum -y install perl java-1.7.0-openjdk which telnet unzip openssh-server sudo openssh-clients;yum clean all
 ENV JAVA_HOME /usr/lib/jvm/jre
 
+# enabling sudo group for jboss
+RUN echo '%jboss ALL=(ALL) ALL' >> /etc/sudoers
+
+# enable networking
+RUN echo "NETWORKING=yes" > /etc/sysconfig/network
+
+#enable ssh access
+RUN echo "sshd: ALL" > /etc/hosts.allow
+
+# Create OS user jboss
+ENV password jboss
+RUN pass=$(perl -e 'print crypt($ARGV[0], "password")' $password) && \
+    useradd -m -d /home/jboss -p $pass jboss
 
 ######################
 # Install MySQL Server
@@ -137,7 +143,7 @@ RUN rm -rf $INSTALLDIR/software
 RUN rm financials-mysql.sql
 RUN rm financials-psql.sql
 
-EXPOSE 22 5432 8080 9990 27017
+EXPOSE 22 5432 8080 9990 9999 27017 31000
 
 CMD /home/jboss/run.sh
 

@@ -1907,6 +1907,81 @@ This is the button located right under the Outline tab. You should see something
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
+<chapter id="_xml_and_service_sources">
+<title>XML and Service Sources</title>
+<simpara>In this lab you will be using the JDBS tool to create a Web Service. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of the JBDS tool to create a Web Service. In this lab you will create the CountryInfoService.xmi model and the CountryInfoServiceView.xmi model. These will be created from the WSDL:</simpara>
+<simpara><ulink url="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</ulink></simpara>
+<section id="_create_relational_model_from_wsdl">
+<title>Create relational model from WSDL</title>
+<simpara>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Create a new folder called WSDL in your Model Explorer view. Right-click on the Financials project and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Folder</guimenuitem></menuchoice>. Call the new folder WSDL.</simpara>
+</listitem>
+<listitem>
+<simpara>Right-click on the WSDL folder and select Import&#8230; from the right-hand menu.</simpara>
+</listitem>
+<listitem>
+<simpara>The Import dialog box is opened. Select WSDL File or URL &gt;&gt; Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the <guibutton>Next &gt;</guibutton> button to continue.</simpara>
+</listitem>
+<listitem>
+<simpara>The Create Relational Model from Web Service Dialog box opens. Click on the <guibutton>New&#8230;</guibutton> button to create a new Connection Profile.</simpara>
+</listitem>
+<listitem>
+<simpara>The New Connection Profile dialog opens. Type CountryInfo in the Name field and click the <guibutton>Next &gt;</guibutton> button.</simpara>
+</listitem>
+<listitem>
+<simpara>The New Connection Profile dialog box opens. The WSDL that you will connect to is a URL. Click on the <guibutton>URL&#8230;</guibutton> button to enter a URL.</simpara>
+</listitem>
+<listitem>
+<simpara>The WSDL URL dialog box opens. In the WSDL URL field enter in the following URL:</simpara>
+</listitem>
+</orderedlist>
+
+<simpara><ulink url="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</ulink></simpara>
+<simpara>The WSDL has no security so leave the Security Type to default of None. Click the OK button. When you click the OK button the software will validate the URL.</simpara>
+<note>
+<simpara>You will need an internet connection for this validate correctly.</simpara>
+</note>
+
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Click on the Test Connection button to test the URL. Click on the Next &gt; button.</simpara>
+</listitem>
+<listitem>
+<simpara>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.</simpara>
+</listitem>
+<listitem>
+<simpara>Click on the <guibutton>Deselect All</guibutton> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select. Click on the <guibutton>Next &gt;</guibutton> button.</simpara>
+</listitem>
+<listitem>
+<simpara>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <guibutton>&#8230;</guibutton> to select locations and existing models in your workspace. Choose User-specified Procedures and click the <guibutton>Next &gt;</guibutton> button.</simpara>
+</listitem>
+<listitem>
+<simpara>In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
+In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
+Select the Operation from the Operations pull-down (CountryInfo and FullCountyInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</simpara>
+</listitem>
+</orderedlist>
+
+<note>
+<simpara>This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer&#8217;s legacy create and extract procedures choose the Legacy Procedures option in the lower section and click Finish.
+. Click on the <guibutton>Finish</guibutton> button.
+. A status screen is displayed while the models are being created.
+. The models will appear in the Model Explorer and will be open in the right-hand pane.
+. Click the <guibutton>Save All</guibutton> button to save your models.
+. Double-click on the CountryName procedure to open the transformation view for the procedure.
+. Click on the <guibutton>Preview Data</guibutton> button to preview the data.
+. Enter in a country code, such as AU for Australia, to retrieve the data. Click the <guibutton>OK</guibutton> button.
+. View the SQL Status and Result1 tab to see the results returned from the procedure.
+. Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:
+<ulink url="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</ulink>
+. Save and close the models.</simpara>
+</note>
+
+<simpara>Congratulations, you have now completed this lab.</simpara>
+</section>
+</chapter>
 <chapter id="_odata">
 <title>OData</title>
 <simpara>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.

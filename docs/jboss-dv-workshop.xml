@@ -53,7 +53,7 @@
 <simpara>Red Hat JBoss Data Virtualization includes:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for JBoss Developer Studio (JBDS)).</simpara>
+<simpara>Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS)).</simpara>
 </listitem>
 <listitem>
 <simpara>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).</simpara>
@@ -199,7 +199,7 @@ The easiest way to install PostgreSQL is to use the pre-built binary packages wh
 Post-install steps:</simpara>
 <orderedlist numeration="arabic">
 <listitem>
-<simpara>If *nix or MacOSX switch to user postgres (Hint: su postgres)</simpara>
+<simpara>If *nix or MacOSX switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.</simpara>
 </listitem>
 </orderedlist>
 
@@ -267,7 +267,7 @@ $ sudo ./bin/mysqld_safe</screen>
 
 <orderedlist numeration="arabic">
 <listitem>
-<simpara>If Step 2 is successfully executed the the MySQL environment contains the following databases. Hint: start the mysql command line utility and type the “show databases;” to list the databases in MySQL database.</simpara>
+<simpara>If Step 2 is successfully executed the the MySQL environment contains the following databases.</simpara>
 </listitem>
 </orderedlist>
 
@@ -355,7 +355,7 @@ Bye</screen>
 </figure>
 
 <simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
-Run the installer using java at the command prompt: java -jar jboss-dv-installer-VERSION.jar</simpara>
+Run the installer using java at the command prompt: java -jar jboss-dv-installer-{version}.jar</simpara>
 <simpara>The current available version is 6.0.0.GA-redhat-4 and to run the installer at the command prompt see below:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.0.0.GA-redhat-4.jar</programlisting>
 
@@ -466,7 +466,7 @@ When the installation is complete, navigate to</simpara>
 </listitem>
 </itemizedlist>
 
-<simpara>to start the JBoss Data Virtualization server.</simpara>
+<simpara>to start the Red Hat JBoss Data Virtualization server.</simpara>
 </section>
 <section id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">
 <title>Installing Red Hat JBoss Data Virtualization through automated script mode</title>
@@ -539,7 +539,7 @@ Clone the repository using git from <ulink url="https://github.com/kpeeples/simp
 </figure>
 
 <simpara>Place the software in the distros subfolder of simplified-dv-template folder which was previously created when cloning the repository.</simpara>
-<simpara>Modify the support/InstallationScript.xml file to contain the full path to the installed/dv directory.</simpara>
+<simpara>Modify the simplified-dv-template/support/InstallationScript.xml file to contain the full path to your installed/dv directory.</simpara>
 <programlisting language="xml" linenumbering="unnumbered">&lt;installpath&gt;/home/kpeeples/demos/dv-install-script-demo/installed/dv&lt;/installpath&gt;</programlisting>
 
 <simpara>Make sure to leave the installed/dv directory. The script performs the automated install of JBoss Data Virtualization v6.0.0.GA.
@@ -555,7 +555,7 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
   </mediaobject>
 </figure>
 
-<simpara>In case you want to change the password of the admin user, go to the subfolder installed/dv/jboss-eap-6.1/bin of simplified-dv-template folder and type the following command and inputs as shown below.</simpara>
+<simpara>In case you want to change the password of the admin user, go to simplified-dv-template/installed/dv/jboss-eap-6.1/bin and type the following command and inputs as shown below.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -644,9 +644,9 @@ The figure below is shown when the application is successfully created in your d
 </figure>
 
 <simpara>Click “Add PostgreSQL 9.2” and click at the next appearing screen “Add Cartridge”.
-You have now a successfully created a JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.</simpara>
+You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.</simpara>
 <note>
-<simpara>At the moment you need a local installation of JBoss Data Virtualization in order to deploy Data Virtualization projects to the OpenShift environment. This will be addressed in a newer version of JBoss Developer Studio.</simpara>
+<simpara>At the moment you need a local installation of Red Hat JBoss Data Virtualization in order to deploy Data Virtualization projects to the OpenShift environment. This will be addressed in a newer version of JBoss Developer Studio.</simpara>
 </note>
 
 <simpara>Congratulations, you have now completed this lab.</simpara>
@@ -927,7 +927,7 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
 </chapter>
 <chapter id="_create_a_teiid_project_and_import_data_source">
 <title>Create a Teiid project and Import Data Source</title>
-<simpara>Make sure that Lab 1 and 2 have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</simpara>
+<simpara>Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</simpara>
 <section id="_open_the_teiid_perspective">
 <title>Open the Teiid Perspective</title>
 <simpara>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
@@ -1404,7 +1404,7 @@ The new connection profile dialog is displayed.</simpara>
   </mediaobject>
 </figure>
 
-<simpara>Click the btn[&#8230;] to the right of Existing Model and open menuFinancials → DataSources → US_Customers. Click btn[OK]. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click <guibutton>Finish</guibutton> on the screen as indicated below.</simpara>
+<simpara>Click the btn[&#8230;] to the right of Existing Model and open <menuchoice><guimenu>Financials</guimenu> <guisubmenu>DataSources</guisubmenu> <guimenuitem>US_Customers</guimenuitem></menuchoice>. Click <guibutton>OK</guibutton>. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click <guibutton>Finish</guibutton> on the screen as indicated below.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -1461,10 +1461,10 @@ Be sure to create them within the VirtualBaseLayer folder. Right-clicking on the
 </chapter>
 <chapter id="_create_an_enterprise_data_layer">
 <title>Create an Enterprise Data Layer</title>
-<simpara>The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customer and US_Customer database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we&#8217;ve defined using JBoss Data Virtualization&#8217;s data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two. Note that using a domain-specific (or enterprise-wide standard) data dictionary is only a recommendation. There is no hard requirement to define or use a data dictionary but instead do this semantic mediation without one (by manually comparing datatypes and field lengths between the two data sources). Our goal with JBoss Data Virtualization is to not impose any roadblocks for those users that want to get their use cases addressed as rapidly as possible – so we don&#8217;t force any requirement on users to define a data dictionary or a taxonomy or anything like that.</simpara>
+<simpara>The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customers and US_Customers database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we&#8217;ve defined using JBoss Data Virtualization&#8217;s data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two. Note that using a domain-specific (or enterprise-wide standard) data dictionary is only a recommendation. There is no hard requirement to define or use a data dictionary but instead do this semantic mediation without one (by manually comparing datatypes and field lengths between the two data sources). Our goal with JBoss Data Virtualization is to not impose any roadblocks for those users that want to get their use cases addressed as rapidly as possible – so we don&#8217;t force any requirement on users to define a data dictionary or a taxonomy or anything like that.</simpara>
 <section id="_import_the_data_dictionary_schema">
 <title>Import the Data Dictionary Schema</title>
-<simpara>An XML schema containing the definitions of a number of datatypes applicable to the FInancial domain used by this lab is located in /home/lab9/Desktop/eds. The name of the file is DataDictionary.xsd. We want to import the schema into the Schemas folder that was created in an earlier lab. Perform the following steps.
+<simpara>An XML schema containing the definitions of a number of datatypes applicable to the Financial domain used by this lab is located in DVWorkshop/dv_docker/demo. The name of the file is DataDictionary.xsd. We want to import the schema into the Schemas folder that was created in an earlier lab. Perform the following steps.
 Right-click on the Schema folder in the Model Explorer and choose <menuchoice><guimenu>Import</guimenu> <guisubmenu>Teiid Designer</guisubmenu> <guimenuitem>XML Schemas</guimenuitem></menuchoice>. Then click the <guibutton>Next &gt;</guibutton> button.</simpara>
 <figure>
   <mediaobject>
@@ -1485,7 +1485,7 @@ Right-click on the Schema folder in the Model Explorer and choose <menuchoice><g
   </mediaobject>
 </figure>
 
-<simpara>Browse to the {install directory}/dv6_lab directory. Once the directory is opened in the “From Directory” field, you will be able to select (checkbox) the DataDictionary.xsd file. Then click <guibutton>Finish</guibutton>.</simpara>
+<simpara>Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened in the “From Directory” field, you will be able to select (checkbox) the DataDictionary.xsd file. Then click <guibutton>Finish</guibutton>.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -1733,7 +1733,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 </figure>
 
 <simpara>All we need to do is type "USA" into the Value field, click <guibutton>Apply</guibutton>, then <guibutton>OK</guibutton>. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.</simpara>
-<simpara>When the Expression Builder exits back into the Reconciler, you will notice that the function (<emphasis>USA</emphasis> AS Country) has been properly assigned. Click “OK” in the Reconciler and save your changes.
+<simpara>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned. Click <guibutton>OK</guibutton> in the Reconciler and save your changes.
 Now perform the same process with the other two tables (Account and AccountHoldings). Delete the EU_Customers_DDC source and drag &amp; drop the appropriate US_Customers_VBL source and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
 The Data Dictionary has also defined enterprise types for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the DDC model. Finally, reconcile any datatype conversion issues.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>

@@ -12,7 +12,7 @@ image::0.1-DV-Architecture.png[]
 
 Red Hat JBoss Data Virtualization includes:
 
-* Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for JBoss Developer Studio (JBDS)).
+* Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS)).
 * A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).
 * A repository for storing metadata (ModeShape)
 
@@ -70,7 +70,7 @@ Installation
 The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See http://www.postgresql.org/download/ for more information and downloads.
 Post-install steps:
 [start=1]
-. If *nix or MacOSX switch to user postgres (Hint: su postgres) 
+. If *nix or MacOSX switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
 [source,bash]
 ----
 $ su postgres
@@ -126,7 +126,7 @@ $ sudo ./bin/mysqld_safe
 $ sudo /usr/local/mysql/bin/mysql < financials-mysql.sql
 ----
 [start=3]
-. If Step 2 is successfully executed the the MySQL environment contains the following databases. Hint: start the mysql command line utility and type the “show databases;” to list the databases in MySQL database.
+. If Step 2 is successfully executed the the MySQL environment contains the following databases. 
 [source,bash]
 ----
 sudo /usr/local/mysql/bin/mysql

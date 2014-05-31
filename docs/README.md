@@ -8,6 +8,8 @@ Stay tuned, more labs coming soon.
 
 [Workshop in PDF format](https://github.com/DataVirtualizationByExample/DVWorkshop/raw/master/docs/jboss-dv-workshop.pdf)
 
+[Workshop in DocBook format](https://github.com/DataVirtualizationByExample/DVWorkshop/raw/master/docs/jboss-dv-workshop.xml)
+
 ### How to build the labs
 The labs are created in asciidoc using [asciidoctor](http://asciidoctor.org/).
 To convert the labs into html you can use the following command in the docs directory:

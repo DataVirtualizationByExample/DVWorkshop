@@ -3,7 +3,7 @@
 
 == Create a Teiid project and Import Data Source
 
-Make sure that Lab 1 and 2 have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.
+Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.
 
 === Open the Teiid Perspective
 To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.

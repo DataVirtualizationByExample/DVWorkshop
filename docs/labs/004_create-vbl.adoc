@@ -17,7 +17,7 @@ The “Transform from an Existing Model” wizard will appear.
 
 image::4.1-new-model-wizard2.png[]
 
-Click the btn[...] to the right of Existing Model and open menuFinancials → DataSources → US_Customers. Click btn[OK]. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click btn:[Finish] on the screen as indicated below.
+Click the btn[...] to the right of Existing Model and open menu:Financials[DataSources > US_Customers]. Click btn:[OK]. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click btn:[Finish] on the screen as indicated below.
 
 image::4.1-new-model-wizard3.png[]
 

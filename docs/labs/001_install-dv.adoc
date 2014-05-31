@@ -14,7 +14,7 @@ Download the Red Hat JBoss Data Virtualization installer binary by clicking the 
 image::1.1-DV-download.png[]
 
 Open a terminal window and navigate to the location where the GUI installer was downloaded.
-Run the installer using java at the command prompt: java -jar jboss-dv-installer-VERSION.jar
+Run the installer using java at the command prompt: java -jar jboss-dv-installer-{version}.jar
 
 The current available version is 6.0.0.GA-redhat-4 and to run the installer at the command prompt see below:
 
@@ -75,7 +75,7 @@ When the installation is complete, navigate to
 * Unix/Linux: EAP_HOME/bin and run the ./standalone.sh
 * Windows: EAP_HOME\bin and run standalone.bat
 
-to start the JBoss Data Virtualization server.
+to start the Red Hat JBoss Data Virtualization server.
 
 === Installing Red Hat JBoss Data Virtualization through automated script mode
 Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly. 
@@ -108,7 +108,7 @@ image::1.1-DV-download.png[]
 
 Place the software in the distros subfolder of simplified-dv-template folder which was previously created when cloning the repository.
 
-Modify the support/InstallationScript.xml file to contain the full path to the installed/dv directory. 
+Modify the simplified-dv-template/support/InstallationScript.xml file to contain the full path to your installed/dv directory. 
 [source,xml]
 ----
 <installpath>/home/kpeeples/demos/dv-install-script-demo/installed/dv</installpath>
@@ -122,7 +122,7 @@ $ ./install-run.sh
 
 image::1.2-DV-auto-install.png[]
 
-In case you want to change the password of the admin user, go to the subfolder installed/dv/jboss-eap-6.1/bin of simplified-dv-template folder and type the following command and inputs as shown below.
+In case you want to change the password of the admin user, go to simplified-dv-template/installed/dv/jboss-eap-6.1/bin and type the following command and inputs as shown below.
 
 image::1.2-DV-auto-install-2.png[]
 
@@ -175,8 +175,8 @@ The following screen should appear.
 image::1.3-DV-OpenShift-add-psql.png[]
 
 Click “Add PostgreSQL 9.2” and click at the next appearing screen “Add Cartridge”.
-You have now a successfully created a JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.
+You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.
 
-NOTE: At the moment you need a local installation of JBoss Data Virtualization in order to deploy Data Virtualization projects to the OpenShift environment. This will be addressed in a newer version of JBoss Developer Studio.
+NOTE: At the moment you need a local installation of Red Hat JBoss Data Virtualization in order to deploy Data Virtualization projects to the OpenShift environment. This will be addressed in a newer version of JBoss Developer Studio.
 
 Congratulations, you have now completed this lab.

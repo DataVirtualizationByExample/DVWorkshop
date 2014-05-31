@@ -1,0 +1,176 @@
+
+:imagesdir: ../images
+
+== Introduction
+Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three easy steps:
+
+.	Connect: Access data from multiple, heterogeneous data sources. 
+.	Compose: Easily create reusable, business-friendly logical data models and views by combining and transforming data. 
+.	Consume: Make unified data easily consumable through open standard interfaces.
+
+image::0.1-DV-Architecture.png[]
+
+Red Hat JBoss Data Virtualization includes:
+
+* Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for JBoss Developer Studio (JBDS)).
+* A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).
+* A repository for storing metadata (ModeShape)
+
+Red Hat JBoss Data Virtualization is based on the following community projects:
+
+* Teiid (http://www.jboss.org/teiid)
+* Teiid Designer (http://www.jboss.org/teiiddesigner)
+* Modeshape (http://www.jboss.org/modeshape)
+
+The figure below depicts the architectural overview of Red Hat JBoss Data Virtualization:
+
+image::0.2-DV-Server.png[]
+
+[cols="2,5a", options="header"] 
+|===
+|Component
+|Description
+
+|Query Engine
+|The heart of Red Hat JBoss Data Virtualization Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined 
+
+|Embedded
+|An easy-to-use JDBC Driver that can embed the Query Engine in any Java application.
+
+|Server
+|An enterprise ready, scalable, manageable, runtime for the Query Engine that runs inside JBoss EAP that provides additional security, fault-tolerance, and administrative features.
+
+|Connectors
+|Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? A custom translators and resource adaptors can easily be developed.
+
+|Tools
+|Red Hat JBoss Data Virtualization Server includes development and administration tools 
+
+* Create - Use Teiid Designer to define virtual databases containing views, procedures or even dynamic XML documents. 
+* Monitor & Manage - Use the Management Console with  JBoss EAP or use the JBoss Data Virtualization JBoss Operations Network (JON) plugin to control any number of servers. 
+* Script - Use the AdminShell to automate administrative and testing tasks. 
+|===
+
+
+=== What is expected of you
+Please feel free to raise your hands with any questions that you have about the lab; feel free to ask why it is you are doing something, or if something does not feel right. Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.
+
+=== Prerequisites
+
+- OpenJDK 1.6 or 1.7 or Oracle JDK 1.6, 1.7 installed
+- Git installed
+- PostgreSQL server and/or MySQL server running 
+- PostgreSQL and/or MySQL client tools installed if using a remote database
+
+=== Setup demo environment
+In order to use the labs we need to prepare the database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.
+
+==== Setup PostgreSQL
+Installation
+The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See http://www.postgresql.org/download/ for more information and downloads.
+Post-install steps:
+[start=1]
+. If *nix or MacOSX switch to user postgres (Hint: su postgres) 
+[source,bash]
+----
+$ su postgres
+----
+[start=2]
+. Go to the DVWorkshop/dv-docker/demo directory and run the following command:
+[source,bash]
+----
+$ psql -a -f financials-psql.sql
+----
+[start=3]
+. If Step 2 is successfully executed the the PostgreSQL environment contains the following databases. Hint: start the psql command line utility and type the “\l” to list the databases in PostgreSQL database.
+[source,bash]
+----
+$ psql
+psql (9.3.4, server 9.0.13)
+Type "help" for help.
+
+postgres=# \l
+                               List of databases
+     Name      |  Owner   | Encoding  | Collate | Ctype |   Access privileges
+---------------+----------+-----------+---------+-------+-----------------------
+ apaccustomers | postgres | SQL_ASCII | C       | C     |
+ brokerinfo    | postgres | SQL_ASCII | C       | C     |
+ eucustomers   | postgres | SQL_ASCII | C       | C     |
+ postgres      | postgres | SQL_ASCII | C       | C     |
+ products      | postgres | SQL_ASCII | C       | C     |
+ rhq           | rhqadmin | SQL_ASCII | C       | C     |
+ template0     | postgres | SQL_ASCII | C       | C     | =c/postgres          +
+               |          |           |         |       | postgres=CTc/postgres
+ template1     | postgres | SQL_ASCII | C       | C     | =c/postgres          +
+               |          |           |         |       | postgres=CTc/postgres
+ uscustomers   | postgres | SQL_ASCII | C       | C     |
+(9 rows)
+
+postgres=# \q
+----
+==== Setup MySQL
+Installation
+The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.
+Post-install steps
+[start=1]
+. If *nix or MacOSX go to the /usr/local/mysql directory and start mysqld_safe
+[source,bash]
+----
+$ cd /usr/local/mysql
+$ sudo ./bin/mysqld_safe
+----
+[start=2]
+. Go to the DVWorkshop/dv-docker/demo directory and tun the following command as depicted in the picture below.
+[source,bash]
+----
+$ sudo /usr/local/mysql/bin/mysql < financials-mysql.sql
+----
+[start=3]
+. If Step 2 is successfully executed the the MySQL environment contains the following databases. Hint: start the mysql command line utility and type the “show databases;” to list the databases in MySQL database.
+[source,bash]
+----
+sudo /usr/local/mysql/bin/mysql
+Password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.17 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql> exit
+Bye
+----
+
+The labs will use the following databases:
+
+- apaccustomer
+- brokerinfo
+- eucustomers
+- products
+- uscustomers
+
+Congratulations, you have now completed this lab. 
+
+

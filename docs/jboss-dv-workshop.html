@@ -473,15 +473,15 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </li>
 </ul>
 </li>
-<li><a href="#_install_and_start_the_jboss_data_virtualization_server">2. Install and start the JBoss Data Virtualization Server</a></li>
+<li><a href="#_install_red_hat_jboss_data_virtualization">2. Install Red Hat JBoss Data Virtualization</a></li>
 <li>
 <ul class="sectlevel2">
-<li><a href="#_installing_jboss_data_virtualization_through_graphical_mode">2.1. Installing JBoss Data Virtualization through graphical mode</a></li>
-<li><a href="#_installing_jboss_data_virtualization_through_automated_script_mode">2.2. Installing JBoss Data Virtualization through automated script mode</a></li>
-<li><a href="#_provision_jboss_data_virtualization_on_openshift_online">2.3. Provision JBoss Data Virtualization on OpenShift Online</a></li>
+<li><a href="#_installing_red_hat_jboss_data_virtualization_through_graphical_mode">2.1. Installing Red Hat JBoss Data Virtualization through graphical mode</a></li>
+<li><a href="#_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">2.2. Installing Red Hat JBoss Data Virtualization through automated script mode</a></li>
+<li><a href="#_provision_red_hat_jboss_data_virtualization_on_openshift_online">2.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</a></li>
 </ul>
 </li>
-<li><a href="#_install_jboss_developer_studio">3. Install JBoss Developer Studio</a></li>
+<li><a href="#_install_red_hat_jboss_developer_studio">3. Install Red Hat JBoss Developer Studio</a></li>
 <li><a href="#_create_a_teiid_project_and_import_data_source">4. Create a Teiid project and Import Data Source</a></li>
 <li>
 <ul class="sectlevel2">
@@ -491,6 +491,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <li><a href="#_importing_metadata_from_the_product_database">4.4. Importing Metadata from the Product Database</a></li>
 <li><a href="#_preview_data_via_the_teiid_server">4.5. Preview Data via the Teiid Server</a></li>
 <li><a href="#_import_metadata_from_the_us_customers_and_eu_customers_databases">4.6. Import Metadata from the US_Customers and EU_Customers Databases</a></li>
+<li><a href="#_import_metadata_from_a_flat_file">4.7. Import Metadata from a flat file</a></li>
 </ul>
 </li>
 <li><a href="#_create_a_virtual_base_layer">5. Create a Virtual Base Layer</a></li>
@@ -566,7 +567,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </div>
 </div>
 <div class="paragraph">
-<p>JBoss Data Virtualization includes:</p>
+<p>Red Hat JBoss Data Virtualization includes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -574,7 +575,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <p>Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for JBoss Developer Studio (JBDS)).</p>
 </li>
 <li>
-<p>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the JBoss Data Virtualization Server, which executes as a process within the JBoss Enterprise Application Platform (EAP)).</p>
+<p>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).</p>
 </li>
 <li>
 <p>A repository for storing metadata (ModeShape)</p>
@@ -582,7 +583,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </ul>
 </div>
 <div class="paragraph">
-<p>JBoss Data Virtualization is based on the following community projects:</p>
+<p>Red Hat JBoss Data Virtualization is based on the following community projects:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -598,7 +599,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </ul>
 </div>
 <div class="paragraph">
-<p>The figure below depicts the architectural overview of JBoss Data Virtualization:</p>
+<p>The figure below depicts the architectural overview of Red Hat JBoss Data Virtualization:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -620,7 +621,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Engine</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The heart of JBoss Data Virtualization Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined</p>
+<p>The heart of Red Hat JBoss Data Virtualization Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined</p>
 </div></div></td>
 </tr>
 <tr>
@@ -638,13 +639,13 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Connectors</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? A custom translators and resource adaptors can easily be developed.</p>
+<p>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? A custom translators and resource adaptors can easily be developed.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tools</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>JBoss Data Virtualization Server includes development and administration tools</p>
+<p>Red Hat JBoss Data Virtualization Server includes development and administration tools</p>
 </div>
 <div class="ulist">
 <ul>
@@ -674,7 +675,10 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <div class="ulist">
 <ul>
 <li>
-<p>Oracle JDK 1.6, 1.7 or OpenJDK 1.6 or 1.7</p>
+<p>OpenJDK 1.6 or 1.7 or Oracle JDK 1.6, 1.7 installed</p>
+</li>
+<li>
+<p>Git installed</p>
 </li>
 <li>
 <p>PostgreSQL server and/or MySQL server running</p>
@@ -860,7 +864,7 @@ Bye</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_install_and_start_the_jboss_data_virtualization_server">2. Install and start the JBoss Data Virtualization Server</h2>
+<h2 id="_install_red_hat_jboss_data_virtualization">2. Install Red Hat JBoss Data Virtualization</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There are three different ways to install Red Hat JBoss Data Virtualization.</p>
@@ -879,9 +883,9 @@ Bye</pre>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="_installing_jboss_data_virtualization_through_graphical_mode">2.1. Installing JBoss Data Virtualization through graphical mode</h3>
+<h3 id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">2.1. Installing Red Hat JBoss Data Virtualization through graphical mode</h3>
 <div class="paragraph">
-<p>Download the JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</a>.</p>
+<p>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</a>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -901,8 +905,8 @@ Run the installer using java at the command prompt: java -jar jboss-dv-installer
 </div>
 </div>
 <div class="paragraph">
-<p>Follow the installer prompts to complete the installation process. See the Getting Started with JBoss Data Virtualization Installation and Configuration video. See <a href="http://vimeo.com/76457404)">http://vimeo.com/76457404)</a> for more details.
- A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, click I accept the terms of this license agreement and then click <b class="button">Next</b>.</p>
+<p>Follow the installer prompts to complete the installation process. See the Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration video. See <a href="http://vimeo.com/76457404">http://vimeo.com/76457404</a> for more details.
+ A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -921,7 +925,7 @@ Run the installer using java at the command prompt: java -jar jboss-dv-installer
 <p>When you are prompted about the specified location being created or overwritten, review the message and, if satisfied, click <b class="button">OK</b> and then press <b class="button">Next</b>.</p>
 </div>
 <div class="paragraph">
-<p>You will be prompted to create a new admin username and password. Once created, it will be added to the ManagementRealm and can be used to access the Management Console and other applications secured using ManagementRealm. Enter the new username and password in the appropriate fields and click <b class="button">Next</b>.</p>
+<p>You will be prompted to create a new admin username and password. Once created, it will be added to the ManagementRealm and can be used to access the Management Console and other applications secured using the ManagementRealm. Enter the new username and password in the appropriate fields and click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -949,7 +953,7 @@ To setup the Maven repository, select Specify the path (or URL)&#8230;. Enter th
 <p>Click <b class="button">Yes</b> to proceed.</p>
 </div>
 <div class="paragraph">
-<p>You can install JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <b class="button">Next</b> to proceed.</p>
+<p>You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <b class="button">Next</b> to proceed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -957,12 +961,15 @@ To setup the Maven repository, select Specify the path (or URL)&#8230;. Enter th
 </div>
 </div>
 <div class="paragraph">
-<p>A summary of the installation will be displayed. Click <b class="button">Next</b> for the installation to commence. This may take a minute.</p>
+<p>A summary of the installation will be displayed, see below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/1.1-DV-install-summary.png" alt="1.1 DV install summary">
 </div>
+</div>
+<div class="paragraph">
+<p>Click <b class="button">Next</b> for the installation to commence. This may take a minute.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1002,15 +1009,14 @@ When the installation is complete, navigate to</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_jboss_data_virtualization_through_automated_script_mode">2.2. Installing JBoss Data Virtualization through automated script mode</h3>
+<h3 id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">2.2. Installing Red Hat JBoss Data Virtualization through automated script mode</h3>
 <div class="paragraph">
-<p>Installing JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.
-Clone the repository from <a href="https://github.com/kpeeples/simplified-dv-template.git">https://github.com/kpeeples/simplified-dv-template.git</a></p>
+<p>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.
+Clone the repository using git from <a href="https://github.com/kpeeples/simplified-dv-template.git">https://github.com/kpeeples/simplified-dv-template.git</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="bash language-bash">$ git clone https://github.com/kpeeples/simplified-dv-template.git
-$ cd simplified-dv-template</code></pre>
+<pre class="CodeRay"><code class="bash language-bash">$ git clone https://github.com/kpeeples/simplified-dv-template.git</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1088,11 +1094,11 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
 <p>Browse to <a href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</a> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use user/user as the credentials that were installed as default and click <b class="button">Log In</b>.</p>
 </div>
 <div class="paragraph">
-<p>JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode.</p>
+<p>Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_provision_jboss_data_virtualization_on_openshift_online">2.3. Provision JBoss Data Virtualization on OpenShift Online</h3>
+<h3 id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">2.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</h3>
 <div class="paragraph">
 <p>With OpenShift you can easily deploy and run JBoss Data Virtualization in minutes to connect your applications to data from many different sources. JBoss Data Virtualization on OpenShift Online is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift Online.</p>
 </div>
@@ -1188,13 +1194,13 @@ At the moment you need a local installation of JBoss Data Virtualization in orde
 </div>
 </div>
 <div class="sect1">
-<h2 id="_install_jboss_developer_studio">3. Install JBoss Developer Studio</h2>
+<h2 id="_install_red_hat_jboss_developer_studio">3. Install Red Hat JBoss Developer Studio</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This lab will guide you how to install JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for JBoss Developer Studio (JBDS) and connect JBoss Developer Studio to the JBoss Data Virtualization server.</p>
+<p>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</p>
 </div>
 <div class="paragraph">
-<p>If you don&#8217;t already have JBoss Developer Studio 7.1.1, download it from <a href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</a> by clicking the green download.</p>
+<p>If you don&#8217;t already have Red Hat JBoss Developer Studio 7.1.1, download it from <a href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</a> by clicking the green download.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1222,16 +1228,13 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 <div class="paragraph">
 <p>When the Installer window opens, click <b class="button">Next</b>.</p>
 </div>
-<div class="paragraph">
-<p>After reading and agreeing to the terms of the End User License Agreement, select I accept the terms of this license agreement and click <b class="button">Next</b>.</p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/2.1-JBDS-install-eula.png" alt="2.1 JBDS install eula">
 </div>
 </div>
 <div class="paragraph">
-<p>In the Select the installation path field, type the path where you want JBoss Developer Studio to be installed or click Browse to navigate to the location. When the Select the installation path field shows the correct path, click <b class="button">Next</b>.</p>
+<p>After reading and agreeing to the terms of the End User License Agreement, select I accept the terms of this license agreement and click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1239,7 +1242,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 </div>
 <div class="paragraph">
-<p>When you are prompted about the specified location being created or overwritten, review the message and, if satisfied, click <b class="button">OK</b> to proceed and click <b class="button">Next</b> to continue.</p>
+<p>In the Select the installation path field, type the path where you want Red Hat JBoss Developer Studio to be installed or click Browse to navigate to the location. When the Select the installation path field shows the correct path, click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1247,7 +1250,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 </div>
 <div class="paragraph">
-<p>In the Select Java VM step, Default Java VM is automatically selected. Ensure that the disabled text field contains the path of the Java developer kit you want to use. This is based on the default Java developer kit of your system. To change the specified Java developer kit, select Specific Java VM and type the path of the Java developer kit in the text field or use the Browse button to locate the Java developer kit. When the text field shows the correct Java developer kit path, click <b class="button">Next</b>.</p>
+<p>When you are prompted about the specified location being created or overwritten, review the message and, if satisfied, click <b class="button">OK</b> to proceed and click <b class="button">Next</b> to continue.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1255,7 +1258,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 </div>
 <div class="paragraph">
-<p>In the Select Platforms and Servers step one can add server to make use of automatic runtime detection for finding already installed application servers. Skip this for now since we will add servers later. Click <b class="button">Next</b> to proceed.</p>
+<p>In the Select Java VM step, Default Java VM is automatically selected. Ensure that the disabled text field contains the path of the Java developer kit you want to use. This is based on the default Java developer kit of your system. To change the specified Java developer kit, select Specific Java VM and type the path of the Java developer kit in the text field or use the Browse button to locate the Java developer kit. When the text field shows the correct Java developer kit path, click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1263,7 +1266,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 </div>
 <div class="paragraph">
-<p>Review the details in the Summary Information window and, if they are correct, click <b class="button">Next</b>. The installation commences.</p>
+<p>In the Select Platforms and Servers step one can add server to make use of automatic runtime detection for finding already installed application servers. Skip this for now since we will add servers later. Click <b class="button">Next</b> to proceed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1271,7 +1274,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 </div>
 <div class="paragraph">
-<p>When the installation progress bar shows Finished, click <b class="button">Next</b>.</p>
+<p>Review the details in the Summary Information window and, if they are correct, click <b class="button">Next</b>. The installation commences.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1279,7 +1282,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 </div>
 <div class="paragraph">
-<p>The installation process is now complete.</p>
+<p>When the installation progress bar shows Finished, click <b class="button">Next</b>. The installation process is now complete.</p>
 </div>
 <div class="paragraph">
 <p>To create shortcuts for starting JBoss Developer Studio, select the Create shortcuts in the Start-Menu and Create additional shortcut on the desktop check boxes and click <b class="button">Next</b>.
@@ -1294,7 +1297,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <p>Click <b class="button">Done</b> to close the Installer window.</p>
 </div>
 <div class="paragraph">
-<p>When the installation is completed, run JBoss Developer Studio 7.1.1. When the JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</p>
+<p>When the installation is completed, run Red Hat JBoss Developer Studio 7.1.1. When the Red Hat JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1338,7 +1341,7 @@ and click the <b class="button">Add&#8230;</b> button.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Select the JBoss Data Virtualization Development option in the list and click <b class="button">Next</b>.</p>
+<p>Select JBoss Data Virtualization Development option in the list and click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1362,7 +1365,7 @@ and click the <b class="button">Add&#8230;</b> button.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The Software Updates window appears. Press the <b class="button">Yes</b> button to restart JBoss Developer Studio to apply the changes to take effect.</p>
+<p>The Software Updates window appears. Press the <b class="button">Yes</b> button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1432,7 +1435,7 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
 </div>
 </div>
 <div class="paragraph">
-<p>You can now begin creating your own JBoss Data Virtualization projects.</p>
+<p>You can now begin creating your own Red Hat JBoss Data Virtualization projects.</p>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have now completed this lab.</p>
@@ -1512,7 +1515,7 @@ The New Model Project wizard will be displayed as below.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, WebServices and VirtualBaseLayer. The Model Project Options window should look like that below.</p>
+<p>The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, VirtualBaseLayer and WebServices. The Model Project Options window should look like that below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1704,6 +1707,110 @@ When you have completed the imports, the Package Diagram and Model Explorer for 
 <div class="content">
 <img src="images/3.4-US_Customers.png" alt="3.4 US Customers">
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_import_metadata_from_a_flat_file">4.7. Import Metadata from a flat file</h3>
+<div class="paragraph">
+<p>So far we have been connecting to relational databases and their tables. You can connect to other types of data sources within the perspective. In this section we will connect to a flat file in a CSV (Comma Separated Values) format which contains market information as seen in the image below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-marketdata-csv.png" alt="3.5 marketdata csv">
+</div>
+</div>
+<div class="paragraph">
+<p>As with the steps above you will need to right-click on the DataSources folder and select import. This time you will select the File Source (Flat) &gt;&gt; Source and View Model to import a data source.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-flat-file-import.png" alt="3.5 flat file import">
+</div>
+</div>
+<div class="paragraph">
+<p>Click the <b class="button">Next &gt;</b> button. The File Import File Options dialog box will appear.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-import-from-flat-file-src.png" alt="3.5 import from flat file src">
+</div>
+</div>
+<div class="paragraph">
+<p>Select option Flat file on local file system and click the <b class="button">Next &gt;</b> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-data-file-source-selection.png" alt="3.5 data file source selection">
+</div>
+</div>
+<div class="paragraph">
+<p>The next screen that is displayed is the dialog box to select the file connection profile. Click on the <b class="button">New&#8230;</b> button.
+The new connection profile dialog is displayed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-connection-profile.png" alt="3.5 connection profile">
+</div>
+</div>
+<div class="paragraph">
+<p>Type in MarketData for the name and click the <b class="button">Next &gt;</b> button.</p>
+</div>
+<div class="paragraph">
+<p>Use the browse (see image below) to locate the folder where the market data CSV file resides. The location should be DVWorkshop/dv_docker/demo. Ensure Use first line as column name indicator is checked. You can click the Test Connection button, it will just ensure that the program can get to the directory specified.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-define-folder.png" alt="3.5 define folder">
+</div>
+</div>
+<div class="paragraph">
+<p>Click the <b class="button">Next &gt;</b> button. The next dialog is the Summary dialog box that displays what has been selected for this connection so far.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-summary.png" alt="3.5 summary">
+</div>
+</div>
+<div class="paragraph">
+<p>Click the <b class="button">Finish</b> button to continue. All of the CSV files are listed from the data source folder selected in the previous steps. We want to make sure that the check box is checked beside the marketdata.csv file, the file that you need to connect to. In the Source Model Definition, enter the model name, MarketData in the Name: field. (See image below)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-select-csv.png" alt="3.5 select csv">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Next &gt;</b> button to continue.</p>
+</div>
+<div class="paragraph">
+<p>The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you will select.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-flat-file-column-format.png" alt="3.5 flat file column format">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Next &gt;</b> button to continue. Next specify parameters for how the CSV file to be imported. You will change the Datatype of the price column to bigdecimal.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-flat-file-column-format2.png" alt="3.5 flat file column format2">
+</div>
+</div>
+<div class="paragraph">
+<p>Click the <b class="button">Next &gt;</b> button when complete.</p>
+</div>
+<div class="paragraph">
+<p>The last step is to specify the View Model Definition. (See image below) Enter in the data from the image below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-view-model-definition.png" alt="3.5 view model definition">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Finish</b> button to import the model.</p>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have now completed this lab.</p>
@@ -2393,38 +2500,65 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 <div class="sect2">
 <h3 id="_create_relational_model_from_wsdl">10.1. Create relational model from WSDL</h3>
 <div class="paragraph">
-<p>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.</p>
+<p>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.
+Create two new folders called WSDL and User-specified Procedures in your Model Explorer view. Right-click on the Financials project and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Folder</span></span>. Call the new folder WSDL.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Create a new folder called WSDL in your Model Explorer view. Right-click on the Financials project and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Folder</span></span>. Call the new folder WSDL.</p>
-</li>
-<li>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.1-create-folder.png" alt="10.1 create folder">
+</div>
+</div>
+<div class="paragraph">
+<p>Do the same for folder User-specified Procedures.</p>
+</div>
+<div class="paragraph">
 <p>Right-click on the WSDL folder and select Import&#8230; from the right-hand menu.</p>
-</li>
-<li>
-<p>The Import dialog box is opened. Select WSDL File or URL &gt;&gt; Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the <b class="button">Next &gt;</b> button to continue.</p>
-</li>
-<li>
-<p>The Create Relational Model from Web Service Dialog box opens. Click on the <b class="button">New&#8230;</b> button to create a new Connection Profile.</p>
-</li>
-<li>
-<p>The New Connection Profile dialog opens. Type CountryInfo in the Name field and click the <b class="button">Next &gt;</b> button.</p>
-</li>
-<li>
-<p>The New Connection Profile dialog box opens. The WSDL that you will connect to is a URL. Click on the <b class="button">URL&#8230;</b> button to enter a URL.</p>
-</li>
-<li>
-<p>The WSDL URL dialog box opens. In the WSDL URL field enter in the following URL:</p>
-</li>
-</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-import-WSDL.png" alt="10.2 import WSDL">
+</div>
 </div>
 <div class="paragraph">
-<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
+<p>The Import dialog box is opened. Select WSDL File or URL &gt;&gt; Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the <b class="button">Next &gt;</b> button to continue. The Create Relational Model from Web Service Dialog box opens.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-import-WSDL2.png" alt="10.2 import WSDL2">
+</div>
 </div>
 <div class="paragraph">
-<p>The WSDL has no security so leave the Security Type to default of None. Click the OK button. When you click the OK button the software will validate the URL.</p>
+<p>Click on the <b class="button">New&#8230;</b> button to create a new Connection Profile. The New Connection Profile dialog opens.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-new-connection-profile.png" alt="10.2 new connection profile">
+</div>
+</div>
+<div class="paragraph">
+<p>Type CountryInfo in the Name field and click the <b class="button">Next &gt;</b> button.
+The New Connection Profile dialog box opens.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-new-connection-profile2.png" alt="10.2 new connection profile2">
+</div>
+</div>
+<div class="paragraph">
+<p>The WSDL that you will connect to is a URL. Click on the <b class="button">URL&#8230;</b> button to enter a URL.
+The WSDL URL dialog box opens.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-wsdl-url.png" alt="10.2 wsdl url">
+</div>
+</div>
+<div class="paragraph">
+<p>In the WSDL URL field enter in the following URL:
+<a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
+</div>
+<div class="paragraph">
+<p>The WSDL has no security so leave the Security Type to default of None. Click the <b class="button">OK</b> button. When you click the <b class="button">OK</b> button the software will validate the URL.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2433,31 +2567,67 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 <div class="title">Note</div>
 </td>
 <td class="content">
-You will need an internet connection for this validate correctly.
+You will need an internet connection for this to validate correctly.
 </td>
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Click on the Test Connection button to test the URL. Click on the Next &gt; button.</p>
-</li>
-<li>
-<p>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.</p>
-</li>
-<li>
-<p>Click on the <b class="button">Deselect All</b> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select. Click on the <b class="button">Next &gt;</b> button.</p>
-</li>
-<li>
-<p>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <b class="button">&#8230;</b> to select locations and existing models in your workspace. Choose User-specified Procedures and click the <b class="button">Next &gt;</b> button.</p>
-</li>
-<li>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-new-connection-profile3.png" alt="10.2 new connection profile3">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Test Connection</b> button to test the URL. Click on the <b class="button">Next &gt;</b> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-new-connection-profile4.png" alt="10.2 new connection profile4">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Next &gt;</b> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-new-ws-summary.png" alt="10.2 new ws summary">
+</div>
+</div>
+<div class="paragraph">
+<p>The summarise window will appear. Click <b class="button">Finish</b> to go the Source and WSDL Operations Definition.</p>
+</div>
+<div class="paragraph">
+<p>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.
+Click on the <b class="button">Deselect All</b> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.3-select-wsdl-operations.png" alt="10.3 select wsdl operations">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Next &gt;</b> button.</p>
+</div>
+<div class="paragraph">
+<p>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <b class="button">&#8230;</b> to select locations and existing models in your workspace.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.3-user-specified-prc.png" alt="10.3 user specified prc">
+</div>
+</div>
+<div class="paragraph">
+<p>Choose User-specified Procedures and click the <b class="button">Next &gt;</b> button.</p>
+</div>
+<div class="paragraph">
 <p>In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
 In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
-Select the Operation from the Operations pull-down (CountryInfo and FullCountyInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</p>
-</li>
-</ol>
+Select the Operation from the Operations pull-down (CountryInfo and FullCountryInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.3-procedure-def.png" alt="10.3 procedure def">
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2466,21 +2636,47 @@ Select the Operation from the Operations pull-down (CountryInfo and FullCountyIn
 <div class="title">Note</div>
 </td>
 <td class="content">
-This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer&#8217;s legacy create and extract procedures choose the Legacy Procedures option in the lower section and click Finish.
-. Click on the <b class="button">Finish</b> button.
-. A status screen is displayed while the models are being created.
-. The models will appear in the Model Explorer and will be open in the right-hand pane.
-. Click the <b class="button">Save All</b> button to save your models.
-. Double-click on the CountryName procedure to open the transformation view for the procedure.
-. Click on the <b class="button">Preview Data</b> button to preview the data.
-. Enter in a country code, such as AU for Australia, to retrieve the data. Click the <b class="button">OK</b> button.
-. View the SQL Status and Result1 tab to see the results returned from the procedure.
-. Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:
-<a href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</a>
-. Save and close the models.
+This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer&#8217;s legacy create and extract procedures choose the Legacy Procedures option in the lower section and click <b class="button">Finish</b>.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Finish</b> button.
+A status screen is displayed while the models are being created.
+The models will appear in the Model Explorer and will be open in the right-hand pane.
+Click the <b class="button">Save All</b> button to save your models.</p>
+</div>
+<div class="paragraph">
+<p>Double-click on the CountryName procedure to open the transformation view for the procedure.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.3-country-name-view.png" alt="10.3 country name view">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the <b class="button">Preview Data</b> button to preview the data.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.3-preview-data-iso.png" alt="10.3 preview data iso">
+</div>
+</div>
+<div class="paragraph">
+<p>Enter in a country code, such as AU for Australia, to retrieve the data. Click the <b class="button">OK</b> button.
+View the SQL Status and Result1 tab to see the results returned from the procedure.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.3-SQL-results.png" alt="10.3 SQL results">
+</div>
+</div>
+<div class="paragraph">
+<p>Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL: <a href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</a></p>
+</div>
+<div class="paragraph">
+<p>Save and close the models.</p>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have now completed this lab.</p>
@@ -2553,7 +2749,7 @@ and this should return the results as shown below.</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2014-05-29 13:24:59 CEST
+Last updated 2014-05-31 23:22:05 CEST
 </div>
 </div>
 </body>

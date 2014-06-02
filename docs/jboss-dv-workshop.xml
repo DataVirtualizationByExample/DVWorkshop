@@ -797,9 +797,6 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
-<simpara>In the "Work with:" field on the Install wizard, paste the following link:</simpara>
-<simpara><ulink url="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</ulink></simpara>
-<simpara>and click the <guibutton>Add&#8230;</guibutton> button.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -809,7 +806,9 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
-<simpara>Select JBoss Data Virtualization Development option in the list and click <guibutton>Next</guibutton>.</simpara>
+<simpara>In the "Work with:" field on the Install wizard, paste the following link:</simpara>
+<simpara><ulink url="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</ulink></simpara>
+<simpara>and click the <guibutton>Add&#8230;</guibutton> button.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -819,7 +818,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
-<simpara>Review Install Details and click the <guibutton>Next &gt;</guibutton> button.</simpara>
+<simpara>Select JBoss Data Virtualization Development option in the list and click <guibutton>Next</guibutton>.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -829,7 +828,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
-<simpara>The Security Warning window appears and click the <guibutton>OK</guibutton> button to proceed.</simpara>
+<simpara>Review Install Details and click the <guibutton>Next &gt;</guibutton> button.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -839,7 +838,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
-<simpara>The Software Updates window appears. Press the <guibutton>Yes</guibutton> button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.</simpara>
+<simpara>The Security Warning window appears and click the <guibutton>OK</guibutton> button to proceed.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -849,6 +848,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
+<simpara>The Software Updates window appears. Press the <guibutton>Yes</guibutton> button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.</simpara>
 <simpara>Now that you have JBoss Data Virtualization and JBoss Developer Studio successfully installed, it is time to “hook up” JBoss Developer Studio to the JBoss Data Virtualization server instance.</simpara>
 <simpara>If the Servers pane is not already visible in JBoss Developer Studio, you can open it by <menuchoice><guimenu>Window</guimenu> <guisubmenu>Show View</guisubmenu> <guisubmenu>Other</guisubmenu> <guisubmenu>Server</guisubmenu> <guimenuitem>Servers</guimenuitem></menuchoice>. The Show View window is presented below.</simpara>
 <figure>
@@ -911,6 +911,19 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
       <imagedata fileref="images/2.2-JBDS-menu-start.png"/>
     </imageobject>
     <textobject><phrase>2.2 JBDS menu start</phrase></textobject>
+  </mediaobject>
+</figure>
+
+<note>
+<simpara>If JBoss Data Virtualization Server is already started from the command line, JBoss Developer Studio will show a warning "Server already running on localhost", select option "Set the server adapter to <emphasis>started</emphasis>, without launching a new server."</simpara>
+</note>
+
+<figure>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/2.2-JBDS-menu-start2.png"/>
+    </imageobject>
+    <textobject><phrase>2.2 JBDS menu start2</phrase></textobject>
   </mediaobject>
 </figure>
 

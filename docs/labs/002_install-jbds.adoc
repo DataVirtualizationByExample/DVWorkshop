@@ -74,26 +74,29 @@ From the JBDS menu bar, choose menu:Help[Install New Software...]
 
 image::2.1-JBDS-add-new-software.png[]
 
-In the "Work with:" field on the Install wizard, paste the following link: http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/ 
-and click the btn:[Add...] button.
-
 image::2.1-JBDS-add-new-software2.png[]
 
-Select JBoss Data Virtualization Development option in the list and click btn:[Next].
+In the "Work with:" field on the Install wizard, paste the following link: 
+
+http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/ 
+
+and click the btn:[Add...] button.
 
 image::2.1-JBDS-add-new-software3.png[]
 
-Review Install Details and click the btn:[Next >] button.
+Select JBoss Data Virtualization Development option in the list and click btn:[Next].
 
 image::2.1-JBDS-add-new-software-review.png[]
 
-The Security Warning window appears and click the btn:[OK] button to proceed.
+Review Install Details and click the btn:[Next >] button.
 
 image::2.1-JBDS-add-new-software-security.png[]
 
-The Software Updates window appears. Press the btn:[Yes] button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.
+The Security Warning window appears and click the btn:[OK] button to proceed.
 
 image::2.1-JBDS-install-restart.png[]
+
+The Software Updates window appears. Press the btn:[Yes] button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.
 
 Now that you have JBoss Data Virtualization and JBoss Developer Studio successfully installed, it is time to “hook up” JBoss Developer Studio to the JBoss Data Virtualization server instance.
 

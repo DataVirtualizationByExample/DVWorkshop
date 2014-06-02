@@ -797,8 +797,9 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
   </mediaobject>
 </figure>
 
-<simpara>In the "Work with:" field on the Install wizard, paste the following link: <ulink url="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</ulink>
-and click the <guibutton>Add&#8230;</guibutton> button.</simpara>
+<simpara>In the "Work with:" field on the Install wizard, paste the following link:</simpara>
+<simpara><ulink url="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</ulink></simpara>
+<simpara>and click the <guibutton>Add&#8230;</guibutton> button.</simpara>
 <figure>
   <mediaobject>
     <imageobject>
@@ -2097,8 +2098,8 @@ The WSDL URL dialog box opens.</simpara>
   </mediaobject>
 </figure>
 
-<simpara>In the WSDL URL field enter in the following URL:
-<ulink url="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</ulink></simpara>
+<simpara>In the WSDL URL field enter in the following URL:</simpara>
+<simpara><ulink url="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</ulink></simpara>
 <simpara>The WSDL has no security so leave the Security Type to default of None. Click the <guibutton>OK</guibutton> button. When you click the <guibutton>OK</guibutton> button the software will validate the URL.</simpara>
 <note>
 <simpara>You will need an internet connection for this to validate correctly.</simpara>
@@ -2133,7 +2134,7 @@ The WSDL URL dialog box opens.</simpara>
   </mediaobject>
 </figure>
 
-<simpara>The summarise window will appear. Click <guibutton>Finish</guibutton> to go the Source and WSDL Operations Definition.</simpara>
+<simpara>The Summary window will appear. Click <guibutton>Finish</guibutton> to go the Source and WSDL Operations Definition.</simpara>
 <simpara>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.
 Click on the <guibutton>Deselect All</guibutton> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select.</simpara>
 <figure>
@@ -2208,7 +2209,8 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
   </mediaobject>
 </figure>
 
-<simpara>Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL: <ulink url="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</ulink></simpara>
+<simpara>Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:</simpara>
+<simpara><ulink url="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</ulink></simpara>
 <simpara>Save and close the models.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>

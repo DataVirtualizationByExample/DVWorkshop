@@ -37,6 +37,7 @@ The WSDL URL dialog box opens.
 image::10.2-wsdl-url.png[]
 
 In the WSDL URL field enter in the following URL: 
+
 http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL
 
 The WSDL has no security so leave the Security Type to default of None. Click the btn:[OK] button. When you click the btn:[OK] button the software will validate the URL.
@@ -53,7 +54,7 @@ Click on the btn:[Next >] button.
 
 image::10.2-new-ws-summary.png[]
 
-The summarise window will appear. Click btn:[Finish] to go the Source and WSDL Operations Definition.
+The Summary window will appear. Click btn:[Finish] to go the Source and WSDL Operations Definition.
 
 The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.
 Click on the btn:[Deselect All] button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select. 
@@ -95,7 +96,9 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 image::10.3-SQL-results.png[]
 
 
-Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL: http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
+Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL: 
+
+http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
 
 Save and close the models.
 

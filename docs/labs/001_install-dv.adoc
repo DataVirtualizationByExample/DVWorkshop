@@ -136,7 +136,7 @@ With OpenShift you can easily deploy and run JBoss Data Virtualization in minute
 Get your free OpenShift Online account
 Sign up for your free account OpenShift Online account at https://www.openshift.com/app/account/new and you should see the screen below.
 
-image::1.3-DV-OPenShift.png[]
+image::1.3-DV-OpenShift.png[]
 
 If you already have an OpenShift Online account please sign in with your known OpenShift Online username password combination.
 

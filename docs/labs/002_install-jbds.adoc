@@ -129,9 +129,9 @@ At this point, you can right-click on the server and there is a list of availabl
 
 image::2.2-JBDS-menu-start.png[]
 
-NOTE: If JBoss Data Virtualization Server is already started from the command line, JBoss Developer Studio will show a warning "Server already running on localhost", select option "Set the server adapter to 'started', without launching a new server."   
-
 image::2.2-JBDS-menu-start2.png[] 
+
+NOTE: If JBoss Data Virtualization Server is already started from the command line using standalone.sh or standalone.bat, JBoss Developer Studio will show a warning "Server already running on localhost", select option "Set the server adapter to 'started', without launching a new server."   
 
 image::2.2-JBDS-menu-started.png[]
 

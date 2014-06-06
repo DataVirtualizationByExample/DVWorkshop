@@ -126,9 +126,9 @@ RUN echo "alias c='clear'" >> $HOME/.bash_profile
 RUN echo "alias sdv='$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
 RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
 
-# start.sh
+# Create /home/jboss/run.sh startup script
 USER root
-RUN echo "#!/bin/sh"
+RUN echo "#!/bin/bash"
 RUN echo "echo JBoss Data Virtualization Start script" >> $HOME/run.sh
 RUN echo "service sshd start " >> $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh

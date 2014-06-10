@@ -85,12 +85,12 @@ VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 #################
 USER root
 # Setup mongodb yum repository
-RUN echo "[mongodb]" > /etc/yum.repos.d/mongodb.repo
-RUN echo "name=MongoDB Repository" >> /etc/yum.repos.d/mongodb.repo
-RUN echo "baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/" >> /etc/yum.repos.d/mongodb.repo
-RUN echo "gpgcheck=0" >> /etc/yum.repos.d/mongodb.repo
-RUN echo "enabled=1" >> /etc/yum.repos.d/mongodb.repo
-RUN yum -y install mongodb-org; yum clean all
+#RUN echo "[mongodb]" > /etc/yum.repos.d/mongodb.repo
+#RUN echo "name=MongoDB Repository" >> /etc/yum.repos.d/mongodb.repo
+#RUN echo "baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/" >> /etc/yum.repos.d/mongodb.repo
+#RUN echo "gpgcheck=0" >> /etc/yum.repos.d/mongodb.repo
+#RUN echo "enabled=1" >> /etc/yum.repos.d/mongodb.repo
+#RUN yum -y install mongodb-org; yum clean all
 
 # Increase ulimit
 RUN echo "* soft nofile 4096" >> /etc/security/limits.conf
@@ -133,7 +133,7 @@ RUN echo "echo JBoss Data Virtualization Start script" >> $HOME/run.sh
 RUN echo "service sshd start " >> $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "service postgresql-9.3 start " >> $HOME/run.sh
-RUN echo "service mongod start " >> $HOME/run.sh
+#RUN echo "service mongod start " >> $HOME/run.sh
 RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
 RUN chmod +x $HOME/run.sh
 
@@ -143,7 +143,7 @@ RUN rm -rf $INSTALLDIR/software
 RUN rm financials-mysql.sql
 RUN rm financials-psql.sql
 
-EXPOSE 22 5432 8080 9990 9999 27017 31000
+EXPOSE 22 3306 5432 8080 9990 9999 27017 31000
 
 CMD /home/jboss/run.sh
 

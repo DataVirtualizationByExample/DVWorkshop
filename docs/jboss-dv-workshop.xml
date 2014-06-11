@@ -942,6 +942,21 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
 <chapter id="_create_a_teiid_project_and_import_data_source">
 <title>Create a Teiid project and Import Data Source</title>
 <simpara>Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</simpara>
+<section id="_prerequisites_2">
+<title>Prerequisites</title>
+<itemizedlist>
+<listitem>
+<simpara>If using PostgreSQL database, download the <ulink url="http://jdbc.postgresql.org/download.html">PostgreSQL JDBC Driver</ulink>. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 then you should use the JDBC41 version.</simpara>
+</listitem>
+<listitem>
+<simpara>If using MySQL database, download the <ulink url="http://www.mysql.com/products/connector/">MySQL JDBC Driver</ulink>.</simpara>
+</listitem>
+<listitem>
+<simpara>Save the JDBC driver in a "well-known" directory</simpara>
+</listitem>
+</itemizedlist>
+
+</section>
 <section id="_open_the_teiid_perspective">
 <title>Open the Teiid Perspective</title>
 <simpara>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
@@ -1089,7 +1104,7 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
   </mediaobject>
 </figure>
 
-<simpara>In the “New Driver Definition” dialog, select the PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click <guibutton>Remove JAR/Zip</guibutton> and then click the <guibutton>Add JAR/Zip</guibutton> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your student drive. Select the postgresql-9.3-1101.jdbc41.jar file from folder where this file is saved after download. Click <guibutton>OK</guibutton>. After clicking OK, the warning that the JAR file could not be found will go away. Click <guibutton>OK</guibutton> to return to the previous wizard.</simpara>
+<simpara>In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click <guibutton>Remove JAR/Zip</guibutton> and then click the <guibutton>Add JAR/Zip</guibutton> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the postgresql/mysql jdbc driver file from the directory where this file is saved after download. Click <guibutton>OK</guibutton>. After clicking OK, the warning that the JAR file could not be found will go away. Click <guibutton>OK</guibutton> to return to the previous wizard.</simpara>
 <figure>
   <mediaobject>
     <imageobject>

@@ -485,13 +485,14 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <li><a href="#_create_a_teiid_project_and_import_data_source">4. Create a Teiid project and Import Data Source</a></li>
 <li>
 <ul class="sectlevel2">
-<li><a href="#_open_the_teiid_perspective">4.1. Open the Teiid Perspective</a></li>
-<li><a href="#_creating_a_teiid_project">4.2. Creating a Teiid Project</a></li>
-<li><a href="#_creating_a_source_model">4.3. Creating a Source Model</a></li>
-<li><a href="#_importing_metadata_from_the_product_database">4.4. Importing Metadata from the Product Database</a></li>
-<li><a href="#_preview_data_via_the_teiid_server">4.5. Preview Data via the Teiid Server</a></li>
-<li><a href="#_import_metadata_from_the_us_customers_and_eu_customers_databases">4.6. Import Metadata from the US_Customers and EU_Customers Databases</a></li>
-<li><a href="#_import_metadata_from_a_flat_file">4.7. Import Metadata from a flat file</a></li>
+<li><a href="#_prerequisites_2">4.1. Prerequisites</a></li>
+<li><a href="#_open_the_teiid_perspective">4.2. Open the Teiid Perspective</a></li>
+<li><a href="#_creating_a_teiid_project">4.3. Creating a Teiid Project</a></li>
+<li><a href="#_creating_a_source_model">4.4. Creating a Source Model</a></li>
+<li><a href="#_importing_metadata_from_the_product_database">4.5. Importing Metadata from the Product Database</a></li>
+<li><a href="#_preview_data_via_the_teiid_server">4.6. Preview Data via the Teiid Server</a></li>
+<li><a href="#_import_metadata_from_the_us_customers_and_eu_customers_databases">4.7. Import Metadata from the US_Customers and EU_Customers Databases</a></li>
+<li><a href="#_import_metadata_from_a_flat_file">4.8. Import Metadata from a flat file</a></li>
 </ul>
 </li>
 <li><a href="#_create_a_virtual_base_layer">5. Create a Virtual Base Layer</a></li>
@@ -1471,7 +1472,23 @@ If JBoss Data Virtualization Server is already started from the command line usi
 <p>Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</p>
 </div>
 <div class="sect2">
-<h3 id="_open_the_teiid_perspective">4.1. Open the Teiid Perspective</h3>
+<h3 id="_prerequisites_2">4.1. Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>If using PostgreSQL database, download the <a href="http://jdbc.postgresql.org/download.html">PostgreSQL JDBC Driver</a>. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 then you should use the JDBC41 version.</p>
+</li>
+<li>
+<p>If using MySQL database, download the <a href="http://www.mysql.com/products/connector/">MySQL JDBC Driver</a>.</p>
+</li>
+<li>
+<p>Save the JDBC driver in a "well-known" directory</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_open_the_teiid_perspective">4.2. Open the Teiid Perspective</h3>
 <div class="paragraph">
 <p>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
 To open the “Teiid Designer” perspective, first select <span class="menuseq"><span class="menu">Window</span>&#160;&#9656; <span class="submenu">Open Perspective</span>&#160;&#9656; <span class="menuitem">Other&#8230;</span></span> in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.</p>
@@ -1515,7 +1532,7 @@ As a “sanity” check, be sure to click the <b class="button">Test</b> button.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_a_teiid_project">4.2. Creating a Teiid Project</h3>
+<h3 id="_creating_a_teiid_project">4.3. Creating a Teiid Project</h3>
 <div class="paragraph">
 <p>Before you can create models of how your data will be exposed or used, you must first create a project. For the purposes of these labs, we will create a project named Financials. This Financials project will be where we create all of our source and view models and Virtual Database (VDB) files. To create the project, from the menu bar on JBDS, select <span class="menuseq"><span class="menu">File</span>&#160;&#9656; <span class="submenu">New</span>&#160;&#9656; <span class="menuitem">Teiid Model Project</span></span>.
 The New Model Project wizard will be displayed as below.</p>
@@ -1557,7 +1574,7 @@ The New Model Project wizard will be displayed as below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_a_source_model">4.3. Creating a Source Model</h3>
+<h3 id="_creating_a_source_model">4.4. Creating a Source Model</h3>
 <div class="paragraph">
 <p>We must create a source model in order to access physical data or information from a source. The source model (also referred to as the physical model) contains all the metadata necessary for a Virtual Database (VDB) and its associated connectors to access or query data from a target source. There are a few different ways of creating source models. We will first go over the process of creating a source model using the Metadata Import Wizard.
 The Metadata Import Wizard helps you create new models in the workspace by importing metadata information from a physical enterprise information system or other data source. When you import metadata, the Designer creates a new metadata model for you. Once you have created this metadata model, you can alter it as you would any other. Keep in mind that any changes you make to an imported metadata model do not impact the underlying structure of the enterprise information system the model represents.
@@ -1567,7 +1584,7 @@ More information on the Import Wizard (and all of the features in the Teiid Desi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_importing_metadata_from_the_product_database">4.4. Importing Metadata from the Product Database</h3>
+<h3 id="_importing_metadata_from_the_product_database">4.5. Importing Metadata from the Product Database</h3>
 <div class="paragraph">
 <p>Right-click on the “DataSources” folder and select <span class="menu">Import&#8230;</span>. In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options. Now, select “JDBC Database &gt;&gt; Source Model” and click <b class="button">Next &gt;</b>.</p>
 </div>
@@ -1602,7 +1619,7 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 </div>
 </div>
 <div class="paragraph">
-<p>In the “New Driver Definition” dialog, select the PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click <b class="button">Remove JAR/Zip</b> and then click the <b class="button">Add JAR/Zip</b> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your student drive. Select the postgresql-9.3-1101.jdbc41.jar file from folder where this file is saved after download. Click <b class="button">OK</b>. After clicking OK, the warning that the JAR file could not be found will go away. Click <b class="button">OK</b> to return to the previous wizard.</p>
+<p>In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click <b class="button">Remove JAR/Zip</b> and then click the <b class="button">Add JAR/Zip</b> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the postgresql/mysql jdbc driver file from the directory where this file is saved after download. Click <b class="button">OK</b>. After clicking OK, the warning that the JAR file could not be found will go away. Click <b class="button">OK</b> to return to the previous wizard.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1684,7 +1701,7 @@ You will now see the Products.xmi source model was opened and its Package Diagra
 </div>
 </div>
 <div class="sect2">
-<h3 id="_preview_data_via_the_teiid_server">4.5. Preview Data via the Teiid Server</h3>
+<h3 id="_preview_data_via_the_teiid_server">4.6. Preview Data via the Teiid Server</h3>
 <div class="paragraph">
 <p>With an active Teiid Server connection, all physical models that have been imported, along with any virtual models that are built on top of them, can be sampled (previewed) with the simple click of a button. To do this, let&#8217;s utilize the Modeling Actions palette on the right-hand side of the Designer. Select Model JDBC Source and to Preview data, double-click on the Preview Data action.
 This will bring up the Preview Data dialogue as indicated below.</p>
@@ -1720,7 +1737,7 @@ This will bring up the Preview Data dialogue as indicated below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_metadata_from_the_us_customers_and_eu_customers_databases">4.6. Import Metadata from the US_Customers and EU_Customers Databases</h3>
+<h3 id="_import_metadata_from_the_us_customers_and_eu_customers_databases">4.7. Import Metadata from the US_Customers and EU_Customers Databases</h3>
 <div class="paragraph">
 <p>We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the JDBC Database Import Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.</p>
@@ -1732,7 +1749,7 @@ When you have completed the imports, the Package Diagram and Model Explorer for 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_metadata_from_a_flat_file">4.7. Import Metadata from a flat file</h3>
+<h3 id="_import_metadata_from_a_flat_file">4.8. Import Metadata from a flat file</h3>
 <div class="paragraph">
 <p>So far we have been connecting to relational databases and their tables. You can connect to other types of data sources within the perspective. In this section we will connect to a flat file in a CSV (Comma Separated Values) format which contains market information as seen in the image below:</p>
 </div>
@@ -2776,7 +2793,7 @@ and this should return the results as shown below.</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2014-05-31 23:22:05 CEST
+Last updated 2014-06-11 14:03:33 CEST
 </div>
 </div>
 </body>

@@ -70,7 +70,17 @@ To set the workspace location, follow these steps:
 
 The workspace location prompting behavior can be altered at any time by clicking menu:Window[Preferences]. Expand menu:General[Startup and Shutdown > Workspace]. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.
 
-From the JBDS menu bar, choose menu:Help[Install New Software...]
+There are two ways to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio:
+
+- Using JBoss Central
+
+Select menu:Help[JBoss Central] if JBoss Central isn't active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click btn:[Install] See figure below.
+
+image::2.1-JBDS-jboss-central.png[]
+
+Press the btn:[Yes] button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.
+
+- Using menu:Help[Install New Software...]
 
 image::2.1-JBDS-add-new-software.png[]
 

@@ -1,471 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="Asciidoctor 0.1.4">
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.0">
+<meta name="author" content="Cojan van Ballegooijen">
 <title>JBoss Data Virtualization Workshop</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
-audio, canvas, video { display: inline-block; }
-audio:not([controls]) { display: none; height: 0; }
-[hidden] { display: none; }
-html { background: #fff; color: #000; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
-body { margin: 0; }
-a:focus { outline: thin dotted; }
-a:active, a:hover { outline: 0; }
-h1 { font-size: 2em; margin: 0.67em 0; }
-abbr[title] { border-bottom: 1px dotted; }
-b, strong { font-weight: bold; }
-dfn { font-style: italic; }
-hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
-mark { background: #ff0; color: #000; }
-code, kbd, pre, samp { font-family: monospace, serif; font-size: 1em; }
-pre { white-space: pre-wrap; }
-q { quotes: "\201C" "\201D" "\2018" "\2019"; }
-small { font-size: 80%; }
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-img { border: 0; }
-svg:not(:root) { overflow: hidden; }
-figure { margin: 0; }
-fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
-legend { border: 0; padding: 0; }
-button, input, select, textarea { font-family: inherit; font-size: 100%; margin: 0; }
-button, input { line-height: normal; }
-button, select { text-transform: none; }
-button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
-button[disabled], html input[disabled] { cursor: default; }
-input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
-input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
-button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-textarea { overflow: auto; vertical-align: top; }
-table { border-collapse: collapse; border-spacing: 0; }
-*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-html, body { font-size: 100%; }
-body { background: white; color: #222222; padding: 0; margin: 0; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1; position: relative; cursor: auto; }
-a:hover { cursor: pointer; }
-a:focus { outline: none; }
-img, object, embed { max-width: 100%; height: auto; }
-object, embed { height: 100%; }
-img { -ms-interpolation-mode: bicubic; }
-#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
-.left { float: left !important; }
-.right { float: right !important; }
-.text-left { text-align: left !important; }
-.text-right { text-align: right !important; }
-.text-center { text-align: center !important; }
-.text-justify { text-align: justify !important; }
-.hide { display: none; }
-.antialiased, body { -webkit-font-smoothing: antialiased; }
-img { display: inline-block; vertical-align: middle; }
-textarea { height: auto; min-height: 50px; }
-select { width: 100%; }
-p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.21875em; line-height: 1.6; }
-.subheader, #content #toctitle, .admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .videoblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title, .tableblock > caption { line-height: 1.4; color: #7a2518; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
-a { color: #005498; text-decoration: underline; line-height: inherit; }
-a:hover, a:focus { color: #00467f; }
-a img { border: none; }
-p { font-family: inherit; font-weight: normal; font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; text-rendering: optimizeLegibility; }
-p aside { font-size: 0.875em; line-height: 1.35; font-style: italic; }
-h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: Georgia, "URW Bookman L", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; color: #ba3925; text-rendering: optimizeLegibility; margin-top: 1em; margin-bottom: 0.5em; line-height: 1.2125em; }
-h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: #e99b8f; line-height: 0; }
-h1 { font-size: 2.125em; }
-h2 { font-size: 1.6875em; }
-h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.375em; }
-h4 { font-size: 1.125em; }
-h5 { font-size: 1.125em; }
-h6 { font-size: 1em; }
-hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 1.25em 0 1.1875em; height: 0; }
-em, i { font-style: italic; line-height: inherit; }
-strong, b { font-weight: bold; line-height: inherit; }
-small { font-size: 60%; line-height: inherit; }
-code { font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: normal; color: #6d180b; }
-ul, ol, dl { font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; list-style-position: outside; font-family: inherit; }
-ul, ol { margin-left: 1.5em; }
-ul li ul, ul li ol { margin-left: 1.25em; margin-bottom: 0; font-size: 1em; }
-ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
-ul.square { list-style-type: square; }
-ul.circle { list-style-type: circle; }
-ul.disc { list-style-type: disc; }
-ul.no-bullet { list-style: none; }
-ol li ul, ol li ol { margin-left: 1.25em; margin-bottom: 0; }
-dl dt { margin-bottom: 0.3125em; font-weight: bold; }
-dl dd { margin-bottom: 1.25em; }
-abbr, acronym { text-transform: uppercase; font-size: 90%; color: #222222; border-bottom: 1px dotted #dddddd; cursor: help; }
-abbr { text-transform: none; }
-blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
-blockquote cite { display: block; font-size: inherit; color: #555555; }
-blockquote cite:before { content: "\2014 \0020"; }
-blockquote cite a, blockquote cite a:visited { color: #555555; }
-blockquote, blockquote p { line-height: 1.6; color: #6f6f6f; }
-.vcard { display: inline-block; margin: 0 0 1.25em 0; border: 1px solid #dddddd; padding: 0.625em 0.75em; }
-.vcard li { margin: 0; display: block; }
-.vcard .fn { font-weight: bold; font-size: 0.9375em; }
-.vevent .summary { font-weight: bold; }
-.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.0625em; }
-@media only screen and (min-width: 768px) { h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
-  h1 { font-size: 2.75em; }
-  h2 { font-size: 2.3125em; }
-  h3, #toctitle, .sidebarblock > .content > .title { font-size: 1.6875em; }
-  h4 { font-size: 1.4375em; } }
-.print-only { display: none !important; }
-@media print { * { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
-  a, a:visited { text-decoration: underline; }
-  a[href]:after { content: " (" attr(href) ")"; }
-  abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  thead { display: table-header-group; }
-  tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
-  @page { margin: 0.5cm; }
-  p, h2, h3, #toctitle, .sidebarblock > .content > .title { orphans: 3; widows: 3; }
-  h2, h3, #toctitle, .sidebarblock > .content > .title { page-break-after: avoid; }
-  .hide-on-print { display: none !important; }
-  .print-only { display: block !important; }
-  .hide-for-print { display: none !important; }
-  .show-for-print { display: inherit !important; } }
-table { background: white; margin-bottom: 1.25em; border: solid 1px #dddddd; }
-table thead, table tfoot { background: whitesmoke; font-weight: bold; }
-table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td { padding: 0.5em 0.625em 0.625em; font-size: inherit; color: #222222; text-align: left; }
-table tr th, table tr td { padding: 0.5625em 0.625em; font-size: inherit; color: #222222; }
-table tr.even, table tr.alt, table tr:nth-of-type(even) { background: #f9f9f9; }
-table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { display: table-cell; line-height: 1.6; }
-.clearfix:before, .clearfix:after, .float-group:before, .float-group:after { content: " "; display: table; }
-.clearfix:after, .float-group:after { clear: both; }
-*:not(pre) > code { font-size: 0.9375em; padding: 1px 3px 0; white-space: nowrap; background-color: #f2f2f2; border: 1px solid #cccccc; -webkit-border-radius: 4px; border-radius: 4px; text-shadow: none; }
-pre, pre > code { line-height: 1.4; color: inherit; font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: normal; }
-kbd.keyseq { color: #555555; }
-kbd:not(.keyseq) { display: inline-block; color: #222222; font-size: 0.75em; line-height: 1.4; background-color: #F7F7F7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; margin: -0.15em 0.15em 0 0.15em; padding: 0.2em 0.6em 0.2em 0.5em; vertical-align: middle; white-space: nowrap; }
-kbd kbd:first-child { margin-left: 0; }
-kbd kbd:last-child { margin-right: 0; }
-.menuseq, .menu { color: #090909; }
-p a > code:hover { color: #561309; }
-#header, #content, #footnotes, #footer { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 62.5em; *zoom: 1; position: relative; padding-left: 0.9375em; padding-right: 0.9375em; }
-#header:before, #header:after, #content:before, #content:after, #footnotes:before, #footnotes:after, #footer:before, #footer:after { content: " "; display: table; }
-#header:after, #content:after, #footnotes:after, #footer:after { clear: both; }
-#header { margin-bottom: 2.5em; }
-#header > h1 { color: black; font-weight: normal; border-bottom: 1px solid #dddddd; margin-bottom: -28px; padding-bottom: 32px; }
-#header span { color: #6f6f6f; }
-#header #revnumber { text-transform: capitalize; }
-#header br { display: none; }
-#header br + span { padding-left: 3px; }
-#header br + span:before { content: "\2013 \0020"; }
-#header br + span.author { padding-left: 0; }
-#header br + span.author:before { content: ", "; }
-#toc { border-bottom: 3px double #ebebeb; padding-bottom: 1.25em; }
-#toc > ul { margin-left: 0.25em; }
-#toc ul.sectlevel0 > li > a { font-style: italic; }
-#toc ul.sectlevel0 ul.sectlevel1 { margin-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
-#toc ul { list-style-type: none; }
-#toctitle { color: #7a2518; }
-@media only screen and (min-width: 1280px) { body.toc2 { padding-left: 20em; }
-  #toc.toc2 { position: fixed; width: 20em; left: 0; top: 0; border-right: 1px solid #ebebeb; border-bottom: 0; z-index: 1000; padding: 1em; height: 100%; overflow: auto; }
-  #toc.toc2 #toctitle { margin-top: 0; }
-  #toc.toc2 > ul { font-size: .95em; }
-  #toc.toc2 ul ul { margin-left: 0; padding-left: 1.25em; }
-  #toc.toc2 ul.sectlevel0 ul.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
-  body.toc2.toc-right { padding-left: 0; padding-right: 20em; }
-  body.toc2.toc-right #toc.toc2 { border-right: 0; border-left: 1px solid #ebebeb; left: auto; right: 0; } }
-#content #toc { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; border-width: 0; -webkit-border-radius: 4px; border-radius: 4px; }
-#content #toc > :first-child { margin-top: 0; }
-#content #toc > :last-child { margin-bottom: 0; }
-#content #toc a { text-decoration: none; }
-#content #toctitle { font-weight: bold; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-size: 1em; padding-left: 0.125em; }
-#footer { max-width: 100%; background-color: #222222; padding: 1.25em; }
-#footer-text { color: #dddddd; line-height: 1.44; }
-.sect1 { padding-bottom: 1.25em; }
-.sect1 + .sect1 { border-top: 3px double #ebebeb; }
-#content h1 > a.anchor, h2 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; width: 1em; margin-left: -1em; display: block; text-decoration: none; visibility: hidden; text-align: center; font-weight: normal; }
-#content h1 > a.anchor:before, h2 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: '\00A7'; font-size: .85em; vertical-align: text-top; display: block; margin-top: 0.05em; }
-#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h2:hover > a.anchor, h2 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
-#content h1 > a.link, h2 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #ba3925; text-decoration: none; }
-#content h1 > a.link:hover, h2 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #a53221; }
-.imageblock, .literalblock, .listingblock, .verseblock, .videoblock { margin-bottom: 1.25em; }
-.admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .videoblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title { text-align: left; font-weight: bold; }
-.tableblock > caption { text-align: left; font-weight: bold; white-space: nowrap; overflow: visible; max-width: 0; }
-table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
-.admonitionblock > table { border: 0; background: none; width: 100%; }
-.admonitionblock > table td.icon { text-align: center; width: 80px; }
-.admonitionblock > table td.icon img { max-width: none; }
-.admonitionblock > table td.icon .title { font-weight: bold; text-transform: uppercase; }
-.admonitionblock > table td.content { padding-left: 1.125em; padding-right: 1.25em; border-left: 1px solid #dddddd; color: #6f6f6f; }
-.admonitionblock > table td.content > :last-child > :last-child { margin-bottom: 0; }
-.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.25em; padding: 1.25em; background: white; -webkit-border-radius: 4px; border-radius: 4px; }
-.exampleblock > .content > :first-child { margin-top: 0; }
-.exampleblock > .content > :last-child { margin-bottom: 0; }
-.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6, .exampleblock > .content p { color: #333333; }
-.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6 { line-height: 1; margin-bottom: 0.625em; }
-.exampleblock > .content h1.subheader, .exampleblock > .content h2.subheader, .exampleblock > .content h3.subheader, .exampleblock > .content .subheader#toctitle, .sidebarblock.exampleblock > .content > .subheader.title, .exampleblock > .content h4.subheader, .exampleblock > .content h5.subheader, .exampleblock > .content h6.subheader { line-height: 1.4; }
-.exampleblock.result > .content { -webkit-box-shadow: 0 1px 8px #d9d9d9; box-shadow: 0 1px 8px #d9d9d9; }
-.sidebarblock { border-style: solid; border-width: 1px; border-color: #d9d9d9; margin-bottom: 1.25em; padding: 1.25em; background: #f2f2f2; -webkit-border-radius: 4px; border-radius: 4px; }
-.sidebarblock > :first-child { margin-top: 0; }
-.sidebarblock > :last-child { margin-bottom: 0; }
-.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6, .sidebarblock p { color: #333333; }
-.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6 { line-height: 1; margin-bottom: 0.625em; }
-.sidebarblock h1.subheader, .sidebarblock h2.subheader, .sidebarblock h3.subheader, .sidebarblock .subheader#toctitle, .sidebarblock > .content > .subheader.title, .sidebarblock h4.subheader, .sidebarblock h5.subheader, .sidebarblock h6.subheader { line-height: 1.4; }
-.sidebarblock > .content > .title { color: #7a2518; margin-top: 0; line-height: 1.6; }
-.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child, .sidebarblock > .content > :last-child > :last-child, .sidebarblock > .content .olist > ol > li:last-child > :last-child, .sidebarblock > .content .ulist > ul > li:last-child > :last-child, .sidebarblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
-.literalblock > .content pre, .listingblock > .content pre { background: none; border-width: 1px 0; border-style: dotted; border-color: #bfbfbf; -webkit-border-radius: 4px; border-radius: 4px; padding: 0.75em 0.75em 0.5em 0.75em; word-wrap: break-word; }
-.literalblock > .content pre.nowrap, .listingblock > .content pre.nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
-.literalblock > .content pre > code, .listingblock > .content pre > code { display: block; }
-@media only screen { .literalblock > .content pre, .listingblock > .content pre { font-size: 0.8em; } }
-@media only screen and (min-width: 768px) { .literalblock > .content pre, .listingblock > .content pre { font-size: 0.9em; } }
-@media only screen and (min-width: 1280px) { .literalblock > .content pre, .listingblock > .content pre { font-size: 1em; } }
-.listingblock > .content { position: relative; }
-.listingblock:hover code[class*=" language-"]:before { text-transform: uppercase; font-size: 0.9em; color: #999; position: absolute; top: 0.375em; right: 0.375em; }
-.listingblock:hover code.asciidoc:before { content: "asciidoc"; }
-.listingblock:hover code.clojure:before { content: "clojure"; }
-.listingblock:hover code.css:before { content: "css"; }
-.listingblock:hover code.groovy:before { content: "groovy"; }
-.listingblock:hover code.html:before { content: "html"; }
-.listingblock:hover code.java:before { content: "java"; }
-.listingblock:hover code.javascript:before { content: "javascript"; }
-.listingblock:hover code.python:before { content: "python"; }
-.listingblock:hover code.ruby:before { content: "ruby"; }
-.listingblock:hover code.scss:before { content: "scss"; }
-.listingblock:hover code.xml:before { content: "xml"; }
-.listingblock:hover code.yaml:before { content: "yaml"; }
-.listingblock.terminal pre .command:before { content: attr(data-prompt); padding-right: 0.5em; color: #999; }
-.listingblock.terminal pre .command:not([data-prompt]):before { content: '$'; }
-table.pyhltable { border: 0; margin-bottom: 0; }
-table.pyhltable td { vertical-align: top; padding-top: 0; padding-bottom: 0; }
-table.pyhltable td.code { padding-left: .75em; padding-right: 0; }
-.highlight.pygments .lineno, table.pyhltable td:not(.code) { color: #999; padding-left: 0; padding-right: .5em; border-right: 1px solid #dddddd; }
-.highlight.pygments .lineno { display: inline-block; margin-right: .25em; }
-table.pyhltable .linenodiv { background-color: transparent !important; padding-right: 0 !important; }
-.quoteblock { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #dddddd; }
-.quoteblock blockquote { margin: 0 0 1.25em 0; padding: 0 0 0.5625em 0; border: 0; }
-.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
-.quoteblock .attribution { margin-top: -.25em; padding-bottom: 0.5625em; font-size: inherit; color: #555555; }
-.quoteblock .attribution br { display: none; }
-.quoteblock .attribution cite { display: block; margin-bottom: 0.625em; }
-table thead th, table tfoot th { font-weight: bold; }
-table.tableblock.grid-all { border-collapse: separate; border-spacing: 1px; -webkit-border-radius: 4px; border-radius: 4px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd; }
-table.tableblock.frame-topbot, table.tableblock.frame-none { border-left: 0; border-right: 0; }
-table.tableblock.frame-sides, table.tableblock.frame-none { border-top: 0; border-bottom: 0; }
-table.tableblock td .paragraph:last-child p, table.tableblock td > p:last-child { margin-bottom: 0; }
-th.tableblock.halign-left, td.tableblock.halign-left { text-align: left; }
-th.tableblock.halign-right, td.tableblock.halign-right { text-align: right; }
-th.tableblock.halign-center, td.tableblock.halign-center { text-align: center; }
-th.tableblock.valign-top, td.tableblock.valign-top { vertical-align: top; }
-th.tableblock.valign-bottom, td.tableblock.valign-bottom { vertical-align: bottom; }
-th.tableblock.valign-middle, td.tableblock.valign-middle { vertical-align: middle; }
-p.tableblock.header { color: #222222; font-weight: bold; }
-td > div.verse { white-space: pre; }
-ol { margin-left: 1.75em; }
-ul li ol { margin-left: 1.5em; }
-dl dd { margin-left: 1.125em; }
-dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
-ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .ulist, .ulist .olist, .olist .ulist { margin-bottom: 0.625em; }
-ul.unstyled, ol.unnumbered, ul.checklist, ul.none { list-style-type: none; }
-ul.unstyled, ol.unnumbered, ul.checklist { margin-left: 0.625em; }
-ul.checklist li > p:first-child > i[class^="icon-check"]:first-child, ul.checklist li > p:first-child > input[type="checkbox"]:first-child { margin-right: 0.25em; }
-ul.checklist li > p:first-child > input[type="checkbox"]:first-child { position: relative; top: 1px; }
-ul.inline { margin: 0 auto 0.625em auto; margin-left: -1.375em; margin-right: 0; padding: 0; list-style: none; overflow: hidden; }
-ul.inline > li { list-style: none; float: left; margin-left: 1.375em; display: block; }
-ul.inline > li > * { display: block; }
-.unstyled dl dt { font-weight: normal; font-style: normal; }
-ol.arabic { list-style-type: decimal; }
-ol.decimal { list-style-type: decimal-leading-zero; }
-ol.loweralpha { list-style-type: lower-alpha; }
-ol.upperalpha { list-style-type: upper-alpha; }
-ol.lowerroman { list-style-type: lower-roman; }
-ol.upperroman { list-style-type: upper-roman; }
-ol.lowergreek { list-style-type: lower-greek; }
-.hdlist > table, .colist > table { border: 0; background: none; }
-.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
-td.hdlist1 { padding-right: .8em; font-weight: bold; }
-td.hdlist1, td.hdlist2 { vertical-align: top; }
-.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em; }
-.colist > table tr > td:first-of-type { padding: 0 .8em; line-height: 1; }
-.colist > table tr > td:last-of-type { padding: 0.25em 0; }
-.qanda > ol > li > p > em:only-child { color: #00467f; }
-.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
-.imageblock.left, .imageblock[style*="float: left"] { margin: 0.25em 0.625em 1.25em 0; }
-.imageblock.right, .imageblock[style*="float: right"] { margin: 0.25em 0 1.25em 0.625em; }
-.imageblock > .title { margin-bottom: 0; }
-.imageblock.thumb, .imageblock.th { border-width: 6px; }
-.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.125em; }
-.image.left, .image.right { margin-top: 0.25em; margin-bottom: 0.25em; display: inline-block; line-height: 0; }
-.image.left { margin-right: 0.625em; }
-.image.right { margin-left: 0.625em; }
-a.image { text-decoration: none; }
-span.footnote, span.footnoteref { vertical-align: super; font-size: 0.875em; }
-span.footnote a, span.footnoteref a { text-decoration: none; }
-#footnotes { padding-top: 0.75em; padding-bottom: 0.75em; margin-bottom: 0.625em; }
-#footnotes hr { width: 20%; min-width: 6.25em; margin: -.25em 0 .75em 0; border-width: 1px 0 0 0; }
-#footnotes .footnote { padding: 0 0.375em; line-height: 1.3; font-size: 0.875em; margin-left: 1.2em; text-indent: -1.2em; margin-bottom: .2em; }
-#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
-#footnotes .footnote:last-of-type { margin-bottom: 0; }
-#content #footnotes { margin-top: -0.625em; margin-bottom: 0; padding: 0.75em 0; }
-.gist .file-data > table { border: none; background: #fff; width: 100%; margin-bottom: 0; }
-.gist .file-data > table td.line-data { width: 99%; }
-div.unbreakable { page-break-inside: avoid; }
-.big { font-size: larger; }
-.small { font-size: smaller; }
-.underline { text-decoration: underline; }
-.overline { text-decoration: overline; }
-.line-through { text-decoration: line-through; }
-.aqua { color: #00bfbf; }
-.aqua-background { background-color: #00fafa; }
-.black { color: black; }
-.black-background { background-color: black; }
-.blue { color: #0000bf; }
-.blue-background { background-color: #0000fa; }
-.fuchsia { color: #bf00bf; }
-.fuchsia-background { background-color: #fa00fa; }
-.gray { color: #606060; }
-.gray-background { background-color: #7d7d7d; }
-.green { color: #006000; }
-.green-background { background-color: #007d00; }
-.lime { color: #00bf00; }
-.lime-background { background-color: #00fa00; }
-.maroon { color: #600000; }
-.maroon-background { background-color: #7d0000; }
-.navy { color: #000060; }
-.navy-background { background-color: #00007d; }
-.olive { color: #606000; }
-.olive-background { background-color: #7d7d00; }
-.purple { color: #600060; }
-.purple-background { background-color: #7d007d; }
-.red { color: #bf0000; }
-.red-background { background-color: #fa0000; }
-.silver { color: #909090; }
-.silver-background { background-color: #bcbcbc; }
-.teal { color: #006060; }
-.teal-background { background-color: #007d7d; }
-.white { color: #bfbfbf; }
-.white-background { background-color: #fafafa; }
-.yellow { color: #bfbf00; }
-.yellow-background { background-color: #fafa00; }
-span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
-.admonitionblock td.icon [class^="icon-"]:before { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
-.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #005498; color: #003f72; }
-.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
-.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
-.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
-.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
-.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 20px; height: 20px; font-size: 12px; font-weight: bold; line-height: 20px; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -2px; letter-spacing: -1px; }
-.conum * { color: white !important; }
-.conum + b { display: none; }
-.conum:after { content: attr(data-value); }
-.conum:not([data-value]):empty { display: none; }
-.literalblock > .content > pre, .listingblock > .content > pre { -webkit-border-radius: 0; border-radius: 0; }
-
+/* Remove the comments around the @import statement below when using this as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+.antialiased,body{-webkit-font-smoothing:antialiased}
+img{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite:before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media only screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7;font-weight:bold}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
+.clearfix:after,.float-group:after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
+b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
+b.button:before{content:"[";padding:0 3px 0 2px}
+b.button:after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header:before,#header:after,#content:before,#content:after,#footnotes:before,#footnotes:after,#footer:before,#footer:after{content:" ";display:table}
+#header:after,#content:after,#footnotes:after,#footer:after{clear:both}
+#content{margin-top:1.25em}
+#content:before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span:before{content:"\00a0\2013\00a0"}
+#header .details br+span.author:before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark:before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber:after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+.sect1{padding-bottom:.625em}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
+.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]:before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]:before{display:block}
+.listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote:before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote:before{display:none}
+.verseblock{margin:0 1em 1.25em 1em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 0 1.25em 0;display:block}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
+.quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
+table.spread{width:100%}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot{border-width:1px 0}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
+ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
+ul.inline>li>*{display:block}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1{padding-right:.75em;font-weight:bold}
+td.hdlist1,td.hdlist2{vertical-align:top}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:last-of-type{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none}
+span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
+span.footnote a,span.footnoteref a{text-decoration:none}
+span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
+#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+h1,h2{letter-spacing:-.01em}
+dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
+p,td.content{letter-spacing:-.01em}
+p strong,td.content strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@media print{@page{margin:1.25cm .75cm}
+*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after,a[href^="mailto:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]:after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img{page-break-inside:avoid}
+thead{display:table-header-group}
+img{max-width:100%!important}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+.sect1{padding-bottom:0!important}
+.sect1+.sect1{border:0!important}
+#header>h1:first-child{margin-top:1.25rem}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em 0}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span:before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]:before{display:block}
+#footer{background:none!important;padding:0 .9375em}
+#footer-text{color:rgba(0,0,0,.6)!important;font-size:.9em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
 </style>
 <style>
-/* Foundation stylesheet for CodeRay (to match GitHub theme) | MIT License | http://foundation.zurb.com */
-table.CodeRay { border-collapse: collapse; padding: 2px; margin-bottom: 0; border: 0; background: transparent; }
-table.CodeRay td { padding: 0 .5em; vertical-align: top; }
-table.CodeRay td.line-numbers { text-align: right; color: #999; border-right: 1px solid #e5e5e5; padding-left: 0; }
-span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inline-block; margin-right: 0.5em; padding-right: 0.5em; }
-.CodeRay td.line-numbers strong, .CodeRay span.line-numbers strong { font-weight: normal; }
-.CodeRay .debug { color: white !important; background: blue !important; }
-.CodeRay .annotation { color: #007; }
-.CodeRay .attribute-name { color: #f08; }
-.CodeRay .attribute-value { color: #700; }
-.CodeRay .binary { color: #509; }
-.CodeRay .comment  { color: #999; font-style: italic; }
-.CodeRay .char { color: #04D; }
-.CodeRay .char .content { color: #04D; }
-.CodeRay .char .delimiter { color: #039; }
-.CodeRay .class { color: #458; }
-.CodeRay .complex { color: #A08; }
-.CodeRay .constant { color: teal; }
-.CodeRay .color { color: #0A0; }
-.CodeRay .class-variable { color: #369; }
-.CodeRay .decorator { color: #B0B; }
-.CodeRay .definition { color: #099; }
-.CodeRay .directive { color: #088; }
-.CodeRay .delimiter { color: black; }
-.CodeRay .doc { color: #970; }
-.CodeRay .doctype { color: #34b; }
-.CodeRay .doc-string { color: #D42; }
-.CodeRay .escape  { color: #666; }
-.CodeRay .entity { color: #800; }
-.CodeRay .error { color: #808; }
-.CodeRay .exception { color: #C00; }
-.CodeRay .filename { color: #099; }
-.CodeRay .function { color: #900; }
-.CodeRay .global-variable { color: teal; }
-.CodeRay .hex { color: #058; }
-.CodeRay .integer  { color: #099; }
-.CodeRay .include { color: #B44; }
-.CodeRay .inline { color: black; }
-.CodeRay .inline .inline { background: #ccc; }
-.CodeRay .inline .inline .inline { background: #bbb; }
-.CodeRay .inline .inline-delimiter { color: #D14; }
-.CodeRay .inline-delimiter { color: #D14; }
-.CodeRay .important { color: #f00; }
-.CodeRay .interpreted { color: #B2B; }
-.CodeRay .instance-variable { color: teal; }
-.CodeRay .label { color: #970; }
-.CodeRay .local-variable { color: #963; }
-.CodeRay .octal { color: #40E; }
-.CodeRay .predefined { color: #369; }
-.CodeRay .preprocessor { color: #579; }
-.CodeRay .pseudo-class { color: #00C; }
-.CodeRay .predefined-type { color: #074; }
-.CodeRay .reserved, .keyword  { color: #000; }
-.CodeRay .key { color: #808; }
-.CodeRay .key .delimiter { color: #606; }
-.CodeRay .key .char { color: #80f; }
-.CodeRay .value { color: #088; }
-.CodeRay .regexp { background-color: #fff0ff; }
-.CodeRay .regexp .content { color: #808; }
-.CodeRay .regexp .delimiter { color: #404; }
-.CodeRay .regexp .modifier { color: #C2C; }
-.CodeRay .regexp .function  { color: #404; font-weight: bold; }
-.CodeRay .string { color: #D20; }
-.CodeRay .string .string { }
-.CodeRay .string .string .string { background-color: #ffd0d0; }
-.CodeRay .string .content { color: #D14; }
-.CodeRay .string .char { color: #D14; }
-.CodeRay .string .delimiter { color: #D14; }
-.CodeRay .shell { color: #D14; }
-.CodeRay .shell .content { }
-.CodeRay .shell .delimiter { color: #D14; }
-.CodeRay .symbol { color: #990073; }
-.CodeRay .symbol .content { color: #A60; }
-.CodeRay .symbol .delimiter { color: #630; }
-.CodeRay .tag, .CodeRay .attribute-name { color: #070; }
-.CodeRay .tag-special { color: #D70; }
-.CodeRay .type { color: #339; }
-.CodeRay .variable  { color: #036; }
-.CodeRay .insert { background: #afa; }
-.CodeRay .delete { background: #faa; }
-.CodeRay .change { color: #aaf; background: #007; }
-.CodeRay .head { color: #f8f; background: #505; }
-.CodeRay .insert .insert { color: #080; }
-.CodeRay .delete .delete { color: #800; }
-.CodeRay .change .change { color: #66f; }
-.CodeRay .head .head { color: #f4f; }
-
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{font-weight: normal}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#00}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
 </style>
 </head>
 <body class="book">
 <div id="header">
 <h1>JBoss Data Virtualization Workshop</h1>
+<div class="details">
 <span id="author" class="author">Cojan van Ballegooijen</span><br>
 <span id="email" class="email"><a href="https://twitter.com/cvanball">@cvanball</a></span><br>
 <span id="revnumber">version 1.0,</span>
 <span id="revdate">May 14, 2014</span>
+</div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li>
+<li><a href="#_introduction">1. Introduction</a>
 <ul class="sectlevel2">
 <li><a href="#_what_is_expected_of_you">1.1. What is expected of you</a></li>
 <li><a href="#_prerequisites">1.2. Prerequisites</a></li>
-<li><a href="#_setup_demo_environment">1.3. Setup demo environment</a></li>
-<li>
+<li><a href="#_setup_demo_environment">1.3. Setup demo environment</a>
 <ul class="sectlevel3">
 <li><a href="#_setup_postgresql">1.3.1. Setup PostgreSQL</a></li>
 <li><a href="#_setup_mysql">1.3.2. Setup MySQL</a></li>
@@ -473,8 +525,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </li>
 </ul>
 </li>
-<li><a href="#_install_red_hat_jboss_data_virtualization">2. Install Red Hat JBoss Data Virtualization</a></li>
-<li>
+<li><a href="#_install_red_hat_jboss_data_virtualization">2. Install Red Hat JBoss Data Virtualization</a>
 <ul class="sectlevel2">
 <li><a href="#_installing_red_hat_jboss_data_virtualization_through_graphical_mode">2.1. Installing Red Hat JBoss Data Virtualization through graphical mode</a></li>
 <li><a href="#_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">2.2. Installing Red Hat JBoss Data Virtualization through automated script mode</a></li>
@@ -482,8 +533,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </ul>
 </li>
 <li><a href="#_install_red_hat_jboss_developer_studio">3. Install Red Hat JBoss Developer Studio</a></li>
-<li><a href="#_create_a_teiid_project_and_import_data_source">4. Create a Teiid project and Import Data Source</a></li>
-<li>
+<li><a href="#_create_a_teiid_project_and_import_data_source">4. Create a Teiid project and Import Data Source</a>
 <ul class="sectlevel2">
 <li><a href="#_prerequisites_2">4.1. Prerequisites</a></li>
 <li><a href="#_open_the_teiid_perspective">4.2. Open the Teiid Perspective</a></li>
@@ -495,15 +545,13 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <li><a href="#_import_metadata_from_a_flat_file">4.8. Import Metadata from a flat file</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_virtual_base_layer">5. Create a Virtual Base Layer</a></li>
-<li>
+<li><a href="#_create_a_virtual_base_layer">5. Create a Virtual Base Layer</a>
 <ul class="sectlevel2">
 <li><a href="#_create_a_virtual_base_layer_us_customers_vbl">5.1. Create a virtual base layer: US_Customers_VBL</a></li>
 <li><a href="#_create_the_eu_customers_vbl_and_products_vbl_models">5.2. Create the EU_Customers_VBL and Products_VBL Models</a></li>
 </ul>
 </li>
-<li><a href="#_create_an_enterprise_data_layer">6. Create an Enterprise Data Layer</a></li>
-<li>
+<li><a href="#_create_an_enterprise_data_layer">6. Create an Enterprise Data Layer</a>
 <ul class="sectlevel2">
 <li><a href="#_import_the_data_dictionary_schema">6.1. Import the Data Dictionary Schema</a></li>
 <li><a href="#_examine_the_data_dictionary">6.2. Examine the Data Dictionary</a></li>
@@ -511,29 +559,25 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <li><a href="#_create_the_us_customers_ddc_enterprise_data_layer">6.4. Create the US_Customers_DDC Enterprise Data Layer</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_data_federation_layer">7. Create a Data Federation Layer</a></li>
-<li>
+<li><a href="#_create_a_data_federation_layer">7. Create a Data Federation Layer</a>
 <ul class="sectlevel2">
 <li><a href="#_create_a_data_federation_layer_2">7.1. Create a Data Federation Layer</a></li>
 </ul>
 </li>
 <li><a href="#_create_a_web_service">8. Create a Web Service</a></li>
-<li><a href="#_virtual_database_deployment">9. Virtual Database Deployment</a></li>
-<li>
+<li><a href="#_virtual_database_deployment">9. Virtual Database Deployment</a>
 <ul class="sectlevel2">
 <li><a href="#_create_the_vdb_metadata_model">9.1. Create the VDB Metadata Model</a></li>
 <li><a href="#_create_data_sources_on_the_jboss_data_virtualization_server">9.2. Create data sources on the JBoss Data Virtualization server</a></li>
 <li><a href="#_dependency_diagrams">9.3. Dependency Diagrams</a></li>
 </ul>
 </li>
-<li><a href="#_xml_and_service_sources">10. XML and Service Sources</a></li>
-<li>
+<li><a href="#_xml_and_service_sources">10. XML and Service Sources</a>
 <ul class="sectlevel2">
 <li><a href="#_create_relational_model_from_wsdl">10.1. Create relational model from WSDL</a></li>
 </ul>
 </li>
-<li><a href="#_odata">11. OData</a></li>
-<li>
+<li><a href="#_odata">11. OData</a>
 <ul class="sectlevel2">
 <li><a href="#_how_to_access_the_data">11.1. How to access the data</a></li>
 <li><a href="#_how_to_query_the_data">11.2. How to query the data</a></li>
@@ -589,13 +633,13 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <div class="ulist">
 <ul>
 <li>
-<p>Teiid (<a href="http://www.jboss.org/teiid">http://www.jboss.org/teiid</a>)</p>
+<p>Teiid (<a href="http://www.jboss.org/teiid" class="bare">http://www.jboss.org/teiid</a>)</p>
 </li>
 <li>
-<p>Teiid Designer (<a href="http://www.jboss.org/teiiddesigner">http://www.jboss.org/teiiddesigner</a>)</p>
+<p>Teiid Designer (<a href="http://www.jboss.org/teiiddesigner" class="bare">http://www.jboss.org/teiiddesigner</a>)</p>
 </li>
 <li>
-<p>Modeshape (<a href="http://www.jboss.org/modeshape">http://www.jboss.org/modeshape</a>)</p>
+<p>Modeshape (<a href="http://www.jboss.org/modeshape" class="bare">http://www.jboss.org/modeshape</a>)</p>
 </li>
 </ul>
 </div>
@@ -607,10 +651,10 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <img src="images/0.2-DV-Server.png" alt="0.2 DV Server">
 </div>
 </div>
-<table class="tableblock frame-all grid-all" style="width:100%; ">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width:28%;">
-<col style="width:71%;"> 
+<col style="width: 28%;">
+<col style="width: 71%;">
 </colgroup>
 <thead>
 <tr>
@@ -664,7 +708,6 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 </tr>
 </tbody>
 </table>
-
 <div class="sect2">
 <h3 id="_what_is_expected_of_you">1.1. What is expected of you</h3>
 <div class="paragraph">
@@ -699,7 +742,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <h4 id="_setup_postgresql">1.3.1. Setup PostgreSQL</h4>
 <div class="paragraph">
 <p>Installation
-The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See <a href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</a> for more information and downloads.
+The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See <a href="http://www.postgresql.org/download/" class="bare">http://www.postgresql.org/download/</a> for more information and downloads.
 Post-install steps:</p>
 </div>
 <div class="olist arabic">
@@ -764,7 +807,7 @@ postgres=# \q</pre>
 <h4 id="_setup_mysql">1.3.2. Setup MySQL</h4>
 <div class="paragraph">
 <p>Installation
-The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See <a href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</a> for more information and downloads.
+The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See <a href="http://dev.mysql.com/downloads/mysql/" class="bare">http://dev.mysql.com/downloads/mysql/</a> for more information and downloads.
 Post-install steps</p>
 </div>
 <div class="olist arabic">
@@ -886,7 +929,7 @@ Bye</pre>
 <div class="sect2">
 <h3 id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">2.1. Installing Red Hat JBoss Data Virtualization through graphical mode</h3>
 <div class="paragraph">
-<p>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</a>.</p>
+<p>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html" class="bare">http://www.jboss.org/products/datavirt.html</a>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -902,7 +945,7 @@ Run the installer using java at the command prompt: java -jar jboss-dv-installer
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="bash language-bash">$ java -jar jboss-dv-installer-6.0.0.GA-redhat-4.jar</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-6.0.0.GA-redhat-4.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -935,7 +978,7 @@ Run the installer using java at the command prompt: java -jar jboss-dv-installer
 </div>
 <div class="paragraph">
 <p>The Maven Repository Setup window appears. You will need to provide Maven repository settings in order to build quickstarts provided in the Red Hat JBoss Data Virtualization installation. At this point, the installer can automatically configure your Maven settings to setup the online repository for remote access.
-To setup the Maven repository, select Specify the path (or URL)&#8230;. Enter the location of the Maven settings.xml file or select Browse to navigate to the file. Alternatively, you can choose to skip the Maven repository setup.</p>
+To setup the Maven repository, select Specify the path (or URL)&#8230;&#8203;. Enter the location of the Maven settings.xml file or select Browse to navigate to the file. Alternatively, you can choose to skip the Maven repository setup.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1013,21 +1056,21 @@ When the installation is complete, navigate to</p>
 <h3 id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">2.2. Installing Red Hat JBoss Data Virtualization through automated script mode</h3>
 <div class="paragraph">
 <p>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.
-Clone the repository using git from <a href="https://github.com/kpeeples/simplified-dv-template.git">https://github.com/kpeeples/simplified-dv-template.git</a></p>
+Clone the repository using git from <a href="https://github.com/kpeeples/simplified-dv-template.git" class="bare">https://github.com/kpeeples/simplified-dv-template.git</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="bash language-bash">$ git clone https://github.com/kpeeples/simplified-dv-template.git</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ git clone https://github.com/kpeeples/simplified-dv-template.git</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The following username/passwords will be installed automatically for access to</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width:100%; ">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width:33%;">
-<col style="width:33%;">
-<col style="width:33%;"> 
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -1049,9 +1092,8 @@ Clone the repository using git from <a href="https://github.com/kpeeples/simplif
 </tr>
 </tbody>
 </table>
-
 <div class="paragraph">
-<p>Download the JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</a>.</p>
+<p>Download the JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html" class="bare">http://www.jboss.org/products/datavirt.html</a>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1066,7 +1108,7 @@ Clone the repository using git from <a href="https://github.com/kpeeples/simplif
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="xml language-xml"><span class="tag">&lt;installpath&gt;</span>/home/kpeeples/demos/dv-install-script-demo/installed/dv<span class="tag">&lt;/installpath&gt;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;installpath&gt;</span>/home/kpeeples/demos/dv-install-script-demo/installed/dv<span class="tag">&lt;/installpath&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1075,7 +1117,7 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="bash language-bash">$ ./install-run.sh</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ ./install-run.sh</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -1092,7 +1134,7 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
 </div>
 </div>
 <div class="paragraph">
-<p>Browse to <a href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</a> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use user/user as the credentials that were installed as default and click <b class="button">Log In</b>.</p>
+<p>Browse to <a href="http://localhost:8080/dashboard" class="bare">http://localhost:8080/dashboard</a> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use user/user as the credentials that were installed as default and click <b class="button">Log In</b>.</p>
 </div>
 <div class="paragraph">
 <p>Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode.</p>
@@ -1105,7 +1147,7 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
 </div>
 <div class="paragraph">
 <p>Get your free OpenShift Online account
-Sign up for your free account OpenShift Online account at <a href="https://www.openshift.com/app/account/new">https://www.openshift.com/app/account/new</a> and you should see the screen below.</p>
+Sign up for your free account OpenShift Online account at <a href="https://www.openshift.com/app/account/new" class="bare">https://www.openshift.com/app/account/new</a> and you should see the screen below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1125,7 +1167,7 @@ Alternatively, you can deploy the DataVirtualization cartridge using the OpenShi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="bash language-bash">$ rhc app create dv jboss-dv-6.0.0</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ rhc app create dv jboss-dv-6.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1215,7 +1257,7 @@ The current available version is 7.1.1.GA, and to run the installer at the comma
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="bash language-bash">$ java -jar jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1348,7 +1390,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <div class="ulist">
 <ul>
 <li>
-<p>Using <span class="menuseq"><span class="menu">Help</span>&#160;&#9656; <span class="menuitem">Install New Software&#8230;</span></span></p>
+<p>Using <span class="menuseq"><span class="menu">Help</span>&#160;&#9656; <span class="menuitem">Install New Software&#8230;&#8203;</span></span></p>
 </li>
 </ul>
 </div>
@@ -1366,10 +1408,10 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <p>In the "Work with:" field on the Install wizard, paste the following link:</p>
 </div>
 <div class="paragraph">
-<p><a href="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</a></p>
+<p><a href="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/" class="bare">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</a></p>
 </div>
 <div class="paragraph">
-<p>and click the <b class="button">Add&#8230;</b> button.</p>
+<p>and click the <b class="button">Add&#8230;&#8203;</b> button.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1423,7 +1465,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 </div>
 </div>
 <div class="paragraph">
-<p>Now, it is a matter of clicking through several screens to add the JBoss Data Virtualization server instance that was installed as part of Lab 1. Click the link “No servers are available. Click this link to create a new server&#8230;” and following window will appear:</p>
+<p>Now, it is a matter of clicking through several screens to add the JBoss Data Virtualization server instance that was installed as part of Lab 1. Click the link “No servers are available. Click this link to create a new server&#8230;&#8203;” and following window will appear:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1472,7 +1514,7 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
 <div class="title">Note</div>
 </td>
 <td class="content">
-If JBoss Data Virtualization Server is already started from the command line using standalone.sh or standalone.bat, JBoss Developer Studio will show a warning "Server already running on localhost", select option "Set the server adapter to <em>started</em>, without launching a new server."
+If JBoss Data Virtualization Server is already started from the command line using standalone.sh or standalone.bat, JBoss Developer Studio will show a warning "Server already running on localhost", select option "Set the server adapter to 'started', without launching a new server."
 </td>
 </tr>
 </table>
@@ -1516,7 +1558,7 @@ If JBoss Data Virtualization Server is already started from the command line usi
 <h3 id="_open_the_teiid_perspective">4.2. Open the Teiid Perspective</h3>
 <div class="paragraph">
 <p>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
-To open the “Teiid Designer” perspective, first select <span class="menuseq"><span class="menu">Window</span>&#160;&#9656; <span class="submenu">Open Perspective</span>&#160;&#9656; <span class="menuitem">Other&#8230;</span></span> in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.</p>
+To open the “Teiid Designer” perspective, first select <span class="menuseq"><span class="menu">Window</span>&#160;&#9656; <span class="submenu">Open Perspective</span>&#160;&#9656; <span class="menuitem">Other&#8230;&#8203;</span></span> in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1611,7 +1653,7 @@ More information on the Import Wizard (and all of the features in the Teiid Desi
 <div class="sect2">
 <h3 id="_importing_metadata_from_the_product_database">4.5. Importing Metadata from the Product Database</h3>
 <div class="paragraph">
-<p>Right-click on the “DataSources” folder and select <span class="menu">Import&#8230;</span>. In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options. Now, select “JDBC Database &gt;&gt; Source Model” and click <b class="button">Next &gt;</b>.</p>
+<p>Right-click on the “DataSources” folder and select <span class="menu">Import&#8230;&#8203;</span>. In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options. Now, select “JDBC Database &gt;&gt; Source Model” and click <b class="button">Next &gt;</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1619,7 +1661,7 @@ More information on the Import Wizard (and all of the features in the Teiid Desi
 </div>
 </div>
 <div class="paragraph">
-<p>In the “Import JDBC Database &gt;&gt; Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the <b class="button">New&#8230;</b> button to create it.
+<p>In the “Import JDBC Database &gt;&gt; Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the <b class="button">New&#8230;&#8203;</b> button to create it.
 The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “PostgreSQL” for the connection profile type. Enter “Products” for the Name and click <b class="button">Next &gt;</b>.</p>
 </div>
 <div class="imageblock">
@@ -1655,12 +1697,12 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 <p>Now that the driver has been selected, you can fill in the database, url, username, and password for the connection profile.
 Use the following values:</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width:100%; ">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width:25%;">
-<col style="width:25%;">
-<col style="width:25%;">
-<col style="width:25%;"> 
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
@@ -1679,7 +1721,6 @@ Use the following values:</p>
 </tr>
 </tbody>
 </table>
-
 <div class="paragraph">
 <p>Go ahead and check the “Save password” checkbox. Your JDBC Connection Profile wizard should resemble that below. Click <b class="button">Test Connection</b>. A successful ping should return. If it does not, please raise your hand. Click <b class="button">Finish</b>. After clicking “Finish”, your Import Database via JDBC wizard should look like that below.
 From this point, clicking <b class="button">Next &gt;</b> will take you to the dialog to select the metadata types that will be included when imported. The metadata that will be selected is indicated in the illustration below.</p>
@@ -1700,7 +1741,7 @@ Specifically, your dialogue for selecting database objects should look like that
 </div>
 <div class="paragraph">
 <p>If your dialogue looks like that above, click the <b class="button">Next &gt;</b> button. This will bring up the final screen of the JDBC Import Wizard as indicated below.
-Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with “&#8230;” on it. Click this button and the following screen will be shown.</p>
+Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with “&#8230;&#8203;” on it. Click this button and the following screen will be shown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1737,7 +1778,7 @@ This will bring up the Preview Data dialogue as indicated below.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click the <b class="button">&#8230;</b> button to open up a Table or Procedure Selection window. This allows us to drill-down into the tables that we wish to preview data for. For this lab, simply expand Financials, DataSources, and Products.xmi in order to select the productdata table as indicated in the illustration below.</p>
+<p>Click the <b class="button">&#8230;&#8203;</b> button to open up a Table or Procedure Selection window. This allows us to drill-down into the tables that we wish to preview data for. For this lab, simply expand Financials, DataSources, and Products.xmi in order to select the productdata table as indicated in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1808,7 +1849,7 @@ When you have completed the imports, the Package Diagram and Model Explorer for 
 </div>
 </div>
 <div class="paragraph">
-<p>The next screen that is displayed is the dialog box to select the file connection profile. Click on the <b class="button">New&#8230;</b> button.
+<p>The next screen that is displayed is the dialog box to select the file connection profile. Click on the <b class="button">New&#8230;&#8203;</b> button.
 The new connection profile dialog is displayed.</p>
 </div>
 <div class="imageblock">
@@ -1915,7 +1956,7 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click the btn[&#8230;] to the right of Existing Model and open <span class="menuseq"><span class="menu">Financials</span>&#160;&#9656; <span class="submenu">DataSources</span>&#160;&#9656; <span class="menuitem">US_Customers</span></span>. Click <b class="button">OK</b>. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click <b class="button">Finish</b> on the screen as indicated below.</p>
+<p>Click the btn[&#8230;&#8203;] to the right of Existing Model and open <span class="menuseq"><span class="menu">Financials</span>&#160;&#9656; <span class="submenu">DataSources</span>&#160;&#9656; <span class="menuitem">US_Customers</span></span>. Click <b class="button">OK</b>. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click <b class="button">Finish</b> on the screen as indicated below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2101,7 +2142,7 @@ To address these type mismatches we will open the Reconciler. This is done by cl
 <div class="title">Note</div>
 </td>
 <td class="content">
-The highlighted fields indicate some problems. We can address all of these in one go by clicking on the <b class="button">Type Resolver&#8230;</b> button. That will bring up the following wizard.
+The highlighted fields indicate some problems. We can address all of these in one go by clicking on the <b class="button">Type Resolver&#8230;&#8203;</b> button. That will bring up the following wizard.
 </td>
 </tr>
 </table>
@@ -2245,7 +2286,7 @@ Right-click on the EnterpriseDataLayer folder and select <span class="menuseq"><
 <p>All we need to do is type "USA" into the Value field, click <b class="button">Apply</b>, then <b class="button">OK</b>. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.</p>
 </div>
 <div class="paragraph">
-<p>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned. Click <b class="button">OK</b> in the Reconciler and save your changes.
+<p>When the Expression Builder exits back into the Reconciler, you will notice that the function (\'USA' AS Country) has been properly assigned. Click <b class="button">OK</b> in the Reconciler and save your changes.
 Now perform the same process with the other two tables (Account and AccountHoldings). Delete the EU_Customers_DDC source and drag &amp; drop the appropriate US_Customers_VBL source and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
 The Data Dictionary has also defined enterprise types for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the DDC model. Finally, reconcile any datatype conversion issues.</p>
 </div>
@@ -2360,7 +2401,7 @@ With the getcustomer operation highlighted, click the “Running man icon with a
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="xml language-xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="tag">&lt;account_Output:customer_Output</span>                 <span class="attribute-name">xmlns:account_Output</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.metamatrix.com/account_Output</span><span class="delimiter">&quot;</span></span>         <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;customer_Output_Instance&gt;</span>
                 <span class="tag">&lt;customerid&gt;</span>CST01033<span class="tag">&lt;/customerid&gt;</span>
@@ -2485,7 +2526,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </div>
 <div class="paragraph">
 <p>To add new Data Source right-click on Data Sources. This will bring up a menu option to create a new data source. This will open the Create Data Source Wizard.
-At this point, we are ready to deploy the VDB to the server. This could not be easier. Simply right-click on Financials VDB model and select Modeling &#8594; Deploy. This will deploy the VDB to the running Teiid Server instance. Now, open up a browser and point it to <a href="http://localhost:8080">http://localhost:8080</a>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</p>
+At this point, we are ready to deploy the VDB to the server. This could not be easier. Simply right-click on Financials VDB model and select Modeling &#8594; Deploy. This will deploy the VDB to the running Teiid Server instance. Now, open up a browser and point it to <a href="http://localhost:8080" class="bare">http://localhost:8080</a>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2551,7 +2592,7 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 <p>In this lab you will be using the JDBS tool to create a Web Service. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of the JBDS tool to create a Web Service. In this lab you will create the CountryInfoService.xmi model and the CountryInfoServiceView.xmi model. These will be created from the WSDL:</p>
 </div>
 <div class="paragraph">
-<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
+<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL" class="bare">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
 </div>
 <div class="sect2">
 <h3 id="_create_relational_model_from_wsdl">10.1. Create relational model from WSDL</h3>
@@ -2568,7 +2609,7 @@ Create two new folders called WSDL and User-specified Procedures in your Model E
 <p>Do the same for folder User-specified Procedures.</p>
 </div>
 <div class="paragraph">
-<p>Right-click on the WSDL folder and select Import&#8230; from the right-hand menu.</p>
+<p>Right-click on the WSDL folder and select Import&#8230;&#8203; from the right-hand menu.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2584,7 +2625,7 @@ Create two new folders called WSDL and User-specified Procedures in your Model E
 </div>
 </div>
 <div class="paragraph">
-<p>Click on the <b class="button">New&#8230;</b> button to create a new Connection Profile. The New Connection Profile dialog opens.</p>
+<p>Click on the <b class="button">New&#8230;&#8203;</b> button to create a new Connection Profile. The New Connection Profile dialog opens.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2601,7 +2642,7 @@ The New Connection Profile dialog box opens.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The WSDL that you will connect to is a URL. Click on the <b class="button">URL&#8230;</b> button to enter a URL.
+<p>The WSDL that you will connect to is a URL. Click on the <b class="button">URL&#8230;&#8203;</b> button to enter a URL.
 The WSDL URL dialog box opens.</p>
 </div>
 <div class="imageblock">
@@ -2613,7 +2654,7 @@ The WSDL URL dialog box opens.</p>
 <p>In the WSDL URL field enter in the following URL:</p>
 </div>
 <div class="paragraph">
-<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
+<p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL" class="bare">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
 </div>
 <div class="paragraph">
 <p>The WSDL has no security so leave the Security Type to default of None. Click the <b class="button">OK</b> button. When you click the <b class="button">OK</b> button the software will validate the URL.</p>
@@ -2667,7 +2708,7 @@ Click on the <b class="button">Deselect All</b> button to deselect all of the WS
 <p>Click on the <b class="button">Next &gt;</b> button.</p>
 </div>
 <div class="paragraph">
-<p>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <b class="button">&#8230;</b> to select locations and existing models in your workspace.</p>
+<p>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <b class="button">&#8230;&#8203;</b> to select locations and existing models in your workspace.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2734,7 +2775,7 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 <p>Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:</p>
 </div>
 <div class="paragraph">
-<p><a href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</a></p>
+<p><a href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html" class="bare">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</a></p>
 </div>
 <div class="paragraph">
 <p>Save and close the models.</p>
@@ -2751,13 +2792,13 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 <div class="paragraph">
 <p>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
-For more information on OData see <a href="http://www.odata.org">http://www.odata.org</a>.</p>
+For more information on OData see <a href="http://www.odata.org" class="bare">http://www.odata.org</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="_how_to_access_the_data">11.1. How to access the data</h3>
 <div class="paragraph">
 <p>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
-Now, open up a browser and point it to the following URL: <a href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</a>.
+Now, open up a browser and point it to the following URL: <a href="http://localhost:8080/odata/Financials.1/All_Customers.customer" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer</a>.
 If you are requested to type in a username/password enter user/user. This is similar to making a JDBC/ODBC connection and issuing a SQL call as SELECT * FROM All_Customers.customer;
 The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</p>
 </div>
@@ -2768,7 +2809,7 @@ The returned results from OData query can be in Atom/AtomPub XML format or JSON 
 </div>
 <div class="paragraph">
 <p>To return the results in JSON format use the following URL as shown below:
-<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json">http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json</a></p>
+<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json</a></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2779,10 +2820,10 @@ The returned results from OData query can be in Atom/AtomPub XML format or JSON 
 <div class="sect2">
 <h3 id="_how_to_query_the_data">11.2. How to query the data</h3>
 <div class="paragraph">
-<p>To search for customer with customerid='CST01033' which is the SQL equivalent of
-SELECT * FROM All_Customers.customer where customerid='CST01033';
+<p>To search for customer with customerid=\'CST01033' which is the SQL equivalent of
+SELECT * FROM All_Customers.customer where customerid=\'CST01033';
 use following URL and it should return the results shown below:
-<a href="http://localhost:8080/odata/Financials.1/customer('CST01033')">http://localhost:8080/odata/Financials.1/customer('CST01033')</a></p>
+<a href="http://localhost:8080/odata/Financials.1/customer(\'CST01033'" class="bare">http://localhost:8080/odata/Financials.1/customer(\'CST01033'</a>)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2792,7 +2833,7 @@ use following URL and it should return the results shown below:
 <div class="paragraph">
 <p>Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
 To search customers from the USA try following URL:
-<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</a> eq <em>USA</em>
+<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</a> eq 'USA'
 and this should return the results as shown below.</p>
 </div>
 <div class="imageblock">

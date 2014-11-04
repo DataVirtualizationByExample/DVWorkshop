@@ -5,7 +5,7 @@
 #######################################################################
 
 # Use the centos base image
-FROM centos
+FROM centos:centos6
 
 MAINTAINER cvanball <cvanball@redhat.com>
 MAINTAINER kpeeples <kpeeples@redhat.com>
@@ -102,16 +102,21 @@ RUN echo "* hard nofile 4096" >> /etc/security/limits.conf
 ############################################
 USER jboss
 ENV INSTALLDIR /home/jboss/dv
-ENV HOME /home/jboss
 RUN mkdir $INSTALLDIR && \
    mkdir $INSTALLDIR/software && \
    mkdir $INSTALLDIR/support && \
    mkdir $INSTALLDIR/jdbc
-
 ADD software/jboss-dv-installer-6.0.0.GA-redhat-4.jar $INSTALLDIR/software/jboss-dv-installer-6.0.0.GA-redhat-4.jar 
 ADD support/teiid-security-users.properties $INSTALLDIR/support/teiid-security-users.properties
 ADD support/teiid-security-roles.properties $INSTALLDIR/support/teiid-security-roles.properties
 ADD support/InstallationScript.xml $INSTALLDIR/support/InstallationScript.xml
+
+USER root
+RUN chown jboss:jboss $INSTALLDIR/software/*
+RUN chown jboss:jboss $INSTALLDIR/support/*
+
+USER jboss
+ENV HOME /home/jboss
 
 RUN java -jar $INSTALLDIR/software/jboss-dv-installer-6.0.0.GA-redhat-4.jar $INSTALLDIR/support/InstallationScript.xml
 RUN mv $INSTALLDIR/support/teiid* $INSTALLDIR/jboss-eap-6.1/standalone/configuration
@@ -128,7 +133,7 @@ RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,
 
 # Create /home/jboss/run.sh startup script
 USER root
-RUN echo "#!/bin/bash"
+RUN echo "#!/bin/bash" >> $HOME/run.sh
 RUN echo "echo JBoss Data Virtualization Start script" >> $HOME/run.sh
 RUN echo "service sshd start " >> $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh

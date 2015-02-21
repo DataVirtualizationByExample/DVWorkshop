@@ -3,7 +3,7 @@ The objective of this workshop is to get familiar with Red Hat JBoss Data Virtua
 
 Prerequisites
 
-1. OpenJDK 1.6 or 1.7 or Oracle JDK 1.6 or 1.7
+1. OpenJDK 1.7 or 1.8 or Oracle JDK 1.7 or 1.8
 
 2. Download [Red Hat JBoss Data Virtualization 6.1.0.GA](http://www.jboss.org/products/datavirt/overview/)
 

@@ -13,11 +13,11 @@ Enter US_Customers_VBL as the Model Name, Relational as the Model Class, and Vie
 
 image::4.1-new-model-wizard.png[]
 
-The “Transform from an Existing Model” wizard will appear. 
+The “Transform from an Existing Model” step of the New Model Wizard will appear. 
 
 image::4.1-new-model-wizard2.png[]
 
-Click the btn[...] to the right of Existing Model and open menu:Financials[DataSources > US_Customers]. Click btn:[OK]. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click btn:[Finish] on the screen as indicated below.
+Click the btn:[...] to the right of Existing Model and open menu:Financials[DataSources > US_Customers.xmi]. Click btn:[OK]. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click btn:[Finish] on the screen as indicated below.
 
 image::4.1-new-model-wizard3.png[]
 

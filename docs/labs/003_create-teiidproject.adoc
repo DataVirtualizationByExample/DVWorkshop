@@ -7,7 +7,7 @@ Make sure that the previous labs have been completed so that a JBoss Data Virtua
 
 === Prerequisites
 
-- If using PostgreSQL database, download the http://jdbc.postgresql.org/download.html[PostgreSQL JDBC Driver]. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 then you should use the JDBC41 version.
+- If using PostgreSQL database, download the http://jdbc.postgresql.org/download.html[PostgreSQL JDBC Driver]. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.
 - If using MySQL database, download the http://www.mysql.com/products/connector/[MySQL JDBC Driver].
 - Save the JDBC driver in a "well-known" directory
 
@@ -27,9 +27,9 @@ This will bring you to a screen that looks like this:
 image::3.1-JBDS-Teiid-designer2.png[]
 
 Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid. 
-Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.0.0.GA server in the Server pane.
-For the name simply enter “MyTeiidInstance”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter user / user for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked.
-For the Teiid Admin Connection Info, keep the defaults that are listed and use admin / admin for the username / password combination. Keep the default port number. Both “Save” and “SSL” checkboxes should be checked. When complete, your Teiid Server Connection Information should look like the illustration below.
+Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.1 server in the Server pane.
+For the name simply use “JBoss Data Virtualization 6.1”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked.
+For the Teiid Admin Connection Info, keep the defaults that are listed and use admin / redhat1! for the username / password combination. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
 As a “sanity” check, be sure to click the btn:[Test] button. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.
 
 The Teiid View along the bottom of JBDS should look like the following illustration. 
@@ -44,11 +44,11 @@ image::3.2-new-model-project.png[]
 
 In the project name, enter “Financials” and keep the remaining defaults. Select the btn:[Next >] button.
 
-After clicking btn:[Next], the following window is presented for Project References. Keep the default and click btn:[Next >] again.
+After clicking btn:[Next], the following window is presented for Project References. 
 
 image::3.2-new-model-project2.png[]
 
-The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, VirtualBaseLayer and WebServices. The Model Project Options window should look like that below.
+Keep the default and click btn:[Next >] again. The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, VirtualBaseLayer and WebServices. The Model Project Options window should look like that below.
 
 image::3.2-new-model-project3.png[]
 
@@ -79,11 +79,11 @@ The next step of setting up the connection profile is selecting the driver to us
 
 image::3.3-add-jdbc-driver.png[]
 
-Then select the cross-haired icon “New Driver Definition” which is to the right of Drivers.
+Then select the cross-haired icon “New Driver Definition” which is the first button to the right of Drivers drop-down list.
 
 image::3.3-setup-connection-profile2.png[]
 
-In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click btn:[Remove JAR/Zip] and then click the btn:[Add JAR/Zip] button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the postgresql/mysql jdbc driver file from the directory where this file is saved after download. Click btn:[OK]. After clicking OK, the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
+In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click btn:[Remove JAR/Zip] and then click the btn:[Add JAR/Zip] button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click btn:[OK]. After clicking btn:[OK], the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
 
 image::3.3-import-db-via-jdbc.png[]
 
@@ -107,13 +107,13 @@ From this point, clicking btn:[Next >] will take you to the dialog to select the
 
 image::3.3-import-db-via-jdbc2.png[]
 
-Once your database metadata selections have been made, click the btn:[Next] button. This will bring up the following dialogue. Be sure to click the arrow icon next to “public” in the Products database. This will select the two tables that we want to import. 
-Specifically, your dialogue for selecting database objects should look like that below.
+Once your database metadata selections have been made, click the btn:[Next] button. This will bring up the Select Database Objects dialogue. Be sure to click the arrow icon next to “public” in the Products database to expand the tree to show all objects available to import. Select the TABLE option, this will select the two tables we want to import. 
+Specifically, your dialogue for select database objects should look like that below.
 
 image::3.3-import-db-via-jdbc3.png[]
 
 If your dialogue looks like that above, click the btn:[Next >] button. This will bring up the final screen of the JDBC Import Wizard as indicated below.
-Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with “...” on it. Click this button and the following screen will be shown.
+Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with btn:[...] on it. Click this button and the following screen will be shown.
 
 image::3.3-import-db-via-jdbc4.png[]
 
@@ -122,7 +122,7 @@ Select the DataSources folder as indicated above. Once the folder has been selec
 image::3.3-import-db-via-jdbc5.png[]
 
 To keep the table names simple, make sure the “Use Fully Qualified Names” checkbox is unchecked. After verifying it matches, click the btn:[Finish] button.
-You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.
+You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key (productid) in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.
 
 image::3.3-Products.png[]
 
@@ -145,7 +145,7 @@ Once you click btn:[OK], a pop-up window will indicate that there are some tempo
 image::3.3-query-results.png[]
 
 === Import Metadata from the US_Customers and EU_Customers Databases
-We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the JDBC Database Import Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.
 
 image::3.4-US_Customers.png[]
@@ -167,14 +167,14 @@ Select option Flat file on local file system and click the btn:[Next >] button.
 
 image::3.5-data-file-source-selection.png[]
 
-The next screen that is displayed is the dialog box to select the file connection profile. Click on the btn:[New...] button.
+The next screen that is displayed is the dialog box to create a new connection profile. Click on the btn:[New...] button.
 The new connection profile dialog is displayed. 
 
 image::3.5-connection-profile.png[]
 
 Type in MarketData for the name and click the btn:[Next >] button.
 
-Use the browse (see image below) to locate the folder where the market data CSV file resides. The location should be DVWorkshop/dv_docker/demo. Ensure Use first line as column name indicator is checked. You can click the Test Connection button, it will just ensure that the program can get to the directory specified.
+Use the btn:[Browse...] button (see image below) to locate the folder where the market data CSV file resides. The location should be DVWorkshop/dv_docker/demo. Ensure Use first line as column name indicator is checked. You can click the Test Connection button, it will just ensure that the program can get to the directory specified.
 
 image::3.5-define-folder.png[]
 
@@ -182,27 +182,28 @@ Click the btn:[Next >] button. The next dialog is the Summary dialog box that di
 
 image::3.5-summary.png[]
 
-Click the btn:[Finish] button to continue. All of the CSV files are listed from the data source folder selected in the previous steps. We want to make sure that the check box is checked beside the marketdata.csv file, the file that you need to connect to. In the Source Model Definition, enter the model name, MarketData in the Name: field. (See image below)
+Click the btn:[Finish] button to continue. All of the CSV files are listed from the data source folder selected in the previous steps. We want to make sure that the check box is checked beside the marketdata.csv file, the file that you need to connect to. In the Source Model Definition, enter for the model name, MarketData in the Name: field (see image below).
 
 image::3.5-select-csv.png[]
  
 Click on the btn:[Next >] button to continue. 
 
-The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you will select. 
+The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you need to select. 
 
 image::3.5-flat-file-column-format.png[]
 
-Click on the btn:[Next >] button to continue. Next specify parameters for how the CSV file to be imported. You will change the Datatype of the price column to bigdecimal. 
+Click on the btn:[Next >] button to continue. Next specify the flat file delimited columns parser settings for how the CSV file to be imported. You will change the Datatype of the price column to bigdecimal. 
 
 image::3.5-flat-file-column-format2.png[]
 
 Click the btn:[Next >] button when complete.
 
-The last step is to specify the View Model Definition. (See image below) Enter in the data from the image below. 
+The last step is to specify the View Model Definition (see image below). Enter the data from the image below. 
 
 image::3.5-view-model-definition.png[]
 
-Click on the btn:[Finish] button to import the model.
+Click on the btn:[Finish] button to import the model. Your JBDS screen should look similar to the image below.
 
+image::3.5-view-model-final.png[]
 
-Congratulations, you have now completed this lab.
+Save All. Congratulations, you have now completed this lab.

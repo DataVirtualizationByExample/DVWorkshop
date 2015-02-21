@@ -9,7 +9,7 @@ For more information on OData see http://www.odata.org.
 === How to access the data 
 When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. 
 Now, open up a browser and point it to the following URL: http://localhost:8080/odata/Financials.1/All_Customers.customer. 
-If you are requested to type in a username/password enter user/user. This is similar to making a JDBC/ODBC connection and issuing a SQL call as SELECT * FROM All_Customers.customer; 
+If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as SELECT * FROM All_Customers.customer; 
 The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.
 
 image::9.1-OData.png[]
@@ -20,17 +20,29 @@ http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json
 image::9.1-OData-JSON.png[]
 
 === How to query the data
-To search for customer with customerid=\'CST01033' which is the SQL equivalent of  
-SELECT * FROM All_Customers.customer where customerid=\'CST01033'; 
+To search for customer with customerid='CST01033' which is the SQL equivalent of  
+
+[source,sql]
+----
+SQL> SELECT * FROM All_Customers.customer where customerid='CST01033'; 
+----
+
 use following URL and it should return the results shown below:
-http://localhost:8080/odata/Financials.1/customer(\'CST01033')
+http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033')
 
 image::9.2-Query.png[]
 
 Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
-To search customers from the USA try following URL:
+To search customers from the USA which is the SQL equivalent of  
+
+[source,sql]
+----
+SQL> SELECT * FROM All_Customers.customer where country='USA'; 
+----
+
+use following URL and this should return the results as shown below.
 http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country eq 'USA'
-and this should return the results as shown below.
+
 
 image::9.2-Query2.png[]
 

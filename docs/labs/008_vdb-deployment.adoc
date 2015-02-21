@@ -3,7 +3,7 @@
 
 == Virtual Database Deployment 
 
-We have been doing all of our querying directly through the Preview interface of Teiid Designer, but in order to make our data services available to external clients, we will need to package them up into a Virtual Database (VDB), the deployable artifact that drives the run-time behavior of the server. It is exactly analogous to a WAR or an EAR file; once created it can simply be dropped into the deploy directory of a running server (with JBoss Data Virtualization installed) and the Teiid Server process will hot-deploy the data services modeled within it. The process is very simple.
+We have been doing all of our querying directly through the Preview interface of Teiid Designer, but in order to make our data services available to external clients, we will need to package them up into a Virtual DataBase (VDB), the deployable artifact that drives the run-time behavior of the server. It is exactly analogous to a WAR or an EAR file; once created it can simply be dropped into the deploy directory of a running server (with JBoss Data Virtualization installed) and the Teiid Server process will hot-deploy the data services modeled within it. The process is very simple.
 
 === Create the VDB Metadata Model
 Right-click on the Financials project (top layer folder in the Model Explorer) and select menu:New[Teiid VDB].
@@ -38,20 +38,33 @@ Be sure to "Save All" to save all of the changes to the VDB.
 
 === Create data sources on the JBoss Data Virtualization server
 
-There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server's deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers. This column is visible in the illustration below. 
+There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server's deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers and are derived automatically from the Source model name. This column is visible in the illustration below. 
 
 image::8.2-Teiid-Designer.png[]
 
-We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called MyTeiidInstance. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below. 
+We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called JBoss Data Virtualization 6.1. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below. 
 
 image::8.2-Teiid-instance.png[]
 
 Once complete, you should note that these data sources are already available, along with some of the internal sources used by JBoss Data Virtualization. Your Data Sources view should look like that below.
+  
+At this point, we are ready to deploy the VDB to the server. This could not be easier. Simply right-click on Financials VDB model and select Modeling -> Deploy. 
+
+image::8.2-VDB-Modeling.png[]
+
+image::8.2-VDB-Deploy.png[]
+
+Before the VDB will be deployed the Create VDB Data Source dialogue window appears to create a data source automatically for the VDB or to skip it.
+
+image::8.2-VDB-Create-DataSource.png[]
+
+After the VDB is deployed one can check the Data Sources in the Server tab of JBDS, see below.
 
 image::8.2-DS-view.png[]
 
-To add new Data Source right-click on Data Sources. This will bring up a menu option to create a new data source. This will open the Create Data Source Wizard.  
-At this point, we are ready to deploy the VDB to the server. This could not be easier. Simply right-click on Financials VDB model and select Modeling -> Deploy. This will deploy the VDB to the running Teiid Server instance. Now, open up a browser and point it to http://localhost:8080. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.
+Click btn:[Create Source] to create a data source for the Financials VDB.
+
+Now the deployment of the VDB will begin in the running Teiid Server instance. Now, open up a browser and point it to http://localhost:8080. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.
 
 image::8.2-Admin-console.png[]
 

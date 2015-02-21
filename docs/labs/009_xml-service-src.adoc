@@ -16,11 +16,15 @@ Do the same for folder User-specified Procedures.
 
 Right-click on the WSDL folder and select Import... from the right-hand menu.
 
-image::10.2-import-WSDL.png[]
+image::10.2-import-WSDL1.png[]
 
 The Import dialog box is opened. Select WSDL File or URL >> Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the btn:[Next >] button to continue. The Create Relational Model from Web Service Dialog box opens.
 
 image::10.2-import-WSDL2.png[]
+
+Since there are no Web Service Profiles configured one need to create a new one.
+
+image::10.2-import-WSDL3.png[]
 
 Click on the btn:[New...] button to create a new Connection Profile. The New Connection Profile dialog opens. 
 

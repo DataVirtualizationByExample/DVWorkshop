@@ -14,7 +14,7 @@ Choose to import the schema from the file system and click btn:[Next >].
 
 image::5.1-import-xsd2.png[]
 
-Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened in the “From Directory” field, you will be able to select (checkbox) the DataDictionary.xsd file. Then click btn:[Finish].
+Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened in the “From Directory” field, you will be able to select the DataDictionary.xsd file. Then click btn:[Finish].
 
 image::5.1-import-xsd3.png[]
 
@@ -22,23 +22,23 @@ You may get a warning that the Financials/Schemas already exists. Choose yes to 
 
 === Examine the Data Dictionary
 
-Double-click on the DataDictionary.xsd file you just imported to open the XML Schema viewer. This is a very basic viewer that allows you to see the design model, the source (note the tabs at the bottom), and choose any of the data types to view it's properties (in the Properties tab to the left). The schema can be edited/created here, but most customers use XML-specific tooling to create these files.
+Double-click on the DataDictionary.xsd file you just imported to open the XML Schema viewer. This is a very basic viewer that allows you to see the design model, the source (note the tabs at the bottom), and choose any of the data types to view it's properties (in the Properties tab to the bottom-left). The schema can be edited/created here, but most customers use XML-specific tooling to create these files.
 
 image::5.2-Data-Dictionary.png[]
 
 === Create the EU_Customers_DDC Enterprise Data Layer
-Create a new virtual metadata model called EU_Customers_DDC (for Domain Data Dictionary) under the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select menu:New[Teiid Metadata Model] to bring up the New Model Wizard and make the following selections as indicated in the illustration below.
+Create a new virtual metadata model called EU_Customers_DDC (for Domain Data Dictionary) in the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select menu:New[Teiid Metadata Model] to bring up the New Model Wizard and make the following selections as indicated in the illustration below.
 
 image::5.3-new-model.png[]
 
 Click btn:[Next >] to go the next step of the New Model Wizard.
 
-This time, use the EU_Customers_VBL as the model as the basis for the DDC model and click btn:[OK] and btn:[Finish].
+This time, use the EU_Customers_VBL.xmi as the model as the basis for the EU_Customers_DDC model and click btn:[OK] and then btn:[Finish].
 
 image::5.3-new-model2.png[]
 
-We are going to use the database schema of the EU_Customers database as the standard upon which to base our enterprise model. Therefore we won't be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers and EU_Customers DDC models we will see that more changes will be necessary to make them semantically align with our enterprise model.
-Open the transformation Editor for the Customer table of EU_Customers by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.
+We are going to use the database schema of the eucustomers database as the standard upon which to base our enterprise model. Therefore we won't be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers_DDC and EU_Customers_DDC models we will see that more changes will be necessary to make them semantically align with our enterprise model.
+Open the transformation Editor for the customer table of EU_Customers by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.
 
 Click on the value field to the right of datatype in the Properties Panel in the lower left-hand side of JBDS.
 
@@ -69,7 +69,7 @@ NOTE: The highlighted fields indicate some problems. We can address all of these
 image::5.3-reconciler2.png[]
 
 Select each mapping at the top and see that the proposed transformation at the bottom changes. This is under the SQL Symbol panel; we want to convert to the datatype that is assigned to the enterprise datatype. (The Virtual Target Attribute section of the wizard above lets you modify that datatype; we don't want to do that here.)
-Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the btn:[Convert all button] (the second one, in the SQL Symbol section), followed by clicking btn:[OK]. This will return you to the Reconciler. Note that the SQL has been re-written in the transformation to handle all the type conversions. Click btn:[OK] on the Reconciler to finish the process.
+Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the btn:[Convert all source SQL symbol datatypes], followed by clicking btn:[OK]. This will return you to the Reconciler. Note that the SQL has been re-written in the transformation to handle all the type conversions. Click btn:[OK] on the Reconciler to finish the process and to return to the Transformation editor.
 
 Now go back and perform the same steps with the account table.
 If we were worried about precision, we could take any number of steps to refine/modify the transformation including coding it by hand in the Transformation Editor, using one of the large set of out-of-the-box functions provided with the product, or by creating our own User-Defined function. 
@@ -85,11 +85,15 @@ Right-click on the EnterpriseDataLayer folder and select menu:New[Teiid Metadata
 
 image::5.4-newmodel.png[]
 
-In the “New Model Wizard” window choose the EU_Customers_DDC model in the EnterpriseDataLayer folder and click btn:[OK] followed by btn:[Next >] and btn:[Finish]. Your selection should be as indicated below.
+In the “New Model Wizard” window choose the EU_Customers_DDC.xmi model in the EnterpriseDataLayer folder and click btn:[OK] followed by btn:[Next >] and btn:[Finish]. Your selection should be as indicated below.
 
 image::5.4-newmodel2.png[]
 
-Open the Transformation Editor on US_Customers_DDC.customer. Note that the Source of the transformation is the EU_Customers_DDC.eucustomer table. We want to replace that with the US_Customers_VBL table. Right-click on the Source table and select menu:Remove Transformation Source(s)[].
+Open the Transformation Editor on US_Customers_DDC.customer. See figure below.
+
+image::5.4-newmodel3.png[]
+
+Note that the Source of the transformation is the EU_Customers_DDC.customer table. We want to replace that with the US_Customers_VBL.customer table. Right-click on the Source table and select menu:Remove Transformation Source(s)[].
 
 image::5.4-removetransformsrc.png[]
 
@@ -101,7 +105,7 @@ Click btn:[OK]. The following illustration indicates what your view in Teiid Des
 
 image::5.4-teiiddesigner.png[]
 
-Select the VirtualBaseLayer -> US_Customers_VBL -> customer table. This is highlighted in the illustration below.
+Select the VirtualBaseLayer -> US_Customers_VBL -> customer table and drag & drop the table in the Sources swim lane of the US_Customers_DDC window. This is highlighted in the illustration below.
 
 image::5.4-VBL.png[]
 
@@ -131,9 +135,9 @@ image::5.4-expression-builder.png[]
 
 All we need to do is type "USA" into the Value field, click btn:[Apply], then btn:[OK]. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.
 
-When the Expression Builder exits back into the Reconciler, you will notice that the function (\'USA' AS Country) has been properly assigned. Click btn:[OK] in the Reconciler and save your changes. 
-Now perform the same process with the other two tables (Account and AccountHoldings). Delete the EU_Customers_DDC source and drag & drop the appropriate US_Customers_VBL source and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
-The Data Dictionary has also defined enterprise types for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the DDC model. Finally, reconcile any datatype conversion issues.
+When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned. Click btn:[OK] in the Reconciler and save your changes. 
+Now perform the same process with the other two tables (account and accountholdings). Delete the EU_Customers_DDC.account & EU_Customers_DDC.accountholdings source and drag & drop the appropriate US_Customers_VBL.account & US_Customers_VBL.accountholdings source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
+The Data Dictionary has also enterprise data types defined for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the Products_DDC model. Finally, reconcile any datatype conversion issues.
 
 Congratulations, you have now completed this lab.
 

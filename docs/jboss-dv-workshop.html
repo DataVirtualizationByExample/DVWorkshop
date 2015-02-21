@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.0">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Cojan van Ballegooijen">
 <title>JBoss Data Virtualization Workshop</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -381,7 +381,7 @@ p{margin-bottom:1.25rem}
 *{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
 a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
-a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after,a[href^="mailto:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
 pre,blockquote,tr,img{page-break-inside:avoid}
 thead{display:table-header-group}
@@ -507,8 +507,8 @@ table.CodeRay td.code>pre{padding:0}
 <div class="details">
 <span id="author" class="author">Cojan van Ballegooijen</span><br>
 <span id="email" class="email"><a href="https://twitter.com/cvanball">@cvanball</a></span><br>
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">May 14, 2014</span>
+<span id="revnumber">version 6.1,</span>
+<span id="revdate">February 14th, 2014</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
@@ -639,7 +639,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>Teiid Designer (<a href="http://www.jboss.org/teiiddesigner" class="bare">http://www.jboss.org/teiiddesigner</a>)</p>
 </li>
 <li>
-<p>Modeshape (<a href="http://www.jboss.org/modeshape" class="bare">http://www.jboss.org/modeshape</a>)</p>
+<p>ModeShape (<a href="http://www.jboss.org/modeshape" class="bare">http://www.jboss.org/modeshape</a>)</p>
 </li>
 </ul>
 </div>
@@ -684,7 +684,7 @@ table.CodeRay td.code>pre{padding:0}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Connectors</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? A custom translators and resource adaptors can easily be developed.</p>
+<p>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? Custom translators and resource adaptors can easily be developed.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -719,16 +719,16 @@ table.CodeRay td.code>pre{padding:0}
 <div class="ulist">
 <ul>
 <li>
-<p>OpenJDK 1.6 or 1.7 or Oracle JDK 1.6, 1.7 installed</p>
+<p>OpenJDK 1.7, 1.8 or Oracle JDK 1.7, 1.8 installed</p>
 </li>
 <li>
 <p>Git installed</p>
 </li>
 <li>
-<p>PostgreSQL server and/or MySQL server running</p>
+<p>PostgreSQL server or MySQL server running</p>
 </li>
 <li>
-<p>PostgreSQL and/or MySQL client tools installed if using a remote database</p>
+<p>PostgreSQL or MySQL client tools installed if using a remote database</p>
 </li>
 </ul>
 </div>
@@ -938,14 +938,19 @@ Bye</pre>
 </div>
 <div class="paragraph">
 <p>Open a terminal window and navigate to the location where the GUI installer was downloaded.
-Run the installer using java at the command prompt: java -jar jboss-dv-installer-{version}.jar</p>
-</div>
-<div class="paragraph">
-<p>The current available version is 6.0.0.GA-redhat-4 and to run the installer at the command prompt see below:</p>
+Run the installer using java at the command prompt:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-6.0.0.GA-redhat-4.jar</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-{version}.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The current available version is 6.1.0.redhat-3 and to run the installer at the command prompt use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-6.1.0.redhat-3.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -968,12 +973,26 @@ Run the installer using java at the command prompt: java -jar jboss-dv-installer
 <div class="paragraph">
 <p>When you are prompted about the specified location being created or overwritten, review the message and, if satisfied, click <b class="button">OK</b> and then press <b class="button">Next</b>.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/1.1-DV-FilePath2.png" alt="1.1 DV FilePath2">
+</div>
+</div>
 <div class="paragraph">
-<p>You will be prompted to create a new admin username and password. Once created, it will be added to the ManagementRealm and can be used to access the Management Console and other applications secured using the ManagementRealm. Enter the new username and password in the appropriate fields and click <b class="button">Next</b>.</p>
+<p>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <b class="button">Next</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/1.1-DV-AdminUser.png" alt="1.1 DV AdminUser">
+<img src="images/1.1-DV-InstallPacks.png" alt="1.1 DV InstallPacks">
+</div>
+</div>
+<div class="paragraph">
+<p>You will be prompted to create new users. For convenience one can select one password for all default passwords. Enter the new username and password in the appropriate fields and click <b class="button">Next</b>.
+Furthermore select the checkbox "Enable OData access".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/1.1-DV-User.png" alt="1.1 DV User">
 </div>
 </div>
 <div class="paragraph">
@@ -997,6 +1016,17 @@ To setup the Maven repository, select Specify the path (or URL)&#8230;&#8203;. E
 <p>Click <b class="button">Yes</b> to proceed.</p>
 </div>
 <div class="paragraph">
+<p>The IPv6 configuration window appears. Enable IPv6 configuration if your computer is using a pure IPv6 configuration.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/1.1-DV-IPv6-config.png" alt="1.1 DV IPv6 config">
+</div>
+</div>
+<div class="paragraph">
+<p>Click <b class="button">Next</b> to proceed.</p>
+</div>
+<div class="paragraph">
 <p>You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <b class="button">Next</b> to proceed.</p>
 </div>
 <div class="imageblock">
@@ -1010,6 +1040,14 @@ To setup the Maven repository, select Specify the path (or URL)&#8230;&#8203;. E
 <div class="imageblock">
 <div class="content">
 <img src="images/1.1-DV-install-summary.png" alt="1.1 DV install summary">
+</div>
+</div>
+<div class="paragraph">
+<p>Click <b class="button">Next</b> to start the installation and the Component installation progress window will be displayed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/1.1-DV-install-component-summary.png" alt="1.1 DV install component summary">
 </div>
 </div>
 <div class="paragraph">
@@ -1087,8 +1125,8 @@ Clone the repository using git from <a href="https://github.com/kpeeples/simplif
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Teiid Server</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teiidUser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redhat1!</p></td>
 </tr>
 </tbody>
 </table>
@@ -1112,7 +1150,7 @@ Clone the repository using git from <a href="https://github.com/kpeeples/simplif
 </div>
 </div>
 <div class="paragraph">
-<p>Make sure to leave the installed/dv directory. The script performs the automated install of JBoss Data Virtualization v6.0.0.GA.
+<p>Make sure to leave the installed/dv directory. The script performs the automated install of JBoss Data Virtualization v6.1.0.GA.
 Run the install-run.sh script to install JBoss Data Virtualization and the server will be started automatically as shown below.</p>
 </div>
 <div class="listingblock">
@@ -1126,7 +1164,7 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
 </div>
 </div>
 <div class="paragraph">
-<p>In case you want to change the password of the admin user, go to simplified-dv-template/installed/dv/jboss-eap-6.1/bin and type the following command and inputs as shown below.</p>
+<p>In case you want to change the password of the admin user, go to simplified-dv-template/installed/dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1195,7 +1233,7 @@ Name your application in your domain, scroll down and click the <b class="button
 </div>
 <div class="paragraph">
 <p>Next steps
-In the Next steps we would like a PostgreSQL database to the application previously created on OpenShift Online.
+In the Next steps we would like to include a PostgreSQL database to the application previously created on OpenShift Online.
 The figure below is shown when the application is successfully created in your domain.</p>
 </div>
 <div class="imageblock">
@@ -1243,7 +1281,9 @@ At the moment you need a local installation of Red Hat JBoss Data Virtualization
 <p>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</p>
 </div>
 <div class="paragraph">
-<p>If you don&#8217;t already have Red Hat JBoss Developer Studio 7.1.1, download it from <a href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</a> by clicking the green download.</p>
+<p>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.0.0, download it from <a href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</a> by clicking the green download button.
+You can use either the installer which includes JBoss EAP (jboss-devstudio-8.0.0.GA-jar_universal.jar) or the stand-alone installer (jboss-devstudio-8.0.0.GA-v20141020-1042-B317-installer-standalone.jar).
+The instructions below applies to the stand-alone installer.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1251,13 +1291,12 @@ At the moment you need a local installation of Red Hat JBoss Data Virtualization
 </div>
 </div>
 <div class="paragraph">
-<p>Run the JBDS installer using java at the command prompt:
-java -jar {jbdevstudio-installer.jar}
-The current available version is 7.1.1.GA, and to run the installer at the command prompt see below.</p>
+<p>Run the JBDS installer using the java command.
+The current available version is 8.0.0.GA, and to run the installer at the command prompt see below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-devstudio-8.0.0.GA-v20141020-1042-B317-installer-standalone.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1340,7 +1379,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <p>Click <b class="button">Done</b> to close the Installer window.</p>
 </div>
 <div class="paragraph">
-<p>When the installation is completed, run Red Hat JBoss Developer Studio 7.1.1. When the Red Hat JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</p>
+<p>When the installation is completed, run JBoss Developer Studio 8.0.0. When the Red Hat JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1367,12 +1406,16 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <p>The workspace location prompting behavior can be altered at any time by clicking <span class="menuseq"><span class="menu">Window</span>&#160;&#9656; <span class="menuitem">Preferences</span></span>. Expand <span class="menuseq"><span class="menu">General</span>&#160;&#9656; <span class="submenu">Startup and Shutdown</span>&#160;&#9656; <span class="menuitem">Workspace</span></span>. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.</p>
 </div>
 <div class="paragraph">
+<p>After JBoss Developer Studio 8.0.0 you might get a informational message to inform you that there are updates available. At the time of this writing the latest version is 8.0.2.GA.
+Please upgrade to the latest patch version of JBoss Developer Studio 8.0.0 by clicking in the Update balloon message.</p>
+</div>
+<div class="paragraph">
 <p>There are two ways to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Using JBoss Central</p>
+<p>Using JBoss Central (with Early Access option enabled)</p>
 </li>
 </ul>
 </div>
@@ -1476,7 +1519,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <p>With the New Server wizard enabled, be sure you entries look like those above. Select JBoss Enterprise
 Middleware &#8594; JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “JBoss EAP 6.1+ Runtime Server” is entered for the Server name. Change the Server name into a meaningful name. Click the <b class="button">Next</b> button.
 Next, the JBoss Runtime will need to be defined. Essentially, this is selecting the “home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.
-Select the “home” directory for the JBoss Data Virtualization instance. This will be &lt;path to installed instance&gt;/jboss-eap-6.1. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile.</p>
+Select the “home” directory for the JBoss Data Virtualization instance. This will be &lt;path to installed instance&gt;/jboss-eap-6.3. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1543,7 +1586,7 @@ If JBoss Data Virtualization Server is already started from the command line usi
 <div class="ulist">
 <ul>
 <li>
-<p>If using PostgreSQL database, download the <a href="http://jdbc.postgresql.org/download.html">PostgreSQL JDBC Driver</a>. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 then you should use the JDBC41 version.</p>
+<p>If using PostgreSQL database, download the <a href="http://jdbc.postgresql.org/download.html">PostgreSQL JDBC Driver</a>. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.</p>
 </li>
 <li>
 <p>If using MySQL database, download the <a href="http://www.mysql.com/products/connector/">MySQL JDBC Driver</a>.</p>
@@ -1584,9 +1627,9 @@ This will bring you to a screen that looks like this:</p>
 </div>
 <div class="paragraph">
 <p>Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid.
-Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.0.0.GA server in the Server pane.
-For the name simply enter “MyTeiidInstance”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter user / user for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked.
-For the Teiid Admin Connection Info, keep the defaults that are listed and use admin / admin for the username / password combination. Keep the default port number. Both “Save” and “SSL” checkboxes should be checked. When complete, your Teiid Server Connection Information should look like the illustration below.
+Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.1 server in the Server pane.
+For the name simply use “JBoss Data Virtualization 6.1”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked.
+For the Teiid Admin Connection Info, keep the defaults that are listed and use admin / redhat1! for the username / password combination. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
 As a “sanity” check, be sure to click the <b class="button">Test</b> button. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.</p>
 </div>
 <div class="paragraph">
@@ -1613,7 +1656,7 @@ The New Model Project wizard will be displayed as below.</p>
 <p>In the project name, enter “Financials” and keep the remaining defaults. Select the <b class="button">Next &gt;</b> button.</p>
 </div>
 <div class="paragraph">
-<p>After clicking <b class="button">Next</b>, the following window is presented for Project References. Keep the default and click <b class="button">Next &gt;</b> again.</p>
+<p>After clicking <b class="button">Next</b>, the following window is presented for Project References.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1621,7 +1664,7 @@ The New Model Project wizard will be displayed as below.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, VirtualBaseLayer and WebServices. The Model Project Options window should look like that below.</p>
+<p>Keep the default and click <b class="button">Next &gt;</b> again. The next window that is presented is the Model Project Options. These are the folders that we will use during the course of building our Financials project. For this lab we will enter DataSources, EnterpriseDataLayer, Schemas, VirtualBaseLayer and WebServices. The Model Project Options window should look like that below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1678,7 +1721,7 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 </div>
 </div>
 <div class="paragraph">
-<p>Then select the cross-haired icon “New Driver Definition” which is to the right of Drivers.</p>
+<p>Then select the cross-haired icon “New Driver Definition” which is the first button to the right of Drivers drop-down list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1686,7 +1729,7 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 </div>
 </div>
 <div class="paragraph">
-<p>In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select the postgresql-8.1-404.jdbc2.jar and click <b class="button">Remove JAR/Zip</b> and then click the <b class="button">Add JAR/Zip</b> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the postgresql/mysql jdbc driver file from the directory where this file is saved after download. Click <b class="button">OK</b>. After clicking OK, the warning that the JAR file could not be found will go away. Click <b class="button">OK</b> to return to the previous wizard.</p>
+<p>In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click <b class="button">Remove JAR/Zip</b> and then click the <b class="button">Add JAR/Zip</b> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click <b class="button">OK</b>. After clicking <b class="button">OK</b>, the warning that the JAR file could not be found will go away. Click <b class="button">OK</b> to return to the previous wizard.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1731,8 +1774,8 @@ From this point, clicking <b class="button">Next &gt;</b> will take you to the d
 </div>
 </div>
 <div class="paragraph">
-<p>Once your database metadata selections have been made, click the <b class="button">Next</b> button. This will bring up the following dialogue. Be sure to click the arrow icon next to “public” in the Products database. This will select the two tables that we want to import.
-Specifically, your dialogue for selecting database objects should look like that below.</p>
+<p>Once your database metadata selections have been made, click the <b class="button">Next</b> button. This will bring up the Select Database Objects dialogue. Be sure to click the arrow icon next to “public” in the Products database to expand the tree to show all objects available to import. Select the TABLE option, this will select the two tables we want to import.
+Specifically, your dialogue for select database objects should look like that below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1741,7 +1784,7 @@ Specifically, your dialogue for selecting database objects should look like that
 </div>
 <div class="paragraph">
 <p>If your dialogue looks like that above, click the <b class="button">Next &gt;</b> button. This will bring up the final screen of the JDBC Import Wizard as indicated below.
-Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with “&#8230;&#8203;” on it. Click this button and the following screen will be shown.</p>
+Notice that there is a requirement to select which folder this model should be created in. To the right of the “Into Folder” attribute, there is a button with <b class="button">&#8230;&#8203;</b> on it. Click this button and the following screen will be shown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1758,7 +1801,7 @@ Notice that there is a requirement to select which folder this model should be c
 </div>
 <div class="paragraph">
 <p>To keep the table names simple, make sure the “Use Fully Qualified Names” checkbox is unchecked. After verifying it matches, click the <b class="button">Finish</b> button.
-You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.</p>
+You will now see the Products.xmi source model was opened and its Package Diagram can be seen in the model view area. Click on productdata_pkey (the primary key of the productdata table at the bottom) and note that the Primary Key (productid) in productdata and the Foreign Key (productid) in the productssymbols table are highlighted. This is because Teiid Designer knows via the metadata that all of these elements are related.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1805,7 +1848,7 @@ This will bring up the Preview Data dialogue as indicated below.</p>
 <div class="sect2">
 <h3 id="_import_metadata_from_the_us_customers_and_eu_customers_databases">4.7. Import Metadata from the US_Customers and EU_Customers Databases</h3>
 <div class="paragraph">
-<p>We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the JDBC Database Import Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+<p>We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.</p>
 </div>
 <div class="imageblock">
@@ -1849,7 +1892,7 @@ When you have completed the imports, the Package Diagram and Model Explorer for 
 </div>
 </div>
 <div class="paragraph">
-<p>The next screen that is displayed is the dialog box to select the file connection profile. Click on the <b class="button">New&#8230;&#8203;</b> button.
+<p>The next screen that is displayed is the dialog box to create a new connection profile. Click on the <b class="button">New&#8230;&#8203;</b> button.
 The new connection profile dialog is displayed.</p>
 </div>
 <div class="imageblock">
@@ -1861,7 +1904,7 @@ The new connection profile dialog is displayed.</p>
 <p>Type in MarketData for the name and click the <b class="button">Next &gt;</b> button.</p>
 </div>
 <div class="paragraph">
-<p>Use the browse (see image below) to locate the folder where the market data CSV file resides. The location should be DVWorkshop/dv_docker/demo. Ensure Use first line as column name indicator is checked. You can click the Test Connection button, it will just ensure that the program can get to the directory specified.</p>
+<p>Use the <b class="button">Browse&#8230;&#8203;</b> button (see image below) to locate the folder where the market data CSV file resides. The location should be DVWorkshop/dv_docker/demo. Ensure Use first line as column name indicator is checked. You can click the Test Connection button, it will just ensure that the program can get to the directory specified.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1877,7 +1920,7 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click the <b class="button">Finish</b> button to continue. All of the CSV files are listed from the data source folder selected in the previous steps. We want to make sure that the check box is checked beside the marketdata.csv file, the file that you need to connect to. In the Source Model Definition, enter the model name, MarketData in the Name: field. (See image below)</p>
+<p>Click the <b class="button">Finish</b> button to continue. All of the CSV files are listed from the data source folder selected in the previous steps. We want to make sure that the check box is checked beside the marketdata.csv file, the file that you need to connect to. In the Source Model Definition, enter for the model name, MarketData in the Name: field (see image below).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1888,7 +1931,7 @@ The new connection profile dialog is displayed.</p>
 <p>Click on the <b class="button">Next &gt;</b> button to continue.</p>
 </div>
 <div class="paragraph">
-<p>The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you will select.</p>
+<p>The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you need to select.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1896,7 +1939,7 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click on the <b class="button">Next &gt;</b> button to continue. Next specify parameters for how the CSV file to be imported. You will change the Datatype of the price column to bigdecimal.</p>
+<p>Click on the <b class="button">Next &gt;</b> button to continue. Next specify the flat file delimited columns parser settings for how the CSV file to be imported. You will change the Datatype of the price column to bigdecimal.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1907,7 +1950,7 @@ The new connection profile dialog is displayed.</p>
 <p>Click the <b class="button">Next &gt;</b> button when complete.</p>
 </div>
 <div class="paragraph">
-<p>The last step is to specify the View Model Definition. (See image below) Enter in the data from the image below.</p>
+<p>The last step is to specify the View Model Definition (see image below). Enter the data from the image below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1915,10 +1958,15 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click on the <b class="button">Finish</b> button to import the model.</p>
+<p>Click on the <b class="button">Finish</b> button to import the model. Your JBDS screen should look similar to the image below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/3.5-view-model-final.png" alt="3.5 view model final">
+</div>
 </div>
 <div class="paragraph">
-<p>Congratulations, you have now completed this lab.</p>
+<p>Save All. Congratulations, you have now completed this lab.</p>
 </div>
 </div>
 </div>
@@ -1948,7 +1996,7 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The “Transform from an Existing Model” wizard will appear.</p>
+<p>The “Transform from an Existing Model” step of the New Model Wizard will appear.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1956,7 +2004,7 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click the btn[&#8230;&#8203;] to the right of Existing Model and open <span class="menuseq"><span class="menu">Financials</span>&#160;&#9656; <span class="submenu">DataSources</span>&#160;&#9656; <span class="menuitem">US_Customers</span></span>. Click <b class="button">OK</b>. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click <b class="button">Finish</b> on the screen as indicated below.</p>
+<p>Click the <b class="button">&#8230;&#8203;</b> to the right of Existing Model and open <span class="menuseq"><span class="menu">Financials</span>&#160;&#9656; <span class="submenu">DataSources</span>&#160;&#9656; <span class="menuitem">US_Customers.xmi</span></span>. Click <b class="button">OK</b>. You will be returned to the New Model Wizard. We are going to copy all model elements so simply click <b class="button">Finish</b> on the screen as indicated below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2047,7 +2095,7 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 </div>
 </div>
 <div class="paragraph">
-<p>Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened in the “From Directory” field, you will be able to select (checkbox) the DataDictionary.xsd file. Then click <b class="button">Finish</b>.</p>
+<p>Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened in the “From Directory” field, you will be able to select the DataDictionary.xsd file. Then click <b class="button">Finish</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2061,7 +2109,7 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 <div class="sect2">
 <h3 id="_examine_the_data_dictionary">6.2. Examine the Data Dictionary</h3>
 <div class="paragraph">
-<p>Double-click on the DataDictionary.xsd file you just imported to open the XML Schema viewer. This is a very basic viewer that allows you to see the design model, the source (note the tabs at the bottom), and choose any of the data types to view it&#8217;s properties (in the Properties tab to the left). The schema can be edited/created here, but most customers use XML-specific tooling to create these files.</p>
+<p>Double-click on the DataDictionary.xsd file you just imported to open the XML Schema viewer. This is a very basic viewer that allows you to see the design model, the source (note the tabs at the bottom), and choose any of the data types to view it&#8217;s properties (in the Properties tab to the bottom-left). The schema can be edited/created here, but most customers use XML-specific tooling to create these files.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2072,7 +2120,7 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 <div class="sect2">
 <h3 id="_create_the_eu_customers_ddc_enterprise_data_layer">6.3. Create the EU_Customers_DDC Enterprise Data Layer</h3>
 <div class="paragraph">
-<p>Create a new virtual metadata model called EU_Customers_DDC (for Domain Data Dictionary) under the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Teiid Metadata Model</span></span> to bring up the New Model Wizard and make the following selections as indicated in the illustration below.</p>
+<p>Create a new virtual metadata model called EU_Customers_DDC (for Domain Data Dictionary) in the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Teiid Metadata Model</span></span> to bring up the New Model Wizard and make the following selections as indicated in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2083,7 +2131,7 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 <p>Click <b class="button">Next &gt;</b> to go the next step of the New Model Wizard.</p>
 </div>
 <div class="paragraph">
-<p>This time, use the EU_Customers_VBL as the model as the basis for the DDC model and click <b class="button">OK</b> and <b class="button">Finish</b>.</p>
+<p>This time, use the EU_Customers_VBL.xmi as the model as the basis for the EU_Customers_DDC model and click <b class="button">OK</b> and then <b class="button">Finish</b>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2091,8 +2139,8 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 </div>
 </div>
 <div class="paragraph">
-<p>We are going to use the database schema of the EU_Customers database as the standard upon which to base our enterprise model. Therefore we won&#8217;t be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers and EU_Customers DDC models we will see that more changes will be necessary to make them semantically align with our enterprise model.
-Open the transformation Editor for the Customer table of EU_Customers by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.</p>
+<p>We are going to use the database schema of the eucustomers database as the standard upon which to base our enterprise model. Therefore we won&#8217;t be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers_DDC and EU_Customers_DDC models we will see that more changes will be necessary to make them semantically align with our enterprise model.
+Open the transformation Editor for the customer table of EU_Customers by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.</p>
 </div>
 <div class="paragraph">
 <p>Click on the value field to the right of datatype in the Properties Panel in the lower left-hand side of JBDS.</p>
@@ -2154,7 +2202,7 @@ The highlighted fields indicate some problems. We can address all of these in on
 </div>
 <div class="paragraph">
 <p>Select each mapping at the top and see that the proposed transformation at the bottom changes. This is under the SQL Symbol panel; we want to convert to the datatype that is assigned to the enterprise datatype. (The Virtual Target Attribute section of the wizard above lets you modify that datatype; we don&#8217;t want to do that here.)
-Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the <b class="button">Convert all button</b> (the second one, in the SQL Symbol section), followed by clicking <b class="button">OK</b>. This will return you to the Reconciler. Note that the SQL has been re-written in the transformation to handle all the type conversions. Click <b class="button">OK</b> on the Reconciler to finish the process.</p>
+Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the <b class="button">Convert all source SQL symbol datatypes</b>, followed by clicking <b class="button">OK</b>. This will return you to the Reconciler. Note that the SQL has been re-written in the transformation to handle all the type conversions. Click <b class="button">OK</b> on the Reconciler to finish the process and to return to the Transformation editor.</p>
 </div>
 <div class="paragraph">
 <p>Now go back and perform the same steps with the account table.
@@ -2182,7 +2230,7 @@ Right-click on the EnterpriseDataLayer folder and select <span class="menuseq"><
 </div>
 </div>
 <div class="paragraph">
-<p>In the “New Model Wizard” window choose the EU_Customers_DDC model in the EnterpriseDataLayer folder and click <b class="button">OK</b> followed by <b class="button">Next &gt;</b> and <b class="button">Finish</b>. Your selection should be as indicated below.</p>
+<p>In the “New Model Wizard” window choose the EU_Customers_DDC.xmi model in the EnterpriseDataLayer folder and click <b class="button">OK</b> followed by <b class="button">Next &gt;</b> and <b class="button">Finish</b>. Your selection should be as indicated below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2190,7 +2238,15 @@ Right-click on the EnterpriseDataLayer folder and select <span class="menuseq"><
 </div>
 </div>
 <div class="paragraph">
-<p>Open the Transformation Editor on US_Customers_DDC.customer. Note that the Source of the transformation is the EU_Customers_DDC.eucustomer table. We want to replace that with the US_Customers_VBL table. Right-click on the Source table and select <span class="menu">Remove Transformation Source(s)</span>.</p>
+<p>Open the Transformation Editor on US_Customers_DDC.customer. See figure below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/5.4-newmodel3.png" alt="5.4 newmodel3">
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the Source of the transformation is the EU_Customers_DDC.customer table. We want to replace that with the US_Customers_VBL.customer table. Right-click on the Source table and select <span class="menu">Remove Transformation Source(s)</span>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2214,7 +2270,7 @@ Right-click on the EnterpriseDataLayer folder and select <span class="menuseq"><
 </div>
 </div>
 <div class="paragraph">
-<p>Select the VirtualBaseLayer &#8594; US_Customers_VBL &#8594; customer table. This is highlighted in the illustration below.</p>
+<p>Select the VirtualBaseLayer &#8594; US_Customers_VBL &#8594; customer table and drag &amp; drop the table in the Sources swim lane of the US_Customers_DDC window. This is highlighted in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2286,9 +2342,9 @@ Right-click on the EnterpriseDataLayer folder and select <span class="menuseq"><
 <p>All we need to do is type "USA" into the Value field, click <b class="button">Apply</b>, then <b class="button">OK</b>. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.</p>
 </div>
 <div class="paragraph">
-<p>When the Expression Builder exits back into the Reconciler, you will notice that the function (\'USA' AS Country) has been properly assigned. Click <b class="button">OK</b> in the Reconciler and save your changes.
-Now perform the same process with the other two tables (Account and AccountHoldings). Delete the EU_Customers_DDC source and drag &amp; drop the appropriate US_Customers_VBL source and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
-The Data Dictionary has also defined enterprise types for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the DDC model. Finally, reconcile any datatype conversion issues.</p>
+<p>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned. Click <b class="button">OK</b> in the Reconciler and save your changes.
+Now perform the same process with the other two tables (account and accountholdings). Delete the EU_Customers_DDC.account &amp; EU_Customers_DDC.accountholdings source and drag &amp; drop the appropriate US_Customers_VBL.account &amp; US_Customers_VBL.accountholdings source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
+The Data Dictionary has also enterprise data types defined for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the Products_DDC model. Finally, reconcile any datatype conversion issues.</p>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have now completed this lab.</p>
@@ -2333,8 +2389,13 @@ Create a new Teiid Metadata Model in this folder called “All_Customers". Creat
 <p>Select the customer table of the EU_Customers_DDC view model in the Transformation Editor.
 NOTE: Several new icons have been activated in the middle tool bar. Click on the fourth one down on the middle tool bar. If you hover your mouse over the label it reads "Add Union Transformation Source(s)". It is possible that you may have to click this button twice for the action to occur. This will add the customer table from US_Customers_DDC to the All_Customers model. Additionally, the "T" icon will now have a small "U" to the lower-right indicating that there is a union that is responsible for this transformation. Now, all that is required is to save the model. That is it! You now have a union of two tables from two separate databases. In order to view the result, be sure the customer table is highlighted in the Model Explorer under the FederatedDataLayer. This is indicated in the illustration below.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/6.1-transformation-editor2.png" alt="6.1 transformation editor2">
+</div>
+</div>
 <div class="paragraph">
-<p>With the All_Customers.customer table highlighted in the Model Explorer, the "Running Man" icon is now enabled. This icon is located on the toolbar directly below the Model Explorer tab. Click on this icon to preview the data of the combined eu customer and us customer database tables. If for some reason this does not work, select the Preview Data Action on the right-hand side of JBDS that was utilized in earlier labs to preview the data.
+<p>With the All_Customers.customer table highlighted in the Model Explorer, the "Running Man" icon is now enabled. This icon is located on the toolbar directly below the Model Explorer tab. Click on this icon to preview the data of the combined EU customer and US customer database tables. If for some reason this does not work, select the Preview Data Action on the right-hand side of JBDS that was utilized in earlier labs to preview the data.
 Now that the exercise for federating the customer table is complete, give it a try for the other two tables, account and accountholdings. Clearly, this is a simple example where we assume that the entries in the uscustomers database and the eucustomers database do not overlap. But, JBoss Data Virtualization is capable of very sophisticated modeling and transformations.</p>
 </div>
 <div class="paragraph">
@@ -2385,8 +2446,15 @@ To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer f
 </div>
 </div>
 <div class="paragraph">
-<p>If not selected, be sure to click on the “getcustomer” operation as indicated below.
-With the getcustomer operation highlighted, click the “Running man icon with a diamond T”. This icon is located across the top of the All_Customers_WS.xmi view and to the right of the Operation Editor. Click this icon to bring up the following window.</p>
+<p>If not selected, be sure to click on the “getcustomer” operation as indicated below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/7-Teiid-designer2.png" alt="7 Teiid designer2">
+</div>
+</div>
+<div class="paragraph">
+<p>With the getcustomer operation highlighted, click the “Running man icon with a diamond T”. This icon is located across the top of the All_Customers_WS.xmi view and to the right of the Operation Editor. Click this icon to bring up the following window.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2428,7 +2496,7 @@ With the getcustomer operation highlighted, click the “Running man icon with a
 <h2 id="_virtual_database_deployment">9. Virtual Database Deployment</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We have been doing all of our querying directly through the Preview interface of Teiid Designer, but in order to make our data services available to external clients, we will need to package them up into a Virtual Database (VDB), the deployable artifact that drives the run-time behavior of the server. It is exactly analogous to a WAR or an EAR file; once created it can simply be dropped into the deploy directory of a running server (with JBoss Data Virtualization installed) and the Teiid Server process will hot-deploy the data services modeled within it. The process is very simple.</p>
+<p>We have been doing all of our querying directly through the Preview interface of Teiid Designer, but in order to make our data services available to external clients, we will need to package them up into a Virtual DataBase (VDB), the deployable artifact that drives the run-time behavior of the server. It is exactly analogous to a WAR or an EAR file; once created it can simply be dropped into the deploy directory of a running server (with JBoss Data Virtualization installed) and the Teiid Server process will hot-deploy the data services modeled within it. The process is very simple.</p>
 </div>
 <div class="sect2">
 <h3 id="_create_the_vdb_metadata_model">9.1. Create the VDB Metadata Model</h3>
@@ -2501,7 +2569,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 <div class="sect2">
 <h3 id="_create_data_sources_on_the_jboss_data_virtualization_server">9.2. Create data sources on the JBoss Data Virtualization server</h3>
 <div class="paragraph">
-<p>There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server&#8217;s deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers. This column is visible in the illustration below.</p>
+<p>There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server&#8217;s deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers and are derived automatically from the Source model name. This column is visible in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2509,7 +2577,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </div>
 </div>
 <div class="paragraph">
-<p>We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called MyTeiidInstance. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below.</p>
+<p>We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called JBoss Data Virtualization 6.1. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2519,14 +2587,40 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 <div class="paragraph">
 <p>Once complete, you should note that these data sources are already available, along with some of the internal sources used by JBoss Data Virtualization. Your Data Sources view should look like that below.</p>
 </div>
+<div class="paragraph">
+<p>At this point, we are ready to deploy the VDB to the server. This could not be easier. Simply right-click on Financials VDB model and select Modeling &#8594; Deploy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/8.2-VDB-Modeling.png" alt="8.2 VDB Modeling">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/8.2-VDB-Deploy.png" alt="8.2 VDB Deploy">
+</div>
+</div>
+<div class="paragraph">
+<p>Before the VDB will be deployed the Create VDB Data Source dialogue window appears to create a data source automatically for the VDB or to skip it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/8.2-VDB-Create-DataSource.png" alt="8.2 VDB Create DataSource">
+</div>
+</div>
+<div class="paragraph">
+<p>After the VDB is deployed one can check the Data Sources in the Server tab of JBDS, see below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/8.2-DS-view.png" alt="8.2 DS view">
 </div>
 </div>
 <div class="paragraph">
-<p>To add new Data Source right-click on Data Sources. This will bring up a menu option to create a new data source. This will open the Create Data Source Wizard.
-At this point, we are ready to deploy the VDB to the server. This could not be easier. Simply right-click on Financials VDB model and select Modeling &#8594; Deploy. This will deploy the VDB to the running Teiid Server instance. Now, open up a browser and point it to <a href="http://localhost:8080" class="bare">http://localhost:8080</a>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</p>
+<p>Click <b class="button">Create Source</b> to create a data source for the Financials VDB.</p>
+</div>
+<div class="paragraph">
+<p>Now the deployment of the VDB will begin in the running Teiid Server instance. Now, open up a browser and point it to <a href="http://localhost:8080" class="bare">http://localhost:8080</a>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2613,7 +2707,7 @@ Create two new folders called WSDL and User-specified Procedures in your Model E
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/10.2-import-WSDL.png" alt="10.2 import WSDL">
+<img src="images/10.2-import-WSDL1.png" alt="10.2 import WSDL1">
 </div>
 </div>
 <div class="paragraph">
@@ -2622,6 +2716,14 @@ Create two new folders called WSDL and User-specified Procedures in your Model E
 <div class="imageblock">
 <div class="content">
 <img src="images/10.2-import-WSDL2.png" alt="10.2 import WSDL2">
+</div>
+</div>
+<div class="paragraph">
+<p>Since there are no Web Service Profiles configured one need to create a new one.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/10.2-import-WSDL3.png" alt="10.2 import WSDL3">
 </div>
 </div>
 <div class="paragraph">
@@ -2799,7 +2901,7 @@ For more information on OData see <a href="http://www.odata.org" class="bare">ht
 <div class="paragraph">
 <p>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
 Now, open up a browser and point it to the following URL: <a href="http://localhost:8080/odata/Financials.1/All_Customers.customer" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer</a>.
-If you are requested to type in a username/password enter user/user. This is similar to making a JDBC/ODBC connection and issuing a SQL call as SELECT * FROM All_Customers.customer;
+If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as SELECT * FROM All_Customers.customer;
 The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</p>
 </div>
 <div class="imageblock">
@@ -2820,10 +2922,16 @@ The returned results from OData query can be in Atom/AtomPub XML format or JSON 
 <div class="sect2">
 <h3 id="_how_to_query_the_data">11.2. How to query the data</h3>
 <div class="paragraph">
-<p>To search for customer with customerid=\'CST01033' which is the SQL equivalent of
-SELECT * FROM All_Customers.customer where customerid=\'CST01033';
-use following URL and it should return the results shown below:
-<a href="http://localhost:8080/odata/Financials.1/customer(\'CST01033'" class="bare">http://localhost:8080/odata/Financials.1/customer(\'CST01033'</a>)</p>
+<p>To search for customer with customerid='CST01033' which is the SQL equivalent of</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="sql">SQL&gt; <span class="class">SELECT</span> * <span class="keyword">FROM</span> All_Customers.customer <span class="keyword">where</span> customerid=<span class="string"><span class="delimiter">'</span><span class="content">CST01033</span><span class="delimiter">'</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>use following URL and it should return the results shown below:
+<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'</a>)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2832,9 +2940,16 @@ use following URL and it should return the results shown below:
 </div>
 <div class="paragraph">
 <p>Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
-To search customers from the USA try following URL:
-<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</a> eq 'USA'
-and this should return the results as shown below.</p>
+To search customers from the USA which is the SQL equivalent of</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="sql">SQL&gt; <span class="class">SELECT</span> * <span class="keyword">FROM</span> All_Customers.customer <span class="keyword">where</span> country=<span class="string"><span class="delimiter">'</span><span class="content">USA</span><span class="delimiter">'</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>use following URL and this should return the results as shown below.
+<a href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</a> eq 'USA'</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2850,8 +2965,8 @@ and this should return the results as shown below.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2014-06-11 14:03:33 CEST
+Version 6.1<br>
+Last updated 2015-02-13 11:48:48 CET
 </div>
 </div>
 </body>

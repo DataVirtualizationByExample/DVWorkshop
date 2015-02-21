@@ -20,7 +20,7 @@ Red Hat JBoss Data Virtualization is based on the following community projects:
 
 * Teiid (http://www.jboss.org/teiid)
 * Teiid Designer (http://www.jboss.org/teiiddesigner)
-* Modeshape (http://www.jboss.org/modeshape)
+* ModeShape (http://www.jboss.org/modeshape)
 
 The figure below depicts the architectural overview of Red Hat JBoss Data Virtualization:
 
@@ -41,7 +41,7 @@ image::0.2-DV-Server.png[]
 |An enterprise ready, scalable, manageable, runtime for the Query Engine that runs inside JBoss EAP that provides additional security, fault-tolerance, and administrative features.
 
 |Connectors
-|Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? A custom translators and resource adaptors can easily be developed.
+|Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? Custom translators and resource adaptors can easily be developed.
 
 |Tools
 |Red Hat JBoss Data Virtualization Server includes development and administration tools 
@@ -57,10 +57,10 @@ Please feel free to raise your hands with any questions that you have about the 
 
 === Prerequisites
 
-- OpenJDK 1.6 or 1.7 or Oracle JDK 1.6, 1.7 installed
+- OpenJDK 1.7, 1.8 or Oracle JDK 1.7, 1.8 installed
 - Git installed
-- PostgreSQL server and/or MySQL server running 
-- PostgreSQL and/or MySQL client tools installed if using a remote database
+- PostgreSQL server or MySQL server running 
+- PostgreSQL or MySQL client tools installed if using a remote database
 
 === Setup demo environment
 In order to use the labs we need to prepare the database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.

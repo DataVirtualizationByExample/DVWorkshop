@@ -22,6 +22,9 @@ The generated Web Service will open after clicking btn:[OK]. Your Teiid Designer
 image::7-Teiid-designer.png[]
 
 If not selected, be sure to click on the “getcustomer” operation as indicated below.
+
+image::7-Teiid-designer2.png[]
+
 With the getcustomer operation highlighted, click the “Running man icon with a diamond T”. This icon is located across the top of the All_Customers_WS.xmi view and to the right of the Operation Editor. Click this icon to bring up the following window.
 
 image::7-preview-data.png[]

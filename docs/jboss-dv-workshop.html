@@ -508,7 +508,7 @@ table.CodeRay td.code>pre{padding:0}
 <span id="author" class="author">Cojan van Ballegooijen</span><br>
 <span id="email" class="email"><a href="https://twitter.com/cvanball">@cvanball</a></span><br>
 <span id="revnumber">version 6.1,</span>
-<span id="revdate">February 14th, 2014</span>
+<span id="revdate">February 23th, 2014</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
@@ -541,7 +541,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_creating_a_source_model">4.4. Creating a Source Model</a></li>
 <li><a href="#_importing_metadata_from_the_product_database">4.5. Importing Metadata from the Product Database</a></li>
 <li><a href="#_preview_data_via_the_teiid_server">4.6. Preview Data via the Teiid Server</a></li>
-<li><a href="#_import_metadata_from_the_us_customers_and_eu_customers_databases">4.7. Import Metadata from the US_Customers and EU_Customers Databases</a></li>
+<li><a href="#_import_metadata_from_the_uscustomers_and_eucustomers_databases">4.7. Import Metadata from the uscustomers and eucustomers Databases</a></li>
 <li><a href="#_import_metadata_from_a_flat_file">4.8. Import Metadata from a flat file</a></li>
 </ul>
 </li>
@@ -1628,9 +1628,8 @@ This will bring you to a screen that looks like this:</p>
 <div class="paragraph">
 <p>Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid.
 Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.1 server in the Server pane.
-For the name simply use “JBoss Data Virtualization 6.1”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked.
-For the Teiid Admin Connection Info, keep the defaults that are listed and use admin / redhat1! for the username / password combination. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
-As a “sanity” check, be sure to click the <b class="button">Test</b> button. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.</p>
+For the name simply use “JBoss Data Virtualization 6.1”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
+As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.</p>
 </div>
 <div class="paragraph">
 <p>The Teiid View along the bottom of JBDS should look like the following illustration.</p>
@@ -1846,9 +1845,9 @@ This will bring up the Preview Data dialogue as indicated below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_metadata_from_the_us_customers_and_eu_customers_databases">4.7. Import Metadata from the US_Customers and EU_Customers Databases</h3>
+<h3 id="_import_metadata_from_the_uscustomers_and_eucustomers_databases">4.7. Import Metadata from the uscustomers and eucustomers Databases</h3>
 <div class="paragraph">
-<p>We will now create source models that represent the US_Customers and EU_Customers schemas from our database. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+<p>We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.</p>
 </div>
 <div class="imageblock">
@@ -2966,7 +2965,7 @@ To search customers from the USA which is the SQL equivalent of</p>
 <div id="footer">
 <div id="footer-text">
 Version 6.1<br>
-Last updated 2015-02-13 11:48:48 CET
+Last updated 2015-02-22 20:05:18 CET
 </div>
 </div>
 </body>

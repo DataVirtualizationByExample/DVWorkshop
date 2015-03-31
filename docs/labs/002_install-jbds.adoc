@@ -74,31 +74,11 @@ The workspace location prompting behavior can be altered at any time by clicking
 After JBoss Developer Studio 8.0.0 you might get a informational message to inform you that there are updates available. At the time of this writing the latest version is 8.0.2.GA.
 Please upgrade to the latest patch version of JBoss Developer Studio 8.0.0 by clicking in the Update balloon message.
 
-There are two ways to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio:
-
-- Using JBoss Central (with Early Access option enabled)
-
-Select menu:Help[JBoss Central] if JBoss Central isn't active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click btn:[Install] See figure below.
+The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use JBoss Central.
 
 image::2.1-JBDS-jboss-central.png[]
 
-Press the btn:[Yes] button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.
-
-- Using menu:Help[Install New Software...]
-
-image::2.1-JBDS-add-new-software.png[]
-
-image::2.1-JBDS-add-new-software2.png[]
-
-In the "Work with:" field on the Install wizard, paste the following link: 
-
-http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/ 
-
-and click the btn:[Add...] button.
-
-image::2.1-JBDS-add-new-software3.png[]
-
-Select JBoss Data Virtualization Development option in the list and click btn:[Next].
+Select menu:Help[JBoss Central] if JBoss Central isn't active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click btn:[Install].
 
 image::2.1-JBDS-add-new-software-review.png[]
 

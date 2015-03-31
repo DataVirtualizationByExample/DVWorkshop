@@ -21,7 +21,7 @@ Run the installer using java at the command prompt:
 $ java -jar jboss-dv-installer-{version}.jar
 ----
 
-The current available version is 6.1.0.redhat-3 and to run the installer at the command prompt use the following command:
+The latest version available is 6.1.0.redhat-3 and to run the installer at the command prompt use the following command:
 
 [source, bash]
 ----

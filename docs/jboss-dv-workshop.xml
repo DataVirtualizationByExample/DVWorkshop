@@ -296,7 +296,7 @@ Bye</screen>
 <simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
 Run the installer using java at the command prompt:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-{version}.jar</programlisting>
-<simpara>The current available version is 6.1.0.redhat-3 and to run the installer at the command prompt use the following command:</simpara>
+<simpara>The latest version available is 6.1.0.redhat-3 and to run the installer at the command prompt use the following command:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.1.0.redhat-3.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process. See the Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration video. See <link xlink:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.
  A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <guibutton>Next</guibutton>.</simpara>
@@ -702,13 +702,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 <simpara>The workspace location prompting behavior can be altered at any time by clicking <menuchoice><guimenu>Window</guimenu> <guimenuitem>Preferences</guimenuitem></menuchoice>. Expand <menuchoice><guimenu>General</guimenu> <guisubmenu>Startup and Shutdown</guisubmenu> <guimenuitem>Workspace</guimenuitem></menuchoice>. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.</simpara>
 <simpara>After JBoss Developer Studio 8.0.0 you might get a informational message to inform you that there are updates available. At the time of this writing the latest version is 8.0.2.GA.
 Please upgrade to the latest patch version of JBoss Developer Studio 8.0.0 by clicking in the Update balloon message.</simpara>
-<simpara>There are two ways to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio:</simpara>
-<itemizedlist>
-<listitem>
-<simpara>Using JBoss Central (with Early Access option enabled)</simpara>
-</listitem>
-</itemizedlist>
-<simpara>Select <menuchoice><guimenu>Help</guimenu> <guimenuitem>JBoss Central</guimenuitem></menuchoice> if JBoss Central isn&#8217;t active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click <guibutton>Install</guibutton> See figure below.</simpara>
+<simpara>The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use JBoss Central.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -717,40 +711,7 @@ Please upgrade to the latest patch version of JBoss Developer Studio 8.0.0 by cl
 <textobject><phrase>2.1 JBDS jboss central</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Press the <guibutton>Yes</guibutton> button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.</simpara>
-<itemizedlist>
-<listitem>
-<simpara>Using <menuchoice><guimenu>Help</guimenu> <guimenuitem>Install New Software&#8230;&#8203;</guimenuitem></menuchoice></simpara>
-</listitem>
-</itemizedlist>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/2.1-JBDS-add-new-software.png"/>
-</imageobject>
-<textobject><phrase>2.1 JBDS add new software</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/2.1-JBDS-add-new-software2.png"/>
-</imageobject>
-<textobject><phrase>2.1 JBDS add new software2</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>In the "Work with:" field on the Install wizard, paste the following link:</simpara>
-<simpara><link xlink:href="http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/">http://download.jboss.org/jbosstools/updates/stable/kepler/integration-stack/</link></simpara>
-<simpara>and click the <guibutton>Add&#8230;&#8203;</guibutton> button.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/2.1-JBDS-add-new-software3.png"/>
-</imageobject>
-<textobject><phrase>2.1 JBDS add new software3</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>Select JBoss Data Virtualization Development option in the list and click <guibutton>Next</guibutton>.</simpara>
+<simpara>Select <menuchoice><guimenu>Help</guimenu> <guimenuitem>JBoss Central</guimenuitem></menuchoice> if JBoss Central isn&#8217;t active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click <guibutton>Install</guibutton>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>

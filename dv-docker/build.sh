@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
-if [ -f "software/jboss-datavirt-6.0.0.GA.zip" ]
-then
-	mv software/jboss-datavirt-6.0.0.GA.zip software/jboss-dv-installer-6.0.0.GA-redhat-4.jar
-fi
-if [ -f "software/jboss-dv-installer-6.0.0.GA-redhat-4.jar" ]
+if [ -f "software/jboss-dv-installer-6.1.0.redhat-3.jar" ]
 then
         
-	echo "Building the JBoss Data Virtualization 6.0.0 container for workshop"
-	docker build -t jbossdv600 .
+	echo "Building the JBoss Data Virtualization 6.1.0 container for workshop"
+	docker build -t jbossdv610 .
 else
-	echo "File software/jboss-dv-installer-6.0.0.GA-redhat-4.jar not found."
-        echo "Please download JBoss Data Virtualization 6.0.0.GA from http://jboss.org/products#IBP"
+	echo "File software/jboss-dv-installer-6.1.0.redhat-3.jar not found."
+        echo "Please download JBoss Data Virtualization 6.1.0 from http://www.jboss.org/products/datavirt/overview/"
         exit 0
 fi

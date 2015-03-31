@@ -98,7 +98,7 @@ RUN echo "* hard nofile 4096" >> /etc/security/limits.conf
 
 
 ############################################
-# Install JBoss Data Virtualization 6.0.0.GA
+# Install JBoss Data Virtualization 6.1.0.GA
 ############################################
 USER jboss
 ENV INSTALLDIR /home/jboss/dv
@@ -106,10 +106,8 @@ RUN mkdir $INSTALLDIR && \
    mkdir $INSTALLDIR/software && \
    mkdir $INSTALLDIR/support && \
    mkdir $INSTALLDIR/jdbc
-ADD software/jboss-dv-installer-6.0.0.GA-redhat-4.jar $INSTALLDIR/software/jboss-dv-installer-6.0.0.GA-redhat-4.jar 
-ADD support/teiid-security-users.properties $INSTALLDIR/support/teiid-security-users.properties
-ADD support/teiid-security-roles.properties $INSTALLDIR/support/teiid-security-roles.properties
-ADD support/InstallationScript.xml $INSTALLDIR/support/InstallationScript.xml
+ADD software/jboss-dv-installer-6.1.0.redhat-3.jar $INSTALLDIR/software/jboss-dv-installer-6.1.0.redhat-3.jar 
+ADD support/installscript.xml $INSTALLDIR/support/installscript.xml
 
 USER root
 RUN chown jboss:jboss $INSTALLDIR/software/*
@@ -118,18 +116,17 @@ RUN chown jboss:jboss $INSTALLDIR/support/*
 USER jboss
 ENV HOME /home/jboss
 
-RUN java -jar $INSTALLDIR/software/jboss-dv-installer-6.0.0.GA-redhat-4.jar $INSTALLDIR/support/InstallationScript.xml
-RUN mv $INSTALLDIR/support/teiid* $INSTALLDIR/jboss-eap-6.1/standalone/configuration
+RUN java -jar $INSTALLDIR/software/jboss-dv-installer-6.1.0.redhat-3.jar $INSTALLDIR/support/installscript.xml
 RUN curl -o $INSTALLDIR/jdbc/postgresql-9.3-1101.jdbc41.jar http://jdbc.postgresql.org/download/postgresql-9.3-1101.jdbc41.jar
-RUN rm -rf $INSTALLDIR/jboss-eap-6.1/standalone/configuration/standalone_xml_history/current
+RUN rm -rf $INSTALLDIR/jboss-eap-6.3/standalone/configuration/standalone_xml_history/current
 
 # Command line shortcuts
 RUN echo "export JAVA_HOME=/usr/lib/jvm/jre" >> $HOME/.bash_profile
 RUN echo "alias ll='ls -l --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias grep='grep --color=auto'" >> $HOME/.bash_profile
 RUN echo "alias c='clear'" >> $HOME/.bash_profile
-RUN echo "alias sdv='$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
-RUN echo "alias xdv='$HOME/dv/jboss-eap-6.1/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
+RUN echo "alias sdv='$HOME/dv/jboss-eap-6.3/bin/standalone.sh -c standalone.xml'" >> $HOME/.bash_profile
+RUN echo "alias xdv='$HOME/dv/jboss-eap-6.3/bin/jboss-cli.sh --commands=connect,:shutdown'" >> $HOME/.bash_profile
 
 # Create /home/jboss/run.sh startup script
 USER root
@@ -139,7 +136,7 @@ RUN echo "service sshd start " >> $HOME/run.sh
 RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "service postgresql-9.3 start " >> $HOME/run.sh
 #RUN echo "service mongod start " >> $HOME/run.sh
-RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
+RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.3/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
 RUN chmod +x $HOME/run.sh
 
 # Clean up

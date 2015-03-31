@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>JBoss Data Virtualization Workshop</title>
-<date>February 23th, 2014</date>
+<date>March 30th, 2014</date>
 <author>
 <personname>
 <firstname>Cojan</firstname>
@@ -17,7 +17,7 @@
 <revhistory>
 <revision>
 <revnumber>6.1</revnumber>
-<date>February 23th, 2014</date>
+<date>March 30th, 2014</date>
 <authorinitials>CvB</authorinitials>
 </revision>
 </revhistory>
@@ -436,9 +436,23 @@ When the installation is complete, navigate to</simpara>
 </section>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">
 <title>Installing Red Hat JBoss Data Virtualization through automated script mode</title>
-<simpara>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.
-Clone the repository using git from <link xlink:href="https://github.com/kpeeples/simplified-dv-template.git">https://github.com/kpeeples/simplified-dv-template.git</link></simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ git clone https://github.com/kpeeples/simplified-dv-template.git</programlisting>
+<simpara>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.</simpara>
+<simpara>Download the JBoss Data Virtualization installer binary by clicking the green download button at <link xlink:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-download.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV download</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Place the software in the software subfolder.</simpara>
+<simpara>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.1.0.</simpara>
+<programlisting language="xml" linenumbering="unnumbered">&lt;installpath&gt;/home/jboss/dv&lt;/installpath&gt;</programlisting>
+<simpara>The script performs the automated install of JBoss Data Virtualization v6.1.0.GA.
+Run the following java command to install JBoss Data Virtualization in as shown below.</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ cd support
+$ java -jar ../software/jboss-dv-installer-6.1.0.redhat-3.jar installscript_local.xml</programlisting>
 <simpara>The following username/passwords will be installed automatically for access to</simpara>
 <informaltable frame="all" rowsep="1" colsep="1">
 <tgroup cols="3">
@@ -447,7 +461,7 @@ Clone the repository using git from <link xlink:href="https://github.com/kpeeple
 <colspec colname="col_3" colwidth="33*"/>
 <thead>
 <row>
-<entry align="left" valign="top"></entry>
+<entry align="left" valign="top">Component</entry>
 <entry align="left" valign="top">Username</entry>
 <entry align="left" valign="top">Password</entry>
 </row>
@@ -463,33 +477,20 @@ Clone the repository using git from <link xlink:href="https://github.com/kpeeple
 <entry align="left" valign="top"><simpara>teiidUser</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
+<row>
+<entry align="left" valign="top"><simpara>ModeShape</simpara></entry>
+<entry align="left" valign="top"><simpara>modeshapeUser</simpara></entry>
+<entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Dashboard</simpara></entry>
+<entry align="left" valign="top"><simpara>dashboardAdmin</simpara></entry>
+<entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
+</row>
 </tbody>
 </tgroup>
 </informaltable>
-<simpara>Download the JBoss Data Virtualization installer binary by clicking the green download button at <link xlink:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/1.1-DV-download.png"/>
-</imageobject>
-<textobject><phrase>1.1 DV download</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>Place the software in the distros subfolder of simplified-dv-template folder which was previously created when cloning the repository.</simpara>
-<simpara>Modify the simplified-dv-template/support/InstallationScript.xml file to contain the full path to your installed/dv directory.</simpara>
-<programlisting language="xml" linenumbering="unnumbered">&lt;installpath&gt;/home/kpeeples/demos/dv-install-script-demo/installed/dv&lt;/installpath&gt;</programlisting>
-<simpara>Make sure to leave the installed/dv directory. The script performs the automated install of JBoss Data Virtualization v6.1.0.GA.
-Run the install-run.sh script to install JBoss Data Virtualization and the server will be started automatically as shown below.</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ ./install-run.sh</programlisting>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/1.2-DV-auto-install.png"/>
-</imageobject>
-<textobject><phrase>1.2 DV auto install</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>In case you want to change the password of the admin user, go to simplified-dv-template/installed/dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.</simpara>
+<simpara>In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -498,7 +499,7 @@ Run the install-run.sh script to install JBoss Data Virtualization and the serve
 <textobject><phrase>1.2 DV auto install 2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Browse to <link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use user/user as the credentials that were installed as default and click <guibutton>Log In</guibutton>.</simpara>
+<simpara>Browse to <link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use teiidUser/redhat1! as the credentials that were installed as default and click <guibutton>Log In</guibutton>.</simpara>
 <simpara>Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode.</simpara>
 </section>
 <section xml:id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">
@@ -518,10 +519,10 @@ Sign up for your free account OpenShift Online account at <link xlink:href="http
 <simpara>Create a new application
 If this is your first login into OpenShift Online click at the “&#8594; Create your first application now” link</simpara>
 <simpara>If you already have an OpenShift Online account click <guibutton>Add Application</guibutton> below your list of applications.
-Alternatively, you can deploy the DataVirtualization cartridge using the OpenShift RHC Client Tools. Using the rhc client tools type:</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ rhc app create dv jboss-dv-6.0.0</programlisting>
-<simpara>Choose a type of applications
-You can either scroll down to the list of quick links and click the <guibutton>JBoss Data Virtualization 6</guibutton> button under “xPaaS” or search for “Data”.</simpara>
+Alternatively, you can deploy the Data Virtualization 6 (jboss-dv-6.1.0) cartridge using the OpenShift RHC Client Tools. Using the rhc client tools type:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ rhc app create dv jboss-dv-6.1.0</programlisting>
+<simpara>Choose a type of applications</simpara>
+<simpara>You can either scroll down to the list of quick links and click the <guibutton>JBoss Data Virtualization 6 (jboss-dv-6.1.0)</guibutton> button under “xPaaS” or search for “Data”.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -538,8 +539,8 @@ You can either scroll down to the list of quick links and click the <guibutton>J
 <textobject><phrase>1.3 DV OpenShift app2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Configure Application
-Name your application in your domain, scroll down and click the <guibutton>Create Application</guibutton> button.</simpara>
+<simpara>Configure Application</simpara>
+<simpara>Name your application in your domain, scroll down and click the <guibutton>Create Application</guibutton> button.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -548,8 +549,8 @@ Name your application in your domain, scroll down and click the <guibutton>Creat
 <textobject><phrase>1.3 DV OpenShift config app</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Next steps
-In the Next steps we would like to include a PostgreSQL database to the application previously created on OpenShift Online.
+<simpara>Next steps</simpara>
+<simpara>In the Next steps we would like to include a PostgreSQL database to the application previously created on OpenShift Online.
 The figure below is shown when the application is successfully created in your domain.</simpara>
 <informalfigure>
 <mediaobject>
@@ -559,8 +560,8 @@ The figure below is shown when the application is successfully created in your d
 <textobject><phrase>1.3 DV OpenShift app create</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Now we would like to add a PostgreSQL database to the application. Click the Application name link, in the above figure it&#8217;s called “dv”.</simpara>
-<simpara>The following screen should appear.</simpara>
+<simpara>Now we would like to add a PostgreSQL database to the application. Click the Application name link, in the above figure it&#8217;s called “dv61”.
+The following screen should appear.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -569,11 +570,17 @@ The figure below is shown when the application is successfully created in your d
 <textobject><phrase>1.3 DV OpenShift add psql</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click “Add PostgreSQL 9.2” and click at the next appearing screen “Add Cartridge”.
-You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.</simpara>
-<note>
-<simpara>At the moment you need a local installation of Red Hat JBoss Data Virtualization in order to deploy Data Virtualization projects to the OpenShift environment. This will be addressed in a newer version of JBoss Developer Studio.</simpara>
-</note>
+<simpara>Click “Add PostgreSQL 9.2”</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/1.3-DV-OpenShift-add-psql2.png"/>
+</imageobject>
+<textobject><phrase>1.3 DV OpenShift add psql2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click “Add Cartridge” to add PostgreSQL 9.2 to previously created dv61 environment.</simpara>
+<simpara>You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>

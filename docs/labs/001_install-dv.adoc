@@ -101,19 +101,35 @@ to start the Red Hat JBoss Data Virtualization server.
 
 === Installing Red Hat JBoss Data Virtualization through automated script mode
 Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly. 
-Clone the repository using git from https://github.com/kpeeples/simplified-dv-template.git
+
+Download the JBoss Data Virtualization installer binary by clicking the green download button at http://www.jboss.org/products/datavirt.html.
+
+image::1.1-DV-download.png[]
+
+Place the software in the software subfolder.
+
+Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.1.0. 
+
+[source,xml]
+----
+<installpath>/home/jboss/dv</installpath>
+----
+
+The script performs the automated install of JBoss Data Virtualization v6.1.0.GA.
+Run the following java command to install JBoss Data Virtualization in as shown below.
+
 [source, bash]
 ----
-$ git clone https://github.com/kpeeples/simplified-dv-template.git
+$ cd support
+$ java -jar ../software/jboss-dv-installer-6.1.0.redhat-3.jar installscript_local.xml
 ----
 
 The following username/passwords will be installed automatically for access to 
 [cols="3", options="header"] 
 |===
-|
+|Component
 |Username
 |Password
-
 
 |JBoss EAP Administration console
 |admin
@@ -122,33 +138,21 @@ The following username/passwords will be installed automatically for access to
 |Teiid Server
 |teiidUser
 |redhat1!
+
+|ModeShape 
+|modeshapeUser
+|redhat1!
+
+|Dashboard
+|dashboardAdmin
+|redhat1!
 |===
 
-Download the JBoss Data Virtualization installer binary by clicking the green download button at http://www.jboss.org/products/datavirt.html.
-
-image::1.1-DV-download.png[]
-
-Place the software in the distros subfolder of simplified-dv-template folder which was previously created when cloning the repository.
-
-Modify the simplified-dv-template/support/InstallationScript.xml file to contain the full path to your installed/dv directory. 
-[source,xml]
-----
-<installpath>/home/kpeeples/demos/dv-install-script-demo/installed/dv</installpath>
-----
-Make sure to leave the installed/dv directory. The script performs the automated install of JBoss Data Virtualization v6.1.0.GA.
-Run the install-run.sh script to install JBoss Data Virtualization and the server will be started automatically as shown below.
-[source,bash]
-----
-$ ./install-run.sh
-----
-
-image::1.2-DV-auto-install.png[]
-
-In case you want to change the password of the admin user, go to simplified-dv-template/installed/dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.
+In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.
 
 image::1.2-DV-auto-install-2.png[]
 
-Browse to http://localhost:8080/dashboard for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use user/user as the credentials that were installed as default and click btn:[Log In].
+Browse to http://localhost:8080/dashboard for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use teiidUser/redhat1! as the credentials that were installed as default and click btn:[Log In].
 
 Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode. 
 
@@ -166,39 +170,44 @@ Create a new application
 If this is your first login into OpenShift Online click at the “-> Create your first application now” link
 
 If you already have an OpenShift Online account click btn:[Add Application] below your list of applications. 
-Alternatively, you can deploy the DataVirtualization cartridge using the OpenShift RHC Client Tools. Using the rhc client tools type:
+Alternatively, you can deploy the Data Virtualization 6 (jboss-dv-6.1.0) cartridge using the OpenShift RHC Client Tools. Using the rhc client tools type:
 
 [source,bash]
 ----
-$ rhc app create dv jboss-dv-6.0.0
+$ rhc app create dv jboss-dv-6.1.0
 ----
 
 Choose a type of applications
-You can either scroll down to the list of quick links and click the btn:[JBoss Data Virtualization 6] button under “xPaaS” or search for “Data”. 
+
+You can either scroll down to the list of quick links and click the btn:[JBoss Data Virtualization 6 (jboss-dv-6.1.0)] button under “xPaaS” or search for “Data”. 
 
 image::1.3-DV-OpenShift-app.png[]
 image::1.3-DV-OpenShift-app2.png[]
 
 Configure Application
+
 Name your application in your domain, scroll down and click the btn:[Create Application] button.
 
 image::1.3-DV-OpenShift-config-app.png[]
 
 Next steps
+
 In the Next steps we would like to include a PostgreSQL database to the application previously created on OpenShift Online.
 The figure below is shown when the application is successfully created in your domain.
 
 image::1.3-DV-OpenShift-app-create.png[]
 
-Now we would like to add a PostgreSQL database to the application. Click the Application name link, in the above figure it's called “dv”.
-
+Now we would like to add a PostgreSQL database to the application. Click the Application name link, in the above figure it's called “dv61”.
 The following screen should appear.
 
 image::1.3-DV-OpenShift-add-psql.png[]
 
-Click “Add PostgreSQL 9.2” and click at the next appearing screen “Add Cartridge”.
-You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.
+Click “Add PostgreSQL 9.2” 
 
-NOTE: At the moment you need a local installation of Red Hat JBoss Data Virtualization in order to deploy Data Virtualization projects to the OpenShift environment. This will be addressed in a newer version of JBoss Developer Studio.
+image::1.3-DV-OpenShift-add-psql2.png[]
+
+Click “Add Cartridge” to add PostgreSQL 9.2 to previously created dv61 environment.
+
+You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.
 
 Congratulations, you have now completed this lab.

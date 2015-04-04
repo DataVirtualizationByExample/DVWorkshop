@@ -587,9 +587,9 @@ The following screen should appear.</simpara>
 <chapter xml:id="_install_red_hat_jboss_developer_studio">
 <title>Install Red Hat JBoss Developer Studio</title>
 <simpara>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</simpara>
-<simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.0.0, download it from <link xlink:href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</link> by clicking the green download button.
-You can use either the installer which includes JBoss EAP (jboss-devstudio-8.0.0.GA-jar_universal.jar) or the stand-alone installer (jboss-devstudio-8.0.0.GA-v20141020-1042-B317-installer-standalone.jar).
-The instructions below applies to the stand-alone installer.</simpara>
+<simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.1.0, download it from <link xlink:href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</link> by clicking the green download button.
+You can use either the installer which includes JBoss EAP (jboss-devstudio-8.1.0.GA-installer-eap.jar) or the stand-alone installer (jboss-devstudio-8.1.0.GA-installer-standalone.jar).
+The instructions below is using the stand-alone installer.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -599,8 +599,8 @@ The instructions below applies to the stand-alone installer.</simpara>
 </mediaobject>
 </informalfigure>
 <simpara>Run the JBDS installer using the java command.
-The current available version is 8.0.0.GA, and to run the installer at the command prompt see below.</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-devstudio-8.0.0.GA-v20141020-1042-B317-installer-standalone.jar</programlisting>
+The current available version is 8.1.0.GA, and to run the installer at the command prompt see below.</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-devstudio-8.1.0.GA-installer-standalone.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <informalfigure>
 <mediaobject>
@@ -685,7 +685,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>Done</guibutton> to close the Installer window.</simpara>
-<simpara>When the installation is completed, run JBoss Developer Studio 8.0.0. When the Red Hat JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</simpara>
+<simpara>When the installation is completed, run JBoss Developer Studio 8.1.0. When the Red Hat JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -707,8 +707,8 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 </listitem>
 </orderedlist>
 <simpara>The workspace location prompting behavior can be altered at any time by clicking <menuchoice><guimenu>Window</guimenu> <guimenuitem>Preferences</guimenuitem></menuchoice>. Expand <menuchoice><guimenu>General</guimenu> <guisubmenu>Startup and Shutdown</guisubmenu> <guimenuitem>Workspace</guimenuitem></menuchoice>. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.</simpara>
-<simpara>After JBoss Developer Studio 8.0.0 you might get a informational message to inform you that there are updates available. At the time of this writing the latest version is 8.0.2.GA.
-Please upgrade to the latest patch version of JBoss Developer Studio 8.0.0 by clicking in the Update balloon message.</simpara>
+<simpara>After JBoss Developer Studio 8.1.0 you might get a informational message to inform you that there are updates available.
+Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by clicking in the Update balloon message.</simpara>
 <simpara>The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use JBoss Central.</simpara>
 <informalfigure>
 <mediaobject>

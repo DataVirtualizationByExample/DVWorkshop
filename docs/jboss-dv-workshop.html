@@ -5,7 +5,6 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<meta name="author" content="Cojan van Ballegooijen">
 <title>JBoss Data Virtualization Workshop</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
@@ -504,110 +503,106 @@ table.CodeRay td.code>pre{padding:0}
 <body class="book">
 <div id="header">
 <h1>JBoss Data Virtualization Workshop</h1>
-<div class="details">
-<span id="author" class="author">Cojan van Ballegooijen</span><br>
-<span id="email" class="email"><a href="https://twitter.com/cvanball">@cvanball</a></span><br>
-<span id="revnumber">version 6.1,</span>
-<span id="revdate">May 12th, 2015</span>
-</div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a>
+<li><a href="#_acknowledgements">1. Acknowledgements</a></li>
+<li><a href="#_workshop_version">2. Workshop version</a></li>
+<li><a href="#_introduction">3. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#_what_is_expected_of_you">1.1. What is expected of you</a></li>
-<li><a href="#_prerequisites">1.2. Prerequisites</a></li>
-<li><a href="#_setup_demo_environment">1.3. Setup demo environment</a>
+<li><a href="#_what_is_expected_of_you">3.1. What is expected of you</a></li>
+<li><a href="#_prerequisites">3.2. Prerequisites</a></li>
+<li><a href="#_setup_demo_environment">3.3. Setup demo environment</a>
 <ul class="sectlevel3">
-<li><a href="#_setup_postgresql">1.3.1. Setup PostgreSQL</a></li>
-<li><a href="#_setup_mysql">1.3.2. Setup MySQL</a></li>
+<li><a href="#_setup_postgresql">3.3.1. Setup PostgreSQL</a></li>
+<li><a href="#_setup_mysql">3.3.2. Setup MySQL</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_install_red_hat_jboss_data_virtualization">2. Install Red Hat JBoss Data Virtualization</a>
+<li><a href="#_install_red_hat_jboss_data_virtualization">4. Install Red Hat JBoss Data Virtualization</a>
 <ul class="sectlevel2">
-<li><a href="#_installing_red_hat_jboss_data_virtualization_through_graphical_mode">2.1. Installing Red Hat JBoss Data Virtualization through graphical mode</a></li>
-<li><a href="#_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">2.2. Installing Red Hat JBoss Data Virtualization through automated script mode</a></li>
-<li><a href="#_provision_red_hat_jboss_data_virtualization_on_openshift_online">2.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</a></li>
+<li><a href="#_installing_red_hat_jboss_data_virtualization_through_graphical_mode">4.1. Installing Red Hat JBoss Data Virtualization through graphical mode</a></li>
+<li><a href="#_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">4.2. Installing Red Hat JBoss Data Virtualization through automated script mode</a></li>
+<li><a href="#_provision_red_hat_jboss_data_virtualization_on_openshift_online">4.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</a></li>
 </ul>
 </li>
-<li><a href="#_install_red_hat_jboss_developer_studio">3. Install Red Hat JBoss Developer Studio</a></li>
-<li><a href="#_demo_scenario">4. Demo Scenario</a>
+<li><a href="#_install_red_hat_jboss_developer_studio">5. Install Red Hat JBoss Developer Studio</a></li>
+<li><a href="#_demo_scenario">6. Demo Scenario</a>
 <ul class="sectlevel2">
-<li><a href="#_demo_context">4.1. Demo Context</a></li>
-<li><a href="#_how_this_is_accomplished_in_jboss_data_virtualization">4.2. How this is accomplished in JBoss Data Virtualization</a></li>
-<li><a href="#_demo_workflow">4.3. Demo Workflow</a></li>
+<li><a href="#_demo_context">6.1. Demo Context</a></li>
+<li><a href="#_how_this_is_accomplished_in_jboss_data_virtualization">6.2. How this is accomplished in JBoss Data Virtualization</a></li>
+<li><a href="#_demo_workflow">6.3. Demo Workflow</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_teiid_project_and_import_data_source">5. Create a Teiid project and Import Data Source</a>
+<li><a href="#_create_a_teiid_project_and_import_data_source">7. Create a Teiid project and Import Data Source</a>
 <ul class="sectlevel2">
-<li><a href="#_prerequisites_2">5.1. Prerequisites</a></li>
-<li><a href="#_where_are_we">5.2. Where are we?</a></li>
-<li><a href="#_open_the_teiid_perspective">5.3. Open the Teiid Perspective</a></li>
-<li><a href="#_creating_a_teiid_project">5.4. Creating a Teiid Project</a></li>
-<li><a href="#_creating_a_source_model">5.5. Creating a Source Model</a></li>
-<li><a href="#_importing_metadata_from_the_product_database">5.6. Importing Metadata from the Product Database</a></li>
-<li><a href="#_preview_data_via_the_teiid_server">5.7. Preview Data via the Teiid Server</a></li>
-<li><a href="#_import_metadata_from_the_uscustomers_and_eucustomers_databases">5.8. Import Metadata from the uscustomers and eucustomers Databases</a></li>
-<li><a href="#_import_metadata_from_a_flat_file">5.9. Import Metadata from a flat file</a></li>
+<li><a href="#_prerequisites_2">7.1. Prerequisites</a></li>
+<li><a href="#_where_are_we">7.2. Where are we?</a></li>
+<li><a href="#_open_the_teiid_perspective">7.3. Open the Teiid Perspective</a></li>
+<li><a href="#_creating_a_teiid_project">7.4. Creating a Teiid Project</a></li>
+<li><a href="#_creating_a_source_model">7.5. Creating a Source Model</a></li>
+<li><a href="#_importing_metadata_from_the_product_database">7.6. Importing Metadata from the Product Database</a></li>
+<li><a href="#_preview_data_via_the_teiid_server">7.7. Preview Data via the Teiid Server</a></li>
+<li><a href="#_import_metadata_from_the_uscustomers_and_eucustomers_databases">7.8. Import Metadata from the uscustomers and eucustomers Databases</a></li>
+<li><a href="#_import_metadata_from_a_flat_file">7.9. Import Metadata from a flat file</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_virtual_base_layer">6. Create a Virtual Base Layer</a>
+<li><a href="#_create_a_virtual_base_layer">8. Create a Virtual Base Layer</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_2">6.1. Where are we?</a></li>
-<li><a href="#_create_a_virtual_base_layer_us_customers_vbl">6.2. Create a virtual base layer: US_Customers_VBL</a></li>
-<li><a href="#_create_the_eu_customers_vbl_and_products_vbl_models">6.3. Create the EU_Customers_VBL and Products_VBL Models</a></li>
+<li><a href="#_where_are_we_2">8.1. Where are we?</a></li>
+<li><a href="#_create_a_virtual_base_layer_us_customers_vbl">8.2. Create a virtual base layer: US_Customers_VBL</a></li>
+<li><a href="#_create_the_eu_customers_vbl_and_products_vbl_models">8.3. Create the EU_Customers_VBL and Products_VBL Models</a></li>
 </ul>
 </li>
-<li><a href="#_create_an_enterprise_data_layer">7. Create an Enterprise Data Layer</a>
+<li><a href="#_create_an_enterprise_data_layer">9. Create an Enterprise Data Layer</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_3">7.1. Where are we?</a></li>
-<li><a href="#_import_the_data_dictionary_schema">7.2. Import the Data Dictionary Schema</a></li>
-<li><a href="#_examine_the_data_dictionary">7.3. Examine the Data Dictionary</a></li>
-<li><a href="#_create_the_eu_customers_ddc_enterprise_data_layer">7.4. Create the EU_Customers_DDC Enterprise Data Layer</a></li>
-<li><a href="#_create_the_us_customers_ddc_enterprise_data_layer">7.5. Create the US_Customers_DDC Enterprise Data Layer</a></li>
+<li><a href="#_where_are_we_3">9.1. Where are we?</a></li>
+<li><a href="#_import_the_data_dictionary_schema">9.2. Import the Data Dictionary Schema</a></li>
+<li><a href="#_examine_the_data_dictionary">9.3. Examine the Data Dictionary</a></li>
+<li><a href="#_create_the_eu_customers_ddc_enterprise_data_layer">9.4. Create the EU_Customers_DDC Enterprise Data Layer</a></li>
+<li><a href="#_create_the_us_customers_ddc_enterprise_data_layer">9.5. Create the US_Customers_DDC Enterprise Data Layer</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_federated_data_layer">8. Create a Federated Data Layer</a>
+<li><a href="#_create_a_federated_data_layer">10. Create a Federated Data Layer</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_4">8.1. Where are we?</a></li>
-<li><a href="#_create_a_federated_data_layer_2">8.2. Create a Federated Data Layer</a></li>
+<li><a href="#_where_are_we_4">10.1. Where are we?</a></li>
+<li><a href="#_create_a_federated_data_layer_2">10.2. Create a Federated Data Layer</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_web_service">9. Create a Web service</a>
+<li><a href="#_create_a_web_service">11. Create a Web service</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_5">9.1. Where are we?</a></li>
-<li><a href="#_create_a_web_service_2">9.2. Create a Web service</a></li>
+<li><a href="#_where_are_we_5">11.1. Where are we?</a></li>
+<li><a href="#_create_a_web_service_2">11.2. Create a Web service</a></li>
 </ul>
 </li>
-<li><a href="#_virtual_database_deployment">10. Virtual Database Deployment</a>
+<li><a href="#_virtual_database_deployment">12. Virtual Database Deployment</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_6">10.1. Where are we?</a></li>
-<li><a href="#_create_the_vdb_metadata_model">10.2. Create the VDB Metadata Model</a></li>
-<li><a href="#_create_data_sources_on_the_jboss_data_virtualization_server">10.3. Create data sources on the JBoss Data Virtualization server</a></li>
-<li><a href="#_dependency_diagrams">10.4. Dependency Diagrams</a></li>
+<li><a href="#_where_are_we_6">12.1. Where are we?</a></li>
+<li><a href="#_create_the_vdb_metadata_model">12.2. Create the VDB Metadata Model</a></li>
+<li><a href="#_create_data_sources_on_the_jboss_data_virtualization_server">12.3. Create data sources on the JBoss Data Virtualization server</a></li>
+<li><a href="#_dependency_diagrams">12.4. Dependency Diagrams</a></li>
 </ul>
 </li>
-<li><a href="#_xml_and_service_sources">11. XML and Service Sources</a>
+<li><a href="#_xml_and_service_sources">13. XML and Service Sources</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_7">11.1. Where are we?</a></li>
-<li><a href="#_create_relational_model_from_wsdl">11.2. Create relational model from WSDL</a></li>
+<li><a href="#_where_are_we_7">13.1. Where are we?</a></li>
+<li><a href="#_create_relational_model_from_wsdl">13.2. Create relational model from WSDL</a></li>
 </ul>
 </li>
-<li><a href="#_odata">12. OData</a>
+<li><a href="#_odata">14. OData</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_8">12.1. Where are we?</a></li>
-<li><a href="#_how_to_access_the_data">12.2. How to access the data</a></li>
-<li><a href="#_how_to_query_the_data">12.3. How to query the data</a></li>
+<li><a href="#_where_are_we_8">14.1. Where are we?</a></li>
+<li><a href="#_how_to_access_the_data">14.2. How to access the data</a></li>
+<li><a href="#_how_to_query_the_data">14.3. How to query the data</a></li>
 </ul>
 </li>
-<li><a href="#_dashboard_builder">13. Dashboard Builder</a>
+<li><a href="#_dashboard_builder">15. Dashboard Builder</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_9">13.1. Where are we?</a></li>
-<li><a href="#_dashboard_builder_workflow">13.2. Dashboard Builder Workflow</a></li>
-<li><a href="#_how_this_is_accomplished_in_dashboard_builder">13.3. How this is accomplished in Dashboard Builder</a></li>
-<li><a href="#_financials_dashboard_demo">13.4. Financials Dashboard Demo</a></li>
+<li><a href="#_where_are_we_9">15.1. Where are we?</a></li>
+<li><a href="#_dashboard_builder_workflow">15.2. Dashboard Builder Workflow</a></li>
+<li><a href="#_how_this_is_accomplished_in_dashboard_builder">15.3. How this is accomplished in Dashboard Builder</a></li>
+<li><a href="#_financials_dashboard_demo">15.4. Financials Dashboard Demo</a></li>
 </ul>
 </li>
 </ul>
@@ -615,7 +610,62 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<h2 id="_acknowledgements">1. Acknowledgements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thanks to Cojan van Ballegooijen, Senior Solutions Architect, &lt;<a href="https://twitter.com/cvanball">@cvanball</a>&gt; for pulling a majority of the workshop together and especially updating with the newer versions of the JBoss Products.</p>
+</div>
+<div class="paragraph">
+<p>Below we want to acknowledge the primary authors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cojan van Ballegooijen, Senior Solutions Architect, &lt;<a href="https://twitter.com/cvanball">@cvanball</a>&gt;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below we want to acknowledge additional contributors as we add new material for more topics and update existing material:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Kenneth Peeples, Technical Marketing Manager, &lt;<a href="https://twitter.com/ossmentor">@ossmentor</a>&gt;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Enjoy Building Virtual Databases and enter any issues that you experience or if you have any suggestions for content.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workshop_version">2. Workshop version</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Current tagged workshop version: v2.0 May 12, 2015</p>
+</div>
+<div class="paragraph">
+<p>Includes Content for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data Virtualization v6.1</p>
+</li>
+<li>
+<p>JBoss Developer Studio v8.1</p>
+</li>
+<li>
+<p>OpenShift v2</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">3. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three easy steps:</p>
@@ -736,13 +786,13 @@ table.CodeRay td.code>pre{padding:0}
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="_what_is_expected_of_you">1.1. What is expected of you</h3>
+<h3 id="_what_is_expected_of_you">3.1. What is expected of you</h3>
 <div class="paragraph">
 <p>Please feel free to raise your hands with any questions that you have about the lab; feel free to ask why it is you are doing something, or if something does not feel right. Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_prerequisites">1.2. Prerequisites</h3>
+<h3 id="_prerequisites">3.2. Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -761,7 +811,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_demo_environment">1.3. Setup demo environment</h3>
+<h3 id="_setup_demo_environment">3.3. Setup demo environment</h3>
 <div class="paragraph">
 <p>In order to use the labs we need to prepare a database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.</p>
 </div>
@@ -778,7 +828,7 @@ Use the database you prefer, it&#8217;s not required to have them both installed
 </table>
 </div>
 <div class="sect3">
-<h4 id="_setup_postgresql">1.3.1. Setup PostgreSQL</h4>
+<h4 id="_setup_postgresql">3.3.1. Setup PostgreSQL</h4>
 <div class="paragraph">
 <p>Installation</p>
 </div>
@@ -845,7 +895,7 @@ postgres=# \q</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setup_mysql">1.3.2. Setup MySQL</h4>
+<h4 id="_setup_mysql">3.3.2. Setup MySQL</h4>
 <div class="paragraph">
 <p>Installation</p>
 </div>
@@ -951,7 +1001,7 @@ Bye</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_install_red_hat_jboss_data_virtualization">2. Install Red Hat JBoss Data Virtualization</h2>
+<h2 id="_install_red_hat_jboss_data_virtualization">4. Install Red Hat JBoss Data Virtualization</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There are three different ways to install Red Hat JBoss Data Virtualization.</p>
@@ -970,7 +1020,7 @@ Bye</pre>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">2.1. Installing Red Hat JBoss Data Virtualization through graphical mode</h3>
+<h3 id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">4.1. Installing Red Hat JBoss Data Virtualization through graphical mode</h3>
 <div class="paragraph">
 <p>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <a href="http://www.jboss.org/products/datavirt.html" class="bare">http://www.jboss.org/products/datavirt.html</a>.</p>
 </div>
@@ -1134,7 +1184,7 @@ When the installation is complete, navigate to</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">2.2. Installing Red Hat JBoss Data Virtualization through automated script mode</h3>
+<h3 id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">4.2. Installing Red Hat JBoss Data Virtualization through automated script mode</h3>
 <div class="paragraph">
 <p>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.</p>
 </div>
@@ -1240,7 +1290,7 @@ The ModeShape rest URL is accessible by the user modeshapeUser. If you want to h
 </div>
 </div>
 <div class="sect2">
-<h3 id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">2.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</h3>
+<h3 id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">4.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</h3>
 <div class="paragraph">
 <p>With OpenShift you can easily deploy and run JBoss Data Virtualization in minutes to connect your applications to data from many different sources. JBoss Data Virtualization on OpenShift Online is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift Online.</p>
 </div>
@@ -1338,7 +1388,7 @@ The following screen should appear.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_install_red_hat_jboss_developer_studio">3. Install Red Hat JBoss Developer Studio</h2>
+<h2 id="_install_red_hat_jboss_developer_studio">5. Install Red Hat JBoss Developer Studio</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</p>
@@ -1604,7 +1654,7 @@ If JBoss Data Virtualization Server is already started from the command line usi
 </div>
 </div>
 <div class="sect1">
-<h2 id="_demo_scenario">4. Demo Scenario</h2>
+<h2 id="_demo_scenario">6. Demo Scenario</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The customer here is a retail brokerage firm with customers across the US and Europe. Data is currently spread over several databases – one for US customer data, one for EU customer data, and a centralized database with information on securities products. The firm&#8217;s market data group also has a web service we can query to find the current price of any security.
@@ -1615,7 +1665,7 @@ So what the JBoss Data Virtualization data architect needs to do is provide seve
 And, they want to make sure that as they solve this tactical use case they build something that can be used as a basis for other future use cases.</p>
 </div>
 <div class="sect2">
-<h3 id="_demo_context">4.1. Demo Context</h3>
+<h3 id="_demo_context">6.1. Demo Context</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-context.png" alt="Demo Context">
@@ -1623,13 +1673,13 @@ And, they want to make sure that as they solve this tactical use case they build
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_this_is_accomplished_in_jboss_data_virtualization">4.2. How this is accomplished in JBoss Data Virtualization</h3>
+<h3 id="_how_this_is_accomplished_in_jboss_data_virtualization">6.2. How this is accomplished in JBoss Data Virtualization</h3>
 <div class="paragraph">
 <p>Here&#8217;s how you can do this in JBoss Data Virtualization, using the Teiid Designer graphical design tool:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_demo_workflow">4.3. Demo Workflow</h3>
+<h3 id="_demo_workflow">6.3. Demo Workflow</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demoflow.png" alt="demoflow">
@@ -1764,13 +1814,13 @@ For this workshop we only expose the All_Customers model for now.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_teiid_project_and_import_data_source">5. Create a Teiid project and Import Data Source</h2>
+<h2 id="_create_a_teiid_project_and_import_data_source">7. Create a Teiid project and Import Data Source</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</p>
 </div>
 <div class="sect2">
-<h3 id="_prerequisites_2">5.1. Prerequisites</h3>
+<h3 id="_prerequisites_2">7.1. Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1786,7 +1836,7 @@ For this workshop we only expose the All_Customers model for now.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we">5.2. Where are we?</h3>
+<h3 id="_where_are_we">7.2. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-cp.png" alt="demo cp">
@@ -1794,7 +1844,7 @@ For this workshop we only expose the All_Customers model for now.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_open_the_teiid_perspective">5.3. Open the Teiid Perspective</h3>
+<h3 id="_open_the_teiid_perspective">7.3. Open the Teiid Perspective</h3>
 <div class="paragraph">
 <p>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
 To open the “Teiid Designer” perspective, first select <span class="menuseq"><span class="menu">Window</span>&#160;&#9656; <span class="submenu">Open Perspective</span>&#160;&#9656; <span class="menuitem">Other&#8230;&#8203;</span></span> in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.</p>
@@ -1837,7 +1887,7 @@ As a “sanity” check, be sure to click the "Test Administration Connection" a
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_a_teiid_project">5.4. Creating a Teiid Project</h3>
+<h3 id="_creating_a_teiid_project">7.4. Creating a Teiid Project</h3>
 <div class="paragraph">
 <p>Before you can create models of how your data will be exposed or used, you must first create a project. For the purposes of these labs, we will create a project named Financials. This Financials project will be where we create all of our source and view models and Virtual Database (VDB) files. To create the project, from the menu bar on JBDS, select <span class="menuseq"><span class="menu">File</span>&#160;&#9656; <span class="submenu">New</span>&#160;&#9656; <span class="menuitem">Teiid Model Project</span></span>.
 The New Model Project wizard will be displayed as below.</p>
@@ -1879,7 +1929,7 @@ The New Model Project wizard will be displayed as below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_a_source_model">5.5. Creating a Source Model</h3>
+<h3 id="_creating_a_source_model">7.5. Creating a Source Model</h3>
 <div class="paragraph">
 <p>We must create a source model in order to access physical data or information from a source. The source model (also referred to as the physical model) contains all the metadata necessary for a Virtual Database (VDB) and its associated connectors to access or query data from a target source. There are a few different ways of creating source models. We will first go over the process of creating a source model using the Metadata Import Wizard.
 The Metadata Import Wizard helps you create new models in the workspace by importing metadata information from a physical enterprise information system or other data source. When you import metadata, the Designer creates a new metadata model for you. Once you have created this metadata model, you can alter it as you would any other. Keep in mind that any changes you make to an imported metadata model do not impact the underlying structure of the enterprise information system the model represents.
@@ -1889,7 +1939,7 @@ More information on the Import Wizard (and all of the features in the Teiid Desi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_importing_metadata_from_the_product_database">5.6. Importing Metadata from the Product Database</h3>
+<h3 id="_importing_metadata_from_the_product_database">7.6. Importing Metadata from the Product Database</h3>
 <div class="paragraph">
 <p>Right-click on the “DataSources” folder and select <span class="menu">Import&#8230;&#8203;</span>. In the Import wizard dialog, select the arrow next to “Teiid Designer” to expand the import options. Now, select “JDBC Database &gt;&gt; Source Model” and click <b class="button">Next &gt;</b>.</p>
 </div>
@@ -2005,7 +2055,7 @@ You will now see the Products.xmi source model was opened and its Package Diagra
 </div>
 </div>
 <div class="sect2">
-<h3 id="_preview_data_via_the_teiid_server">5.7. Preview Data via the Teiid Server</h3>
+<h3 id="_preview_data_via_the_teiid_server">7.7. Preview Data via the Teiid Server</h3>
 <div class="paragraph">
 <p>With an active Teiid Server connection, all physical models that have been imported, along with any virtual models that are built on top of them, can be sampled (previewed) with the simple click of a button. To do this, let&#8217;s utilize the Modeling Actions palette on the right-hand side of the Designer. Select Model JDBC Source and to Preview data, double-click on the Preview Data action.
 This will bring up the Preview Data dialogue as indicated below.</p>
@@ -2041,7 +2091,7 @@ This will bring up the Preview Data dialogue as indicated below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_metadata_from_the_uscustomers_and_eucustomers_databases">5.8. Import Metadata from the uscustomers and eucustomers Databases</h3>
+<h3 id="_import_metadata_from_the_uscustomers_and_eucustomers_databases">7.8. Import Metadata from the uscustomers and eucustomers Databases</h3>
 <div class="paragraph">
 <p>We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.</p>
@@ -2053,7 +2103,7 @@ When you have completed the imports, the Package Diagram and Model Explorer for 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_metadata_from_a_flat_file">5.9. Import Metadata from a flat file</h3>
+<h3 id="_import_metadata_from_a_flat_file">7.9. Import Metadata from a flat file</h3>
 <div class="paragraph">
 <p>So far we have been connecting to relational databases and their tables. You can connect to other types of data sources within the perspective. In this section we will connect to a flat file in a CSV (Comma Separated Values) format which contains market information as seen in the image below:</p>
 </div>
@@ -2167,13 +2217,13 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_virtual_base_layer">6. Create a Virtual Base Layer</h2>
+<h2 id="_create_a_virtual_base_layer">8. Create a Virtual Base Layer</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Beyond the obvious advantages of integrating disparate data sources using an intuitive, easy-to-use technology such as JBoss Data Virtualization, another significant advantage of creating a data services abstraction layer is to provide a level of isolation from the physical sources themselves. By creating a layered set of data service models, from fine-grained to more granular data services, the developer can build a stable data integration layer than can easily adapt to changes in the source systems. This is especially advantageous when the consumers of the data are separate from/have no control of the providers of the data. A recommended best practice to begin building this "future-proof" abstraction layer is to create a Virtual Base Layer (VBL), a one-to-one mapping of each physical source that isolates any future changes that may arise in the data source(s) to a specific transformation in the model. These VBL components can then be used as building blocks for higher level services; all of the transformations built on top of them will not need to be changed should the need arise to accommodate a change in the source(s).</p>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_2">6.1. Where are we?</h3>
+<h3 id="_where_are_we_2">8.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-vbl.png" alt="demo vbl">
@@ -2181,7 +2231,7 @@ The new connection profile dialog is displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_a_virtual_base_layer_us_customers_vbl">6.2. Create a virtual base layer: US_Customers_VBL</h3>
+<h3 id="_create_a_virtual_base_layer_us_customers_vbl">8.2. Create a virtual base layer: US_Customers_VBL</h3>
 <div class="paragraph">
 <p>To create a VBL for each of the source metadata models that you have imported, right-click on the VirtualBaseLayer folder that you created earlier and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Teiid Metadata Model</span></span>.</p>
 </div>
@@ -2256,7 +2306,7 @@ The "transformation language" in the Transformation Editor is ANSI-standard SQL.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_the_eu_customers_vbl_and_products_vbl_models">6.3. Create the EU_Customers_VBL and Products_VBL Models</h3>
+<h3 id="_create_the_eu_customers_vbl_and_products_vbl_models">8.3. Create the EU_Customers_VBL and Products_VBL Models</h3>
 <div class="paragraph">
 <p>Create VBLs for the other two physical models you have imported (Products_VBL and EU_Customers_VBL).
 Be sure to create them within the VirtualBaseLayer folder. Right-clicking on the folder to get to the <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Teiid Metadata Model wizard</span></span>. Save your changes. When you are finished, your project should look like the illustration below.</p>
@@ -2273,7 +2323,7 @@ Be sure to create them within the VirtualBaseLayer folder. Right-clicking on the
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_an_enterprise_data_layer">7. Create an Enterprise Data Layer</h2>
+<h2 id="_create_an_enterprise_data_layer">9. Create an Enterprise Data Layer</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customers and US_Customers database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we&#8217;ve defined using JBoss Data Virtualization&#8217;s data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two.</p>
@@ -2291,7 +2341,7 @@ Note that using a domain-specific (or enterprise-wide standard) data dictionary 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_3">7.1. Where are we?</h3>
+<h3 id="_where_are_we_3">9.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-edl.png" alt="demo edl">
@@ -2299,7 +2349,7 @@ Note that using a domain-specific (or enterprise-wide standard) data dictionary 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_import_the_data_dictionary_schema">7.2. Import the Data Dictionary Schema</h3>
+<h3 id="_import_the_data_dictionary_schema">9.2. Import the Data Dictionary Schema</h3>
 <div class="paragraph">
 <p>An XML schema containing the definitions of a number of datatypes applicable to the Financial domain used by this lab is located in DVWorkshop/dv_docker/demo. The name of the file is DataDictionary.xsd. We want to import the schema into the Schemas folder that was created in an earlier lab. Perform the following steps.
 Right-click on the Schema folder in the Model Explorer and choose <span class="menuseq"><span class="menu">Import</span>&#160;&#9656; <span class="submenu">Teiid Designer</span>&#160;&#9656; <span class="menuitem">XML Schemas</span></span>. Then click the <b class="button">Next &gt;</b> button.</p>
@@ -2330,7 +2380,7 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 </div>
 </div>
 <div class="sect2">
-<h3 id="_examine_the_data_dictionary">7.3. Examine the Data Dictionary</h3>
+<h3 id="_examine_the_data_dictionary">9.3. Examine the Data Dictionary</h3>
 <div class="paragraph">
 <p>Double-click on the DataDictionary.xsd file you just imported to open the XML Schema viewer. This is a very basic viewer that allows you to see the design model, the source (note the tabs at the bottom), and choose any of the data types to view it&#8217;s properties (in the Properties tab to the bottom-left). The schema can be edited/created here, but most customers use XML-specific tooling to create these files.</p>
 </div>
@@ -2341,7 +2391,7 @@ Right-click on the Schema folder in the Model Explorer and choose <span class="m
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_the_eu_customers_ddc_enterprise_data_layer">7.4. Create the EU_Customers_DDC Enterprise Data Layer</h3>
+<h3 id="_create_the_eu_customers_ddc_enterprise_data_layer">9.4. Create the EU_Customers_DDC Enterprise Data Layer</h3>
 <div class="paragraph">
 <p>Create a new virtual metadata model called EU_Customers_DDC (for Domain Data Dictionary) in the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Teiid Metadata Model</span></span> to bring up the New Model Wizard and make the following selections as indicated in the illustration below.</p>
 </div>
@@ -2441,7 +2491,7 @@ If we were worried about precision, we could take any number of steps to refine/
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_the_us_customers_ddc_enterprise_data_layer">7.5. Create the US_Customers_DDC Enterprise Data Layer</h3>
+<h3 id="_create_the_us_customers_ddc_enterprise_data_layer">9.5. Create the US_Customers_DDC Enterprise Data Layer</h3>
 <div class="paragraph">
 <p>Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers model. Essentially we are going to use the EU_Customers_DDC model as a template for creating the US_Customers_DDC model, and then replace the sources of the transformations for each of the tables with the correct ones.
 Here is how to do it:
@@ -2576,13 +2626,13 @@ The Data Dictionary has also enterprise data types defined for Product data. Cre
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_federated_data_layer">8. Create a Federated Data Layer</h2>
+<h2 id="_create_a_federated_data_layer">10. Create a Federated Data Layer</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Now that we have created our Virtual Base Layer (to isolate us from changes in the sources), defined an enterprise data dictionary to semantically reconcile the various terminologies in our disparate data sources, and created an Enterprise Data Layer that captures those mappings, we are ready to integrate some different data sources. And, since we have the ground work already, it could not be simpler.</p>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_4">8.1. Where are we?</h3>
+<h3 id="_where_are_we_4">10.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-fdl.png" alt="demo fdl">
@@ -2590,7 +2640,7 @@ The Data Dictionary has also enterprise data types defined for Product data. Cre
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_a_federated_data_layer_2">8.2. Create a Federated Data Layer</h3>
+<h3 id="_create_a_federated_data_layer_2">10.2. Create a Federated Data Layer</h3>
 <div class="paragraph">
 <p>Right-click on the Financials Project and go <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Folder</span></span> to create a new folder called “FederatedDataLayer”.
 Create a new Teiid Metadata Model in this folder called “All_Customers". Create it by transforming it from the EU_Customers_DDC model. Your new model wizard should look like the illustration below.</p>
@@ -2636,13 +2686,13 @@ Now that the exercise for federating the customer table is complete, give it a t
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_web_service">9. Create a Web service</h2>
+<h2 id="_create_a_web_service">11. Create a Web service</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this lab, you will be utilizing the Teiid Designer and JBDS to create a Web service. It should be noted that this lab is not a guide on Web services or how or when to use them. Rather, this is an instructional approach for some of the advanced capabilities of Teiid Designer.</p>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_5">9.1. Where are we?</h3>
+<h3 id="_where_are_we_5">11.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-ws.png" alt="demo ws">
@@ -2650,7 +2700,7 @@ Now that the exercise for federating the customer table is complete, give it a t
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_a_web_service_2">9.2. Create a Web service</h3>
+<h3 id="_create_a_web_service_2">11.2. Create a Web service</h3>
 <div class="paragraph">
 <p>To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer folder and select option <span class="menuseq"><span class="menu">Modeling</span>&#160;&#9656; <span class="menuitem">Create Web Service</span></span>. This is indicated in the illustration below.</p>
 </div>
@@ -2737,13 +2787,13 @@ Now that the exercise for federating the customer table is complete, give it a t
 </div>
 </div>
 <div class="sect1">
-<h2 id="_virtual_database_deployment">10. Virtual Database Deployment</h2>
+<h2 id="_virtual_database_deployment">12. Virtual Database Deployment</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We have been doing all of our querying directly through the Preview interface of Teiid Designer, but in order to make our data services available to external clients, we will need to package them up into a Virtual DataBase (VDB), the deployable artifact that drives the run-time behavior of the server. It is exactly analogous to a WAR or an EAR file; once created it can simply be dropped into the deploy directory of a running server (with JBoss Data Virtualization installed) and the Teiid Server process will hot-deploy the data services modeled within it. The process is very simple.</p>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_6">10.1. Where are we?</h3>
+<h3 id="_where_are_we_6">12.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-vdb.png" alt="demo vdb">
@@ -2751,7 +2801,7 @@ Now that the exercise for federating the customer table is complete, give it a t
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_the_vdb_metadata_model">10.2. Create the VDB Metadata Model</h3>
+<h3 id="_create_the_vdb_metadata_model">12.2. Create the VDB Metadata Model</h3>
 <div class="paragraph">
 <p>Right-click on the Financials project (top layer folder in the Model Explorer) and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Teiid VDB</span></span>.</p>
 </div>
@@ -2819,7 +2869,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_data_sources_on_the_jboss_data_virtualization_server">10.3. Create data sources on the JBoss Data Virtualization server</h3>
+<h3 id="_create_data_sources_on_the_jboss_data_virtualization_server">12.3. Create data sources on the JBoss Data Virtualization server</h3>
 <div class="paragraph">
 <p>There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server&#8217;s deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers and are derived automatically from the Source model name. This column is visible in the illustration below.</p>
 </div>
@@ -2892,7 +2942,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dependency_diagrams">10.4. Dependency Diagrams</h3>
+<h3 id="_dependency_diagrams">12.4. Dependency Diagrams</h3>
 <div class="paragraph">
 <p>There is a very useful feature for modeling in the Teiid Designer. Right-click on the All_Customers.customer table and select Modeling → Show Dependency Diagram.</p>
 </div>
@@ -2932,7 +2982,7 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_xml_and_service_sources">11. XML and Service Sources</h2>
+<h2 id="_xml_and_service_sources">13. XML and Service Sources</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this lab you will be using the JDBS tool to create a Web Service. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of the JBDS tool to create a Web Service. In this lab you will create the CountryInfoService.xmi model and the CountryInfoServiceView.xmi model. These will be created from the WSDL:</p>
@@ -2941,7 +2991,7 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 <p><a href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL" class="bare">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</a></p>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_7">11.1. Where are we?</h3>
+<h3 id="_where_are_we_7">13.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-ws-ds.png" alt="demo ws ds">
@@ -2949,7 +2999,7 @@ You can scroll the "viewfinder" on the left in the Outline view to navigate the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_relational_model_from_wsdl">11.2. Create relational model from WSDL</h3>
+<h3 id="_create_relational_model_from_wsdl">13.2. Create relational model from WSDL</h3>
 <div class="paragraph">
 <p>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.
 Create two new folders called WSDL and User-specified Procedures in your Model Explorer view. Right-click on the Financials project and select <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">Folder</span></span>. Call the new folder WSDL.</p>
@@ -3149,7 +3199,7 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_odata">12. OData</h2>
+<h2 id="_odata">14. OData</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
@@ -3157,7 +3207,7 @@ OData is consistent with the way the Web works, it makes a deep commitment to UR
 For more information on OData see <a href="http://www.odata.org" class="bare">http://www.odata.org</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_8">12.1. Where are we?</h3>
+<h3 id="_where_are_we_8">14.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-odata.png" alt="demo odata">
@@ -3165,7 +3215,7 @@ For more information on OData see <a href="http://www.odata.org" class="bare">ht
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_access_the_data">12.2. How to access the data</h3>
+<h3 id="_how_to_access_the_data">14.2. How to access the data</h3>
 <div class="paragraph">
 <p>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
 Now, open up a browser and point it to the following URL: <a href="http://localhost:8080/odata/Financials.1/All_Customers.customer" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer</a>.
@@ -3195,7 +3245,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_query_the_data">12.3. How to query the data</h3>
+<h3 id="_how_to_query_the_data">14.3. How to query the data</h3>
 <div class="paragraph">
 <p>To search for customer with customerid='CST01033' which is the SQL equivalent of</p>
 </div>
@@ -3241,7 +3291,7 @@ To search customers from the USA which is the SQL equivalent of</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dashboard_builder">13. Dashboard Builder</h2>
+<h2 id="_dashboard_builder">15. Dashboard Builder</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Dashboard Builder is a full featured web application which allows non-technical users to visually create business dashboards. Dashboard data can be extracted from heterogeneous sources of information such as JDBC databases or regular text files. Some ready-to-use sample dashboards are provided for demo and learning purposes.</p>
@@ -3281,7 +3331,7 @@ To search customers from the USA which is the SQL equivalent of</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_9">13.1. Where are we?</h3>
+<h3 id="_where_are_we_9">15.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-dashboard.png" alt="demo dashboard">
@@ -3289,7 +3339,7 @@ To search customers from the USA which is the SQL equivalent of</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dashboard_builder_workflow">13.2. Dashboard Builder Workflow</h3>
+<h3 id="_dashboard_builder_workflow">15.2. Dashboard Builder Workflow</h3>
 <div class="paragraph">
 <p>We are creating a Financial Dashboard based on the models of the Federated Data Layer.
 The steps of creating a dashboard is described below:</p>
@@ -3339,7 +3389,7 @@ The steps of creating a dashboard is described below:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_this_is_accomplished_in_dashboard_builder">13.3. How this is accomplished in Dashboard Builder</h3>
+<h3 id="_how_this_is_accomplished_in_dashboard_builder">15.3. How this is accomplished in Dashboard Builder</h3>
 <div class="olist arabic">
 <ol class="arabic" start="1">
 <li>
@@ -3614,7 +3664,7 @@ Select Ascendant for Sort Order.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_financials_dashboard_demo">13.4. Financials Dashboard Demo</h3>
+<h3 id="_financials_dashboard_demo">15.4. Financials Dashboard Demo</h3>
 <div class="paragraph">
 <p>Existing dashboards can exported/imported in Dashboard Builder. To showcase the Dashboard Builder features, we provide a sample Financials Dashboard.</p>
 </div>
@@ -3761,8 +3811,7 @@ Select the Financials Demo workspace as the active workspace. In the navigation 
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 6.1<br>
-Last updated 2015-05-12 17:01:31 CEST
+Last updated 2015-05-12 14:41:41 EDT
 </div>
 </div>
 </body>

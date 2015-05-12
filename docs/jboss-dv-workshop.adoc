@@ -1,11 +1,10 @@
 = JBoss Data Virtualization Workshop
-Cojan van Ballegooijen <https://twitter.com/cvanball[@cvanball]>
-v6.1, May 12th, 2015
 :doctype: book
 :toc:
 :toclevels: 3
 :experimental:
 
+include::pages/acknowledgements.adoc[]
 include::labs/000_introduction.adoc[]
 include::labs/001_install-dv.adoc[]
 include::labs/002_install-jbds.adoc[]

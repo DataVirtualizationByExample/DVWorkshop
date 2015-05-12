@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kpis>
+  <dataprovider code="dataprovider_53251424992622410" type="sql">
+    <description language="en">Financials Customers</description>
+    <sqlprovider>
+      <datasource>Financials</datasource>
+      <query type="teiid">select * from All_Customers.customer</query>
+      <query type="default">select * from All_Customers.customer</query>
+    </sqlprovider>
+    <dataproperties>
+      <dataproperty id="customerid">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="firstname">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="lastname">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="middlename">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="streetaddress">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="streetaddress2">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="city">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="stateprovince">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="postalcode">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="country">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="phonenumber">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+    </dataproperties>
+  </dataprovider>
+  <kpi code="kpi_22091425029619753">
+    <description language="en">Customer Dispersion By City</description>
+    <description language="es">Gastos por departamento USD</description>
+    <provider code="dataprovider_53251424992622410" />
+    <displayer type="barchart" renderer="nvd3">
+      <domain>
+        <propertyid>city</propertyid>
+        <name language="de">city</name>
+        <name language="es">city</name>
+        <name language="pt">city</name>
+        <name language="zh">city</name>
+        <name language="fr">city</name>
+        <name language="en">city</name>
+        <name language="ja">city</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>customerid</propertyid>
+        <name language="en">customerid</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <intervalsortcriteria>1</intervalsortcriteria>
+      <intervalsortorder>-1</intervalsortorder>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <labelanglexaxis>30</labelanglexaxis>
+      <showlinesarea>false</showlinesarea>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>500</width>
+      <height>250</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>center</align>
+      <marginleft>50</marginleft>
+      <marginright>0</marginright>
+      <margintop>10</margintop>
+      <marginbottom>50</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_25701425029621271">
+    <description language="en">Customers Dispertion By Country</description>
+    <description language="es">Gastos por oficina USD</description>
+    <provider code="dataprovider_53251424992622410" />
+    <displayer type="piechart" renderer="nvd3">
+      <domain>
+        <propertyid>country</propertyid>
+        <name language="de">country</name>
+        <name language="es">country</name>
+        <name language="pt">country</name>
+        <name language="zh">country</name>
+        <name language="fr">country</name>
+        <name language="en">country</name>
+        <name language="ja">country</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>customerid</propertyid>
+        <name language="en">customerid</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <color>#FFFFFF</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>400</width>
+      <height>250</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>south</legendanchor>
+      <showtitle>true</showtitle>
+      <align>center</align>
+      <marginleft>0</marginleft>
+      <marginright>0</marginright>
+      <margintop>0</margintop>
+      <marginbottom>0</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_24001425029620591">
+    <description language="en">Customers List</description>
+    <description language="es">Listado notas de gastos</description>
+    <provider code="dataprovider_53251424992622410" />
+    <displayer type="table" renderer="default">
+      <rowsperpage>15</rowsperpage>
+      <headerposition>top</headerposition>
+      <htmlstyle>border: 1px solid #000000; padding:0; text-align:center;</htmlstyle>
+      <htmlclass>skn-table_border</htmlclass>
+      <rowevenclass>skn-even_row</rowevenclass>
+      <rowoddclass>skn-odd_row</rowoddclass>
+      <rowhoverclass>skn-even_row_alt</rowhoverclass>
+      <column>
+        <modelproperty>customerid</modelproperty>
+        <viewindex>0</viewindex>
+        <name language="de">customerid</name>
+        <name language="es">customerid</name>
+        <name language="pt">customerid</name>
+        <name language="zh">customerid</name>
+        <name language="fr">customerid</name>
+        <name language="en">customerid</name>
+        <name language="ja">customerid</name>
+        <hint language="de">customerid</hint>
+        <hint language="es">customerid</hint>
+        <hint language="pt">customerid</hint>
+        <hint language="zh">customerid</hint>
+        <hint language="fr">customerid</hint>
+        <hint language="en">customerid</hint>
+        <hint language="ja">customerid</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>firstname</modelproperty>
+        <viewindex>1</viewindex>
+        <name language="de">firstname</name>
+        <name language="es">firstname</name>
+        <name language="pt">firstname</name>
+        <name language="zh">firstname</name>
+        <name language="fr">firstname</name>
+        <name language="en">firstname</name>
+        <name language="ja">firstname</name>
+        <hint language="de">firstname</hint>
+        <hint language="es">firstname</hint>
+        <hint language="pt">firstname</hint>
+        <hint language="zh">firstname</hint>
+        <hint language="fr">firstname</hint>
+        <hint language="en">firstname</hint>
+        <hint language="ja">firstname</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>lastname</modelproperty>
+        <viewindex>2</viewindex>
+        <name language="de">lastname</name>
+        <name language="es">lastname</name>
+        <name language="pt">lastname</name>
+        <name language="zh">lastname</name>
+        <name language="fr">lastname</name>
+        <name language="en">lastname</name>
+        <name language="ja">lastname</name>
+        <hint language="de">lastname</hint>
+        <hint language="es">lastname</hint>
+        <hint language="pt">lastname</hint>
+        <hint language="zh">lastname</hint>
+        <hint language="fr">lastname</hint>
+        <hint language="en">lastname</hint>
+        <hint language="ja">lastname</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>middlename</modelproperty>
+        <viewindex>3</viewindex>
+        <name language="de">middlename</name>
+        <name language="es">middlename</name>
+        <name language="pt">middlename</name>
+        <name language="zh">middlename</name>
+        <name language="fr">middlename</name>
+        <name language="en">middlename</name>
+        <name language="ja">middlename</name>
+        <hint language="de">middlename</hint>
+        <hint language="es">middlename</hint>
+        <hint language="pt">middlename</hint>
+        <hint language="zh">middlename</hint>
+        <hint language="fr">middlename</hint>
+        <hint language="en">middlename</hint>
+        <hint language="ja">middlename</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>streetaddress</modelproperty>
+        <viewindex>4</viewindex>
+        <name language="de">streetaddress</name>
+        <name language="es">streetaddress</name>
+        <name language="pt">streetaddress</name>
+        <name language="zh">streetaddress</name>
+        <name language="fr">streetaddress</name>
+        <name language="en">streetaddress</name>
+        <name language="ja">streetaddress</name>
+        <hint language="de">streetaddress</hint>
+        <hint language="es">streetaddress</hint>
+        <hint language="pt">streetaddress</hint>
+        <hint language="zh">streetaddress</hint>
+        <hint language="fr">streetaddress</hint>
+        <hint language="en">streetaddress</hint>
+        <hint language="ja">streetaddress</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>streetaddress2</modelproperty>
+        <viewindex>5</viewindex>
+        <name language="de">streetaddress2</name>
+        <name language="es">streetaddress2</name>
+        <name language="pt">streetaddress2</name>
+        <name language="zh">streetaddress2</name>
+        <name language="fr">streetaddress2</name>
+        <name language="en">streetaddress2</name>
+        <name language="ja">streetaddress2</name>
+        <hint language="de">streetaddress2</hint>
+        <hint language="es">streetaddress2</hint>
+        <hint language="pt">streetaddress2</hint>
+        <hint language="zh">streetaddress2</hint>
+        <hint language="fr">streetaddress2</hint>
+        <hint language="en">streetaddress2</hint>
+        <hint language="ja">streetaddress2</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>city</modelproperty>
+        <viewindex>6</viewindex>
+        <name language="de">city</name>
+        <name language="es">city</name>
+        <name language="pt">city</name>
+        <name language="zh">city</name>
+        <name language="fr">city</name>
+        <name language="en">city</name>
+        <name language="ja">city</name>
+        <hint language="de">city</hint>
+        <hint language="es">city</hint>
+        <hint language="pt">city</hint>
+        <hint language="zh">city</hint>
+        <hint language="fr">city</hint>
+        <hint language="en">city</hint>
+        <hint language="ja">city</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>stateprovince</modelproperty>
+        <viewindex>7</viewindex>
+        <name language="de">stateprovince</name>
+        <name language="es">stateprovince</name>
+        <name language="pt">stateprovince</name>
+        <name language="zh">stateprovince</name>
+        <name language="fr">stateprovince</name>
+        <name language="en">stateprovince</name>
+        <name language="ja">stateprovince</name>
+        <hint language="de">stateprovince</hint>
+        <hint language="es">stateprovince</hint>
+        <hint language="pt">stateprovince</hint>
+        <hint language="zh">stateprovince</hint>
+        <hint language="fr">stateprovince</hint>
+        <hint language="en">stateprovince</hint>
+        <hint language="ja">stateprovince</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>postalcode</modelproperty>
+        <viewindex>8</viewindex>
+        <name language="de">postalcode</name>
+        <name language="es">postalcode</name>
+        <name language="pt">postalcode</name>
+        <name language="zh">postalcode</name>
+        <name language="fr">postalcode</name>
+        <name language="en">postalcode</name>
+        <name language="ja">postalcode</name>
+        <hint language="de">postalcode</hint>
+        <hint language="es">postalcode</hint>
+        <hint language="pt">postalcode</hint>
+        <hint language="zh">postalcode</hint>
+        <hint language="fr">postalcode</hint>
+        <hint language="en">postalcode</hint>
+        <hint language="ja">postalcode</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>country</modelproperty>
+        <viewindex>9</viewindex>
+        <name language="de">country</name>
+        <name language="es">country</name>
+        <name language="pt">country</name>
+        <name language="zh">country</name>
+        <name language="fr">country</name>
+        <name language="en">country</name>
+        <name language="ja">country</name>
+        <hint language="de">country</hint>
+        <hint language="es">country</hint>
+        <hint language="pt">country</hint>
+        <hint language="zh">country</hint>
+        <hint language="fr">country</hint>
+        <hint language="en">country</hint>
+        <hint language="ja">country</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+    </displayer>
+  </kpi>
+</kpis>

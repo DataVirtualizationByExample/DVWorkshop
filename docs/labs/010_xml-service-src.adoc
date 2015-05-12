@@ -6,6 +6,10 @@ In this lab you will be using the JDBS tool to create a Web Service. This lab is
 
 http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL
 
+=== Where are we?
+
+image::demo-ws-ds.png[]
+
 === Create relational model from WSDL
 Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL's schema definition.
 Create two new folders called WSDL and User-specified Procedures in your Model Explorer view. Right-click on the Financials project and select menu:New[Folder]. Call the new folder WSDL.

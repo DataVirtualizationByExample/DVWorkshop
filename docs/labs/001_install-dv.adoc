@@ -125,28 +125,35 @@ $ java -jar ../software/jboss-dv-installer-6.1.0.redhat-3.jar installscript_loca
 ----
 
 The following username/passwords will be installed automatically for access to 
-[cols="3", options="header"] 
+[cols="4", options="header"] 
 |===
 |Component
+|URL
 |Username
 |Password
 
 |JBoss EAP Administration console
+|http://localhost:9990/console
 |admin
 |redhat1!
 
 |Teiid Server
+|http://localhost:8080/odata/<VDB name>
 |teiidUser
 |redhat1!
 
-|ModeShape 
+|ModeShape
+|http://localhost:8080/modeshape-rest
 |modeshapeUser
 |redhat1!
 
-|Dashboard
+|Dashboard Builder
+|http://localhost:8080/dashboard
 |dashboardAdmin
 |redhat1!
 |===
+
+TIP: The ModeShape rest URL is accessible by the user modeshapeUser. If you want to have user teiidUser to access this url you have to add the connect role privileges to this user in the application-roles.properties file.
 
 In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.
 

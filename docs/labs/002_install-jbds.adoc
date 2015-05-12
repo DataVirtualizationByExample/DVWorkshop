@@ -71,7 +71,7 @@ To set the workspace location, follow these steps:
 
 The workspace location prompting behavior can be altered at any time by clicking menu:Window[Preferences]. Expand menu:General[Startup and Shutdown > Workspace]. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.
 
-After JBoss Developer Studio 8.1.0 you might get a informational message to inform you that there are updates available. 
+NOTE: After JBoss Developer Studio 8.1.0 you might get a informational message to inform you that there are updates available. 
 Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by clicking in the Update balloon message.
 
 The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use JBoss Central.

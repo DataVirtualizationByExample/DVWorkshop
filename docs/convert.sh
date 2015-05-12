@@ -30,7 +30,7 @@ if [ ! -z $1 ]; then
 else
   FORMATS=(html
 docbook
-fopdf)
+)
 fi
 
 for f in ${FORMATS[*]}; do

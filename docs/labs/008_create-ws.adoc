@@ -1,9 +1,15 @@
 
 :imagesdir: ../images
 
-== Create a Web Service
+== Create a Web service
 
-In this lab, you will be utilizing the Teiid Designer and JBDS to create a Web Service. It should be noted that this lab is not a guide on Web Services or how or when to use them. Rather, this is an instructional approach for some of the advanced capabilities of Teiid Designer.
+In this lab, you will be utilizing the Teiid Designer and JBDS to create a Web service. It should be noted that this lab is not a guide on Web services or how or when to use them. Rather, this is an instructional approach for some of the advanced capabilities of Teiid Designer.
+
+=== Where are we?
+
+image::demo-ws.png[]
+
+=== Create a Web service
 To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer folder and select option menu:Modeling[Create Web Service]. This is indicated in the illustration below.
 
 image::7-createws.png[]

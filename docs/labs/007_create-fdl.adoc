@@ -1,10 +1,14 @@
 	
 :imagesdir: ../images
 
-== Create a Data Federation Layer
+== Create a Federated Data Layer
 Now that we have created our Virtual Base Layer (to isolate us from changes in the sources), defined an enterprise data dictionary to semantically reconcile the various terminologies in our disparate data sources, and created an Enterprise Data Layer that captures those mappings, we are ready to integrate some different data sources. And, since we have the ground work already, it could not be simpler.
 
-=== Create a Data Federation Layer 
+=== Where are we?
+
+image::demo-fdl.png[]
+
+=== Create a Federated Data Layer 
 
 Right-click on the Financials Project and go menu:New[Folder] to create a new folder called “FederatedDataLayer”.
 Create a new Teiid Metadata Model in this folder called “All_Customers". Create it by transforming it from the EU_Customers_DDC model. Your new model wizard should look like the illustration below.

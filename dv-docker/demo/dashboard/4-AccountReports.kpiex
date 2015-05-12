@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kpis>
+  <dataprovider code="dataprovider_7931425030128074" type="sql">
+    <description language="en">Financials Accounts Data</description>
+    <sqlprovider>
+      <datasource>Financials</datasource>
+<query>select c.customerid,&apos;customer name&apos;=c.lastname||&apos;,&apos;||c.firstname||&apos; &apos;||c.middlename,c.city,c.country , a.accountid,a.accounttype,a.accountstatus,a.dateopened,a.dateclosed
+from All_Customers.customer c, All_Customers.account a where a.customerid = c.customerid </query>
+    </sqlprovider>
+    <dataproperties>
+      <dataproperty id="customerid">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="expr2">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="city">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="country">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="accountid">
+        <domain>org.jboss.dashboard.domain.numeric.NumericDomain</domain>
+      </dataproperty>
+      <dataproperty id="accounttype">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="accountstatus">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="dateopened">
+        <domain>org.jboss.dashboard.domain.date.DateDomain</domain>
+      </dataproperty>
+      <dataproperty id="dateclosed">
+        <domain>org.jboss.dashboard.domain.date.DateDomain</domain>
+      </dataproperty>
+    </dataproperties>
+  </dataprovider>
+  <kpi code="kpi_28181425031297852">
+    <description language="en">Account Status</description>
+    <description language="es">Gastos por usuario</description>
+    <provider code="dataprovider_7931425030128074" />
+    <displayer type="barchart" renderer="nvd3">
+      <domain>
+        <propertyid>accountstatus</propertyid>
+        <name language="de">accountstatus</name>
+        <name language="es">accountstatus</name>
+        <name language="pt">accountstatus</name>
+        <name language="zh">accountstatus</name>
+        <name language="fr">accountstatus</name>
+        <name language="en">accountstatus</name>
+        <name language="ja">accountstatus</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>accountid</propertyid>
+        <name language="en">accountid</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <intervalsortcriteria>1</intervalsortcriteria>
+      <intervalsortorder>-1</intervalsortorder>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <labelanglexaxis>30</labelanglexaxis>
+      <showlinesarea>false</showlinesarea>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>800</width>
+      <height>300</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>left</align>
+      <marginleft>50</marginleft>
+      <marginright>30</marginright>
+      <margintop>10</margintop>
+      <marginbottom>65</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_28111425031297839">
+    <description language="en">Account Types</description>
+    <description language="es">Evoluci&#243;n del gasto</description>
+    <provider code="dataprovider_7931425030128074" />
+    <displayer type="piechart" renderer="nvd3">
+      <domain>
+        <propertyid>accounttype</propertyid>
+        <name language="de">accounttype</name>
+        <name language="es">accounttype</name>
+        <name language="pt">accounttype</name>
+        <name language="zh">accounttype</name>
+        <name language="fr">accounttype</name>
+        <name language="en">accounttype</name>
+        <name language="ja">accounttype</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>accountid</propertyid>
+        <name language="en">accountid</name>
+        <scalarfunction>count</scalarfunction>
+      </range>
+      <type></type>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>1000</width>
+      <height>300</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>left</align>
+      <marginleft>100</marginleft>
+      <marginright>30</marginright>
+      <margintop>10</margintop>
+      <marginbottom>65</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_28041425031297825">
+    <description language="en">Accounts Dispersion By City</description>
+    <description language="es">Gastos por departamento USD</description>
+    <provider code="dataprovider_7931425030128074" />
+    <displayer type="barchart" renderer="nvd3">
+      <domain>
+        <propertyid>city</propertyid>
+        <name language="de">city</name>
+        <name language="es">city</name>
+        <name language="pt">city</name>
+        <name language="zh">city</name>
+        <name language="fr">city</name>
+        <name language="en">city</name>
+        <name language="ja">city</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>accountid</propertyid>
+        <name language="en">accountid</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <intervalsortcriteria>1</intervalsortcriteria>
+      <intervalsortorder>-1</intervalsortorder>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <labelanglexaxis>30</labelanglexaxis>
+      <showlinesarea>false</showlinesarea>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>500</width>
+      <height>250</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>center</align>
+      <marginleft>50</marginleft>
+      <marginright>0</marginright>
+      <margintop>10</margintop>
+      <marginbottom>50</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_27971425031297812">
+    <description language="en">Accounts Dispertion By Country</description>
+    <description language="es">Gastos por oficina USD</description>
+    <provider code="dataprovider_7931425030128074" />
+    <displayer type="piechart" renderer="nvd3">
+      <domain>
+        <propertyid>country</propertyid>
+        <name language="de">country</name>
+        <name language="es">country</name>
+        <name language="pt">country</name>
+        <name language="zh">country</name>
+        <name language="fr">country</name>
+        <name language="en">country</name>
+        <name language="ja">country</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>accountid</propertyid>
+        <name language="en">accountid</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <color>#FFFFFF</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>400</width>
+      <height>250</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>south</legendanchor>
+      <showtitle>true</showtitle>
+      <align>center</align>
+      <marginleft>0</marginleft>
+      <marginright>0</marginright>
+      <margintop>0</margintop>
+      <marginbottom>0</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_28251425031297868">
+    <description language="en">Accounts list table</description>
+    <description language="es">Listado notas de gastos</description>
+    <provider code="dataprovider_7931425030128074" />
+    <displayer type="table" renderer="default">
+      <rowsperpage>15</rowsperpage>
+      <headerposition>top</headerposition>
+      <htmlstyle>border: 1px solid #000000; padding:0; text-align:center;</htmlstyle>
+      <htmlclass>skn-table_border</htmlclass>
+      <rowevenclass>skn-even_row</rowevenclass>
+      <rowoddclass>skn-odd_row</rowoddclass>
+      <rowhoverclass>skn-even_row_alt</rowhoverclass>
+      <column>
+        <modelproperty>customerid</modelproperty>
+        <viewindex>0</viewindex>
+        <name language="de">customerid</name>
+        <name language="es">customerid</name>
+        <name language="pt">customerid</name>
+        <name language="zh">customerid</name>
+        <name language="fr">customerid</name>
+        <name language="en">customerid</name>
+        <name language="ja">customerid</name>
+        <hint language="de">customerid</hint>
+        <hint language="es">customerid</hint>
+        <hint language="pt">customerid</hint>
+        <hint language="zh">customerid</hint>
+        <hint language="fr">customerid</hint>
+        <hint language="en">customerid</hint>
+        <hint language="ja">customerid</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>expr2</modelproperty>
+        <viewindex>1</viewindex>
+        <name language="de">expr2</name>
+        <name language="es">expr2</name>
+        <name language="pt">expr2</name>
+        <name language="zh">expr2</name>
+        <name language="fr">expr2</name>
+        <name language="en">customername</name>
+        <name language="ja">expr2</name>
+        <hint language="de">expr2</hint>
+        <hint language="es">expr2</hint>
+        <hint language="pt">expr2</hint>
+        <hint language="zh">expr2</hint>
+        <hint language="fr">expr2</hint>
+        <hint language="en">customername</hint>
+        <hint language="ja">expr2</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>city</modelproperty>
+        <viewindex>2</viewindex>
+        <name language="de">city</name>
+        <name language="es">city</name>
+        <name language="pt">city</name>
+        <name language="zh">city</name>
+        <name language="fr">city</name>
+        <name language="en">city</name>
+        <name language="ja">city</name>
+        <hint language="de">city</hint>
+        <hint language="es">city</hint>
+        <hint language="pt">city</hint>
+        <hint language="zh">city</hint>
+        <hint language="fr">city</hint>
+        <hint language="en">city</hint>
+        <hint language="ja">city</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>country</modelproperty>
+        <viewindex>3</viewindex>
+        <name language="de">country</name>
+        <name language="es">country</name>
+        <name language="pt">country</name>
+        <name language="zh">country</name>
+        <name language="fr">country</name>
+        <name language="en">country</name>
+        <name language="ja">country</name>
+        <hint language="de">country</hint>
+        <hint language="es">country</hint>
+        <hint language="pt">country</hint>
+        <hint language="zh">country</hint>
+        <hint language="fr">country</hint>
+        <hint language="en">country</hint>
+        <hint language="ja">country</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>accountid</modelproperty>
+        <viewindex>4</viewindex>
+        <name language="de">accountid</name>
+        <name language="es">accountid</name>
+        <name language="pt">accountid</name>
+        <name language="zh">accountid</name>
+        <name language="fr">accountid</name>
+        <name language="en">accountid</name>
+        <name language="ja">accountid</name>
+        <hint language="de">accountid</hint>
+        <hint language="es">accountid</hint>
+        <hint language="pt">accountid</hint>
+        <hint language="zh">accountid</hint>
+        <hint language="fr">accountid</hint>
+        <hint language="en">accountid</hint>
+        <hint language="ja">accountid</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>accounttype</modelproperty>
+        <viewindex>5</viewindex>
+        <name language="de">accounttype</name>
+        <name language="es">accounttype</name>
+        <name language="pt">accounttype</name>
+        <name language="zh">accounttype</name>
+        <name language="fr">accounttype</name>
+        <name language="en">accounttype</name>
+        <name language="ja">accounttype</name>
+        <hint language="de">accounttype</hint>
+        <hint language="es">accounttype</hint>
+        <hint language="pt">accounttype</hint>
+        <hint language="zh">accounttype</hint>
+        <hint language="fr">accounttype</hint>
+        <hint language="en">accounttype</hint>
+        <hint language="ja">accounttype</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>accountstatus</modelproperty>
+        <viewindex>6</viewindex>
+        <name language="de">accountstatus</name>
+        <name language="es">accountstatus</name>
+        <name language="pt">accountstatus</name>
+        <name language="zh">accountstatus</name>
+        <name language="fr">accountstatus</name>
+        <name language="en">accountstatus</name>
+        <name language="ja">accountstatus</name>
+        <hint language="de">accountstatus</hint>
+        <hint language="es">accountstatus</hint>
+        <hint language="pt">accountstatus</hint>
+        <hint language="zh">accountstatus</hint>
+        <hint language="fr">accountstatus</hint>
+        <hint language="en">accountstatus</hint>
+        <hint language="ja">accountstatus</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>dateopened</modelproperty>
+        <viewindex>7</viewindex>
+        <name language="de">dateopened</name>
+        <name language="es">dateopened</name>
+        <name language="pt">dateopened</name>
+        <name language="zh">dateopened</name>
+        <name language="fr">dateopened</name>
+        <name language="en">dateopened</name>
+        <name language="ja">dateopened</name>
+        <hint language="de">dateopened</hint>
+        <hint language="es">dateopened</hint>
+        <hint language="pt">dateopened</hint>
+        <hint language="zh">dateopened</hint>
+        <hint language="fr">dateopened</hint>
+        <hint language="en">dateopened</hint>
+        <hint language="ja">dateopened</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+      <column>
+        <modelproperty>dateclosed</modelproperty>
+        <viewindex>8</viewindex>
+        <name language="de">dateclosed</name>
+        <name language="es">dateclosed</name>
+        <name language="pt">dateclosed</name>
+        <name language="zh">dateclosed</name>
+        <name language="fr">dateclosed</name>
+        <name language="en">dateclosed</name>
+        <name language="ja">dateclosed</name>
+        <hint language="de">dateclosed</hint>
+        <hint language="es">dateclosed</hint>
+        <hint language="pt">dateclosed</hint>
+        <hint language="zh">dateclosed</hint>
+        <hint language="fr">dateclosed</hint>
+        <hint language="en">dateclosed</hint>
+        <hint language="ja">dateclosed</hint>
+        <headerhtmlstyle>text-align:center; width:100px; overflow:hidden; background-color:#C6D8EB; height:20px; color:#465F7D; font-weight:Bold;  white-space:nowrap;</headerhtmlstyle>
+        <cellhtmlstyle>width:100px; height:20px;  white-space:nowrap;</cellhtmlstyle>
+        <htmlvalue>{value}</htmlvalue>
+        <selectable>false</selectable>
+        <sortable>true</sortable>
+      </column>
+    </displayer>
+  </kpi>
+</kpis>

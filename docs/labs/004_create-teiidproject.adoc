@@ -11,6 +11,10 @@ Make sure that the previous labs have been completed so that a JBoss Data Virtua
 - If using MySQL database, download the http://www.mysql.com/products/connector/[MySQL JDBC Driver].
 - Save the JDBC driver in a "well-known" directory
 
+=== Where are we?
+
+image::demo-cp.png[]
+
 === Open the Teiid Perspective
 To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
 To open the “Teiid Designer” perspective, first select menu:Window[Open Perspective > Other...] in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.

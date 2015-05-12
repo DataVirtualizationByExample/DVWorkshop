@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>JBoss Data Virtualization Workshop</title>
-<date>March 30th, 2014</date>
+<date>May 12th, 2015</date>
 <author>
 <personname>
 <firstname>Cojan</firstname>
@@ -17,7 +17,7 @@
 <revhistory>
 <revision>
 <revnumber>6.1</revnumber>
-<date>March 30th, 2014</date>
+<date>May 12th, 2015</date>
 <authorinitials>CvB</authorinitials>
 </revision>
 </revhistory>
@@ -145,11 +145,14 @@
 </section>
 <section xml:id="_setup_demo_environment">
 <title>Setup demo environment</title>
-<simpara>In order to use the labs we need to prepare the database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.</simpara>
+<simpara>In order to use the labs we need to prepare a database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.</simpara>
+<tip>
+<simpara>Use the database you prefer, it&#8217;s not required to have them both installed.</simpara>
+</tip>
 <section xml:id="_setup_postgresql">
 <title>Setup PostgreSQL</title>
-<simpara>Installation
-The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See <link xlink:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
+<simpara>Installation</simpara>
+<simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See <link xlink:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
 Post-install steps:</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -193,8 +196,8 @@ postgres=# \q</screen>
 </section>
 <section xml:id="_setup_mysql">
 <title>Setup MySQL</title>
-<simpara>Installation
-The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See <link xlink:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.
+<simpara>Installation</simpara>
+<simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See <link xlink:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.
 Post-install steps</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -455,13 +458,15 @@ Run the following java command to install JBoss Data Virtualization in as shown 
 $ java -jar ../software/jboss-dv-installer-6.1.0.redhat-3.jar installscript_local.xml</programlisting>
 <simpara>The following username/passwords will be installed automatically for access to</simpara>
 <informaltable frame="all" rowsep="1" colsep="1">
-<tgroup cols="3">
-<colspec colname="col_1" colwidth="33*"/>
-<colspec colname="col_2" colwidth="33*"/>
-<colspec colname="col_3" colwidth="33*"/>
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="25*"/>
+<colspec colname="col_2" colwidth="25*"/>
+<colspec colname="col_3" colwidth="25*"/>
+<colspec colname="col_4" colwidth="25*"/>
 <thead>
 <row>
 <entry align="left" valign="top">Component</entry>
+<entry align="left" valign="top">URL</entry>
 <entry align="left" valign="top">Username</entry>
 <entry align="left" valign="top">Password</entry>
 </row>
@@ -469,27 +474,34 @@ $ java -jar ../software/jboss-dv-installer-6.1.0.redhat-3.jar installscript_loca
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>JBoss EAP Administration console</simpara></entry>
+<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:9990/console">http://localhost:9990/console</link></simpara></entry>
 <entry align="left" valign="top"><simpara>admin</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Teiid Server</simpara></entry>
+<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:8080/odata/&lt;VDB">http://localhost:8080/odata/&lt;VDB</link> name&gt;</simpara></entry>
 <entry align="left" valign="top"><simpara>teiidUser</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>ModeShape</simpara></entry>
+<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:8080/modeshape-rest">http://localhost:8080/modeshape-rest</link></simpara></entry>
 <entry align="left" valign="top"><simpara>modeshapeUser</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 <row>
-<entry align="left" valign="top"><simpara>Dashboard</simpara></entry>
+<entry align="left" valign="top"><simpara>Dashboard Builder</simpara></entry>
+<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link></simpara></entry>
 <entry align="left" valign="top"><simpara>dashboardAdmin</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 </tbody>
 </tgroup>
 </informaltable>
+<tip>
+<simpara>The ModeShape rest URL is accessible by the user modeshapeUser. If you want to have user teiidUser to access this url you have to add the connect role privileges to this user in the application-roles.properties file.</simpara>
+</tip>
 <simpara>In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.</simpara>
 <informalfigure>
 <mediaobject>
@@ -707,8 +719,10 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 </listitem>
 </orderedlist>
 <simpara>The workspace location prompting behavior can be altered at any time by clicking <menuchoice><guimenu>Window</guimenu> <guimenuitem>Preferences</guimenuitem></menuchoice>. Expand <menuchoice><guimenu>General</guimenu> <guisubmenu>Startup and Shutdown</guisubmenu> <guimenuitem>Workspace</guimenuitem></menuchoice>. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.</simpara>
+<note>
 <simpara>After JBoss Developer Studio 8.1.0 you might get a informational message to inform you that there are updates available.
 Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by clicking in the Update balloon message.</simpara>
+</note>
 <simpara>The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use JBoss Central.</simpara>
 <informalfigure>
 <mediaobject>
@@ -827,6 +841,122 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
 <simpara>You can now begin creating your own Red Hat JBoss Data Virtualization projects.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </chapter>
+<chapter xml:id="_demo_scenario">
+<title>Demo Scenario</title>
+<simpara>The customer here is a retail brokerage firm with customers across the US and Europe. Data is currently spread over several databases – one for US customer data, one for EU customer data, and a centralized database with information on securities products. The firm&#8217;s market data group also has a web service we can query to find the current price of any security.
+The brokers currently don&#8217;t have a way to view data from all of these various databases on a single screen – they need to flip between several different applications, each of which shows data from only one of these data sources.
+They have requested a new screen for their applications that will display all information for one or more customers (across both the US and Europe) in a single query. They want returned in a single query all the accounts for a given customer – and for each of those accounts, all of the current securities held by that account, with their current price.
+They also want this screen to be available in each of several applications, so no matter which application they are in they can get to this screen. This actually introduces a lot of complexity, since the applications were developed by several groups, all of whom want the data returned in a slightly different format and protocol – some want the data returned as a hierarchy (customer → account → holdings) while some want all the data in a single flat data structure; and some want native access to the data from their .NET or Java applications, while others want to access the data as a web service.
+So what the JBoss Data Virtualization data architect needs to do is provide several slightly different versions of the same federated data view for each of these groups.
+And, they want to make sure that as they solve this tactical use case they build something that can be used as a basis for other future use cases.</simpara>
+<section xml:id="_demo_context">
+<title>Demo Context</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-context.png"/>
+</imageobject>
+<textobject><phrase>Demo Context</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="_how_this_is_accomplished_in_jboss_data_virtualization">
+<title>How this is accomplished in JBoss Data Virtualization</title>
+<simpara>Here&#8217;s how you can do this in JBoss Data Virtualization, using the Teiid Designer graphical design tool:</simpara>
+</section>
+<section xml:id="_demo_workflow">
+<title>Demo Workflow</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demoflow.png"/>
+</imageobject>
+<textobject><phrase>demoflow</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informaltable frame="none" rowsep="0" colsep="1">
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>01 - Import metadata</simpara></entry>
+<entry align="left" valign="top"><simpara>02 - Virtual Base Layer</simpara></entry>
+<entry align="left" valign="top"><simpara>07 - OData</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"></entry>
+<entry align="left" valign="top"><simpara>03 - Enterprise Data Layer</simpara></entry>
+<entry align="left" valign="top"><simpara>10 - Dashboard</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"></entry>
+<entry align="left" valign="top"><simpara>04 - Federated Data Layer</simpara></entry>
+<entry align="left" valign="top"></entry>
+</row>
+<row>
+<entry align="left" valign="top"></entry>
+<entry align="left" valign="top"><simpara>05 - Webservices</simpara></entry>
+<entry align="left" valign="top"></entry>
+</row>
+<row>
+<entry align="left" valign="top"></entry>
+<entry align="left" valign="top"><simpara>06 - Deploy VDB</simpara></entry>
+<entry align="left" valign="top"></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<orderedlist numeration="arabic" startingnumber="1">
+<listitem>
+<simpara>Import of metadata from data sources</simpara>
+</listitem>
+</orderedlist>
+<simpara>First, they import in the metadata for all of the various data sources into Designer. For the relational databases, Designer does this by connecting to each database via JDBC and importing such metadata as the names of each table in the database, the columns in each of these tables, and the data types of each of these columns. For this use case our relational databases all happen to only have tables, but if they had views or stored procedures, they would have been imported too.</simpara>
+<simpara>For the stock quote web service, this is done by reading the WSDL for the web service and importing in the schema for the web service request that the service expects, as well as the schema for the response that the web service will retrieve. Since JBoss Data Virtualization uses relational database semantics for both design modeling and its runtime engine, this information appears in Designer as one or more relational tables that represent the the request and response schemas. In this case, a single table is used to represent both the request and response; but more often than not, the importer will create separate tables for the request and response, and if the response has a heirarchical XML schema the response would actually be represented as several tables with primary/foreign key pair relationships – a normalized relational schema.</simpara>
+<simpara><emphasis role="strong">Build view layers on top of source metadata</emphasis></simpara>
+<simpara>Then, they build several layers of view models on top of that data source model. This is a fairly typical JBoss Data Virtualization project, with six layers of view models on top of the data source models – with the transformational logic for each view being fairly simple, and complex data transformations achieved by this use of several layers of such views. Now, in a traditional relational database, such a design would have a fairly heavy performance penalty at runtime to deal with all of these layers of views, which is why in a traditional database you&#8217;d see a use case like this defined as a single view defined with a very lengthy and complex SQL statement, but one of the really nice things about JBoss Data Virtualization is that it compresses all of these layers at run time down to a single layer, so there is not really any such penalty to using layered views with JBoss Data Virtualization.</simpara>
+<orderedlist numeration="arabic" startingnumber="2">
+<listitem>
+<simpara>Virtual Base Layer</simpara>
+</listitem>
+</orderedlist>
+<simpara>The first layer we&#8217;ve defined here is the Virtual Base Layer. This model layer in most projects is just a series of views that have one-to-one correspendence to each of the source tables. The reason we have this model layer is to provide an abstraction layer to handle any future changes to the data source schemas – if there is such a change, having this layer gives us a place to mask any changes to the actual source schema from the higher level model layers. As you can see, when I double click on the diamond with a T (representing the transformation logic for that view), the language that JBoss Data Virtualization uses to define view transformations is plain old ANSI SQL-92. This is another very nice aspect of JBoss Data Virtualization – we don&#8217;t make you learn a new language to define transformations, you just use normal SQL syntax, which is something that we find most data architects are already fairly comfortable with. We find that the learning curve for our SQL dialect is very low for data architects coming from any of the major RDBMS&#8217;s (Oracle, DB2, MS SQL, or Sybase), since JBoss Data Virtualization syntax is as I mentioned essentially just ANSI SQL-92, which is a very large subset of the SQL functionality of any of the major databases.</simpara>
+<orderedlist numeration="arabic" startingnumber="3">
+<listitem>
+<simpara>Enterprise Data Layer</simpara>
+</listitem>
+</orderedlist>
+<simpara>The next layer up are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the eucustomers and uscustomers databases – for example the US version includes a field for middle initial only in the customer table, where the EU version of the customer table has a corresponding field for middle name.</simpara>
+<simpara>Now, one technique we use here to make resolving these semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we&#8217;ve defined, using JBoss Data Virtualization&#8217;s data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype and also gives us a guide to resolving any differences in field names between the two. For example here we convert the EU MiddleName field into something that works for the custom MiddleInitial datatype by using the SQL LEFT function to get just the first character of the middle name. Another nice thing about using custom datatypes is that these datatypes are also used to better describe returned data when JBoss Data Virtualization returns data in XML documents (such as with web services) – we wish we could do this for JDBC and ODBC too, but unfortunately those protocols don&#8217;t have a good custom datatype mechanism so we map the custom datatypes into the appropriate standard JDBC/ODBC type at run time when returning data via JDBC or ODBC.</simpara>
+<simpara>One thing I want to make clear is that there is no hard requirement to define or use a data dictionary with custom datatypes within JBoss Data Virtualization – in fact most of our customers do not use a data dictionary, but instead do this semantic mediation without them (by manually comparing datatypes and field lengths between the two data sources). Our goal with JBoss Data Virtualization is to not impose any roadblocks for those users that want to get their use case resolved with JBoss Data Virtualization as rapidly as possible – so we don&#8217;t force any requirement on users to define a data dictionary or a taxonomy or anything like that.</simpara>
+<orderedlist numeration="arabic" startingnumber="4">
+<listitem>
+<simpara>Federated Data Layer</simpara>
+</listitem>
+</orderedlist>
+<simpara>Now, the next three layers of models are in the FederatedDataLayer folder. What we try to do in the mid layer is define a set of standard, generic views of the federated data that are not specific to the requirements of any one use case, but rather are the architect&#8217;s data model on how the data from the various data sources should be joined together. Each of these three models federates an additional source to our original model (as we discussed earlier, with JBoss Data Virtualization we try to have each model layer only take a small step towards our eventual goal, and perform complex federations by building multiple layers of models. First we have the AllCustAccts model. What this model does is union together the EU and US customer models to form a federated view of all customers. If we look at the transformation for the account table here, you&#8217;ll see again that this is done with some fairly straightforward SQL – this is just a SQL union between the two tables.</simpara>
+<simpara>Something else I want to show with this table is JBoss Data Virtualization&#8217;s capability to perform federated writes. If you see that notation “suid” above the account table, that means that this particular table is configured for not only reads(SQL select), but also for updates, inserts, and deletes. The way this is defined in Designer is by using SQL (more precisely the JBoss Data Virtualization stored procedure language) to define the logic for what an update, insert, or delete means for this particular table, in terms what action should be performed on the layer of models below the current one. And that model layer will have the logic defined for the previous level, and so on down to the model representing the data source. This approach to defining write logic lets us define exactly what a write means even on a table that is built on top of many layers of models or that does complex federation. A good example of the need for this is in the INSERT logic here. If someone does an insert on this table, where should the write go – to the EU database or the US one? Here you&#8217;ll see that when an INSERT is done on this table we actually first do a SELECT on the corresponding customer table to determine the geography for the customer referenced in the row to be inserted, and then do the write to the correct database depending on where the customer record is located. JBoss Data Virtualization does all of these federated writes by default as a true XA transaction, so if writes to one source in a federated write scenario aren&#8217;t successful then the transaction is rolled back.</simpara>
+<simpara>Now, if you look at the tables in this All_Customers model you&#8217;ll see that not only do we have the account, customer, and accountholdings tables from the previous model layers, but we also have a fourth table that is a flattened representation of the data from all three tables. We do this in order to provide parallel representations of the data as both a normalized relational schema (with three separate tables), and also as a flattened, denormalized view. Starting to build these two parallel representations at this level is useful because it lets us join all of the tables in the EU database together before they are unioned with the US database – this will result in slightly more efficient federated queries at run time than if we were to join the other way around, for those views we may eventually build that are also mostly denormalized.</simpara>
+<simpara>On top of All_Customers, we might have All_Customers_Products, where we also join in data from the products database (such as the names and ticker symbols for each security), and on top of that we have All_Customers_Products_Values, which also joins in the current value for each security from our web service source. So at this point we have many layers of models, leading up to AllCustAccts_Products_Values, where as you&#8217;ll see from this dependency view we have rolled up all of the data from our federated sources to provide the canonical data architect&#8217;s representation of the data.</simpara>
+<orderedlist numeration="arabic" startingnumber="5">
+<listitem>
+<simpara>Virtual Query Layer – Web services</simpara>
+</listitem>
+</orderedlist>
+<simpara>If there are web service users that want such a flattened view of the data, we&#8217;ve built a web service on top of All_Customers model. These sorts of web services (returning data from a single table) can be built by JBoss Data Virtualization automatically using a web service generation wizard.</simpara>
+<simpara>We also have this data presented in a hierarchical view in the All_Customers model. If you look at this model, you&#8217;ll see that this model represents this data in a hierarchical view, by returning the data as an XML document. This XML document can then be returned back to the end user either via web services built on top of this document, as is done in the All_Customers model, or can be queried via our JDBC driver.</simpara>
+<orderedlist numeration="arabic" startingnumber="6">
+<listitem>
+<simpara>Packaging models in a Virtual Database</simpara>
+</listitem>
+</orderedlist>
+<simpara>And now that all of these services are developed, we package them up in a VDB deployment file , where as we mentioned earlier we specify which models should be included for deployment, and of those which should be visible to end users.
+For this workshop we only expose the All_Customers model for now.</simpara>
+<simpara>Have fun with while building the demo scenario yourself.</simpara>
+</section>
+</chapter>
 <chapter xml:id="_create_a_teiid_project_and_import_data_source">
 <title>Create a Teiid project and Import Data Source</title>
 <simpara>Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</simpara>
@@ -843,6 +973,17 @@ Select the “home” directory for the JBoss Data Virtualization instance. This
 <simpara>Save the JDBC driver in a "well-known" directory</simpara>
 </listitem>
 </itemizedlist>
+</section>
+<section xml:id="_where_are_we">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-cp.png"/>
+</imageobject>
+<textobject><phrase>demo cp</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </section>
 <section xml:id="_open_the_teiid_perspective">
 <title>Open the Teiid Perspective</title>
@@ -1236,6 +1377,17 @@ The new connection profile dialog is displayed.</simpara>
 <chapter xml:id="_create_a_virtual_base_layer">
 <title>Create a Virtual Base Layer</title>
 <simpara>Beyond the obvious advantages of integrating disparate data sources using an intuitive, easy-to-use technology such as JBoss Data Virtualization, another significant advantage of creating a data services abstraction layer is to provide a level of isolation from the physical sources themselves. By creating a layered set of data service models, from fine-grained to more granular data services, the developer can build a stable data integration layer than can easily adapt to changes in the source systems. This is especially advantageous when the consumers of the data are separate from/have no control of the providers of the data. A recommended best practice to begin building this "future-proof" abstraction layer is to create a Virtual Base Layer (VBL), a one-to-one mapping of each physical source that isolates any future changes that may arise in the data source(s) to a specific transformation in the model. These VBL components can then be used as building blocks for higher level services; all of the transformations built on top of them will not need to be changed should the need arise to accommodate a change in the source(s).</simpara>
+<section xml:id="_where_are_we_2">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-vbl.png"/>
+</imageobject>
+<textobject><phrase>demo vbl</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
 <section xml:id="_create_a_virtual_base_layer_us_customers_vbl">
 <title>Create a virtual base layer: US_Customers_VBL</title>
 <simpara>To create a VBL for each of the source metadata models that you have imported, right-click on the VirtualBaseLayer folder that you created earlier and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Teiid Metadata Model</guimenuitem></menuchoice>.</simpara>
@@ -1316,7 +1468,21 @@ Be sure to create them within the VirtualBaseLayer folder. Right-clicking on the
 </chapter>
 <chapter xml:id="_create_an_enterprise_data_layer">
 <title>Create an Enterprise Data Layer</title>
-<simpara>The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customers and US_Customers database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we&#8217;ve defined using JBoss Data Virtualization&#8217;s data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two. Note that using a domain-specific (or enterprise-wide standard) data dictionary is only a recommendation. There is no hard requirement to define or use a data dictionary but instead do this semantic mediation without one (by manually comparing datatypes and field lengths between the two data sources). Our goal with JBoss Data Virtualization is to not impose any roadblocks for those users that want to get their use cases addressed as rapidly as possible – so we don&#8217;t force any requirement on users to define a data dictionary or a taxonomy or anything like that.</simpara>
+<simpara>The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customers and US_Customers database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we&#8217;ve defined using JBoss Data Virtualization&#8217;s data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two.</simpara>
+<note>
+<simpara>Note that using a domain-specific (or enterprise-wide standard) data dictionary is only a recommendation. There is no hard requirement to define or use a data dictionary but instead do this semantic mediation without one (by manually comparing datatypes and field lengths between the two data sources). Our goal with JBoss Data Virtualization is to not impose any roadblocks for those users that want to get their use cases addressed as rapidly as possible – so we don&#8217;t force any requirement on users to define a data dictionary or a taxonomy or anything like that.</simpara>
+</note>
+<section xml:id="_where_are_we_3">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-edl.png"/>
+</imageobject>
+<textobject><phrase>demo edl</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
 <section xml:id="_import_the_data_dictionary_schema">
 <title>Import the Data Dictionary Schema</title>
 <simpara>An XML schema containing the definitions of a number of datatypes applicable to the Financial domain used by this lab is located in DVWorkshop/dv_docker/demo. The name of the file is DataDictionary.xsd. We want to import the schema into the Schemas folder that was created in an earlier lab. Perform the following steps.
@@ -1579,11 +1745,22 @@ The Data Dictionary has also enterprise data types defined for Product data. Cre
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
-<chapter xml:id="_create_a_data_federation_layer">
-<title>Create a Data Federation Layer</title>
+<chapter xml:id="_create_a_federated_data_layer">
+<title>Create a Federated Data Layer</title>
 <simpara>Now that we have created our Virtual Base Layer (to isolate us from changes in the sources), defined an enterprise data dictionary to semantically reconcile the various terminologies in our disparate data sources, and created an Enterprise Data Layer that captures those mappings, we are ready to integrate some different data sources. And, since we have the ground work already, it could not be simpler.</simpara>
-<section xml:id="_create_a_data_federation_layer_2">
-<title>Create a Data Federation Layer</title>
+<section xml:id="_where_are_we_4">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-fdl.png"/>
+</imageobject>
+<textobject><phrase>demo fdl</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="_create_a_federated_data_layer_2">
+<title>Create a Federated Data Layer</title>
 <simpara>Right-click on the Financials Project and go <menuchoice><guimenu>New</guimenu> <guimenuitem>Folder</guimenuitem></menuchoice> to create a new folder called “FederatedDataLayer”.
 Create a new Teiid Metadata Model in this folder called “All_Customers". Create it by transforming it from the EU_Customers_DDC model. Your new model wizard should look like the illustration below.</simpara>
 <informalfigure>
@@ -1628,9 +1805,22 @@ Now that the exercise for federating the customer table is complete, give it a t
 </section>
 </chapter>
 <chapter xml:id="_create_a_web_service">
-<title>Create a Web Service</title>
-<simpara>In this lab, you will be utilizing the Teiid Designer and JBDS to create a Web Service. It should be noted that this lab is not a guide on Web Services or how or when to use them. Rather, this is an instructional approach for some of the advanced capabilities of Teiid Designer.
-To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer folder and select option <menuchoice><guimenu>Modeling</guimenu> <guimenuitem>Create Web Service</guimenuitem></menuchoice>. This is indicated in the illustration below.</simpara>
+<title>Create a Web service</title>
+<simpara>In this lab, you will be utilizing the Teiid Designer and JBDS to create a Web service. It should be noted that this lab is not a guide on Web services or how or when to use them. Rather, this is an instructional approach for some of the advanced capabilities of Teiid Designer.</simpara>
+<section xml:id="_where_are_we_5">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-ws.png"/>
+</imageobject>
+<textobject><phrase>demo ws</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="_create_a_web_service_2">
+<title>Create a Web service</title>
+<simpara>To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer folder and select option <menuchoice><guimenu>Modeling</guimenu> <guimenuitem>Create Web Service</guimenuitem></menuchoice>. This is indicated in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1711,10 +1901,22 @@ To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer f
 	&lt;/customer_Output_Instance&gt;
 &lt;/account_Output:customer_Output&gt;</programlisting>
 <simpara>Congratulations, you have now completed this lab.</simpara>
+</section>
 </chapter>
 <chapter xml:id="_virtual_database_deployment">
 <title>Virtual Database Deployment</title>
 <simpara>We have been doing all of our querying directly through the Preview interface of Teiid Designer, but in order to make our data services available to external clients, we will need to package them up into a Virtual DataBase (VDB), the deployable artifact that drives the run-time behavior of the server. It is exactly analogous to a WAR or an EAR file; once created it can simply be dropped into the deploy directory of a running server (with JBoss Data Virtualization installed) and the Teiid Server process will hot-deploy the data services modeled within it. The process is very simple.</simpara>
+<section xml:id="_where_are_we_6">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-vdb.png"/>
+</imageobject>
+<textobject><phrase>demo vdb</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
 <section xml:id="_create_the_vdb_metadata_model">
 <title>Create the VDB Metadata Model</title>
 <simpara>Right-click on the Financials project (top layer folder in the Model Explorer) and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Teiid VDB</guimenuitem></menuchoice>.</simpara>
@@ -1887,6 +2089,17 @@ This is the button located right under the Outline tab. You should see something
 <title>XML and Service Sources</title>
 <simpara>In this lab you will be using the JDBS tool to create a Web Service. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of the JBDS tool to create a Web Service. In this lab you will create the CountryInfoService.xmi model and the CountryInfoServiceView.xmi model. These will be created from the WSDL:</simpara>
 <simpara><link xlink:href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</link></simpara>
+<section xml:id="_where_are_we_7">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-ws-ds.png"/>
+</imageobject>
+<textobject><phrase>demo ws ds</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
 <section xml:id="_create_relational_model_from_wsdl">
 <title>Create relational model from WSDL</title>
 <simpara>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.
@@ -2067,12 +2280,24 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 <simpara>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
 For more information on OData see <link xlink:href="http://www.odata.org">http://www.odata.org</link>.</simpara>
+<section xml:id="_where_are_we_8">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-odata.png"/>
+</imageobject>
+<textobject><phrase>demo odata</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
 <section xml:id="_how_to_access_the_data">
 <title>How to access the data</title>
 <simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
 Now, open up a browser and point it to the following URL: <link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</link>.
-If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as SELECT * FROM All_Customers.customer;
-The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</simpara>
+If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as</simpara>
+<programlisting language="sql" linenumbering="unnumbered">SELECT * FROM All_Customers.customer;</programlisting>
+<simpara>The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2119,6 +2344,481 @@ To search customers from the USA which is the SQL equivalent of</simpara>
 <textobject><phrase>9.2 Query2</phrase></textobject>
 </mediaobject>
 </informalfigure>
+<simpara>Play around with the OData syntax.</simpara>
+<simpara>Congratulations, you have now completed this lab.</simpara>
+</section>
+</chapter>
+<chapter xml:id="_dashboard_builder">
+<title>Dashboard Builder</title>
+<simpara>The Dashboard Builder is a full featured web application which allows non-technical users to visually create business dashboards. Dashboard data can be extracted from heterogeneous sources of information such as JDBC databases or regular text files. Some ready-to-use sample dashboards are provided for demo and learning purposes.</simpara>
+<simpara>It features:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Visual configuration of dashboards (Drag &amp; Drop).</simpara>
+</listitem>
+<listitem>
+<simpara>Graphical representation of KPIs (Key Performance Indicators).</simpara>
+</listitem>
+<listitem>
+<simpara>Configuration of interactive report tables.</simpara>
+</listitem>
+<listitem>
+<simpara>Data export to Excel and CSV format.</simpara>
+</listitem>
+<listitem>
+<simpara>Filtering and search, both in-memory or SQL based.</simpara>
+</listitem>
+<listitem>
+<simpara>Data extraction from external systems, through different protocols.</simpara>
+</listitem>
+<listitem>
+<simpara>Granular access control for different user profiles.</simpara>
+</listitem>
+<listitem>
+<simpara>Look and feel customization tools.</simpara>
+</listitem>
+<listitem>
+<simpara>Pluggable chart library architecture.</simpara>
+</listitem>
+</itemizedlist>
+<section xml:id="_where_are_we_9">
+<title>Where are we?</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-dashboard.png"/>
+</imageobject>
+<textobject><phrase>demo dashboard</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="_dashboard_builder_workflow">
+<title>Dashboard Builder Workflow</title>
+<simpara>We are creating a Financial Dashboard based on the models of the Federated Data Layer.
+The steps of creating a dashboard is described below:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11-dashboard-flow.png"/>
+</imageobject>
+<textobject><phrase>Dashboard flow</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<itemizedlist>
+<listitem>
+<simpara>First we need to define an external connection which can be either a flat file or a database</simpara>
+</listitem>
+<listitem>
+<simpara>Next step is to create a data provider based on the external connection. The data provider contains the definition of the data to be displayed in the dashboard.</simpara>
+</listitem>
+<listitem>
+<simpara>A dashboard in Dashboard Builder contains one or more Workspaces</simpara>
+</listitem>
+<listitem>
+<simpara>Each Workspace contains one or more Pages</simpara>
+</listitem>
+<listitem>
+<simpara>Each Page contains one or more Panels</simpara>
+</listitem>
+<listitem>
+<simpara>Each Panel is connected to a component</simpara>
+</listitem>
+<listitem>
+<simpara>There are three component categories</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Dashboard (I.e. HTML editor, KPI)</simpara>
+</listitem>
+<listitem>
+<simpara>Navigation (I.e. Tree menu, Bread crumb, Logout panel&#8230;&#8203;)</simpara>
+</listitem>
+<listitem>
+<simpara>System (I.e. System related components like Data source manager&#8230;&#8203;)</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="_how_this_is_accomplished_in_dashboard_builder">
+<title>How this is accomplished in Dashboard Builder</title>
+<orderedlist numeration="arabic" startingnumber="1">
+<listitem>
+<simpara>Start Dashboard Builder</simpara>
+</listitem>
+</orderedlist>
+<simpara>Go to a browser window and type in the following URL</simpara>
+<simpara><link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> and you should see the following screen:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.1-dashboard-login.png"/>
+</imageobject>
+<textobject><phrase>Dashboard Builder login page</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Login with username/password: dashboardAdmin/redhat1!</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.2-dashboard.png"/>
+</imageobject>
+<textobject><phrase>11.2 dashboard</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>By default we provide some sample dashboards in the dashboard. Have a look at these sample dashboards first before creating your own dashboard.</simpara>
+<orderedlist numeration="arabic" startingnumber="2">
+<listitem>
+<simpara>Create an external connection</simpara>
+</listitem>
+</orderedlist>
+<simpara>First we are going to create an external connection to be able to get the Financial data into the dashboard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-data-provider.png"/>
+</imageobject>
+<textobject><phrase>11.3 data provider</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<note>
+<simpara>Make sure that the Showcase workspace is the selected workspace. See top-left corner in picture above.</simpara>
+</note>
+<simpara>Select the following menu option <menuchoice><guimenu>Administration</guimenu> <guimenuitem>External connections</guimenuitem></menuchoice> and the following screen should appear.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-data-provider.connection.png"/>
+</imageobject>
+<textobject><phrase>11.3 data provider.connection</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Now we have to add a new external connection. Click the <guibutton>+ Create new DataSource</guibutton>.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-data-provider.external-connection2.png"/>
+</imageobject>
+<textobject><phrase>11.3 data provider.external connection2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select JNDI as the type of the datasource and fill in the details of the Financials VDB as shown in the figure above.
+To verify the connection details of the datasource click <guibutton>Check DataSource</guibutton>. This will try to connect using the provided connection details.
+If the connection is successfully made the following screen should appear:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-data-provider.external-connection3.png"/>
+</imageobject>
+<textobject><phrase>11.3 data provider.external connection3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<tip>
+<simpara>Make sure that the Financials VDB is deployed in order to connect successfully.</simpara>
+</tip>
+<simpara>Click <guibutton>Save</guibutton> to save the external connection.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-data-provider.external-connection4.png"/>
+</imageobject>
+<textobject><phrase>11.3 data provider.external connection4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic" startingnumber="3">
+<listitem>
+<simpara>Create a data provider</simpara>
+</listitem>
+</orderedlist>
+<simpara>Next step is to create a data provider based on the previous created external connection. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Data providers</guimenuitem></menuchoice> and the following screen should appear.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-create-data-provider.png"/>
+</imageobject>
+<textobject><phrase>11.3 create data provider</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>To create a new data provider select <guibutton>+ Create new data provider</guibutton>. The following screen should appear:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-create-data-provider-query.png"/>
+</imageobject>
+<textobject><phrase>11.3 create data provider query</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Enter a name for the data provider and select Financials as the Datasource. Furthermore you have to specify the query to get the relevant data from the Financials VDB.
+After you have specified the query click <guibutton>Attempt data load</guibutton> to validate the query. If the query is executed successfully the following screen should appear.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-create-data-provider-query2.png"/>
+</imageobject>
+<textobject><phrase>11.3 create data provider query2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Save</guibutton> to save the data provider definition. The following screen should appear. In this screen one can change the definition of the column names as required by the dashboard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.3-create-data-provider-query3.png"/>
+</imageobject>
+<textobject><phrase>11.3 create data provider query3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Update the column names as necessary and click <guibutton>Save</guibutton>.</simpara>
+<orderedlist numeration="arabic" startingnumber="4">
+<listitem>
+<simpara>Create a workspace</simpara>
+</listitem>
+</orderedlist>
+<simpara>The top bar contains several button options to create the dashboard. The picture below explains the buttons in more detail.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11-dashboard-menu.png"/>
+</imageobject>
+<textobject><phrase>11 dashboard menu</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>We are ready to create a Financials dashboard based on the Financials data we created in the previous labs.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.4-create-workspace.png"/>
+</imageobject>
+<textobject><phrase>11.4 create workspace</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Create workspace</guibutton> to create the Financials workspace.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.4-create-workspace-completed.png"/>
+</imageobject>
+<textobject><phrase>11.4 create workspace completed</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Now we have completed the creation of the workspace we can add pages to it to create a full functioning dashboard.</simpara>
+<orderedlist numeration="arabic" startingnumber="5">
+<listitem>
+<simpara>Create a page</simpara>
+</listitem>
+</orderedlist>
+<simpara>Now we are going to create our first page in the Financials workspace.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.5-create-page.png"/>
+</imageobject>
+<textobject><phrase>11.5 create page</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Use the settings as described above.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.5-create-page2.png"/>
+</imageobject>
+<textobject><phrase>11.5 create page2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Now that the page is successfully created we can add a panel to it.</simpara>
+<orderedlist numeration="arabic" startingnumber="6">
+<listitem>
+<simpara>Add a panel</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.6-add-panel.png"/>
+</imageobject>
+<textobject><phrase>11.6 add panel</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select component "Tree menu" in the Navigation option and drag and drop the Create panel to the LEFT_TOP region of the page. The page should look similar to the following screen:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.6-add-panel2.png"/>
+</imageobject>
+<textobject><phrase>11.6 add panel2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Add other components in the same way in the page like:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>"Logout panel" in the HEADER_RIGHT-TOP region</simpara>
+</listitem>
+<listitem>
+<simpara>"HTML Editor" in the CENTER_1 region</simpara>
+</listitem>
+</itemizedlist>
+<simpara>The HTML editor component provides the functionality (free HTML) o create a nice landing page in the dashboard.</simpara>
+<orderedlist numeration="arabic" startingnumber="7">
+<listitem>
+<simpara>Add KPI</simpara>
+</listitem>
+</orderedlist>
+<simpara>Select component Key Performance Indicator in the Dashboard option and drag and drop the Create panel to the CENTER_2 region. The page should look similar to the following screen:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.7-add-kpi.png"/>
+</imageobject>
+<textobject><phrase>11.7 add kpi</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select FinancialsData as the Data provider.
+Type a name in the KPI&#8217;s name field.
+Select Country for Domain aka X Axis.
+Select CustomerId for Range aka Y Axis.
+Select Value for Sort Interval By.
+Select Ascendant for Sort Order.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.7-add-kpi2.png"/>
+</imageobject>
+<textobject><phrase>11.7 add kpi2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Now try to add some extra pages/panels yourself.</simpara>
+</section>
+<section xml:id="_financials_dashboard_demo">
+<title>Financials Dashboard Demo</title>
+<simpara>Existing dashboards can exported/imported in Dashboard Builder. To showcase the Dashboard Builder features, we provide a sample Financials Dashboard.</simpara>
+<orderedlist numeration="arabic" startingnumber="1">
+<listitem>
+<simpara>Import Workspace
+Go to the Showcase workspace as the active workspace. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Import and Export</guimenuitem></menuchoice> and the following screen appears.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import.png"/>
+</imageobject>
+<textobject><phrase>11.8 import</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click the Export/Import Workspaces tab and the following screen should appear.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import-ws.png"/>
+</imageobject>
+<textobject><phrase>11.8 import ws</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click the <guibutton>Choose file</guibutton> in the Import region. Select the 2-WorkspaceFinancials.cex file in the DVWorkshop/dv-docker/demo/dashboard directory.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import-ws2.png"/>
+</imageobject>
+<textobject><phrase>11.8 import ws2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Import</guibutton>. In the next screen you get the Select objects to import step. Make sure WORKSPACE: 0 is selected.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import-ws3.png"/>
+</imageobject>
+<textobject><phrase>11.8 import ws3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Import</guibutton> in the Select objects to import region. The import of the workspace should be successful and the screen should look like the following.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import-ws-finish.png"/>
+</imageobject>
+<textobject><phrase>11.8 import ws finish</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic" startingnumber="2">
+<listitem>
+<simpara>Import Dashboards
+Select the Showcase workspace as the active workspace. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Import and Export</guimenuitem></menuchoice> and the following screen appears.
+Click the <guibutton>Choose file</guibutton> in the Import dashboards region. Select the 3-CustomerReports.kpiex file in the DVWorkshop/dv-docker/demo/dashboard directory.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import-dash1.png"/>
+</imageobject>
+<textobject><phrase>11.8 import dash1</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Import</guibutton>. The import of the dashboard should be successful and the screen should like the following.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-import-dash1a.png"/>
+</imageobject>
+<textobject><phrase>11.8 import dash1a</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Repeat these steps for the other two dashboards:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>4-AccountReports.kpiex</simpara>
+</listitem>
+<listitem>
+<simpara>5-AccountHoldings.kpiex</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic" startingnumber="3">
+<listitem>
+<simpara>Financials Demo Dashboard</simpara>
+</listitem>
+</orderedlist>
+<simpara>Since we imported the workspace and the corresponding dashboard into the Financials Demo workspace we can now show the dashboard.
+Select the Financials Demo workspace as the active workspace. In the navigation menu select <guimenu>Demo Dashboards</guimenu> and in this menu option we should have three menu items.</simpara>
+<orderedlist numeration="arabic" startingnumber="1">
+<listitem>
+<simpara>Customer Reports</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-show-custrep.png"/>
+</imageobject>
+<textobject><phrase>11.8 show custrep</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic" startingnumber="2">
+<listitem>
+<simpara>Account Reports</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-show-accrep.png"/>
+</imageobject>
+<textobject><phrase>11.8 show accrep</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<orderedlist numeration="arabic" startingnumber="3">
+<listitem>
+<simpara>Account Holdings Reports</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.8-show-acchrep.png"/>
+</imageobject>
+<textobject><phrase>11.8 show acchrep</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Navigate through the dashboards and discover how it is setup. Dashboard Builder provides a very easy way to visualize your data.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>

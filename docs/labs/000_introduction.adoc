@@ -63,10 +63,15 @@ Please feel free to raise your hands with any questions that you have about the 
 - PostgreSQL or MySQL client tools installed if using a remote database
 
 === Setup demo environment
-In order to use the labs we need to prepare the database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.
+In order to use the labs we need to prepare a database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.
+
+TIP: Use the database you prefer, it's not required to have them both installed.
+
+
 
 ==== Setup PostgreSQL
 Installation
+
 The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See http://www.postgresql.org/download/ for more information and downloads.
 Post-install steps:
 [start=1]
@@ -110,6 +115,7 @@ postgres=# \q
 ----
 ==== Setup MySQL
 Installation
+
 The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.
 Post-install steps
 [start=1]

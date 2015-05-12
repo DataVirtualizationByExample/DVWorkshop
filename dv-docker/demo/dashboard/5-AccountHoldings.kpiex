@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kpis>
+  <dataprovider code="dataprovider_20621425029425974" type="sql">
+    <description language="en">Financials All Data</description>
+    <sqlprovider>
+      <datasource>Financials</datasource>
+      <query type="teiid">select  c.customerid,&apos;customer name&apos;=c.lastname||&apos;,&apos;||c.firstname||&apos; &apos;||c.middlename,c.city,c.country , a.accountid,a.accounttype,a.accountstatus,a.dateopened,a.dateclosed,h.transactionid,h.productid,h.purchasedate,&apos;amount&apos;=h.productshares
+from All_Customers.customer c, All_Customers.account a, All_Customers.accountholdings h where a.customerid = c.customerid and h.accountid = a.accountid</query>
+      <query type="default">select  c.customerid,&apos;customer name&apos;=c.lastname||&apos;,&apos;||c.firstname||&apos; &apos;||c.middlename,c.city,c.country , a.accountid,a.accounttype,a.accountstatus,a.dateopened,a.dateclosed,h.transactionid,h.productid,h.purchasedate,&apos;amount&apos;=h.productshares
+from customer c, account a, accountholdings h where a.customerid = c.customerid and h.accountid = a.accountid</query>
+    </sqlprovider>
+    <dataproperties>
+      <dataproperty id="customerid">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="expr2">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="city">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="country">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="accountid">
+        <domain>org.jboss.dashboard.domain.numeric.NumericDomain</domain>
+      </dataproperty>
+      <dataproperty id="accounttype">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="accountstatus">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="dateopened">
+        <domain>org.jboss.dashboard.domain.date.DateDomain</domain>
+      </dataproperty>
+      <dataproperty id="dateclosed">
+        <domain>org.jboss.dashboard.domain.date.DateDomain</domain>
+      </dataproperty>
+      <dataproperty id="transactionid">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="productid">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+      <dataproperty id="purchasedate">
+        <domain>org.jboss.dashboard.domain.date.DateDomain</domain>
+      </dataproperty>
+      <dataproperty id="expr13">
+        <domain>org.jboss.dashboard.domain.label.LabelDomain</domain>
+      </dataproperty>
+    </dataproperties>
+  </dataprovider>
+  <kpi code="kpi_28961425032526517">
+    <description language="en">By Product</description>
+    <description language="es">Gastos por usuario</description>
+    <provider code="dataprovider_20621425029425974" />
+    <displayer type="barchart" renderer="nvd3">
+      <domain>
+        <propertyid>productid</propertyid>
+        <name language="de">productid</name>
+        <name language="es">productid</name>
+        <name language="pt">productid</name>
+        <name language="zh">productid</name>
+        <name language="fr">productid</name>
+        <name language="en">productid</name>
+        <name language="ja">productid</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>expr13</propertyid>
+        <name language="en">amount</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <intervalsortcriteria>1</intervalsortcriteria>
+      <intervalsortorder>-1</intervalsortorder>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <labelanglexaxis>30</labelanglexaxis>
+      <showlinesarea>false</showlinesarea>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>800</width>
+      <height>300</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>left</align>
+      <marginleft>50</marginleft>
+      <marginright>30</marginright>
+      <margintop>10</margintop>
+      <marginbottom>65</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_28821425032526498">
+    <description language="en">Purchase Dispersion By City</description>
+    <description language="es">Gastos por departamento USD</description>
+    <provider code="dataprovider_20621425029425974" />
+    <displayer type="barchart" renderer="nvd3">
+      <domain>
+        <propertyid>city</propertyid>
+        <name language="de">city</name>
+        <name language="es">city</name>
+        <name language="pt">city</name>
+        <name language="zh">city</name>
+        <name language="fr">city</name>
+        <name language="en">city</name>
+        <name language="ja">city</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>expr13</propertyid>
+        <name language="en">amount</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <intervalsortcriteria>1</intervalsortcriteria>
+      <intervalsortorder>-1</intervalsortorder>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <labelanglexaxis>30</labelanglexaxis>
+      <showlinesarea>false</showlinesarea>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>500</width>
+      <height>250</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>center</align>
+      <marginleft>50</marginleft>
+      <marginright>0</marginright>
+      <margintop>10</margintop>
+      <marginbottom>50</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_28751425032526490">
+    <description language="en">Purchase Dispertion By Country</description>
+    <description language="es">Gastos por oficina USD</description>
+    <provider code="dataprovider_20621425029425974" />
+    <displayer type="piechart" renderer="nvd3">
+      <domain>
+        <propertyid>country</propertyid>
+        <name language="de">country</name>
+        <name language="es">country</name>
+        <name language="pt">country</name>
+        <name language="zh">country</name>
+        <name language="fr">country</name>
+        <name language="en">country</name>
+        <name language="ja">country</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+      </domain>
+      <range>
+        <propertyid>expr13</propertyid>
+        <name language="en">amount</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <color>#FFFFFF</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>400</width>
+      <height>250</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>south</legendanchor>
+      <showtitle>true</showtitle>
+      <align>center</align>
+      <marginleft>0</marginleft>
+      <marginright>0</marginright>
+      <margintop>0</margintop>
+      <marginbottom>0</marginbottom>
+    </displayer>
+  </kpi>
+  <kpi code="kpi_28891425032526508">
+    <description language="en">Purchase evolution</description>
+    <description language="es">Evoluci&#243;n del gasto</description>
+    <provider code="dataprovider_20621425029425974" />
+    <displayer type="linechart" renderer="nvd3">
+      <domain>
+        <propertyid>purchasedate</propertyid>
+        <name language="de">purchasedate</name>
+        <name language="es">purchasedate</name>
+        <name language="pt">purchasedate</name>
+        <name language="zh">purchasedate</name>
+        <name language="fr">purchasedate</name>
+        <name language="en">purchasedate</name>
+        <name language="ja">purchasedate</name>
+        <maxnumberofintervals>10</maxnumberofintervals>
+        <taminterval>-1</taminterval>
+      </domain>
+      <range>
+        <propertyid>expr13</propertyid>
+        <name language="en">amount</name>
+        <scalarfunction>count</scalarfunction>
+        <unit language="en">$ {value}</unit>
+      </range>
+      <type></type>
+      <showlabelsxaxis>true</showlabelsxaxis>
+      <labelanglexaxis>-30</labelanglexaxis>
+      <showlinesarea>true</showlinesarea>
+      <color>#FF0000</color>
+      <backgroundcolor>#FFFFFF</backgroundcolor>
+      <width>1000</width>
+      <height>300</height>
+      <showlegend>false</showlegend>
+      <axisinteger>false</axisinteger>
+      <legendanchor>east</legendanchor>
+      <showtitle>true</showtitle>
+      <align>left</align>
+      <marginleft>100</marginleft>
+      <marginright>30</marginright>
+      <margintop>10</margintop>
+      <marginbottom>65</marginbottom>
+    </displayer>
+  </kpi>
+</kpis>

@@ -1,6 +1,6 @@
 = JBoss Data Virtualization Workshop
 Cojan van Ballegooijen <https://twitter.com/cvanball[@cvanball]>
-v6.1, March 30th, 2014
+v6.1, May 12th, 2015
 :doctype: book
 :toc:
 :toclevels: 3
@@ -9,11 +9,13 @@ v6.1, March 30th, 2014
 include::labs/000_introduction.adoc[]
 include::labs/001_install-dv.adoc[]
 include::labs/002_install-jbds.adoc[]
-include::labs/003_create-teiidproject.adoc[]
-include::labs/004_create-vbl.adoc[]
-include::labs/005_create-edl.adoc[]
-include::labs/006_create-fdl.adoc[]
-include::labs/007_create-ws.adoc[]
-include::labs/008_vdb-deployment.adoc[]
-include::labs/009_xml-service-src.adoc[]
-include::labs/010_odata.adoc[]
+include::labs/003_demo_scenario.adoc[]
+include::labs/004_create-teiidproject.adoc[]
+include::labs/005_create-vbl.adoc[]
+include::labs/006_create-edl.adoc[]
+include::labs/007_create-fdl.adoc[]
+include::labs/008_create-ws.adoc[]
+include::labs/009_vdb-deployment.adoc[]
+include::labs/010_xml-service-src.adoc[]
+include::labs/011_odata.adoc[]
+include::labs/012_dashboard.adoc[]

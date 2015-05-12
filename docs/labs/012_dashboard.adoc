@@ -21,7 +21,6 @@ It features:
 
 image::demo-dashboard.png[]
 
-
 === Dashboard Builder Workflow 
 
 We are creating a Financial Dashboard based on the models of the Federated Data Layer.
@@ -180,6 +179,7 @@ Existing dashboards can exported/imported in Dashboard Builder. To showcase the 
 
 [start=1]
 . Import Workspace
+
 Go to the Showcase workspace as the active workspace. Select menu:Administration[Import and Export] and the following screen appears.
 
 image::11.8-import.png[]
@@ -203,6 +203,7 @@ image::11.8-import-ws-finish.png[]
 
 [start=2]
 . Import Dashboards
+
 Select the Showcase workspace as the active workspace. Select menu:Administration[Import and Export] and the following screen appears.
 Click the btn:[Choose file] in the Import dashboards region. Select the 3-CustomerReports.kpiex file in the DVWorkshop/dv-docker/demo/dashboard directory.
 

@@ -2691,10 +2691,10 @@ Select Ascendant for Sort Order.</simpara>
 <simpara>Existing dashboards can exported/imported in Dashboard Builder. To showcase the Dashboard Builder features, we provide a sample Financials Dashboard.</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
-<simpara>Import Workspace
-Go to the Showcase workspace as the active workspace. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Import and Export</guimenuitem></menuchoice> and the following screen appears.</simpara>
+<simpara>Import Workspace</simpara>
 </listitem>
 </orderedlist>
+<simpara>Go to the Showcase workspace as the active workspace. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Import and Export</guimenuitem></menuchoice> and the following screen appears.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2741,11 +2741,11 @@ Go to the Showcase workspace as the active workspace. Select <menuchoice><guimen
 </informalfigure>
 <orderedlist numeration="arabic" startingnumber="2">
 <listitem>
-<simpara>Import Dashboards
-Select the Showcase workspace as the active workspace. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Import and Export</guimenuitem></menuchoice> and the following screen appears.
-Click the <guibutton>Choose file</guibutton> in the Import dashboards region. Select the 3-CustomerReports.kpiex file in the DVWorkshop/dv-docker/demo/dashboard directory.</simpara>
+<simpara>Import Dashboards</simpara>
 </listitem>
 </orderedlist>
+<simpara>Select the Showcase workspace as the active workspace. Select <menuchoice><guimenu>Administration</guimenu> <guimenuitem>Import and Export</guimenuitem></menuchoice> and the following screen appears.
+Click the <guibutton>Choose file</guibutton> in the Import dashboards region. Select the 3-CustomerReports.kpiex file in the DVWorkshop/dv-docker/demo/dashboard directory.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>

@@ -4,7 +4,7 @@ Stay tuned, more labs coming soon.
 
 ### Documentation
 
-[Workshop in HTML format](http://htmlpreview.github.io/?https://raw.githubusercontent.com/DataVirtualizationByExample/DVWorkshop/master/docs/jboss-dv-workshop.html#_create_relational_model_from_wsdl)
+[Workshop in HTML format](http://htmlpreview.github.io/?https://raw.githubusercontent.com/DataVirtualizationByExample/DVWorkshop/master/docs/jboss-dv-workshop.html)
 
 [Workshop in DocBook format](https://github.com/DataVirtualizationByExample/DVWorkshop/raw/master/docs/jboss-dv-workshop.xml)
 

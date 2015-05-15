@@ -2351,7 +2351,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 <section xml:id="_how_to_query_the_data">
 <title>How to query the data</title>
 <simpara>To search for customer with customerid='CST01033' which is the SQL equivalent of</simpara>
-<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer where customerid='CST01033';</programlisting>
+<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer WHERE customerid='CST01033';</programlisting>
 <simpara>use following URL and it should return the results shown below:
 <link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'">http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'</link>)</simpara>
 <informalfigure>
@@ -2364,7 +2364,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </informalfigure>
 <simpara>Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
 To search customers from the USA which is the SQL equivalent of</simpara>
-<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer where country='USA';</programlisting>
+<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer WHERE country='USA';</programlisting>
 <simpara>use following URL and this should return the results as shown below.
 <link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</link> eq 'USA'</simpara>
 <informalfigure>

@@ -34,7 +34,7 @@ To search for customer with customerid='CST01033' which is the SQL equivalent of
 
 [source,sql]
 ----
-SQL> SELECT * FROM All_Customers.customer where customerid='CST01033'; 
+SQL> SELECT * FROM All_Customers.customer WHERE customerid='CST01033'; 
 ----
 
 use following URL and it should return the results shown below:
@@ -47,7 +47,7 @@ To search customers from the USA which is the SQL equivalent of
 
 [source,sql]
 ----
-SQL> SELECT * FROM All_Customers.customer where country='USA'; 
+SQL> SELECT * FROM All_Customers.customer WHERE country='USA'; 
 ----
 
 use following URL and this should return the results as shown below.

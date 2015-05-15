@@ -2544,7 +2544,7 @@ If the connection is successfully made the following screen should appear:</simp
 </mediaobject>
 </informalfigure>
 <tip>
-<simpara>Make sure that the Financials VDB is deployed in order to connect successfully.</simpara>
+<simpara>Make sure that the JNDI entry java:/Financials is configured in the JBoss EAP environment and make sure that the Financials VDB is deployed in order to connect successfully.</simpara>
 </tip>
 <simpara>Click <guibutton>Save</guibutton> to save the external connection.</simpara>
 <informalfigure>

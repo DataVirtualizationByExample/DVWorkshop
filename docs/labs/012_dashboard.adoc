@@ -79,7 +79,7 @@ If the connection is successfully made the following screen should appear:
 
 image::11.3-data-provider.external-connection3.png[]
 
-TIP: Make sure that the Financials VDB is deployed in order to connect successfully.
+TIP: Make sure that the JNDI entry java:/Financials is configured in the JBoss EAP environment and make sure that the Financials VDB is deployed in order to connect successfully.
 
 Click btn:[Save] to save the external connection.
 

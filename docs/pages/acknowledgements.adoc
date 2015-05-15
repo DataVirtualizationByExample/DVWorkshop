@@ -12,14 +12,14 @@
 |May 14th, 2015
 
 |Author(s)
-|Cojan van Ballegooijen (cvanball@redhat.com)
+|Cojan van Ballegooijen (@cvanball)
 
-Kenny Peeples (kpeeples@redhat.com)
+Kenny Peeples (@ossmentor)
 
 |Contributors
-|Blaine Mincey (bmincey@redhat.com)
+|Blaine Mincey 
 
-Serhat Dirik (serhat@redhat.com)
+Serhat Dirik 
 
 |===
 

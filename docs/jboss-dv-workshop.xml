@@ -4,24 +4,55 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>JBoss Data Virtualization Workshop</title>
-<date>May 12th, 2015</date>
-<author>
-<personname>
-<firstname>Cojan</firstname>
-<othername>van</othername>
-<surname>Ballegooijen</surname>
-</personname>
-<email>https://twitter.com/cvanball[@cvanball]</email>
-</author>
-<authorinitials>CvB</authorinitials>
-<revhistory>
-<revision>
-<revnumber>6.1</revnumber>
-<date>May 12th, 2015</date>
-<authorinitials>CvB</authorinitials>
-</revision>
-</revhistory>
+<date>2015-05-15</date>
 </info>
+<chapter xml:id="_acknowlegdement">
+<title>Acknowlegdement</title>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Version Number</simpara></entry>
+<entry align="left" valign="top"><simpara>6.1.0</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Final as of</simpara></entry>
+<entry align="left" valign="top"><simpara>May 14th, 2015</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Author(s)</simpara></entry>
+<entry align="left" valign="top"><simpara>Cojan van Ballegooijen (<link xlink:href="mailto:cvanball@redhat.com">cvanball@redhat.com</link>)
+</simpara><simpara>Kenny Peeples (<link xlink:href="mailto:kpeeples@redhat.com">kpeeples@redhat.com</link>)</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Contributors</simpara></entry>
+<entry align="left" valign="top"><simpara>Blaine Mincey (<link xlink:href="mailto:bmincey@redhat.com">bmincey@redhat.com</link>)
+</simpara><simpara>Serhat Dirik (<link xlink:href="mailto:serhat@redhat.com">serhat@redhat.com</link>)</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</chapter>
+<chapter xml:id="_workshop_version">
+<title>Workshop version</title>
+<simpara>The JBoss Data Virtualization Workshop is based on the following versions:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>JBoss Data Virtualization 6.1.0.GA</simpara>
+</listitem>
+<listitem>
+<simpara>JBoss Developer Studio 8.1.0.GA</simpara>
+</listitem>
+<listitem>
+<simpara>JBoss Developer Studio Integration Stack 8.0.1.GA</simpara>
+</listitem>
+<listitem>
+<simpara>OpenShift Online v2</simpara>
+</listitem>
+</itemizedlist>
+</chapter>
 <chapter xml:id="_introduction">
 <title>Introduction</title>
 <simpara>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three easy steps:</simpara>

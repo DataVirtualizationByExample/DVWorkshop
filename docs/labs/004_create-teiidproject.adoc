@@ -86,7 +86,11 @@ Then select the cross-haired icon “New Driver Definition” which is the first
 
 image::3.3-setup-connection-profile2.png[]
 
-In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click btn:[Remove JAR/Zip] and then click the btn:[Add JAR/Zip] button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click btn:[OK]. After clicking btn:[OK], the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
+In the “New Driver Definition” dialog, select the PostgreSQL or MySQL JDBC Driver. It will indicate that the driver JAR is not found. 
+
+image::3.3-setup-connection-profile3.png[]
+
+Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click btn:[Remove JAR/Zip] and then click the btn:[Add JAR/Zip] button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click btn:[OK]. After clicking btn:[OK], the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
 
 image::3.3-import-db-via-jdbc.png[]
 

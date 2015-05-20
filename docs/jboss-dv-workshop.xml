@@ -1150,7 +1150,16 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 <textobject><phrase>3.3 setup connection profile2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>In the “New Driver Definition” dialog, select the MySQL/PostgreSQL JDBC Driver. It will indicate that the driver JAR is not found. Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click <guibutton>Remove JAR/Zip</guibutton> and then click the <guibutton>Add JAR/Zip</guibutton> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click <guibutton>OK</guibutton>. After clicking <guibutton>OK</guibutton>, the warning that the JAR file could not be found will go away. Click <guibutton>OK</guibutton> to return to the previous wizard.</simpara>
+<simpara>In the “New Driver Definition” dialog, select the PostgreSQL or MySQL JDBC Driver. It will indicate that the driver JAR is not found.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/3.3-setup-connection-profile3.png"/>
+</imageobject>
+<textobject><phrase>3.3 setup connection profile3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click <guibutton>Remove JAR/Zip</guibutton> and then click the <guibutton>Add JAR/Zip</guibutton> button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click <guibutton>OK</guibutton>. After clicking <guibutton>OK</guibutton>, the warning that the JAR file could not be found will go away. Click <guibutton>OK</guibutton> to return to the previous wizard.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1558,9 +1567,9 @@ Right-click on the Schema folder in the Model Explorer and choose <menuchoice><g
 </mediaobject>
 </informalfigure>
 </section>
-<section xml:id="_create_the_eu_customers_ddc_enterprise_data_layer">
-<title>Create the EU_Customers_DDC Enterprise Data Layer</title>
-<simpara>Create a new virtual metadata model called EU_Customers_DDC (for Domain Data Dictionary) in the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Teiid Metadata Model</guimenuitem></menuchoice> to bring up the New Model Wizard and make the following selections as indicated in the illustration below.</simpara>
+<section xml:id="_create_the_eu_customers_edl_enterprise_data_layer">
+<title>Create the EU_Customers_EDL Enterprise Data Layer</title>
+<simpara>Create a new virtual metadata model called EU_Customers_EDL in the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Teiid Metadata Model</guimenuitem></menuchoice> to bring up the New Model Wizard and make the following selections as indicated in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1570,7 +1579,7 @@ Right-click on the Schema folder in the Model Explorer and choose <menuchoice><g
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>Next &gt;</guibutton> to go the next step of the New Model Wizard.</simpara>
-<simpara>This time, use the EU_Customers_VBL.xmi as the model as the basis for the EU_Customers_DDC model and click <guibutton>OK</guibutton> and then <guibutton>Finish</guibutton>.</simpara>
+<simpara>This time, use the EU_Customers_VBL.xmi as the model as the basis for the EU_Customers_EDL model and click <guibutton>OK</guibutton> and then <guibutton>Finish</guibutton>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1579,18 +1588,10 @@ Right-click on the Schema folder in the Model Explorer and choose <menuchoice><g
 <textobject><phrase>5.3 new model2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>We are going to use the database schema of the eucustomers database as the standard upon which to base our enterprise model. Therefore we won&#8217;t be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers_DDC and EU_Customers_DDC models we will see that more changes will be necessary to make them semantically align with our enterprise model.
-Open the transformation Editor for the customer table of EU_Customers by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.</simpara>
-<simpara>Click on the value field to the right of datatype in the Properties Panel in the lower left-hand side of JBDS.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/5.3-DD-properties.png"/>
-</imageobject>
-<textobject><phrase>5.3 DD properties</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>When clicking in this field in the Properties Panel, the Select a Datatype Wizard is presented. The User-Defined Types were populated when we imported the DataDictionary.xsd schema. Browse through the datatypes, check and un-check the boxes to see which types are built-in and which are user-defined.</simpara>
+<simpara>We are going to use the database schema of the eucustomers database as the standard upon which to base our enterprise model. Therefore we won&#8217;t be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers_EDL and EU_Customers_EDL models we will see that more changes will be necessary to make them semantically align with our enterprise model.
+Open the transformation Editor for the customer table of EU_Customers_EDL by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.</simpara>
+<simpara>Click on the value field to the right of datatype in the Properties Panel in the lower left-hand side of JBDS.
+When clicking in this field in the Properties Panel, the Select a Datatype Wizard is presented. The User-Defined Types were populated when we imported the DataDictionary.xsd schema. Browse through the datatypes, check and un-check the boxes to see which types are built-in and which are user-defined.</simpara>
 <simpara>In the “Select a Datatype” window choose CustomerID user-defined type for the CustomerID column and click <guibutton>OK</guibutton>. You can begin typing the name of the datatype in the top window to filter the selection types displayed.
 Go through this exercise with every column in the Customer table choosing the appropriate datatype for each. Be sure to save your work. At the completion of the exercise, your Customer table should look like the one below.</simpara>
 <informalfigure>
@@ -1609,13 +1610,13 @@ Go through this exercise with every column in the Customer table choosing the ap
 <textobject><phrase>5.3 select datatype2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Perform the same process for the other tables (Account, AccountHoldings) in the EU_Customer_DDC model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view.
+<simpara>Perform the same process for the other tables (Account, AccountHoldings) in the EU_Customers_EDL model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view.
 Note: however when you save your changes the following warnings appear in the Transformation Editor:
 The SELECT transformation is valid, but NOT fully reconciled:
 The transformation output types do not match the target attribute types.
 This is because some of the enterprise datatypes we have chosen do not match the underlying format of the source data (AccountID, for example we are defining as a long, but it is a bigdecimal in the source).
 To address these type mismatches we will open the Reconciler. This is done by clicking on the small icon just to the right of "Supports Update" in the Transformation Editor.</simpara>
-<simpara>Clicking on the Reconciler for AccountHolding brings up the following view.</simpara>
+<simpara>Clicking on the Reconciler for Account brings up the following view.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1636,10 +1637,21 @@ To address these type mismatches we will open the Reconciler. This is done by cl
 </mediaobject>
 </informalfigure>
 <simpara>Select each mapping at the top and see that the proposed transformation at the bottom changes. This is under the SQL Symbol panel; we want to convert to the datatype that is assigned to the enterprise datatype. (The Virtual Target Attribute section of the wizard above lets you modify that datatype; we don&#8217;t want to do that here.)
-Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the <guibutton>Convert all source SQL symbol datatypes</guibutton>, followed by clicking <guibutton>OK</guibutton>. This will return you to the Reconciler. Note that the SQL has been re-written in the transformation to handle all the type conversions. Click <guibutton>OK</guibutton> on the Reconciler to finish the process and to return to the Transformation editor.</simpara>
-<simpara>Now go back and perform the same steps with the account table.
+Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the <guibutton>Convert all source SQL symbol datatypes</guibutton>, followed by clicking <guibutton>OK</guibutton>. This will return you to the Reconciler.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/5.3-reconciler2a.png"/>
+</imageobject>
+<textobject><phrase>5.3 reconciler2a</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<note>
+<simpara>The SQL has been re-written in the transformation to handle all the type conversions. Click <guibutton>OK</guibutton> on the Reconciler to finish the process and to return to the Transformation editor.</simpara>
+</note>
+<simpara>Now go back and perform the same steps with the accountholdings table.
 If we were worried about precision, we could take any number of steps to refine/modify the transformation including coding it by hand in the Transformation Editor, using one of the large set of out-of-the-box functions provided with the product, or by creating our own User-Defined function.</simpara>
-<simpara>When you are finished with the Account table, it will look like the following.</simpara>
+<simpara>When you are finished with the accountholdings table, it will look like the following.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1649,9 +1661,9 @@ If we were worried about precision, we could take any number of steps to refine/
 </mediaobject>
 </informalfigure>
 </section>
-<section xml:id="_create_the_us_customers_ddc_enterprise_data_layer">
-<title>Create the US_Customers_DDC Enterprise Data Layer</title>
-<simpara>Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers model. Essentially we are going to use the EU_Customers_DDC model as a template for creating the US_Customers_DDC model, and then replace the sources of the transformations for each of the tables with the correct ones.
+<section xml:id="_create_the_us_customers_edl_enterprise_data_layer">
+<title>Create the US_Customers_EDL Enterprise Data Layer</title>
+<simpara>Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers model. Essentially we are going to use the EU_Customers_EDL model as a template for creating the US_Customers_EDL model, and then replace the sources of the transformations for each of the tables with the correct ones.
 Here is how to do it:
 Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Teiid Metadata Model</guimenuitem></menuchoice>. Fill in the wizard with the following fields (below) and click <guibutton>Next</guibutton>.</simpara>
 <informalfigure>
@@ -1662,7 +1674,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 newmodel</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>In the “New Model Wizard” window choose the EU_Customers_DDC.xmi model in the EnterpriseDataLayer folder and click <guibutton>OK</guibutton> followed by <guibutton>Next &gt;</guibutton> and <guibutton>Finish</guibutton>. Your selection should be as indicated below.</simpara>
+<simpara>In the “New Model Wizard” window choose the EU_Customers_EDL.xmi model in the EnterpriseDataLayer folder and click <guibutton>OK</guibutton> followed by <guibutton>Next &gt;</guibutton> and <guibutton>Finish</guibutton>. Your selection should be as indicated below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1671,7 +1683,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 newmodel2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Open the Transformation Editor on US_Customers_DDC.customer. See figure below.</simpara>
+<simpara>Open the Transformation Editor on US_Customers_EDL.customer. See figure below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1680,7 +1692,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 newmodel3</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Note that the Source of the transformation is the EU_Customers_DDC.customer table. We want to replace that with the US_Customers_VBL.customer table. Right-click on the Source table and select <guimenu>Remove Transformation Source(s)</guimenu>.</simpara>
+<simpara>Note that the Source of the transformation is the EU_Customers_EDL.customer table. We want to replace that with the US_Customers_VBL.customer table. Right-click on the Source table and select <guimenu>Remove Transformation Source(s)</guimenu>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1707,7 +1719,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 teiiddesigner</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select the VirtualBaseLayer &#8594; US_Customers_VBL &#8594; customer table and drag &amp; drop the table in the Sources swim lane of the US_Customers_DDC window. This is highlighted in the illustration below.</simpara>
+<simpara>Select the VirtualBaseLayer &#8594; US_Customers_VBL &#8594; customer table and drag &amp; drop the table in the Sources swim lane of the US_Customers_EDL window. This is highlighted in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1716,7 +1728,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 VBL</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>There will be an error on our current model, US_Customers_DDC. At this point, we need to add a source model. Simply drag the highlighted customer table indicated in the previous illustration to the sources column on the right-hand side. This will add this table from our VirtualBaseLayer to our US_Customers_DDC model.</simpara>
+<simpara>There will be an error on our current model, US_Customers_EDL. At this point, we need to add a source model. Simply drag the highlighted customer table indicated in the previous illustration to the sources column on the right-hand side. This will add this table from our VirtualBaseLayer to our US_Customers_EDL model.</simpara>
 <simpara>As is indicated on the model, the transformation is valid but is not fully reconciled. Click on the reconciler to bring up the wizard. As you can see from the reconciler, we have a bit of work to do.</simpara>
 <informalfigure>
 <mediaobject>
@@ -1770,9 +1782,26 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 </mediaobject>
 </informalfigure>
 <simpara>All we need to do is type "USA" into the Value field, click <guibutton>Apply</guibutton>, then <guibutton>OK</guibutton>. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.</simpara>
-<simpara>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned. Click <guibutton>OK</guibutton> in the Reconciler and save your changes.
-Now perform the same process with the other two tables (account and accountholdings). Delete the EU_Customers_DDC.account &amp; EU_Customers_DDC.accountholdings source and drag &amp; drop the appropriate US_Customers_VBL.account &amp; US_Customers_VBL.accountholdings source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
-The Data Dictionary has also enterprise data types defined for Product data. Create a Products_DDC model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the Products_DDC model. Finally, reconcile any datatype conversion issues.</simpara>
+<simpara>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/5.4-expression-builder2.png"/>
+</imageobject>
+<textobject><phrase>5.4 expression builder2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>OK</guibutton> in the Reconciler and save your changes.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/5.4-expression-builder3.png"/>
+</imageobject>
+<textobject><phrase>5.4 expression builder3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Now perform the same process with the other two tables (account and accountholdings). Delete the EU_Customers_EDL.account &amp; EU_Customers_EDL.accountholdings source and drag &amp; drop the appropriate US_Customers_VBL.account &amp; US_Customers_VBL.accountholdings source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
+The Data Dictionary has also enterprise data types defined for Product data. Create a Products_EDL model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the Products_EDL model. Finally, reconcile any datatype conversion issues.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
@@ -1793,7 +1822,7 @@ The Data Dictionary has also enterprise data types defined for Product data. Cre
 <section xml:id="_create_a_federated_data_layer_2">
 <title>Create a Federated Data Layer</title>
 <simpara>Right-click on the Financials Project and go <menuchoice><guimenu>New</guimenu> <guimenuitem>Folder</guimenuitem></menuchoice> to create a new folder called “FederatedDataLayer”.
-Create a new Teiid Metadata Model in this folder called “All_Customers". Create it by transforming it from the EU_Customers_DDC model. Your new model wizard should look like the illustration below.</simpara>
+Create a new Teiid Metadata Model in this folder called “All_Customers". Create it by transforming it from the EU_Customers_EDL model. Your new model wizard should look like the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1802,7 +1831,7 @@ Create a new Teiid Metadata Model in this folder called “All_Customers". Creat
 <textobject><phrase>6.1 newmodel</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>After clicking the <guibutton>Next</guibutton> button, be sure to select the EU_Customers_DDC.xmi model as indicated below.</simpara>
+<simpara>After clicking the <guibutton>Next</guibutton> button, be sure to select the EU_Customers_EDL.xmi model as indicated below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1820,8 +1849,8 @@ Create a new Teiid Metadata Model in this folder called “All_Customers". Creat
 <textobject><phrase>6.1 transformation editor</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select the customer table of the EU_Customers_DDC view model in the Transformation Editor.
-NOTE: Several new icons have been activated in the middle tool bar. Click on the fourth one down on the middle tool bar. If you hover your mouse over the label it reads "Add Union Transformation Source(s)". It is possible that you may have to click this button twice for the action to occur. This will add the customer table from US_Customers_DDC to the All_Customers model. Additionally, the "T" icon will now have a small "U" to the lower-right indicating that there is a union that is responsible for this transformation. Now, all that is required is to save the model. That is it! You now have a union of two tables from two separate databases. In order to view the result, be sure the customer table is highlighted in the Model Explorer under the FederatedDataLayer. This is indicated in the illustration below.</simpara>
+<simpara>Select the customer table of the EU_Customers_EDL view model in the Transformation Editor.
+NOTE: Several new icons have been activated in the middle tool bar. Click on the fourth one down on the middle tool bar. If you hover your mouse over the label it reads "Add Union Transformation Source(s)". It is possible that you may have to click this button twice for the action to occur. This will add the customer table from US_Customers_EDL to the All_Customers model. Additionally, the "T" icon will now have a small "U" to the lower-right indicating that there is a union that is responsible for this transformation. Now, all that is required is to save the model. That is it! You now have a union of two tables from two separate databases. In order to view the result, be sure the customer table is highlighted in the Model Explorer under the FederatedDataLayer. This is indicated in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2116,9 +2145,10 @@ This is the button located right under the Outline tab. You should see something
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
-<chapter xml:id="_xml_and_service_sources">
-<title>XML and Service Sources</title>
-<simpara>In this lab you will be using the JDBS tool to create a Web Service. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of the JBDS tool to create a Web Service. In this lab you will create the CountryInfoService.xmi model and the CountryInfoServiceView.xmi model. These will be created from the WSDL:</simpara>
+<chapter xml:id="_consuming_web_services_as_data_sources">
+<title>Consuming Web Services as Data Sources</title>
+<simpara>In this lab you will be using the Teiid Designer to consume Web Services. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of Teiid Designer to consume Web Services as a datasource.
+In this lab you will create the CountryInfoService.xmi and CountryInfoServiceView.xmi models. These will be created from the existing WSDL available from the following URL:</simpara>
 <simpara><link xlink:href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</link></simpara>
 <section xml:id="_where_are_we_7">
 <title>Where are we?</title>
@@ -2131,44 +2161,35 @@ This is the button located right under the Outline tab. You should see something
 </mediaobject>
 </informalfigure>
 </section>
-<section xml:id="_create_relational_model_from_wsdl">
-<title>Create relational model from WSDL</title>
-<simpara>Using the WSDL importer results in the creation of query-able relational procedures that represent your desired request and response web service structure defined through your WSDL&#8217;s schema definition.
-Create two new folders called WSDL and User-specified Procedures in your Model Explorer view. Right-click on the Financials project and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Folder</guimenuitem></menuchoice>. Call the new folder WSDL.</simpara>
+<section xml:id="_create_relational_model_from_soap_web_service">
+<title>Create relational model from SOAP web service</title>
+<simpara>Using the importer for the creation of query-able relational procedures that represent your desired request and response web service structure defined through your SOAP web service definition.</simpara>
+<simpara>Right-click on the DataSources folder and select Import&#8230;&#8203; from the right-hand menu.
+The Import dialog box is opened.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.1-create-folder.png"/>
+<imagedata fileref="images/10.2-import.png"/>
 </imageobject>
-<textobject><phrase>10.1 create folder</phrase></textobject>
+<textobject><phrase>10.2 import</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Do the same for folder User-specified Procedures.</simpara>
-<simpara>Right-click on the WSDL folder and select Import&#8230;&#8203; from the right-hand menu.</simpara>
+<simpara>Select Web Service Source &gt;&gt; Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the <guibutton>Next &gt;</guibutton> button to continue. The Create Relational Model from Web Service Dialog box opens.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-import-WSDL1.png"/>
+<imagedata fileref="images/10.2-import-soap.png"/>
 </imageobject>
-<textobject><phrase>10.2 import WSDL1</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>The Import dialog box is opened. Select WSDL File or URL &gt;&gt; Source and View Model (SOAP) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box. Click the <guibutton>Next &gt;</guibutton> button to continue. The Create Relational Model from Web Service Dialog box opens.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/10.2-import-WSDL2.png"/>
-</imageobject>
-<textobject><phrase>10.2 import WSDL2</phrase></textobject>
+<textobject><phrase>10.2 import soap</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Since there are no Web Service Profiles configured one need to create a new one.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-import-WSDL3.png"/>
+<imagedata fileref="images/10.2-import-soap2.png"/>
 </imageobject>
-<textobject><phrase>10.2 import WSDL3</phrase></textobject>
+<textobject><phrase>10.2 import soap2</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Click on the <guibutton>New&#8230;&#8203;</guibutton> button to create a new Connection Profile. The New Connection Profile dialog opens.</simpara>
@@ -2185,9 +2206,9 @@ The New Connection Profile dialog box opens.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-new-connection-profile2.png"/>
+<imagedata fileref="images/10.2-new-connection-profile3.png"/>
 </imageobject>
-<textobject><phrase>10.2 new connection profile2</phrase></textobject>
+<textobject><phrase>10.2 new connection profile3</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>The WSDL that you will connect to is a URL. Click on the <guibutton>URL&#8230;&#8203;</guibutton> button to enter a URL.
@@ -2195,9 +2216,9 @@ The WSDL URL dialog box opens.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-wsdl-url.png"/>
+<imagedata fileref="images/10.2-new-connection-profile4.png"/>
 </imageobject>
-<textobject><phrase>10.2 wsdl url</phrase></textobject>
+<textobject><phrase>10.2 new connection profile4</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>In the WSDL URL field enter in the following URL:</simpara>
@@ -2209,27 +2230,36 @@ The WSDL URL dialog box opens.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-new-connection-profile3.png"/>
+<imagedata fileref="images/10.2-new-connection-profile5.png"/>
 </imageobject>
-<textobject><phrase>10.2 new connection profile3</phrase></textobject>
+<textobject><phrase>10.2 new connection profile5</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click on the <guibutton>Test Connection</guibutton> button to test the URL. Click on the <guibutton>Next &gt;</guibutton> button.</simpara>
+<simpara>Click on the <guibutton>Test Connection</guibutton> button to test the URL.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-new-connection-profile4.png"/>
+<imagedata fileref="images/10.2-new-connection-profile6.png"/>
 </imageobject>
-<textobject><phrase>10.2 new connection profile4</phrase></textobject>
+<textobject><phrase>10.2 new connection profile6</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Click on the <guibutton>Next &gt;</guibutton> button.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-new-ws-summary.png"/>
+<imagedata fileref="images/10.2-new-connection-profile7.png"/>
 </imageobject>
-<textobject><phrase>10.2 new ws summary</phrase></textobject>
+<textobject><phrase>10.2 new connection profile7</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click on the <guibutton>Next &gt;</guibutton> button.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-new-connection-profile8.png"/>
+</imageobject>
+<textobject><phrase>10.2 new connection profile8</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>The Summary window will appear. Click <guibutton>Finish</guibutton> to go the Source and WSDL Operations Definition.</simpara>
@@ -2244,25 +2274,82 @@ Click on the <guibutton>Deselect All</guibutton> button to deselect all of the W
 </mediaobject>
 </informalfigure>
 <simpara>Click on the <guibutton>Next &gt;</guibutton> button.</simpara>
-<simpara>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name defined in your WSDL. Select the browse button <guibutton>&#8230;&#8203;</guibutton> to select locations and existing models in your workspace.</simpara>
+<simpara>The Create Relational Model from Web Service dialog is displayed. This page allows you to define the source and target models where the generated procedures will be defined in. Notice that the Name fields for the Source and View model are populated. Based on initial workspace selection, the location for these models may be preset but changeable and the source and view model names will be generated based on the service name. Select the browse button <guibutton>&#8230;&#8203;</guibutton> to select locations and existing models in your workspace.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.3-user-specified-prc.png"/>
+<imagedata fileref="images/10.3-select-wsdl-operations2.png"/>
 </imageobject>
-<textobject><phrase>10.3 user specified prc</phrase></textobject>
+<textobject><phrase>10.3 select wsdl operations2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Choose User-specified Procedures and click the <guibutton>Next &gt;</guibutton> button.</simpara>
+<simpara>Select the DataSources folder for the generated source model and VirtualBaseLayer folder for the generated view model and rename the view model to CountryInfo_VBL.
+Choose User-specified Procedures and click the <guibutton>Next &gt;</guibutton> button.</simpara>
 <simpara>In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
 In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
 Select the Operation from the Operations pull-down (CountryInfo and FullCountryInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.3-procedure-def.png"/>
+<imagedata fileref="images/10.3-select-wsdl-operations3.png"/>
 </imageobject>
-<textobject><phrase>10.3 procedure def</phrase></textobject>
+<textobject><phrase>10.3 select wsdl operations3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations4.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations5.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations5</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations6.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations6</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations7.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations7</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations8.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations8</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations9.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations9</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations10.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations10</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <note>
@@ -2270,8 +2357,16 @@ Select the Operation from the Operations pull-down (CountryInfo and FullCountryI
 </note>
 <simpara>Click on the <guibutton>Finish</guibutton> button.
 A status screen is displayed while the models are being created.
-The models will appear in the Model Explorer and will be open in the right-hand pane.
-Click the <guibutton>Save All</guibutton> button to save your models.</simpara>
+The models will appear in the Model Explorer and will be open in the right-hand pane.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations11.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations11</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click the <guibutton>Save All</guibutton> button to save your models.</simpara>
 <simpara>Double-click on the CountryName procedure to open the transformation view for the procedure.</simpara>
 <informalfigure>
 <mediaobject>
@@ -2290,7 +2385,16 @@ Click the <guibutton>Save All</guibutton> button to save your models.</simpara>
 <textobject><phrase>10.3 preview data iso</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Enter in a country code, such as AU for Australia, to retrieve the data. Click the <guibutton>OK</guibutton> button.
+<simpara>Enter in a country code, such as AU for Australia, to retrieve the data.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-preview-data-iso2.png"/>
+</imageobject>
+<textobject><phrase>10.3 preview data iso2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click the <guibutton>OK</guibutton> button.
 View the SQL Status and Result1 tab to see the results returned from the procedure.</simpara>
 <informalfigure>
 <mediaobject>
@@ -2302,6 +2406,163 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 </informalfigure>
 <simpara>Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:</simpara>
 <simpara><link xlink:href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</link></simpara>
+<simpara>Save and close the models.</simpara>
+</section>
+<section xml:id="_create_relational_model_from_rest_service">
+<title>Create relational model from REST service</title>
+<simpara>Using the importer for the creation of query-able relational procedures that represent your desired request and response web service structure defined through your REST web service definition.
+We are going to use an online Weather REST service to get the temperature of a particular city in the world.</simpara>
+<simpara>The Weather Info REST service can be found here: <link xlink:href="http://openweathermap.org/">http://openweathermap.org/</link></simpara>
+<simpara>Right-click on the DataSources folder and select menu:[Import&#8230;&#8203;] from the right-hand menu.
+The Import dialog box is opened.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import.png"/>
+</imageobject>
+<textobject><phrase>10.2 import</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select Web Service Source &gt;&gt; Source and View Model (REST) located under the Teiid Designer folder from the import source list that is displayed in the Import dialog box.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click the <guibutton>Next &gt;</guibutton> button to continue. The Create Relational Model from Web Service Dialog box opens.
+Since there are no REST Web Service Sources configured one need to create a new one. Click on the <guibutton>New&#8230;&#8203;</guibutton> button to create a new Connection Profile. The New Connection Profile dialog opens.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest2.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Type WeatherInfo in the Name field and click <guibutton>Next &gt;</guibutton> to get the Web Service Connection Properties dialog.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest4.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>In the Connection URL field type: <link xlink:href="http://api.openweathermap.org/data/2.5/find">http://api.openweathermap.org/data/2.5/find</link></simpara>
+<simpara>Add the following two parameters:</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Name</entry>
+<entry align="left" valign="top">Type</entry>
+<entry align="left" valign="top">Default Value</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>q</simpara></entry>
+<entry align="left" valign="top"><simpara>Query</simpara></entry>
+<entry align="left" valign="top"><simpara>London,uk</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>units</simpara></entry>
+<entry align="left" valign="top"><simpara>Query</simpara></entry>
+<entry align="left" valign="top"><simpara>metric</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<simpara>Click <guibutton>Test Connection</guibutton> to test the defined REST service. If successfully click <guibutton>Next &gt;</guibutton> to see the Summary of the Connection Profile we just created.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest5.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest5</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Finish</guibutton> to view the REST Web Service Source Selection dialog.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest6.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest6</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Place the Source Model definition into the DataSources folder and name it WeatherInfoService.
+Place the View Model definition into the VirtualBaseLayer folder and name it WeatherInfo_VBL.
+Type in the New View Procedure Name field: WeatherInfoProcedure</simpara>
+<simpara>Click <guibutton>Next &gt;</guibutton> to view the XML Data File Import Option dialog.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest7.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest7</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>We would like to retrieve the temperature from this WeatherInfo REST service, so select the temp element as shown in the figure below.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest8.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest8</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Finish</guibutton> to complete the creation of the the WeatherInfo view model and should get a similar display as shown below.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest9.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest9</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click the Running man icon in the Transformation Editor pane. This will show the following Preview Data dialog to enter the parameters to the WeatherInfo REST service.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest10.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest10</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Type the following values in the parameters:</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>q</simpara></entry>
+<entry align="left" valign="top"><simpara>London,uk</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>units</simpara></entry>
+<entry align="left" valign="top"><simpara>metric</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<simpara>Click <guibutton>Ok</guibutton> to run the virtual procedure in the WeatherInfo_VBL view model with the above parameters to get the temperature of London, UK.
+You should a similar screen as shown below:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.2-import-rest11.png"/>
+</imageobject>
+<textobject><phrase>10.2 import rest11</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <simpara>Save and close the models.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>

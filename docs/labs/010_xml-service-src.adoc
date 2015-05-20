@@ -140,8 +140,8 @@ We are going to use an online Weather REST service to get the temperature of a p
 
 The Weather Info REST service can be found here: http://openweathermap.org/
 
-Right-click on the DataSources folder and select menu:[Import...] from the right-hand menu. 
-The Import dialog box is opened. 
+Right-click on the DataSources folder and select menu:Import...[] from the right-hand menu. 
+The Import dialog box is shown. 
 
 image::10.2-import.png[]
 

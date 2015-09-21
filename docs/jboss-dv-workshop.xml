@@ -330,8 +330,24 @@ Bye</screen>
 <simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
 Run the installer using java at the command prompt:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-{version}.jar</programlisting>
-<simpara>The latest version available is 6.1.0.redhat-3 and to run the installer at the command prompt use the following command:</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.1.0.redhat-3.jar</programlisting>
+<simpara>The latest version available is 6.2.0.redhat-2 and to run the installer at the command prompt use the following command:</simpara>
+<note>
+<simpara>Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first.</simpara>
+</note>
+<simpara>Install JBoss EAP 6.4.0</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ unzip jboss-eap-6.4.0.zip
+$ cd jboss-eap-6.4/bin
+$ ./jboss-cli.sh
+You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
+[disconnected /]</programlisting>
+<simpara>Apply patch 3 to previously installed JBoss EAP 6.4.0 environment</simpara>
+<programlisting language="bash" linenumbering="unnumbered">[disconnected /] patch apply jboss-eap-6.4.3-patch.zip
+{
+    "outcome" : "success",
+    "result" : {}
+}
+[disconnected /] exit</programlisting>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process. See the Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration video. See <link xlink:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.
  A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <guibutton>Next</guibutton>.</simpara>
 <informalfigure>
@@ -342,22 +358,13 @@ Run the installer using java at the command prompt:</simpara>
 <textobject><phrase>1.1 DV EULA</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>A filepath confirmation dialogue box will appear. In the Select the installation path field, type the path where you want JBoss Data Virtualization to be installed or click Browse to navigate to the desired location. When the Select the installation path field shows the correct path, click <guibutton>Next</guibutton>.</simpara>
+<simpara>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click <guibutton>Next</guibutton>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
 <imagedata fileref="images/1.1-DV-FilePath.png"/>
 </imageobject>
 <textobject><phrase>1.1 DV FilePath</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>When you are prompted about the specified location being created or overwritten, review the message and, if satisfied, click <guibutton>OK</guibutton> and then press <guibutton>Next</guibutton>.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/1.1-DV-FilePath2.png"/>
-</imageobject>
-<textobject><phrase>1.1 DV FilePath2</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <guibutton>Next</guibutton>.</simpara>

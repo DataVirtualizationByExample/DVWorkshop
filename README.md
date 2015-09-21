@@ -5,7 +5,7 @@ Prerequisites
 
 1. OpenJDK 1.7 or 1.8 or Oracle JDK 1.7 or 1.8
 
-2. Download [Red Hat JBoss Data Virtualization 6.1.0.GA](http://www.jboss.org/products/datavirt/overview/)
+2. Download [Red Hat JBoss Data Virtualization 6.2.0.GA](http://www.jboss.org/products/datavirt/overview/)
 
 3. Download [Red Hat JBoss Developer Studio 8.1.0.GA](http://www.jboss.org/products/devstudio/overview/)
 

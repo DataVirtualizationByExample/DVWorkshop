@@ -72,21 +72,6 @@ Furthermore select the checkbox "Enable OData access".
 
 image::1.1-DV-User.png[]
 
-The Maven Repository Setup window appears. You will need to provide Maven repository settings in order to build quickstarts provided in the Red Hat JBoss Data Virtualization installation. At this point, the installer can automatically configure your Maven settings to setup the online repository for remote access.
-To setup the Maven repository, select Specify the path (or URL).... Enter the location of the Maven settings.xml file or select Browse to navigate to the file. Alternatively, you can choose to skip the Maven repository setup. 
-
-image::1.1-DV-Maven-setup.png[]
-
-Skip maven-repository set up for now. Click btn:[Next] to proceed.
-
-image::1.1-DV-Maven-setup-2.png[]
-
-Click btn:[Yes] to proceed.
-
-The IPv6 configuration window appears. Enable IPv6 configuration if your computer is using a pure IPv6 configuration.
-
-image::1.1-DV-IPv6-config.png[]
-
 Click btn:[Next] to proceed.
 
 You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click btn:[Next] to proceed.

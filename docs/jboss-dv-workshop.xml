@@ -461,10 +461,10 @@ When the installation is complete, navigate to</simpara>
 <simpara>Place the software in the software subfolder.</simpara>
 <simpara>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.1.0.</simpara>
 <programlisting language="xml" linenumbering="unnumbered">&lt;installpath&gt;/home/jboss/dv&lt;/installpath&gt;</programlisting>
-<simpara>The script performs the automated install of JBoss Data Virtualization v6.1.0.GA.
+<simpara>The script performs the automated install of JBoss Data Virtualization v6.2.0.GA.
 Run the following java command to install JBoss Data Virtualization in as shown below.</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ cd support
-$ java -jar ../software/jboss-dv-installer-6.1.0.redhat-3.jar installscript_local.xml</programlisting>
+$ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_local.xml</programlisting>
 <simpara>The following username/passwords will be installed automatically for access to</simpara>
 <informaltable frame="all" rowsep="1" colsep="1">
 <tgroup cols="4">

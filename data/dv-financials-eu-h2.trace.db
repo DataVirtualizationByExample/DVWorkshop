@@ -1,0 +1,189 @@
+2015-09-03 20:50:09 jdbc[3]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-188]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.test(WebApp.java:893)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-188]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 14 more
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP DATABASE[*] IF EXISTS BROKERINFO "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+DROP DATABASE IF EXISTS brokerinfo [42001-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] BROKERINFO "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+create DATABASE brokerinfo [42001-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "[*]\CONNECT BROKERINFO "; SQL statement:
+\connect brokerinfo [42000-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "                                                                       
+DROP DATABASE[*] IF EXISTS APACCUSTOMERS "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+--------------- CREATE Apaccustomers Database -------------------------
+DROP DATABASE IF EXISTS apaccustomers [42001-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] APACCUSTOMERS "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE apaccustomers [42001-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "[*]\CONNECT APACCUSTOMERS "; SQL statement:
+\connect apaccustomers [42000-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "                                                        
+
+ALTER TABLE ACCOUNTHOLDINGS ADD CONSTRAINT ""FK_Acctholdings_AcctID"" FOREIGN KEY (""accountid"")
+      REFERENCES ACCOUNT (""accountid"") MATCH[*] SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT "; SQL statement:
+------- CREATE CONSTRAINTS  ----------------------------
+
+ALTER TABLE accountholdings ADD CONSTRAINT "FK_Acctholdings_AcctID" FOREIGN KEY ("accountid")
+      REFERENCES account ("accountid") MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT [42000-188]
+2015-09-03 20:55:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ACCOUNT ADD CONSTRAINT ""FK_Account_CustID"" FOREIGN KEY (""custid"")
+      REFERENCES CUSTOMER (""custid"") MATCH[*] SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT "; SQL statement:
+ALTER TABLE account ADD CONSTRAINT "FK_Account_CustID" FOREIGN KEY ("custid")
+      REFERENCES customer ("custid") MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT [42000-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                                
+  
+DROP DATABASE[*] IF EXISTS EUCUSTOMERS "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+--
+-- Current Database: eucustomers
+--
+DROP DATABASE IF EXISTS eucustomers [42001-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] EUCUSTOMERS "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE eucustomers [42001-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "[*]\CONNECT EUCUSTOMERS "; SQL statement:
+\connect eucustomers [42000-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACCOUNT" already exists; SQL statement:
+--
+-- Table structure for table account
+--
+
+CREATE TABLE account (
+  AccountId decimal(18,0) NOT NULL,
+  CustomerID varchar(12) NOT NULL,
+  AccountType char(10) DEFAULT NULL,
+  AccountStatus char(10) DEFAULT NULL,
+  DATEOPENED timestamp NOT NULL,
+  DATECLOSED timestamp DEFAULT NULL,
+  PRIMARY KEY (AccountId)
+) [42101-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ACCOUNTHOLDINGS" already exists; SQL statement:
+--
+-- Table structure for table accountholdings
+--
+
+CREATE TABLE accountholdings (
+  TransactionID varchar(12) NOT NULL,
+  AccountID decimal(18,0) NOT NULL,
+  ProductID varchar(12) NOT NULL,
+  PURCHASEDATE timestamp NOT NULL,
+  ProductShares decimal(20,6) DEFAULT NULL,
+  PRIMARY KEY (TransactionID)
+) [42101-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "CUSTOMER" already exists; SQL statement:
+--
+-- Table structure for table customer
+--
+
+CREATE TABLE customer (
+  CustomerID varchar(12) NOT NULL,
+  FIRSTNAME varchar(25) NOT NULL,
+  LASTNAME varchar(25) NOT NULL,
+  MIDDLENAME varchar(15) DEFAULT NULL,
+  StreetAddress varchar(50) NOT NULL,
+  StreetAddress2 varchar(50) DEFAULT NULL,
+  CITY varchar(25) NOT NULL,
+  StateProvince varchar(25) DEFAULT NULL,
+  POSTALCODE varchar(15) NOT NULL,
+  COUNTRY varchar(10) DEFAULT NULL,
+  PhoneNumber varchar(30) DEFAULT NULL,
+  PRIMARY KEY (CustomerID)
+) [42101-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "                                                            
+
+ALTER TABLE ACCOUNTHOLDINGS ADD CONSTRAINT ""FK_AcctHoldings_AcctID"" FOREIGN KEY (""accountid"")
+      REFERENCES ACCOUNT (""accountid"") MATCH[*] SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT "; SQL statement:
+--------------- CREATE CONSTRAINTS -------------------------
+
+ALTER TABLE accountholdings ADD CONSTRAINT "FK_AcctHoldings_AcctID" FOREIGN KEY ("accountid")
+      REFERENCES account ("accountid") MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT [42000-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE ACCOUNT ADD CONSTRAINT ""FK_Account_AcctID"" FOREIGN KEY (""customerid"")
+      REFERENCES CUSTOMER (""customerid"") MATCH[*] SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT "; SQL statement:
+ALTER TABLE account ADD CONSTRAINT "FK_Account_AcctID" FOREIGN KEY ("customerid")
+      REFERENCES customer ("customerid") MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT [42000-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "  
+                             
+  
+DROP DATABASE[*] IF EXISTS PRODUCTS "; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE"; SQL statement:
+--
+-- Current Database: products
+--
+DROP DATABASE IF EXISTS products [42001-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] PRODUCTS "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE products [42001-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "[*]\CONNECT PRODUCTS "; SQL statement:
+\connect products [42000-188]
+2015-09-03 20:55:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "                                                  
+
+ALTER TABLE PRODUCTSYMBOLS ADD CONSTRAINT ""FK_Productsymbols_ProductID"" FOREIGN KEY (""productid"")
+      REFERENCES PRODUCTDATA (""productid"") MATCH[*] SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT "; SQL statement:
+------------ CREATE CONSTRAINTS ------------------
+
+ALTER TABLE productsymbols ADD CONSTRAINT "FK_Productsymbols_ProductID" FOREIGN KEY ("productid")
+      REFERENCES productdata ("productid") MATCH SIMPLE
+      ON UPDATE RESTRICT ON DELETE RESTRICT [42000-188]
+2015-09-03 21:11:49 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Wrong user name or password [28000-188]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.engine.Engine.openSession(Engine.java:106)
+	at org.h2.engine.Engine.openSession(Engine.java:175)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:153)
+	at org.h2.engine.Engine.createSession(Engine.java:136)
+	at org.h2.engine.Engine.createSession(Engine.java:28)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:107)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:91)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.test(WebApp.java:893)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Wrong user name or password [28000-188]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 19 more

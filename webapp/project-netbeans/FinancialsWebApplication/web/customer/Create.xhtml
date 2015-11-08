@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CustomerCreateDlg" widgetVar="CustomerCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCustomerTitle}">
+            <h:form id="CustomerCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{customerController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_customerid}" for="customerid" />
+                        <p:inputText id="customerid" value="#{customerController.selected.customerid}" title="#{bundle.CreateCustomerTitle_customerid}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerid}"/>
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_firstname}" for="firstname" />
+                        <p:inputText id="firstname" value="#{customerController.selected.firstname}" title="#{bundle.CreateCustomerTitle_firstname}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_firstname}"/>
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_lastname}" for="lastname" />
+                        <p:inputText id="lastname" value="#{customerController.selected.lastname}" title="#{bundle.CreateCustomerTitle_lastname}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_lastname}"/>
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_middlename}" for="middlename" />
+                        <p:inputText id="middlename" value="#{customerController.selected.middlename}" title="#{bundle.CreateCustomerTitle_middlename}" />
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_streetaddress}" for="streetaddress" />
+                        <p:inputText id="streetaddress" value="#{customerController.selected.streetaddress}" title="#{bundle.CreateCustomerTitle_streetaddress}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_streetaddress}"/>
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_streetaddress2}" for="streetaddress2" />
+                        <p:inputText id="streetaddress2" value="#{customerController.selected.streetaddress2}" title="#{bundle.CreateCustomerTitle_streetaddress2}" />
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_city}" for="city" />
+                        <p:inputText id="city" value="#{customerController.selected.city}" title="#{bundle.CreateCustomerTitle_city}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_city}"/>
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_stateprovince}" for="stateprovince" />
+                        <p:inputText id="stateprovince" value="#{customerController.selected.stateprovince}" title="#{bundle.CreateCustomerTitle_stateprovince}" />
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_postalcode}" for="postalcode" />
+                        <p:inputText id="postalcode" value="#{customerController.selected.postalcode}" title="#{bundle.CreateCustomerTitle_postalcode}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_postalcode}"/>
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_country}" for="country" />
+                        <p:inputText id="country" value="#{customerController.selected.country}" title="#{bundle.CreateCustomerTitle_country}" />
+                        <p:outputLabel value="#{bundle.CreateCustomerLabel_phonenumber}" for="phonenumber" />
+                        <p:inputText id="phonenumber" value="#{customerController.selected.phonenumber}" title="#{bundle.CreateCustomerTitle_phonenumber}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{customerController.create}" value="#{bundle.Save}" update="display,:CustomerListForm:datalist,:growl" oncomplete="handleSubmit(args,'CustomerCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CustomerCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

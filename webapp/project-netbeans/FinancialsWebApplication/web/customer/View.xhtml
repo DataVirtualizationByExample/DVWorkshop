@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CustomerViewDlg" widgetVar="CustomerViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCustomerTitle}">
+            <h:form id="CustomerViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{customerController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCustomerLabel_customerid}"/>
+                        <h:outputText value="#{customerController.selected.customerid}" title="#{bundle.ViewCustomerTitle_customerid}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_firstname}"/>
+                        <h:outputText value="#{customerController.selected.firstname}" title="#{bundle.ViewCustomerTitle_firstname}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_lastname}"/>
+                        <h:outputText value="#{customerController.selected.lastname}" title="#{bundle.ViewCustomerTitle_lastname}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_middlename}"/>
+                        <h:outputText value="#{customerController.selected.middlename}" title="#{bundle.ViewCustomerTitle_middlename}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_streetaddress}"/>
+                        <h:outputText value="#{customerController.selected.streetaddress}" title="#{bundle.ViewCustomerTitle_streetaddress}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_streetaddress2}"/>
+                        <h:outputText value="#{customerController.selected.streetaddress2}" title="#{bundle.ViewCustomerTitle_streetaddress2}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_city}"/>
+                        <h:outputText value="#{customerController.selected.city}" title="#{bundle.ViewCustomerTitle_city}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_stateprovince}"/>
+                        <h:outputText value="#{customerController.selected.stateprovince}" title="#{bundle.ViewCustomerTitle_stateprovince}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_postalcode}"/>
+                        <h:outputText value="#{customerController.selected.postalcode}" title="#{bundle.ViewCustomerTitle_postalcode}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_country}"/>
+                        <h:outputText value="#{customerController.selected.country}" title="#{bundle.ViewCustomerTitle_country}"/>
+                        <h:outputText value="#{bundle.ViewCustomerLabel_phonenumber}"/>
+                        <h:outputText value="#{customerController.selected.phonenumber}" title="#{bundle.ViewCustomerTitle_phonenumber}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CustomerViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -82,9 +82,10 @@ ALTER TABLE accountholdings ADD CONSTRAINT "FK_Acctholdings_AcctID" FOREIGN KEY 
       REFERENCES account ("accountid") MATCH SIMPLE
       ON UPDATE RESTRICT ON DELETE RESTRICT;
 
-ALTER TABLE account ADD CONSTRAINT "FK_Account_CustID" FOREIGN KEY ("custid")
-      REFERENCES customer ("custid") MATCH SIMPLE
-      ON UPDATE RESTRICT ON DELETE RESTRICT;
+--removed constraint
+-- ALTER TABLE account ADD CONSTRAINT "FK_Account_CustID" FOREIGN KEY ("custid")
+--      REFERENCES customer ("custid") MATCH SIMPLE
+--      ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 --
 -- Dumping data for table CUSTOMER
@@ -165,9 +166,10 @@ ALTER TABLE accountholdings ADD CONSTRAINT "FK_AcctHoldings_AcctID" FOREIGN KEY 
       REFERENCES account ("accountid") MATCH SIMPLE
       ON UPDATE RESTRICT ON DELETE RESTRICT;
 
-ALTER TABLE account ADD CONSTRAINT "FK_Account_AcctID" FOREIGN KEY ("customerid")
-      REFERENCES customer ("customerid") MATCH SIMPLE
-      ON UPDATE RESTRICT ON DELETE RESTRICT;
+-- removed contraint
+-- ALTER TABLE account ADD CONSTRAINT "FK_Account_AcctID" FOREIGN KEY ("customerid")
+--      REFERENCES customer ("customerid") MATCH SIMPLE
+--      ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 --
 -- Dumping data for table customer
@@ -300,9 +302,10 @@ ALTER TABLE accountholdings ADD CONSTRAINT "FK_Acctholdings_AcctID" FOREIGN KEY 
       REFERENCES account ("accountid") MATCH SIMPLE
       ON UPDATE RESTRICT ON DELETE RESTRICT;
 
-ALTER TABLE account ADD CONSTRAINT "FK_Account_SSN" FOREIGN KEY ("ssn")
-      REFERENCES customer ("ssn") MATCH SIMPLE
-      ON UPDATE RESTRICT ON DELETE RESTRICT;
+-- removed constraint
+-- ALTER TABLE account ADD CONSTRAINT "FK_Account_SSN" FOREIGN KEY ("ssn")
+--      REFERENCES customer ("ssn") MATCH SIMPLE
+--      ON UPDATE RESTRICT ON DELETE RESTRICT;
 --
 -- Dumping data for table customer
 --

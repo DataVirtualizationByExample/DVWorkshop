@@ -2,17 +2,17 @@
 :imagesdir: ../images
 
 == Introduction
-Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three easy steps:
+Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
 
 .	Connect: Access data from multiple, heterogeneous data sources. 
-.	Compose: Easily create reusable, business-friendly logical data models and views by combining and transforming data. 
+.	Compose: Create reusable, business-friendly logical data models and views by combining and transforming data. 
 .	Consume: Make unified data easily consumable through open standard interfaces.
 
 image::0.1-DV-Architecture.png[]
 
-Red Hat JBoss Data Virtualization includes:
+Red Hat JBoss Data Virtualization (DV) includes:
 
-* Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS)).
+* Tools for creating data views that are accessible through standard protocols. For those who are already familiar with Red Hat JBoss Data Virtualization one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).
 * A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).
 * A repository for storing metadata (ModeShape)
 
@@ -41,10 +41,12 @@ image::0.2-DV-Server.png[]
 |An enterprise ready, scalable, manageable, runtime for the Query Engine that runs inside JBoss EAP that provides additional security, fault-tolerance, and administrative features.
 
 |Connectors
-|Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? Custom translators and resource adaptors can easily be developed.
+|Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. 
+
+Need data from a different source? Custom translators and resource adaptors can easily be developed.
 
 |Tools
-|Red Hat JBoss Data Virtualization Server includes development and administration tools 
+|Red Hat JBoss Data Virtualization Server includes development and administration tools to
 
 * Create - Use Teiid Designer to define virtual databases containing views, procedures or even dynamic XML documents. 
 * Monitor & Manage - Use the Management Console with  JBoss EAP or use the JBoss Data Virtualization JBoss Operations Network (JON) plugin to control any number of servers. 
@@ -53,26 +55,26 @@ image::0.2-DV-Server.png[]
 
 
 === What is expected of you
-Please feel free to raise your hands with any questions that you have about the lab; feel free to ask why it is you are doing something, or if something does not feel right. Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.
+Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.
+
+Please feel free to raise your hands if you have any questions. Also feel free to ask why it is you are doing something, or if something doesn't feel right.
 
 === Prerequisites
-
-- OpenJDK 1.7, 1.8 or Oracle JDK 1.7, 1.8 installed
-- Git installed
-- PostgreSQL server or MySQL server running 
-- PostgreSQL or MySQL client tools installed if using a remote database
+Please make sure that the following software is installed and configured:
+- Minimal version 1.7 of OpenJDK or Oracle JDK 
+- Git
+- PostgreSQL server or MariaDB server 
+- If you are using a remote database the PostgreSQL or MariaDB client tools should be used.
 
 === Setup demo environment
-In order to use the labs we need to prepare a database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.
+In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL and MariaDB to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
 
 TIP: Use the database you prefer, it's not required to have them both installed.
-
-
 
 ==== Setup PostgreSQL
 Installation
 
-The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See http://www.postgresql.org/download/ for more information and downloads.
+The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://www.postgresql.org/download/ for more information and downloads.
 Post-install steps:
 [start=1]
 . If *nix or MacOSX switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
@@ -113,10 +115,13 @@ postgres=# \l
 
 postgres=# \q
 ----
-==== Setup MySQL
+==== Setup MariaDB
 Installation
 
-The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.
+The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads.
+
+TODO: Will rewrite text below to mariadb after next week 
+
 Post-install steps
 [start=1]
 . If *nix or MacOSX go to the /usr/local/mysql directory and start mysqld_safe
@@ -177,6 +182,4 @@ The labs will use the following databases:
 - products
 - uscustomers
 
-Congratulations, you have now completed this lab. 
-
-
+Congratulations, you have completed this introduction lab. 

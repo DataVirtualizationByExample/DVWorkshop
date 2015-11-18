@@ -4,7 +4,7 @@
 
 The JBoss Data Virtualization Workshop is based on the following versions:
 
-* JBoss Data Virtualization 6.1.0.GA
+* JBoss Data Virtualization 6.2.0.GA
 * JBoss Developer Studio 8.1.0.GA
 * JBoss Developer Studio Integration Stack 8.0.1.GA
 * OpenShift Online v2

@@ -26,7 +26,7 @@ The figure below depicts the architectural overview of Red Hat JBoss Data Virtua
 
 image::0.2-DV-Server.png[]
 
-[cols="2,5a", options="header"] 
+[cols="2,5a", options="header"]
 |===
 |Component
 |Description
@@ -138,7 +138,7 @@ $ sudo ./bin/mysqld_safe
 $ sudo /usr/local/mysql/bin/mysql < financials-mysql.sql
 ----
 [start=3]
-. If Step 2 is successfully executed the the MySQL environment contains the following databases. 
+. If Step 2 is successfully executed the MariaDB environment contains the following databases. 
 [source,bash]
 ----
 sudo /usr/local/mysql/bin/mysql

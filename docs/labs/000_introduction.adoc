@@ -61,10 +61,11 @@ Please feel free to raise your hands if you have any questions. Also feel free t
 
 === Prerequisites
 Please make sure that the following software is installed and configured:
-- Minimal version 1.7 of OpenJDK or Oracle JDK 
-- Git
-- PostgreSQL server or MariaDB server 
-- If you are using a remote database the PostgreSQL or MariaDB client tools should be used.
+
+* Minimal version 1.7 of OpenJDK or Oracle JDK
+* Git
+* PostgreSQL server or MariaDB server
+* If you are using a remote database the PostgreSQL or MariaDB client tools should be used.
 
 === Setup demo environment
 In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL and MariaDB to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.

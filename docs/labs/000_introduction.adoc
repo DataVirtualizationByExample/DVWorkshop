@@ -121,8 +121,6 @@ Installation
 
 The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads.
 
-TODO: Will rewrite text below to mariadb after next week 
-
 Post-install steps
 [start=1]
 . If *nix or MacOSX go to the /usr/local/mysql directory and start mysqld_safe

@@ -50,25 +50,25 @@ Follow the installer prompts to complete the installation process.
 
 TIP: If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See http://vimeo.com/76457404[http://vimeo.com/76457404] for more details.
 
-A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click image::1.0-DV-NextBTN.png[].
+A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click image::1.1-DV-NextBTN.png[].
  
 image::1.1-DV-EULA.png[]
 
-A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click image::1.0-DV-NextBTN.png[].
+A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click image::1.1-DV-NextBTN.png[].
 
 image::1.1-DV-FilePath.png[]
 
-A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click btn:[Next].
+A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click image::1.1-DV-NextBTN.png[].
 
 image::1.1-DV-InstallPacks.png[]
 
-You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Enable OData access" and . After filling-out the appropriate fields click image::1.0-DV-NextBTN.png[].
+You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Enable OData access" and . After filling-out the appropriate fields click image::1.1-DV-NextBTN.png[].
 
 image::1.1-DV-User.png[]
 
-Click btn:[Next] to proceed.
+Click image::1.1-DV-NextBTN.png[] to proceed.
 
-You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click btn:[Next] to proceed.
+You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click image::1.1-DV-NextBTN.png[] to proceed.
 
 image::1.1-DV-Install-config.png[]
 
@@ -76,15 +76,15 @@ A summary of the installation will be displayed, see below.
 
 image::1.1-DV-install-summary.png[]
 
-Click btn:[Next] to start the installation and the Component installation progress window will be displayed.
+Click image::1.1-DV-NextBTN.png[] to start the installation and the Component installation progress window will be displayed.
 
 image::1.1-DV-install-component-summary.png[]
 
-Click btn:[Next] for the installation to commence. This may take a minute. 
+Click image::1.1-DV-NextBTN.png[] for the installation to commence. This may take a minute. 
 
 image::1.1-DV-install-completed.png[]
 
-Once all the components are installed, click btn:[Next].
+Once all the components are installed, click image::1.1-DV-NextBTN.png[].
 
 Click Generate installation script and properties file if you wish to generate an automatic script and properties file. 
 
@@ -156,7 +156,7 @@ The following username/passwords will be installed automatically for access to
 
 TIP: The ModeShape rest URL is accessible by the user modeshapeUser. If you want to have user teiidUser to access this url you have to add the connect role privileges to this user in the application-roles.properties file.
 
-In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.
+In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.4/bin and type the following command and inputs as shown below.
 
 image::1.2-DV-auto-install-2.png[]
 

@@ -64,13 +64,13 @@ Please make sure that the following software is installed and configured:
 
 * Minimal version 1.7 of OpenJDK or Oracle JDK
 * Git
-* PostgreSQL server or MariaDB server
-* If you are using a remote database the PostgreSQL or MariaDB client tools should be used.
+* PostgreSQL server, MariaDB server or MySQL server
+* If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.
 
 === Setup demo environment
-In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL and MariaDB to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
+In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL, MariaDB and MySQL to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
 
-TIP: Use the database you prefer, it's not required to have them both installed.
+TIP: Use the database you prefer, it's not required to have them all installed.
 
 ==== Setup PostgreSQL
 Installation
@@ -119,7 +119,52 @@ postgres=# \q
 ==== Setup MariaDB
 Installation
 
-The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads.
+The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads. Note: there's no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/
+
+Post-install steps
+[start=1]
+. After the installation completes and using *nix, start MariaDB with:
+[source,bash]
+----
+$ sudo /etc/init.d/mysql start
+----
+[start=2]
+. Go to the DVWorkshop/dv-docker/demo directory and tun the following command as depicted in the picture below.
+[source,bash]
+----
+$ sudo mysql < financials-mysql.sql
+----
+[start=3]
+. If Step 2 is successfully executed the MariaDB environment contains the following databases. 
+[source,bash]
+----
+sudo mysql
+Password:
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql> exit
+Bye
+----
+
+==== Setup MySQL
+Installation
+
+The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.
 
 Post-install steps
 [start=1]
@@ -141,17 +186,6 @@ $ sudo /usr/local/mysql/bin/mysql < financials-mysql.sql
 ----
 sudo /usr/local/mysql/bin/mysql
 Password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 1
-Server version: 5.6.17 MySQL Community Server (GPL)
-
-Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql> show databases;
 +--------------------+

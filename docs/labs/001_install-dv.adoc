@@ -62,7 +62,7 @@ A select the packs dialogue box will appear. Review the packs you want to instal
 
 image::1.1-DV-InstallPacks.png[]
 
-You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Add OData role" and "Add logging role". After filling-out the appropriate fields click image::1.1-DV-NextBTN.png[]
+You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Add OData role" and "Add logging role". After filling-out the appropriate fields click image:1.1-DV-NextBTN.png[]
 
 image::1.1-DV-User.png[]
 
@@ -86,7 +86,7 @@ image::1.1-DV-install-completed.png[]
 
 Once all the components are installed, click image:1.1-DV-NextBTN.png[].
 
-Click Generate installation script and properties file if you wish to generate an automatic script and properties file. 
+Click "Generate installation script and properties file" if you wish to generate an automatic script and properties file. 
 
 image::1.1-DV-install-completed-2.png[]
 

@@ -50,11 +50,11 @@ Follow the installer prompts to complete the installation process.
 
 TIP: If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See http://vimeo.com/76457404[http://vimeo.com/76457404] for more details.
 
-A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click btn:[Next].
+A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click image::1.0-DV-NextBTN.png[].
  
 image::1.1-DV-EULA.png[]
 
-A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click btn:[Next].
+A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click image::1.0-DV-NextBTN.png[].
 
 image::1.1-DV-FilePath.png[]
 
@@ -62,8 +62,7 @@ A select the packs dialogue box will appear. Review the packs you want to instal
 
 image::1.1-DV-InstallPacks.png[]
 
-You will be prompted to create new users. For convenience one can select one password for all default passwords. Enter the new username and password in the appropriate fields and click btn:[Next].
-Furthermore select the checkbox "Enable OData access" and .
+You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Enable OData access" and . After filling-out the appropriate fields click image::1.0-DV-NextBTN.png[].
 
 image::1.1-DV-User.png[]
 

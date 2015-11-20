@@ -50,17 +50,15 @@ Follow the installer prompts to complete the installation process.
 
 TIP: If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See http://vimeo.com/76457404[http://vimeo.com/76457404] for more details.
 
-A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click 
-
-image::1.1-DV-NextBTN.png[]
+A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click image:1.1-DV-NextBTN.png[]
  
 image::1.1-DV-EULA.png[]
 
-A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click image::1.1-DV-NextBTN.png[]
+A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click image:1.1-DV-NextBTN.png[]
 
 image::1.1-DV-FilePath.png[]
 
-A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click image::1.1-DV-NextBTN.png[]
+A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click image:1.1-DV-NextBTN.png[]
 
 image::1.1-DV-InstallPacks.png[]
 
@@ -68,9 +66,9 @@ You will be prompted to create new users. For convenience it is possible to sele
 
 image::1.1-DV-User.png[]
 
-Click image::1.1-DV-NextBTN.png[] to proceed.
+Click image:1.1-DV-NextBTN.png[] to proceed.
 
-You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click image::1.1-DV-NextBTN.png[] to proceed.
+You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click image:1.1-DV-NextBTN.png[] to proceed.
 
 image::1.1-DV-Install-config.png[]
 
@@ -78,21 +76,21 @@ A summary of the installation will be displayed, see below.
 
 image::1.1-DV-install-summary.png[]
 
-Click image::1.1-DV-NextBTN.png[] to start the installation and the Component installation progress window will be displayed.
+Click image:1.1-DV-NextBTN.png[] to start the installation and the Component installation progress window will be displayed.
 
 image::1.1-DV-install-component-summary.png[]
 
-Click image::1.1-DV-NextBTN.png[] for the installation to commence. This may take a minute. 
+Click image:1.1-DV-NextBTN.png[] for the installation to commence. This may take a minute. 
 
 image::1.1-DV-install-completed.png[]
 
-Once all the components are installed, click image::1.1-DV-NextBTN.png[].
+Once all the components are installed, click image:1.1-DV-NextBTN.png[].
 
 Click Generate installation script and properties file if you wish to generate an automatic script and properties file. 
 
 image::1.1-DV-install-completed-2.png[]
 
-For now click btn:[Done] to complete the installation.
+For now click image:1.1-DV-DoneBTN.png[] to complete the installation.
 
 Red Hat JBoss Data Virtualization is now successfully installed and configured.
 When the installation is complete, navigate to

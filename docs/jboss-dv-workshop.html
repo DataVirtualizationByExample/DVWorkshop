@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="generator" content="Asciidoctor 1.5.3">
 <title>JBoss Data Virtualization Workshop</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-/* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -57,7 +57,6 @@ a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
 img{-ms-interpolation-mode:bicubic}
-#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
 .left{float:left!important}
 .right{float:right!important}
 .text-left{text-align:left!important}
@@ -65,10 +64,12 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-.antialiased,body{-webkit-font-smoothing:antialiased}
-img{display:inline-block;vertical-align:middle}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
 p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
@@ -111,12 +112,14 @@ blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7;font-weight:bold}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
@@ -124,7 +127,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 *:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menu{color:rgba(0,0,0,.8)}
@@ -155,29 +158,33 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
 #toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media only screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
 #toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
 #toc.toc2 ul ul{margin-left:0;padding-left:1em}
 #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
 body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
 #toc.toc2{width:20em}
 #toc.toc2 #toctitle{font-size:1.375em}
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
 #footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 .sect1{padding-bottom:.625em}
-@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
 #content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
 #content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
@@ -206,7 +213,9 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
 .literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
 .literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
-@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
 .listingblock pre.highlightjs{padding:0}
 .listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
@@ -216,7 +225,7 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
 .listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
 table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
 table.pyhltable td.code{padding-left:.75em;padding-right:0}
 pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
 pre.pygments .lineno{display:inline-block;margin-right:.25em}
@@ -237,13 +246,12 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
 .quoteblock .attribution br,.verseblock .attribution br{display:none}
-.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
 .quoteblock.abstract{margin:0 0 1.25em 0;display:block}
 .quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
 .quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
-table.spread{width:100%}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
 table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
 table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
@@ -289,8 +297,8 @@ ol.upperroman{list-style-type:upper-roman}
 ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table,.colist>table{border:0;background:none}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
-td.hdlist1{padding-right:.75em;font-weight:bold}
-td.hdlist1,td.hdlist2{vertical-align:top}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
@@ -303,13 +311,14 @@ td.hdlist1,td.hdlist2{vertical-align:top}
 .image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
 .image.left{margin-right:.625em}
 .image.right{margin-left:.625em}
-a.image{text-decoration:none}
-span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
-span.footnote a,span.footnoteref a{text-decoration:none}
-span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
-#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
@@ -367,11 +376,10 @@ span.icon>.fa{cursor:default}
 pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
-h1,h2{letter-spacing:-.01em}
-dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
-p,td.content{letter-spacing:-.01em}
-p strong,td.content strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content{font-size:1.0625rem}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -382,9 +390,9 @@ a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img{page-break-inside:avoid}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
-img{max-width:100%!important}
+svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
@@ -413,9 +421,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 /*pre.CodeRay {background-color:#f7f7f8;}*/
 .CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
 .CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
-.CodeRay .line-numbers strong{font-weight: normal}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
 table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
-table.CodeRay td{vertical-align: top}
+table.CodeRay td{vertical-align: top;line-height:1.45}
 table.CodeRay td.line-numbers{text-align:right}
 table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
 table.CodeRay td.code{padding:0 0 0 .5em}
@@ -450,7 +458,7 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .hex{color:#058}
 .CodeRay .integer,.CodeRay .float{color:#099}
 .CodeRay .include{color:#555}
-.CodeRay .inline{color:#00}
+.CodeRay .inline{color:#000}
 .CodeRay .inline .inline{background:#ccc}
 .CodeRay .inline .inline .inline{background:#bbb}
 .CodeRay .inline .inline-delimiter{color:#d14}
@@ -515,7 +523,8 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_setup_demo_environment">3.3. Setup demo environment</a>
 <ul class="sectlevel3">
 <li><a href="#_setup_postgresql">3.3.1. Setup PostgreSQL</a></li>
-<li><a href="#_setup_mysql">3.3.2. Setup MySQL</a></li>
+<li><a href="#_setup_mariadb">3.3.2. Setup MariaDB</a></li>
+<li><a href="#_setup_mysql">3.3.3. Setup MySQL</a></li>
 </ul>
 </li>
 </ul>
@@ -650,7 +659,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="ulist">
 <ul>
 <li>
-<p>JBoss Data Virtualization 6.1.0.GA</p>
+<p>JBoss Data Virtualization 6.2.0.GA</p>
 </li>
 <li>
 <p>JBoss Developer Studio 8.1.0.GA</p>
@@ -669,7 +678,7 @@ table.CodeRay td.code>pre{padding:0}
 <h2 id="_introduction">3. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three easy steps:</p>
+<p>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -677,7 +686,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>Connect: Access data from multiple, heterogeneous data sources.</p>
 </li>
 <li>
-<p>Compose: Easily create reusable, business-friendly logical data models and views by combining and transforming data.</p>
+<p>Compose: Create reusable, business-friendly logical data models and views by combining and transforming data.</p>
 </li>
 <li>
 <p>Consume: Make unified data easily consumable through open standard interfaces.</p>
@@ -690,12 +699,12 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>Red Hat JBoss Data Virtualization includes:</p>
+<p>Red Hat JBoss Data Virtualization (DV) includes:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS)).</p>
+<p>Tools for creating data views that are accessible through standard protocols. For those who are already familiar with Red Hat JBoss Data Virtualization one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).</p>
 </li>
 <li>
 <p>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).</p>
@@ -743,32 +752,55 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Query Engine</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+
+</div>
+<div class="paragraph">
 <p>The heart of Red Hat JBoss Data Virtualization Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Embedded</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+
+</div>
+<div class="paragraph">
 <p>An easy-to-use JDBC Driver that can embed the Query Engine in any Java application.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Server</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<td class="tableblock halign-left valign-top"><div><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+
+</div>
+<div class="paragraph">
 <p>An enterprise ready, scalable, manageable, runtime for the Query Engine that runs inside JBoss EAP that provides additional security, fault-tolerance, and administrative features.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Connectors</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? Custom translators and resource adaptors can easily be developed.</p>
+<td class="tableblock halign-left valign-top"><div><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+
+</div>
+<div class="paragraph">
+<p>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap.</p>
+</div>
+<div class="paragraph">
+<p>Need data from a different source? Custom translators and resource adaptors can easily be developed.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tools</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Red Hat JBoss Data Virtualization Server includes development and administration tools</p>
+<td class="tableblock halign-left valign-top"><div><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+
+</div>
+<div class="paragraph">
+<p>Red Hat JBoss Data Virtualization Server includes development and administration tools to</p>
 </div>
 <div class="ulist">
 <ul>
@@ -789,24 +821,30 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_what_is_expected_of_you">3.1. What is expected of you</h3>
 <div class="paragraph">
-<p>Please feel free to raise your hands with any questions that you have about the lab; feel free to ask why it is you are doing something, or if something does not feel right. Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.</p>
+<p>Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.</p>
+</div>
+<div class="paragraph">
+<p>Please feel free to raise your hands if you have any questions. Also feel free to ask why it is you are doing something, or if something doesn&#8217;t feel right.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_prerequisites">3.2. Prerequisites</h3>
+<div class="paragraph">
+<p>Please make sure that the following software is installed and configured:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>OpenJDK 1.7, 1.8 or Oracle JDK 1.7, 1.8 installed</p>
+<p>Minimal version 1.7 of OpenJDK or Oracle JDK</p>
 </li>
 <li>
-<p>Git installed</p>
+<p>Git</p>
 </li>
 <li>
-<p>PostgreSQL server or MySQL server running</p>
+<p>PostgreSQL server, MariaDB server or MySQL server</p>
 </li>
 <li>
-<p>PostgreSQL or MySQL client tools installed if using a remote database</p>
+<p>If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.</p>
 </li>
 </ul>
 </div>
@@ -814,7 +852,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_setup_demo_environment">3.3. Setup demo environment</h3>
 <div class="paragraph">
-<p>In order to use the labs we need to prepare a database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.</p>
+<p>In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL, MariaDB and MySQL to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -823,7 +861,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="title">Tip</div>
 </td>
 <td class="content">
-Use the database you prefer, it&#8217;s not required to have them both installed.
+Use the database you prefer, it&#8217;s not required to have them all installed.
 </td>
 </tr>
 </table>
@@ -834,7 +872,7 @@ Use the database you prefer, it&#8217;s not required to have them both installed
 <p>Installation</p>
 </div>
 <div class="paragraph">
-<p>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See <a href="http://www.postgresql.org/download/" class="bare">http://www.postgresql.org/download/</a> for more information and downloads.
+<p>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See <a href="http://www.postgresql.org/download/" class="bare">http://www.postgresql.org/download/</a> for more information and downloads.
 Post-install steps:</p>
 </div>
 <div class="olist arabic">
@@ -896,13 +934,83 @@ postgres=# \q</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_setup_mysql">3.3.2. Setup MySQL</h4>
+<h4 id="_setup_mariadb">3.3.2. Setup MariaDB</h4>
 <div class="paragraph">
 <p>Installation</p>
 </div>
 <div class="paragraph">
-<p>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See <a href="http://dev.mysql.com/downloads/mysql/" class="bare">http://dev.mysql.com/downloads/mysql/</a> for more information and downloads.
-Post-install steps</p>
+<p>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <a href="https://downloads.mariadb.org" class="bare">https://downloads.mariadb.org</a> for more information and downloads. Note: there&#8217;s no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page <a href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/" class="bare">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</a></p>
+</div>
+<div class="paragraph">
+<p>Post-install steps</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="1">
+<li>
+<p>After the installation completes and using *nix, start MariaDB with:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo /etc/init.d/mysql start</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Go to the DVWorkshop/dv-docker/demo directory and tun the following command as depicted in the picture below.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo mysql &lt; financials-mysql.sql</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>If Step 2 is successfully executed the MariaDB environment contains the following databases.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo mysql
+Password:
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql&gt; exit
+Bye</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setup_mysql">3.3.3. Setup MySQL</h4>
+<div class="paragraph">
+<p>Installation</p>
+</div>
+<div class="paragraph">
+<p>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See <a href="http://dev.mysql.com/downloads/mysql/" class="bare">http://dev.mysql.com/downloads/mysql/</a> for more information and downloads.</p>
+</div>
+<div class="paragraph">
+<p>Post-install steps</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic" start="1">
@@ -932,7 +1040,7 @@ $ sudo ./bin/mysqld_safe</pre>
 <div class="olist arabic">
 <ol class="arabic" start="3">
 <li>
-<p>If Step 2 is successfully executed the the MySQL environment contains the following databases.</p>
+<p>If Step 2 is successfully executed the MariaDB environment contains the following databases.</p>
 </li>
 </ol>
 </div>
@@ -940,17 +1048,6 @@ $ sudo ./bin/mysqld_safe</pre>
 <div class="content">
 <pre>sudo /usr/local/mysql/bin/mysql
 Password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 1
-Server version: 5.6.17 MySQL Community Server (GPL)
-
-Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql&gt; show databases;
 +--------------------+
@@ -995,7 +1092,7 @@ Bye</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Congratulations, you have now completed this lab.</p>
+<p>Congratulations, you have completed this introduction lab.</p>
 </div>
 </div>
 </div>
@@ -1005,7 +1102,7 @@ Bye</pre>
 <h2 id="_install_red_hat_jboss_data_virtualization">4. Install Red Hat JBoss Data Virtualization</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There are three different ways to install Red Hat JBoss Data Virtualization.</p>
+<p>There are three different ways to install Red Hat JBoss Data Virtualization:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1030,18 +1127,6 @@ Bye</pre>
 <img src="images/1.1-DV-download.png" alt="1.1 DV download">
 </div>
 </div>
-<div class="paragraph">
-<p>Open a terminal window and navigate to the location where the GUI installer was downloaded.
-Run the installer using java at the command prompt:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-{version}.jar</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The latest version available is 6.2.0.redhat-2 and to run the installer at the command prompt use the following command:</p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1049,7 +1134,7 @@ Run the installer using java at the command prompt:</p>
 <div class="title">Note</div>
 </td>
 <td class="content">
-Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first.
+Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first before installing JBoss Data Virtualization 6.2.0. In earlier versions of JBoss Data Virtualization the JBoss EAP server was included in the JBoss DV distribution. So we need to install JBoss EAP first, so remember the directory where you downloaded JBoss DV, because we need it later on.
 </td>
 </tr>
 </table>
@@ -1079,14 +1164,32 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 [disconnected /] exit</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Open a terminal window and navigate to the location where the GUI installer was downloaded.
+Run the installer using java at the command prompt:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ java -jar jboss-dv-installer-{version}.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Follow the installer prompts to complete the installation process. See the Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration video. See <a href="http://vimeo.com/76457404">http://vimeo.com/76457404</a> for more details.
- A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <b class="button">Next</b>.</p>
+<p>Follow the installer prompts to complete the installation process.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <a href="http://vimeo.com/76457404">http://vimeo.com/76457404</a> for more details.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1094,7 +1197,7 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 </div>
 </div>
 <div class="paragraph">
-<p>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click <b class="button">Next</b>.</p>
+<p>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1102,7 +1205,7 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 </div>
 </div>
 <div class="paragraph">
-<p>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <b class="button">Next</b>.</p>
+<p>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1110,8 +1213,7 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 </div>
 </div>
 <div class="paragraph">
-<p>You will be prompted to create new users. For convenience one can select one password for all default passwords. Enter the new username and password in the appropriate fields and click <b class="button">Next</b>.
-Furthermore select the checkbox "Enable OData access".</p>
+<p>You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Add OData role" and "Add logging role". After filling-out the appropriate fields click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1119,10 +1221,10 @@ Furthermore select the checkbox "Enable OData access".</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click <b class="button">Next</b> to proceed.</p>
+<p>Click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span> to proceed.</p>
 </div>
 <div class="paragraph">
-<p>You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <b class="button">Next</b> to proceed.</p>
+<p>You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span> to proceed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1138,7 +1240,7 @@ Furthermore select the checkbox "Enable OData access".</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click <b class="button">Next</b> to start the installation and the Component installation progress window will be displayed.</p>
+<p>Click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span> to start the installation and the Component installation progress window will be displayed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1146,7 +1248,7 @@ Furthermore select the checkbox "Enable OData access".</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click <b class="button">Next</b> for the installation to commence. This may take a minute.</p>
+<p>Click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span> for the installation to commence. This may take a minute.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1154,10 +1256,10 @@ Furthermore select the checkbox "Enable OData access".</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Once all the components are installed, click <b class="button">Next</b>.</p>
+<p>Once all the components are installed, click <span class="image"><img src="images/1.1-DV-NextBTN.png" alt="1.1 DV NextBTN"></span>.</p>
 </div>
 <div class="paragraph">
-<p>Click Generate installation script and properties file if you wish to generate an automatic script and properties file.</p>
+<p>Click "Generate installation script and properties file" if you wish to generate an automatic script and properties file.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1165,7 +1267,7 @@ Furthermore select the checkbox "Enable OData access".</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For now click <b class="button">Done</b> to complete the installation.</p>
+<p>For now click <span class="image"><img src="images/1.1-DV-DoneBTN.png" alt="1.1 DV DoneBTN"></span> to complete the installation.</p>
 </div>
 <div class="paragraph">
 <p>Red Hat JBoss Data Virtualization is now successfully installed and configured.
@@ -1202,7 +1304,7 @@ When the installation is complete, navigate to</p>
 <p>Place the software in the software subfolder.</p>
 </div>
 <div class="paragraph">
-<p>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.1.0.</p>
+<p>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.2.0.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1277,7 +1379,7 @@ The ModeShape rest URL is accessible by the user modeshapeUser. If you want to h
 </table>
 </div>
 <div class="paragraph">
-<p>In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.</p>
+<p>In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.4/bin and type the following command and inputs as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -4058,7 +4160,7 @@ Select the Financials Demo workspace as the active workspace. In the navigation 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-15 11:58:48 CEST
+Last updated 2015-11-09 14:44:48 CET
 </div>
 </div>
 </body>

@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>JBoss Data Virtualization Workshop</title>
-<date>2015-05-15</date>
+<date>2015-11-09</date>
 </info>
 <chapter xml:id="_acknowlegdement">
 <title>Acknowlegdement</title>
@@ -40,7 +40,7 @@
 <simpara>The JBoss Data Virtualization Workshop is based on the following versions:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>JBoss Data Virtualization 6.1.0.GA</simpara>
+<simpara>JBoss Data Virtualization 6.2.0.GA</simpara>
 </listitem>
 <listitem>
 <simpara>JBoss Developer Studio 8.1.0.GA</simpara>
@@ -55,13 +55,13 @@
 </chapter>
 <chapter xml:id="_introduction">
 <title>Introduction</title>
-<simpara>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three easy steps:</simpara>
+<simpara>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>Connect: Access data from multiple, heterogeneous data sources.</simpara>
 </listitem>
 <listitem>
-<simpara>Compose: Easily create reusable, business-friendly logical data models and views by combining and transforming data.</simpara>
+<simpara>Compose: Create reusable, business-friendly logical data models and views by combining and transforming data.</simpara>
 </listitem>
 <listitem>
 <simpara>Consume: Make unified data easily consumable through open standard interfaces.</simpara>
@@ -75,10 +75,10 @@
 <textobject><phrase>0.1 DV Architecture</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Red Hat JBoss Data Virtualization includes:</simpara>
+<simpara>Red Hat JBoss Data Virtualization (DV) includes:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>Tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS)).</simpara>
+<simpara>Tools for creating data views that are accessible through standard protocols. For those who are already familiar with Red Hat JBoss Data Virtualization one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).</simpara>
 </listitem>
 <listitem>
 <simpara>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).</simpara>
@@ -133,11 +133,12 @@
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Connectors</simpara></entry>
-<entry align="left" valign="top"><simpara>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. Need data from a different source? Custom translators and resource adaptors can easily be developed.</simpara></entry>
+<entry align="left" valign="top"><simpara>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap.</simpara>
+<simpara>Need data from a different source? Custom translators and resource adaptors can easily be developed.</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Tools</simpara></entry>
-<entry align="left" valign="top"><simpara>Red Hat JBoss Data Virtualization Server includes development and administration tools</simpara>
+<entry align="left" valign="top"><simpara>Red Hat JBoss Data Virtualization Server includes development and administration tools to</simpara>
 <itemizedlist>
 <listitem>
 <simpara>Create - Use Teiid Designer to define virtual databases containing views, procedures or even dynamic XML documents.</simpara>
@@ -155,35 +156,37 @@
 </informaltable>
 <section xml:id="_what_is_expected_of_you">
 <title>What is expected of you</title>
-<simpara>Please feel free to raise your hands with any questions that you have about the lab; feel free to ask why it is you are doing something, or if something does not feel right. Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.</simpara>
+<simpara>Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.</simpara>
+<simpara>Please feel free to raise your hands if you have any questions. Also feel free to ask why it is you are doing something, or if something doesn&#8217;t feel right.</simpara>
 </section>
 <section xml:id="_prerequisites">
 <title>Prerequisites</title>
+<simpara>Please make sure that the following software is installed and configured:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>OpenJDK 1.7, 1.8 or Oracle JDK 1.7, 1.8 installed</simpara>
+<simpara>Minimal version 1.7 of OpenJDK or Oracle JDK</simpara>
 </listitem>
 <listitem>
-<simpara>Git installed</simpara>
+<simpara>Git</simpara>
 </listitem>
 <listitem>
-<simpara>PostgreSQL server or MySQL server running</simpara>
+<simpara>PostgreSQL server, MariaDB server or MySQL server</simpara>
 </listitem>
 <listitem>
-<simpara>PostgreSQL or MySQL client tools installed if using a remote database</simpara>
+<simpara>If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.</simpara>
 </listitem>
 </itemizedlist>
 </section>
 <section xml:id="_setup_demo_environment">
 <title>Setup demo environment</title>
-<simpara>In order to use the labs we need to prepare a database. We provide database SQL scripts for PostgreSQL and MySQL to load initial data into the database. The next paragraph will describe how to install the database and load the demo data into the database.</simpara>
+<simpara>In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL, MariaDB and MySQL to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.</simpara>
 <tip>
-<simpara>Use the database you prefer, it&#8217;s not required to have them both installed.</simpara>
+<simpara>Use the database you prefer, it&#8217;s not required to have them all installed.</simpara>
 </tip>
 <section xml:id="_setup_postgresql">
 <title>Setup PostgreSQL</title>
 <simpara>Installation</simpara>
-<simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of operating systems. See <link xlink:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
+<simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
 Post-install steps:</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -225,11 +228,55 @@ postgres=# \l
 
 postgres=# \q</screen>
 </section>
+<section xml:id="_setup_mariadb">
+<title>Setup MariaDB</title>
+<simpara>Installation</simpara>
+<simpara>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="https://downloads.mariadb.org">https://downloads.mariadb.org</link> for more information and downloads. Note: there&#8217;s no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page <link xlink:href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</link></simpara>
+<simpara>Post-install steps</simpara>
+<orderedlist numeration="arabic" startingnumber="1">
+<listitem>
+<simpara>After the installation completes and using *nix, start MariaDB with:</simpara>
+</listitem>
+</orderedlist>
+<screen>$ sudo /etc/init.d/mysql start</screen>
+<orderedlist numeration="arabic" startingnumber="2">
+<listitem>
+<simpara>Go to the DVWorkshop/dv-docker/demo directory and tun the following command as depicted in the picture below.</simpara>
+</listitem>
+</orderedlist>
+<screen>$ sudo mysql &lt; financials-mysql.sql</screen>
+<orderedlist numeration="arabic" startingnumber="3">
+<listitem>
+<simpara>If Step 2 is successfully executed the MariaDB environment contains the following databases.</simpara>
+</listitem>
+</orderedlist>
+<screen>sudo mysql
+Password:
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| apaccustomers      |
+| brokerinfo         |
+| eucustomers        |
+| mysql              |
+| performance_schema |
+| products           |
+| test               |
+| uscustomers        |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql&gt; exit
+Bye</screen>
+</section>
 <section xml:id="_setup_mysql">
 <title>Setup MySQL</title>
 <simpara>Installation</simpara>
-<simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of operating systems. See <link xlink:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.
-Post-install steps</simpara>
+<simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.</simpara>
+<simpara>Post-install steps</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
 <simpara>If *nix or MacOSX go to the /usr/local/mysql directory and start mysqld_safe</simpara>
@@ -245,22 +292,11 @@ $ sudo ./bin/mysqld_safe</screen>
 <screen>$ sudo /usr/local/mysql/bin/mysql &lt; financials-mysql.sql</screen>
 <orderedlist numeration="arabic" startingnumber="3">
 <listitem>
-<simpara>If Step 2 is successfully executed the the MySQL environment contains the following databases.</simpara>
+<simpara>If Step 2 is successfully executed the MariaDB environment contains the following databases.</simpara>
 </listitem>
 </orderedlist>
 <screen>sudo /usr/local/mysql/bin/mysql
 Password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 1
-Server version: 5.6.17 MySQL Community Server (GPL)
-
-Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql&gt; show databases;
 +--------------------+
@@ -298,13 +334,13 @@ Bye</screen>
 <simpara>uscustomers</simpara>
 </listitem>
 </itemizedlist>
-<simpara>Congratulations, you have now completed this lab.</simpara>
+<simpara>Congratulations, you have completed this introduction lab.</simpara>
 </section>
 </section>
 </chapter>
 <chapter xml:id="_install_red_hat_jboss_data_virtualization">
 <title>Install Red Hat JBoss Data Virtualization</title>
-<simpara>There are three different ways to install Red Hat JBoss Data Virtualization.</simpara>
+<simpara>There are three different ways to install Red Hat JBoss Data Virtualization:</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>Graphical mode: Graphical mode launches a graphical wizard which provides step-by-step instructions for installing and configuring the Red Hat JBoss Data Virtualization. Additional setup, including the Quickstarts and Maven Repository, is also possible with the installer.</simpara>
@@ -327,12 +363,8 @@ Bye</screen>
 <textobject><phrase>1.1 DV download</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
-Run the installer using java at the command prompt:</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-{version}.jar</programlisting>
-<simpara>The latest version available is 6.2.0.redhat-2 and to run the installer at the command prompt use the following command:</simpara>
 <note>
-<simpara>Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first.</simpara>
+<simpara>Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first before installing JBoss Data Virtualization 6.2.0. In earlier versions of JBoss Data Virtualization the JBoss EAP server was included in the JBoss DV distribution. So we need to install JBoss EAP first, so remember the directory where you downloaded JBoss DV, because we need it later on.</simpara>
 </note>
 <simpara>Install JBoss EAP 6.4.0</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ unzip jboss-eap-6.4.0.zip
@@ -347,9 +379,19 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
     "result" : {}
 }
 [disconnected /] exit</programlisting>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar</programlisting>
-<simpara>Follow the installer prompts to complete the installation process. See the Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration video. See <link xlink:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.
- A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <guibutton>Next</guibutton>.</simpara>
+<simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
+Run the installer using java at the command prompt:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-{version}.jar</programlisting>
+<simpara>Follow the installer prompts to complete the installation process.</simpara>
+<tip>
+<simpara>If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <link xlink:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.</simpara>
+</tip>
+<simpara>A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -358,7 +400,12 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 <textobject><phrase>1.1 DV EULA</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click <guibutton>Next</guibutton>.</simpara>
+<simpara>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -367,7 +414,12 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 <textobject><phrase>1.1 DV FilePath</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <guibutton>Next</guibutton>.</simpara>
+<simpara>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -376,8 +428,12 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 <textobject><phrase>1.1 DV InstallPacks</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>You will be prompted to create new users. For convenience one can select one password for all default passwords. Enter the new username and password in the appropriate fields and click <guibutton>Next</guibutton>.
-Furthermore select the checkbox "Enable OData access".</simpara>
+<simpara>You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Add OData role" and "Add logging role". After filling-out the appropriate fields click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -386,8 +442,18 @@ Furthermore select the checkbox "Enable OData access".</simpara>
 <textobject><phrase>1.1 DV User</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click <guibutton>Next</guibutton> to proceed.</simpara>
-<simpara>You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <guibutton>Next</guibutton> to proceed.</simpara>
+<simpara>Click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject> to proceed.</simpara>
+<simpara>You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject> to proceed.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -405,7 +471,12 @@ Furthermore select the checkbox "Enable OData access".</simpara>
 <textobject><phrase>1.1 DV install summary</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click <guibutton>Next</guibutton> to start the installation and the Component installation progress window will be displayed.</simpara>
+<simpara>Click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject> to start the installation and the Component installation progress window will be displayed.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -414,7 +485,12 @@ Furthermore select the checkbox "Enable OData access".</simpara>
 <textobject><phrase>1.1 DV install component summary</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click <guibutton>Next</guibutton> for the installation to commence. This may take a minute.</simpara>
+<simpara>Click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject> for the installation to commence. This may take a minute.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -423,8 +499,13 @@ Furthermore select the checkbox "Enable OData access".</simpara>
 <textobject><phrase>1.1 DV install completed</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Once all the components are installed, click <guibutton>Next</guibutton>.</simpara>
-<simpara>Click Generate installation script and properties file if you wish to generate an automatic script and properties file.</simpara>
+<simpara>Once all the components are installed, click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-NextBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV NextBTN</phrase></textobject>
+</inlinemediaobject>.</simpara>
+<simpara>Click "Generate installation script and properties file" if you wish to generate an automatic script and properties file.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -433,7 +514,12 @@ Furthermore select the checkbox "Enable OData access".</simpara>
 <textobject><phrase>1.1 DV install completed 2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>For now click <guibutton>Done</guibutton> to complete the installation.</simpara>
+<simpara>For now click <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-DoneBTN.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV DoneBTN</phrase></textobject>
+</inlinemediaobject> to complete the installation.</simpara>
 <simpara>Red Hat JBoss Data Virtualization is now successfully installed and configured.
 When the installation is complete, navigate to</simpara>
 <itemizedlist>
@@ -459,7 +545,7 @@ When the installation is complete, navigate to</simpara>
 </mediaobject>
 </informalfigure>
 <simpara>Place the software in the software subfolder.</simpara>
-<simpara>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.1.0.</simpara>
+<simpara>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.2.0.</simpara>
 <programlisting language="xml" linenumbering="unnumbered">&lt;installpath&gt;/home/jboss/dv&lt;/installpath&gt;</programlisting>
 <simpara>The script performs the automated install of JBoss Data Virtualization v6.2.0.GA.
 Run the following java command to install JBoss Data Virtualization in as shown below.</simpara>
@@ -511,7 +597,7 @@ $ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_loca
 <tip>
 <simpara>The ModeShape rest URL is accessible by the user modeshapeUser. If you want to have user teiidUser to access this url you have to add the connect role privileges to this user in the application-roles.properties file.</simpara>
 </tip>
-<simpara>In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.</simpara>
+<simpara>In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.4/bin and type the following command and inputs as shown below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>

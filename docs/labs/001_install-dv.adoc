@@ -2,7 +2,7 @@
 :imagesdir: ../images
 
 == Install Red Hat JBoss Data Virtualization 
-There are three different ways to install Red Hat JBoss Data Virtualization.
+There are three different ways to install Red Hat JBoss Data Virtualization:
 
 . Graphical mode: Graphical mode launches a graphical wizard which provides step-by-step instructions for installing and configuring the Red Hat JBoss Data Virtualization. Additional setup, including the Quickstarts and Maven Repository, is also possible with the installer.
 . Text mode: You can launch the installer in the text mode as well. Text mode provides step-by-step instructions for installing and configuring the Red Hat JBoss Data Virtualization.
@@ -13,17 +13,7 @@ Download the Red Hat JBoss Data Virtualization installer binary by clicking the 
 
 image::1.1-DV-download.png[]
 
-Open a terminal window and navigate to the location where the GUI installer was downloaded.
-Run the installer using java at the command prompt: 
-
-[source, bash]
-----
-$ java -jar jboss-dv-installer-{version}.jar
-----
-
-The latest version available is 6.2.0.redhat-2 and to run the installer at the command prompt use the following command:
-
-NOTE: Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first.
+NOTE: Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first before installing JBoss Data Virtualization 6.2.0. In earlier versions of JBoss Data Virtualization the JBoss EAP server was included in the JBoss DV distribution. So we need to install JBoss EAP first, so remember the directory where you downloaded JBoss DV, because we need it later on.
 
 Install JBoss EAP 6.4.0
 
@@ -48,33 +38,37 @@ Apply patch 3 to previously installed JBoss EAP 6.4.0 environment
 [disconnected /] exit
 ----
  
+Open a terminal window and navigate to the location where the GUI installer was downloaded.
+Run the installer using java at the command prompt: 
 
 [source, bash]
 ----
-$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar
+$ java -jar jboss-dv-installer-{version}.jar
 ----
 
-Follow the installer prompts to complete the installation process. See the Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration video. See http://vimeo.com/76457404[http://vimeo.com/76457404] for more details.
- A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click btn:[Next].
+Follow the installer prompts to complete the installation process.
+
+TIP: If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See http://vimeo.com/76457404[http://vimeo.com/76457404] for more details.
+
+A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click image:1.1-DV-NextBTN.png[]
  
 image::1.1-DV-EULA.png[]
 
-A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click btn:[Next].
+A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click image:1.1-DV-NextBTN.png[]
 
 image::1.1-DV-FilePath.png[]
 
-A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click btn:[Next].
+A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click image:1.1-DV-NextBTN.png[]
 
 image::1.1-DV-InstallPacks.png[]
 
-You will be prompted to create new users. For convenience one can select one password for all default passwords. Enter the new username and password in the appropriate fields and click btn:[Next].
-Furthermore select the checkbox "Enable OData access".
+You will be prompted to create new users. For convenience it is possible to select one password for all default passwords. Enter the new username and password in the appropriate fields. Furthermore select the checkbox "Add OData role" and "Add logging role". After filling-out the appropriate fields click image:1.1-DV-NextBTN.png[]
 
 image::1.1-DV-User.png[]
 
-Click btn:[Next] to proceed.
+Click image:1.1-DV-NextBTN.png[] to proceed.
 
-You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click btn:[Next] to proceed.
+You can install Red Hat JBoss Data Virtualization either with default configuration or with additional configuration options. Select option Perform default configuration. Click image:1.1-DV-NextBTN.png[] to proceed.
 
 image::1.1-DV-Install-config.png[]
 
@@ -82,21 +76,21 @@ A summary of the installation will be displayed, see below.
 
 image::1.1-DV-install-summary.png[]
 
-Click btn:[Next] to start the installation and the Component installation progress window will be displayed.
+Click image:1.1-DV-NextBTN.png[] to start the installation and the Component installation progress window will be displayed.
 
 image::1.1-DV-install-component-summary.png[]
 
-Click btn:[Next] for the installation to commence. This may take a minute. 
+Click image:1.1-DV-NextBTN.png[] for the installation to commence. This may take a minute. 
 
 image::1.1-DV-install-completed.png[]
 
-Once all the components are installed, click btn:[Next].
+Once all the components are installed, click image:1.1-DV-NextBTN.png[].
 
-Click Generate installation script and properties file if you wish to generate an automatic script and properties file. 
+Click "Generate installation script and properties file" if you wish to generate an automatic script and properties file. 
 
 image::1.1-DV-install-completed-2.png[]
 
-For now click btn:[Done] to complete the installation.
+For now click image:1.1-DV-DoneBTN.png[] to complete the installation.
 
 Red Hat JBoss Data Virtualization is now successfully installed and configured.
 When the installation is complete, navigate to
@@ -115,7 +109,7 @@ image::1.1-DV-download.png[]
 
 Place the software in the software subfolder.
 
-Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.1.0. 
+Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.2.0. 
 
 [source,xml]
 ----
@@ -162,7 +156,7 @@ The following username/passwords will be installed automatically for access to
 
 TIP: The ModeShape rest URL is accessible by the user modeshapeUser. If you want to have user teiidUser to access this url you have to add the connect role privileges to this user in the application-roles.properties file.
 
-In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.3/bin and type the following command and inputs as shown below.
+In case you want to change the password of the admin user or one the other users shown above, go to dv/jboss-eap-6.4/bin and type the following command and inputs as shown below.
 
 image::1.2-DV-auto-install-2.png[]
 

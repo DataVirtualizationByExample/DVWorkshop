@@ -47,7 +47,7 @@
 <simpara>JBoss Developer Studio 8.1.0.GA</simpara>
 </listitem>
 <listitem>
-<simpara>JBoss Developer Studio Integration Stack 8.0.1.GA</simpara>
+<simpara>JBoss Developer Studio Integration Stack 8.0.3.GA</simpara>
 </listitem>
 <listitem>
 <simpara>OpenShift Online v2</simpara>
@@ -177,15 +177,18 @@
 <simpara>If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.</simpara>
 </listitem>
 </itemizedlist>
+<note>
+<simpara>Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JBoss DV environment by default as part of JBoss EAP for you convenience.</simpara>
+</note>
 </section>
 <section xml:id="_setup_demo_environment">
 <title>Setup demo environment</title>
-<simpara>In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL, MariaDB and MySQL to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.</simpara>
+<simpara>In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.</simpara>
 <tip>
-<simpara>Use the database you prefer, it&#8217;s not required to have them all installed.</simpara>
+<simpara>Use the database you prefer, it&#8217;s not required to install one of the databases. By default we will use the H2 embedded database.</simpara>
 </tip>
-<section xml:id="_setup_postgresql">
-<title>Setup PostgreSQL</title>
+<section xml:id="_setup_postgresql_optional">
+<title>Setup PostgreSQL (Optional)</title>
 <simpara>Installation</simpara>
 <simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
 Post-install steps:</simpara>
@@ -229,8 +232,8 @@ postgres=# \l
 
 postgres=# \q</screen>
 </section>
-<section xml:id="_setup_mariadb">
-<title>Setup MariaDB</title>
+<section xml:id="_setup_mariadb_optional">
+<title>Setup MariaDB (Optional)</title>
 <simpara>Installation</simpara>
 <simpara>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="https://downloads.mariadb.org">https://downloads.mariadb.org</link> for more information and downloads. Note: there&#8217;s no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page <link xlink:href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</link></simpara>
 <simpara>Post-install steps</simpara>
@@ -273,8 +276,8 @@ mysql&gt; show databases;
 mysql&gt; exit
 Bye</screen>
 </section>
-<section xml:id="_setup_mysql">
-<title>Setup MySQL</title>
+<section xml:id="_setup_mysql_optional">
+<title>Setup MySQL (Optional)</title>
 <simpara>Installation</simpara>
 <simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.</simpara>
 <simpara>Post-install steps</simpara>
@@ -373,6 +376,9 @@ $ cd jboss-eap-6.4/bin
 $ ./jboss-cli.sh
 You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
 [disconnected /]</programlisting>
+<note>
+<simpara>Skip apply patch 3 step when you have downloaded the software from <link xlink:href="http://jboss.org">jboss.org</link>.</simpara>
+</note>
 <simpara>Apply patch 3 to previously installed JBoss EAP 6.4.0 environment</simpara>
 <programlisting language="bash" linenumbering="unnumbered">[disconnected /] patch apply jboss-eap-6.4.3-patch.zip
 {
@@ -382,7 +388,7 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 [disconnected /] exit</programlisting>
 <simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
 Run the installer using java at the command prompt:</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-{version}.jar</programlisting>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <tip>
 <simpara>If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <link xlink:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.</simpara>
@@ -697,7 +703,7 @@ The following screen should appear.</simpara>
 <simpara>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</simpara>
 <simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.1.0, download it from <link xlink:href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</link> by clicking the green download button.
 You can use either the installer which includes JBoss EAP (jboss-devstudio-8.1.0.GA-installer-eap.jar) or the stand-alone installer (jboss-devstudio-8.1.0.GA-installer-standalone.jar).
-The instructions below is using the stand-alone installer.</simpara>
+The instructions below is using the installer with EAP.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -708,7 +714,7 @@ The instructions below is using the stand-alone installer.</simpara>
 </informalfigure>
 <simpara>Run the JBDS installer using the java command.
 The current available version is 8.1.0.GA, and to run the installer at the command prompt see below.</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-devstudio-8.1.0.GA-installer-standalone.jar</programlisting>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-devstudio-8.1.0.GA-installer-eap.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <informalfigure>
 <mediaobject>
@@ -763,7 +769,7 @@ The current available version is 8.1.0.GA, and to run the installer at the comma
 <textobject><phrase>2.1 JBDS install selectplatform</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>In the Select Platforms and Servers step one can add server to make use of automatic runtime detection for finding already installed application servers. Skip this for now since we will add servers later. Click <guibutton>Next</guibutton> to proceed.</simpara>
+<simpara>In the Select Platforms and Servers step one can install Red Hat JBoss Enterprise Application Server which is included and add server to make use of automatic runtime detection for finding already installed application servers. Select No and skip the option for adding locations for now since we will add servers later. Click <guibutton>Next</guibutton> to proceed.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -885,15 +891,23 @@ Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by cl
 </mediaobject>
 </informalfigure>
 <simpara>With the New Server wizard enabled, be sure you entries look like those above. Select JBoss Enterprise
-Middleware &#8594; JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “JBoss EAP 6.1+ Runtime Server” is entered for the Server name. Change the Server name into a meaningful name. Click the <guibutton>Next</guibutton> button.
-Next, the JBoss Runtime will need to be defined. Essentially, this is selecting the “home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.
-Select the “home” directory for the JBoss Data Virtualization instance. This will be &lt;path to installed instance&gt;/jboss-eap-6.3. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile.</simpara>
+Middleware &#8594; JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “Create Runtime Server” is entered for the Server name. Change the Server name into a meaningful name like "JBoss Data Virtualization 6.2". Click the <guibutton>Next</guibutton> button.
+Next, the JBoss Runtime will need to be created. Essentially, this is selecting the “home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
 <imagedata fileref="images/2.2-JBDS-setup-runtime.png"/>
 </imageobject>
 <textobject><phrase>2.2 JBDS setup runtime</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>Next</guibutton>. Select the “home” directory for the JBoss Data Virtualization instance. This will be &lt;path to installed instance&gt;/jboss-eap-6.4. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/2.2-JBDS-setup-runtime2.png"/>
+</imageobject>
+<textobject><phrase>2.2 JBDS setup runtime2</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>Finish</guibutton>.</simpara>

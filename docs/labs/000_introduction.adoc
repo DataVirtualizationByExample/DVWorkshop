@@ -67,12 +67,14 @@ Please make sure that the following software is installed and configured:
 * PostgreSQL server, MariaDB server or MySQL server
 * If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.
 
+NOTE: Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JBoss DV environment by default as part of JBoss EAP for you convenience.
+
 === Setup demo environment
-In order to use the labs we need to prepare one database. We provided some database SQL scripts for PostgreSQL, MariaDB and MySQL to load initial data into the database. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
+In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
 
-TIP: Use the database you prefer, it's not required to have them all installed.
+TIP: Use the database you prefer, it's not required to install one of the databases. By default we will use the H2 embedded database.
 
-==== Setup PostgreSQL
+==== Setup PostgreSQL (Optional)
 Installation
 
 The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://www.postgresql.org/download/ for more information and downloads.
@@ -116,7 +118,7 @@ postgres=# \l
 
 postgres=# \q
 ----
-==== Setup MariaDB
+==== Setup MariaDB (Optional)
 Installation
 
 The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads. Note: there's no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/
@@ -161,7 +163,7 @@ mysql> exit
 Bye
 ----
 
-==== Setup MySQL
+==== Setup MySQL (Optional)
 Installation
 
 The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.

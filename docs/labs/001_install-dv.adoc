@@ -26,6 +26,8 @@ You are disconnected at the moment. Type 'connect' to connect to the server or '
 [disconnected /]
 ----
 
+NOTE: Skip apply patch 3 step when you have downloaded the software from http://jboss.org[jboss.org]. 
+
 Apply patch 3 to previously installed JBoss EAP 6.4.0 environment
 
 [source, bash]
@@ -43,7 +45,7 @@ Run the installer using java at the command prompt:
 
 [source, bash]
 ----
-$ java -jar jboss-dv-installer-{version}.jar
+$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar
 ----
 
 Follow the installer prompts to complete the installation process.

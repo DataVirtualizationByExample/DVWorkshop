@@ -6,7 +6,7 @@ This lab will guide you how to install Red Hat JBoss Developer Studio and the to
 
 If you don't already have Red Hat JBoss Developer Studio 8.1.0, download it from https://www.jboss.org/products/jbds.html[https://www.jboss.org/products/jbds.html] by clicking the green download button.
 You can use either the installer which includes JBoss EAP (jboss-devstudio-8.1.0.GA-installer-eap.jar) or the stand-alone installer (jboss-devstudio-8.1.0.GA-installer-standalone.jar). 
-The instructions below is using the stand-alone installer.
+The instructions below is using the installer with EAP.
 
 image::2.1-JBDS-download.png[]
 
@@ -15,7 +15,7 @@ The current available version is 8.1.0.GA, and to run the installer at the comma
 
 [source,bash]
 ----
-$ java -jar jboss-devstudio-8.1.0.GA-installer-standalone.jar
+$ java -jar jboss-devstudio-8.1.0.GA-installer-eap.jar
 ----
 
 Follow the installer prompts to complete the installation process.
@@ -42,7 +42,7 @@ In the Select Java VM step, Default Java VM is automatically selected. Ensure th
 
 image::2.1-JBDS-install-selectplatform.png[]
 
-In the Select Platforms and Servers step one can add server to make use of automatic runtime detection for finding already installed application servers. Skip this for now since we will add servers later. Click btn:[Next] to proceed.
+In the Select Platforms and Servers step one can install Red Hat JBoss Enterprise Application Server which is included and add server to make use of automatic runtime detection for finding already installed application servers. Select No and skip the option for adding locations for now since we will add servers later. Click btn:[Next] to proceed.
 
 image::2.1-JBDS-install-review.png[]
 
@@ -107,11 +107,14 @@ Now, it is a matter of clicking through several screens to add the JBoss Data Vi
 image::2.2-JBDS-add-server.png[]
 
 With the New Server wizard enabled, be sure you entries look like those above. Select JBoss Enterprise
-Middleware -> JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “JBoss EAP 6.1+ Runtime Server” is entered for the Server name. Change the Server name into a meaningful name. Click the btn:[Next] button.
-Next, the JBoss Runtime will need to be defined. Essentially, this is selecting the “home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.
-Select the “home” directory for the JBoss Data Virtualization instance. This will be <path to installed instance>/jboss-eap-6.3. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile. 
+Middleware -> JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “Create Runtime Server” is entered for the Server name. Change the Server name into a meaningful name like "JBoss Data Virtualization 6.2". Click the btn:[Next] button.
+Next, the JBoss Runtime will need to be created. Essentially, this is selecting the “home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.
 
 image::2.2-JBDS-setup-runtime.png[]
+
+Click btn:[Next]. Select the “home” directory for the JBoss Data Virtualization instance. This will be <path to installed instance>/jboss-eap-6.4. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile. 
+
+image::2.2-JBDS-setup-runtime2.png[]
 
 Click btn:[Finish]. 
 

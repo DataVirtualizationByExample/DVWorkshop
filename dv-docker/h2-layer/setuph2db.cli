@@ -1,0 +1,22 @@
+
+/subsystem=datasources/data-source=eucustomersh2:add(jndi-name=java:/eucustomers-ds,  enabled=true, use-java-context=true, driver-name=h2, connection-url="jdbc:h2:mem:eucustomersdb;INIT=RUNSCRIPT FROM '${jboss.home.dir}/teiidfiles/eucustomers-h2.sql'\;",user-name=sa, password=sa)
+/subsystem=datasources/data-source=eucustomersh2:enable
+
+/subsystem=datasources/data-source=brokerinfoh2:add(jndi-name=java:/brokerinfo-ds,  enabled=true, use-java-context=true, driver-name=h2, connection-url="jdbc:h2:mem:brokerinfodb;INIT=RUNSCRIPT FROM '${jboss.home.dir}/teiidfiles/brokerinfo-h2.sql'\;",user-name=sa, password=sa)
+/subsystem=datasources/data-source=brokerinfoh2:enable
+
+/subsystem=datasources/data-source=apaccustomersh2:add(jndi-name=java:/apaccustomers-ds,  enabled=true, use-java-context=true, driver-name=h2, connection-url="jdbc:h2:mem:apaccustomersdb;INIT=RUNSCRIPT FROM '${jboss.home.dir}/teiidfiles/apaccustomers-h2.sql'\;",user-name=sa, password=sa)
+/subsystem=datasources/data-source=apaccustomersh2:enable
+
+/subsystem=datasources/data-source=uscustomersh2:add(jndi-name=java:/uscustomers-ds,  enabled=true, use-java-context=true, driver-name=h2, connection-url="jdbc:h2:mem:uscustomersdb;INIT=RUNSCRIPT FROM '${jboss.home.dir}/teiidfiles/uscustomers-h2.sql'\;",user-name=sa, password=sa)
+/subsystem=datasources/data-source=uscustomersh2:enable
+
+/subsystem=datasources/data-source=productsh2:add(jndi-name=java:/products-ds,  enabled=true, use-java-context=true, driver-name=h2, connection-url="jdbc:h2:mem:productsdb;INIT=RUNSCRIPT FROM '${jboss.home.dir}/teiidfiles/products-h2.sql'\;",user-name=sa, password=sa)
+/subsystem=datasources/data-source=productsh2:enable
+
+/:reload
+
+
+
+
+

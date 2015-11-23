@@ -2736,6 +2736,14 @@ Since we have setup the Teiid JDBC driver we can now create a database connectio
 </informalfigure>
 <simpara>Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above.
 Try to connect and if the connection is successfully established you can run queries against the models which are exposed by the VDB.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc-connect.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc connect</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </section>
 </section>
 <section xml:id="_odata">

@@ -71,6 +71,8 @@ image::demo-jdbc-dbv-dbc.png[]
 Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above.
 Try to connect and if the connection is successfully established you can run queries against the models which are exposed by the VDB. 
 
+image::demo-jdbc-connect.png[]
+
 === OData
 The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.

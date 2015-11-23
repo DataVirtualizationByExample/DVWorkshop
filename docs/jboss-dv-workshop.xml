@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>JBoss Data Virtualization Workshop</title>
-<date>2015-11-09</date>
+<date>2015-11-23</date>
 </info>
 <chapter xml:id="_acknowlegdement">
 <title>Acknowlegdement</title>
@@ -15,11 +15,11 @@
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>Version Number</simpara></entry>
-<entry align="left" valign="top"><simpara>6.1.0</simpara></entry>
+<entry align="left" valign="top"><simpara>6.2.0</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Final as of</simpara></entry>
-<entry align="left" valign="top"><simpara>May 14th, 2015</simpara></entry>
+<entry align="left" valign="top"><simpara>Nov 23th, 2015</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Author(s)</simpara></entry>
@@ -29,6 +29,7 @@
 <row>
 <entry align="left" valign="top"><simpara>Contributors</simpara></entry>
 <entry align="left" valign="top"><simpara>Blaine Mincey
+</simpara><simpara>Marco Rabelink
 </simpara><simpara>Serhat Dirik</simpara></entry>
 </row>
 </tbody>
@@ -2631,12 +2632,118 @@ You should a similar screen as shown below:</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
-<chapter xml:id="_odata">
+<chapter xml:id="_connecting_to_a_virtual_database">
+<title>Connecting to a Virtual Database</title>
+<section xml:id="_jdbc">
+<title>JDBC</title>
+<simpara>Java Database Connectivity (JDBC) is an application to database connectivity tool. This Application Program Interface (API) enables communication between applications written in Java and data stored in databases providing methods for data querying and updating.
+JDBC is very similar to Open Database Connectivity (ODBC).</simpara>
+<simpara>JBoss Data Virtualization provides an API that builds on Java Database Connectivity (JDBC), allowing client applications to issue SQL queries against deployed virtual databases (VDBs).</simpara>
+<simpara>URLs used when establishing a connection using the driver class have the following format:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">jdbc:teiid:VDB-NAME@mm[s]://HOSTNAME:PORT;[prop-name=prop-value;]*</programlisting>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Variable Name</entry>
+<entry align="left" valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>VDB-NAME</simpara></entry>
+<entry align="left" valign="top"><simpara>The name of the virtual database (VDB) to which the application is connected.
+</simpara><simpara>IMPORTANT: VDB names can contain version information; for example, myvdb.2. If such a name is used in the URL, this has the same effect as supplying a version=2 connection property.
+</simpara><simpara>Note that if the VDB name contains version information, you cannot also use the version property in the same request.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>mm[s]</simpara></entry>
+<entry align="left" valign="top"><simpara>The JBoss Data Virtualization JDBC protocol. mm is the default for normal connections. mms uses SSL for encryption and is the default for the AdminAPI tools.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>HOSTNAME</simpara></entry>
+<entry align="left" valign="top"><simpara>The server where JBoss Data Virtualization is installed.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>PORT</simpara></entry>
+<entry align="left" valign="top"><simpara>The port on which JBoss Data Virtualization is listening for incoming JDBC connections.</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>[prop-name=prop-value]</simpara></entry>
+<entry align="left" valign="top"><simpara>Any number of additional name-value pairs can be supplied in the URL, separated by semi-colons. Property values must be URL encoded if they contain reserved characters, for example, ?, =, and ;.</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<section xml:id="_where_are_we_8">
+<title>Where are we?</title>
+
+</section>
+<section xml:id="_how_to_access_the_data">
+<title>How to access the data</title>
+<simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the JDBC protocol support is provided by the JBoss Data Virtualization server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.7.1.6_2-redhat-6-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.</simpara>
+<simpara>The Teiid JDBC driver can be used in JDBC client tools like <link xlink:href="http://squirrel-sql.sourceforge.net/">Squirrel</link> or <link xlink:href="https://www.dbvis.com/">DBVisualizer</link> etc..</simpara>
+<simpara>The following steps are used to setup the connection using the Teiid JDBC driver in DBVisualizer.</simpara>
+<simpara>Start DBVisualizer</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc-dbv.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc dbv</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select <menuchoice><guimenu>Tools</guimenu> <guimenuitem>Driver Manager&#8230;&#8203;</guimenuitem></menuchoice></simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc.dm.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc.dm</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Create a new driver by clicking on Create a new driver button, <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc-dbv-ad-button.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc dbv ad button</phrase></textobject>
+</inlinemediaobject>.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc-dbv-ad.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc dbv ad</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Close the Driver Manager windows.
+Since we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.</simpara>
+<simpara>Create a new database connection by clicking on Create a new database connection button, <inlinemediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc-dbv-dbc-button.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc dbv dbc button</phrase></textobject>
+</inlinemediaobject> and select No Wizard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-jdbc-dbv-dbc.png"/>
+</imageobject>
+<textobject><phrase>demo jdbc dbv dbc</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above.
+Try to connect and if the connection is successfully established you can run queries against the models which are exposed by the VDB.</simpara>
+</section>
+</section>
+<section xml:id="_odata">
 <title>OData</title>
 <simpara>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
 For more information on OData see <link xlink:href="http://www.odata.org">http://www.odata.org</link>.</simpara>
-<section xml:id="_where_are_we_8">
+<section xml:id="_where_are_we_9">
 <title>Where are we?</title>
 <informalfigure>
 <mediaobject>
@@ -2647,7 +2754,7 @@ For more information on OData see <link xlink:href="http://www.odata.org">http:/
 </mediaobject>
 </informalfigure>
 </section>
-<section xml:id="_how_to_access_the_data">
+<section xml:id="_how_to_access_the_data_2">
 <title>How to access the data</title>
 <simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
 Now, open up a browser and point it to the following URL: <link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</link>.
@@ -2703,6 +2810,7 @@ To search customers from the USA which is the SQL equivalent of</simpara>
 <simpara>Play around with the OData syntax.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
+</section>
 </chapter>
 <chapter xml:id="_dashboard_builder">
 <title>Dashboard Builder</title>
@@ -2737,7 +2845,7 @@ To search customers from the USA which is the SQL equivalent of</simpara>
 <simpara>Pluggable chart library architecture.</simpara>
 </listitem>
 </itemizedlist>
-<section xml:id="_where_are_we_9">
+<section xml:id="_where_are_we_10">
 <title>Where are we?</title>
 <informalfigure>
 <mediaobject>

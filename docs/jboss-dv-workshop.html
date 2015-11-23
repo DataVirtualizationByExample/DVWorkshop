@@ -600,16 +600,26 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_create_relational_model_from_rest_service">13.3. Create relational model from REST service</a></li>
 </ul>
 </li>
-<li><a href="#_odata">14. OData</a>
+<li><a href="#_connecting_to_a_virtual_database">14. Connecting to a Virtual Database</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_8">14.1. Where are we?</a></li>
-<li><a href="#_how_to_access_the_data">14.2. How to access the data</a></li>
-<li><a href="#_how_to_query_the_data">14.3. How to query the data</a></li>
+<li><a href="#_jdbc">14.1. JDBC</a>
+<ul class="sectlevel3">
+<li><a href="#_where_are_we_8">14.1.1. Where are we?</a></li>
+<li><a href="#_how_to_access_the_data">14.1.2. How to access the data</a></li>
+</ul>
+</li>
+<li><a href="#_odata">14.2. OData</a>
+<ul class="sectlevel3">
+<li><a href="#_where_are_we_9">14.2.1. Where are we?</a></li>
+<li><a href="#_how_to_access_the_data_2">14.2.2. How to access the data</a></li>
+<li><a href="#_how_to_query_the_data">14.2.3. How to query the data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_dashboard_builder">15. Dashboard Builder</a>
 <ul class="sectlevel2">
-<li><a href="#_where_are_we_9">15.1. Where are we?</a></li>
+<li><a href="#_where_are_we_10">15.1. Where are we?</a></li>
 <li><a href="#_dashboard_builder_workflow">15.2. Dashboard Builder Workflow</a></li>
 <li><a href="#_how_this_is_accomplished_in_dashboard_builder">15.3. How this is accomplished in Dashboard Builder</a></li>
 <li><a href="#_financials_dashboard_demo">15.4. Financials Dashboard Demo</a></li>
@@ -630,11 +640,11 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Version Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.2.0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Final as of</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May 14th, 2015</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nov 23th, 2015</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Author(s)</p></td>
@@ -644,6 +654,7 @@ table.CodeRay td.code>pre{padding:0}
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contributors</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Blaine Mincey
+</p><p class="tableblock">Marco Rabelink
 </p><p class="tableblock">Serhat Dirik</p></td>
 </tr>
 </tbody>
@@ -3548,23 +3559,135 @@ You should a similar screen as shown below:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_odata">14. OData</h2>
+<h2 id="_connecting_to_a_virtual_database">14. Connecting to a Virtual Database</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_jdbc">14.1. JDBC</h3>
+<div class="paragraph">
+<p>Java Database Connectivity (JDBC) is an application to database connectivity tool. This Application Program Interface (API) enables communication between applications written in Java and data stored in databases providing methods for data querying and updating.
+JDBC is very similar to Open Database Connectivity (ODBC).</p>
+</div>
+<div class="paragraph">
+<p>JBoss Data Virtualization provides an API that builds on Java Database Connectivity (JDBC), allowing client applications to issue SQL queries against deployed virtual databases (VDBs).</p>
+</div>
+<div class="paragraph">
+<p>URLs used when establishing a connection using the driver class have the following format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">jdbc:teiid:VDB-NAME@mm[s]://HOSTNAME:PORT;[prop-name=prop-value;]*</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Variable Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VDB-NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the virtual database (VDB) to which the application is connected.
+</p><p class="tableblock">IMPORTANT: VDB names can contain version information; for example, myvdb.2. If such a name is used in the URL, this has the same effect as supplying a version=2 connection property.
+</p><p class="tableblock">Note that if the VDB name contains version information, you cannot also use the version property in the same request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mm[s]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The JBoss Data Virtualization JDBC protocol. mm is the default for normal connections. mms uses SSL for encryption and is the default for the AdminAPI tools.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HOSTNAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The server where JBoss Data Virtualization is installed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PORT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The port on which JBoss Data Virtualization is listening for incoming JDBC connections.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[prop-name=prop-value]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any number of additional name-value pairs can be supplied in the URL, separated by semi-colons. Property values must be URL encoded if they contain reserved characters, for example, ?, =, and ;.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_where_are_we_8">14.1.1. Where are we?</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_how_to_access_the_data">14.1.2. How to access the data</h4>
+<div class="paragraph">
+<p>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the JDBC protocol support is provided by the JBoss Data Virtualization server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.7.1.6_2-redhat-6-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.</p>
+</div>
+<div class="paragraph">
+<p>The Teiid JDBC driver can be used in JDBC client tools like <a href="http://squirrel-sql.sourceforge.net/">Squirrel</a> or <a href="https://www.dbvis.com/">DBVisualizer</a> etc..</p>
+</div>
+<div class="paragraph">
+<p>The following steps are used to setup the connection using the Teiid JDBC driver in DBVisualizer.</p>
+</div>
+<div class="paragraph">
+<p>Start DBVisualizer</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/demo-jdbc-dbv.png" alt="demo jdbc dbv">
+</div>
+</div>
+<div class="paragraph">
+<p>Select <span class="menuseq"><span class="menu">Tools</span>&#160;&#9656; <span class="menuitem">Driver Manager&#8230;&#8203;</span></span></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/demo-jdbc.dm.png" alt="demo jdbc.dm">
+</div>
+</div>
+<div class="paragraph">
+<p>Create a new driver by clicking on Create a new driver button, <span class="image"><img src="images/demo-jdbc-dbv-ad-button.png" alt="demo jdbc dbv ad button"></span>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/demo-jdbc-dbv-ad.png" alt="demo jdbc dbv ad">
+</div>
+</div>
+<div class="paragraph">
+<p>Close the Driver Manager windows.
+Since we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.</p>
+</div>
+<div class="paragraph">
+<p>Create a new database connection by clicking on Create a new database connection button, <span class="image"><img src="images/demo-jdbc-dbv-dbc-button.png" alt="demo jdbc dbv dbc button"></span> and select No Wizard.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/demo-jdbc-dbv-dbc.png" alt="demo jdbc dbv dbc">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above.
+Try to connect and if the connection is successfully established you can run queries against the models which are exposed by the VDB.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_odata">14.2. OData</h3>
 <div class="paragraph">
 <p>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
 For more information on OData see <a href="http://www.odata.org" class="bare">http://www.odata.org</a>.</p>
 </div>
-<div class="sect2">
-<h3 id="_where_are_we_8">14.1. Where are we?</h3>
+<div class="sect3">
+<h4 id="_where_are_we_9">14.2.1. Where are we?</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-odata.png" alt="demo odata">
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_how_to_access_the_data">14.2. How to access the data</h3>
+<div class="sect3">
+<h4 id="_how_to_access_the_data_2">14.2.2. How to access the data</h4>
 <div class="paragraph">
 <p>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
 Now, open up a browser and point it to the following URL: <a href="http://localhost:8080/odata/Financials.1/All_Customers.customer" class="bare">http://localhost:8080/odata/Financials.1/All_Customers.customer</a>.
@@ -3593,8 +3716,8 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_how_to_query_the_data">14.3. How to query the data</h3>
+<div class="sect3">
+<h4 id="_how_to_query_the_data">14.2.3. How to query the data</h4>
 <div class="paragraph">
 <p>To search for customer with customerid='CST01033' which is the SQL equivalent of</p>
 </div>
@@ -3635,6 +3758,7 @@ To search customers from the USA which is the SQL equivalent of</p>
 </div>
 <div class="paragraph">
 <p>Congratulations, you have now completed this lab.</p>
+</div>
 </div>
 </div>
 </div>
@@ -3680,7 +3804,7 @@ To search customers from the USA which is the SQL equivalent of</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_where_are_we_9">15.1. Where are we?</h3>
+<h3 id="_where_are_we_10">15.1. Where are we?</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/demo-dashboard.png" alt="demo dashboard">
@@ -4160,7 +4284,7 @@ Select the Financials Demo workspace as the active workspace. In the navigation 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-11-09 14:44:48 CET
+Last updated 2015-11-23 13:17:10 CET
 </div>
 </div>
 </body>

@@ -6,10 +6,10 @@
 [cols="2"] 
 |===
 |Version Number
-|6.1.0
+|6.2.0
 
 |Final as of
-|May 14th, 2015
+|Nov 23th, 2015
 
 |Author(s)
 |Cojan van Ballegooijen (http://twitter.com/cvanball[@cvanball])
@@ -18,6 +18,8 @@ Kenny Peeples (http://twitter.com/ossmentor[@ossmentor])
 
 |Contributors
 |Blaine Mincey 
+
+Marco Rabelink
 
 Serhat Dirik 
 

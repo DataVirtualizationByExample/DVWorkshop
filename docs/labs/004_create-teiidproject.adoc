@@ -7,6 +7,7 @@ Make sure that the previous labs have been completed so that a JBoss Data Virtua
 
 === Prerequisites
 
+- If using the embedded H2 database, you are all set. 
 - If using PostgreSQL database, download the http://jdbc.postgresql.org/download.html[PostgreSQL JDBC Driver]. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.
 - If using MySQL database, download the http://www.mysql.com/products/connector/[MySQL JDBC Driver].
 - Save the JDBC driver in a "well-known" directory
@@ -31,8 +32,8 @@ This will bring you to a screen that looks like this:
 image::3.1-JBDS-Teiid-designer2.png[]
 
 Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid. 
-Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.1 server in the Server pane.
-For the name simply use “JBoss Data Virtualization 6.1”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
+Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.2 server in the Server pane.
+For the name simply use “JBoss Data Virtualization 6.2”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
 As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.
 
 The Teiid View along the bottom of JBDS should look like the following illustration. 
@@ -74,7 +75,11 @@ Right-click on the “DataSources” folder and select menu:Import...[]. In the 
 image::3.3-importing-metadata.png[]
 
 In the “Import JDBC Database >> Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the btn:[New...] button to create it.
-The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “PostgreSQL” for the connection profile type. Enter “Products” for the Name and click btn:[Next >].
+The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile typei when using the embedded H2 database. 
+
+NOTE: Do you use the other database types then select the appropriate connectionprofile of your database.
+
+Enter “Products” for the Name and click btn:[Next >].
 
 image::3.3-setup-connection-profile.png[]
 
@@ -86,11 +91,17 @@ Then select the cross-haired icon “New Driver Definition” which is the first
 
 image::3.3-setup-connection-profile2.png[]
 
-In the “New Driver Definition” dialog, select the PostgreSQL or MySQL JDBC Driver. It will indicate that the driver JAR is not found. 
+In the “New Driver Definition” dialog, select the Generic JDBC driver for H2 database, PostgreSQL or MySQL JDBC Driver. It will indicate that the driver JAR is not found. 
 
 image::3.3-setup-connection-profile3.png[]
 
-Click on the “JAR List” tab in the New Driver Definition wizard and select in our case the PostgreSQL JDBC driver: postgresql-8.1-404.jdbc2.jar and click btn:[Remove JAR/Zip] and then click the btn:[Add JAR/Zip] button to select the JDBC driver file to use to access the PostgreSQL jar that is part of your drive. Select the PostgreSQL/MySQL JDBC driver file from the directory where this file is saved after download. Click btn:[OK]. After clicking btn:[OK], the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
+Click on the “JAR List” tab in the New Driver Definition wizard and click the btn:[Add JAR/Zip] button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation. Select the H2 JDBC driver file from the directory where this file is created after the installation. 
+Click on the "Properties" tab to set the properties of the H2 JDBC driver as depicted below.
+ 
+image::3.3-setup-connection-profile4.png[]
+
+Click btn:[OK]. After clicking btn:[OK], the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
+
 
 image::3.3-import-db-via-jdbc.png[]
 
@@ -103,10 +114,10 @@ Use the following values:
 |Username
 |Password
 
-|products
-|jdbc:postgresql://localhost:5432/products
-|postgres
-|postgres
+|Products
+|jdbc:h2:/Users/cvanball/Projects/git/DVWorkshop/dv-docker/h2-layer/products
+|sa
+|sa
 |===
 
 Go ahead and check the “Save password” checkbox. Your JDBC Connection Profile wizard should resemble that below. Click btn:[Test Connection]. A successful ping should return. If it does not, please raise your hand. Click btn:[Finish]. After clicking “Finish”, your Import Database via JDBC wizard should look like that below.
@@ -152,7 +163,7 @@ Once you click btn:[OK], a pop-up window will indicate that there are some tempo
 image::3.3-query-results.png[]
 
 === Import Metadata from the uscustomers and eucustomers Databases
-We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the PostgreSQL JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the H2 JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.
 
 image::3.4-US_Customers.png[]

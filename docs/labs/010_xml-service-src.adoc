@@ -139,6 +139,7 @@ The Weather Info REST service can be found here: http://openweathermap.org/
 NOTE: Starting from 9 October 2015 the API requires a valid APPID for access. 
 
 Due to the fact that the Weather REST service requires a valid APPID for access we change it to a local rest service called helloworld-rs which is part of the JBoss EAP Quickstarts.
+For your convience we provide the jboss-helloworld-rs.war in support directory of this workshop. Just copy this file to $EAP_HOME/standalone/deployments and the Hello REST service will be accessible.  
 
 Right-click on the DataSources folder and select menu:Import...[] from the right-hand menu. 
 The Import dialog box is shown. 

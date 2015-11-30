@@ -30,7 +30,8 @@
 <entry align="left" valign="top"><simpara>Contributors</simpara></entry>
 <entry align="left" valign="top"><simpara>Blaine Mincey
 </simpara><simpara>Marco Rabelink
-</simpara><simpara>Serhat Dirik</simpara></entry>
+</simpara><simpara>Serhat Dirik
+</simpara><simpara>Vijay Chintalapati</simpara></entry>
 </row>
 </tbody>
 </tgroup>
@@ -355,6 +356,9 @@ Bye</screen>
 <listitem>
 <simpara>Automated script mode: You can install multiple identical instances of Red Hat JBoss Data Virtualization using the automated script. This automated script is generated after the first installation instance. We will explain the graphical mode and automated script mode in more detail in the following paragraphs.</simpara>
 </listitem>
+<listitem>
+<simpara>Custom scripts: You can provide your own script in order to automate the installation of the required components of JBoss Data Virtualization.</simpara>
+</listitem>
 </orderedlist>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">
 <title>Installing Red Hat JBoss Data Virtualization through graphical mode</title>
@@ -615,6 +619,12 @@ $ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_loca
 </informalfigure>
 <simpara>Browse to <link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use teiidUser/redhat1! as the credentials that were installed as default and click <guibutton>Log In</guibutton>.</simpara>
 <simpara>Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode.</simpara>
+</section>
+<section xml:id="_installing_red_hat_jboss_data_virtualization_through_custom_scripts">
+<title>Installing Red Hat JBoss Data Virtualization through custom scripts</title>
+<simpara>A colleague of mine Vijay Chintalapati created custom scripts to automates the deployment of all the required components of JBoss Data Virtualization on Windows, Linux and Unix environments for running this workshop.</simpara>
+<simpara>The github repository Vijay created can be found here: <link xlink:href="https://github.com/vchintal/jboss-data-virtualization-setup">https://github.com/vchintal/jboss-data-virtualization-setup</link></simpara>
+<simpara>Follow the instructions mentioned in the repository to full automate the JBoss Data Virtualization installation.</simpara>
 </section>
 <section xml:id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">
 <title>Provision Red Hat JBoss Data Virtualization on OpenShift Online</title>
@@ -2496,7 +2506,8 @@ You can use an online Weather REST service to get the temperature of a particula
 <note>
 <simpara>Starting from 9 October 2015 the API requires a valid APPID for access.</simpara>
 </note>
-<simpara>Due to the fact that the Weather REST service requires a valid APPID for access we change it to a local rest service called helloworld-rs which is part of the JBoss EAP Quickstarts.</simpara>
+<simpara>Due to the fact that the Weather REST service requires a valid APPID for access we change it to a local rest service called helloworld-rs which is part of the JBoss EAP Quickstarts.
+For your convience we provide the jboss-helloworld-rs.war in support directory of this workshop. Just copy this file to $EAP_HOME/standalone/deployments and the Hello REST service will be accessible.</simpara>
 <simpara>Right-click on the DataSources folder and select <guimenu>Import&#8230;&#8203;</guimenu> from the right-hand menu.
 The Import dialog box is shown.</simpara>
 <informalfigure>

@@ -7,6 +7,7 @@ There are three different ways to install Red Hat JBoss Data Virtualization:
 . Graphical mode: Graphical mode launches a graphical wizard which provides step-by-step instructions for installing and configuring the Red Hat JBoss Data Virtualization. Additional setup, including the Quickstarts and Maven Repository, is also possible with the installer.
 . Text mode: You can launch the installer in the text mode as well. Text mode provides step-by-step instructions for installing and configuring the Red Hat JBoss Data Virtualization.
 . Automated script mode: You can install multiple identical instances of Red Hat JBoss Data Virtualization using the automated script. This automated script is generated after the first installation instance. We will explain the graphical mode and automated script mode in more detail in the following paragraphs.
+. Custom scripts: You can provide your own script in order to automate the installation of the required components of JBoss Data Virtualization. 
 
 === Installing Red Hat JBoss Data Virtualization through graphical mode
 Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at http://www.jboss.org/products/datavirt.html.
@@ -165,6 +166,13 @@ image::1.2-DV-auto-install-2.png[]
 Browse to http://localhost:8080/dashboard for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use teiidUser/redhat1! as the credentials that were installed as default and click btn:[Log In].
 
 Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode. 
+
+=== Installing Red Hat JBoss Data Virtualization through custom scripts
+A colleague of mine Vijay Chintalapati created custom scripts to automates the deployment of all the required components of JBoss Data Virtualization on Windows, Linux and Unix environments for running this workshop.
+
+The github repository Vijay created can be found here: https://github.com/vchintal/jboss-data-virtualization-setup[https://github.com/vchintal/jboss-data-virtualization-setup]
+
+Follow the instructions mentioned in the repository to full automate the JBoss Data Virtualization installation.
 
 === Provision Red Hat JBoss Data Virtualization on OpenShift Online
 With OpenShift you can easily deploy and run JBoss Data Virtualization in minutes to connect your applications to data from many different sources. JBoss Data Virtualization on OpenShift Online is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift Online.

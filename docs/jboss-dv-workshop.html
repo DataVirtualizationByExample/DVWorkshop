@@ -533,7 +533,8 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel2">
 <li><a href="#_installing_red_hat_jboss_data_virtualization_through_graphical_mode">4.1. Installing Red Hat JBoss Data Virtualization through graphical mode</a></li>
 <li><a href="#_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">4.2. Installing Red Hat JBoss Data Virtualization through automated script mode</a></li>
-<li><a href="#_provision_red_hat_jboss_data_virtualization_on_openshift_online">4.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</a></li>
+<li><a href="#_installing_red_hat_jboss_data_virtualization_through_custom_scripts">4.3. Installing Red Hat JBoss Data Virtualization through custom scripts</a></li>
+<li><a href="#_provision_red_hat_jboss_data_virtualization_on_openshift_online">4.4. Provision Red Hat JBoss Data Virtualization on OpenShift Online</a></li>
 </ul>
 </li>
 <li><a href="#_install_red_hat_jboss_developer_studio">5. Install Red Hat JBoss Developer Studio</a></li>
@@ -655,7 +656,8 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contributors</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Blaine Mincey
 </p><p class="tableblock">Marco Rabelink
-</p><p class="tableblock">Serhat Dirik</p></td>
+</p><p class="tableblock">Serhat Dirik
+</p><p class="tableblock">Vijay Chintalapati</p></td>
 </tr>
 </tbody>
 </table>
@@ -1138,6 +1140,9 @@ Bye</pre>
 <li>
 <p>Automated script mode: You can install multiple identical instances of Red Hat JBoss Data Virtualization using the automated script. This automated script is generated after the first installation instance. We will explain the graphical mode and automated script mode in more detail in the following paragraphs.</p>
 </li>
+<li>
+<p>Custom scripts: You can provide your own script in order to automate the installation of the required components of JBoss Data Virtualization.</p>
+</li>
 </ol>
 </div>
 <div class="sect2">
@@ -1429,7 +1434,19 @@ The ModeShape rest URL is accessible by the user modeshapeUser. If you want to h
 </div>
 </div>
 <div class="sect2">
-<h3 id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">4.3. Provision Red Hat JBoss Data Virtualization on OpenShift Online</h3>
+<h3 id="_installing_red_hat_jboss_data_virtualization_through_custom_scripts">4.3. Installing Red Hat JBoss Data Virtualization through custom scripts</h3>
+<div class="paragraph">
+<p>A colleague of mine Vijay Chintalapati created custom scripts to automates the deployment of all the required components of JBoss Data Virtualization on Windows, Linux and Unix environments for running this workshop.</p>
+</div>
+<div class="paragraph">
+<p>The github repository Vijay created can be found here: <a href="https://github.com/vchintal/jboss-data-virtualization-setup">https://github.com/vchintal/jboss-data-virtualization-setup</a></p>
+</div>
+<div class="paragraph">
+<p>Follow the instructions mentioned in the repository to full automate the JBoss Data Virtualization installation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">4.4. Provision Red Hat JBoss Data Virtualization on OpenShift Online</h3>
 <div class="paragraph">
 <p>With OpenShift you can easily deploy and run JBoss Data Virtualization in minutes to connect your applications to data from many different sources. JBoss Data Virtualization on OpenShift Online is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift Online.</p>
 </div>
@@ -3463,7 +3480,8 @@ Starting from 9 October 2015 the API requires a valid APPID for access.
 </table>
 </div>
 <div class="paragraph">
-<p>Due to the fact that the Weather REST service requires a valid APPID for access we change it to a local rest service called helloworld-rs which is part of the JBoss EAP Quickstarts.</p>
+<p>Due to the fact that the Weather REST service requires a valid APPID for access we change it to a local rest service called helloworld-rs which is part of the JBoss EAP Quickstarts.
+For your convience we provide the jboss-helloworld-rs.war in support directory of this workshop. Just copy this file to $EAP_HOME/standalone/deployments and the Hello REST service will be accessible.</p>
 </div>
 <div class="paragraph">
 <p>Right-click on the DataSources folder and select <span class="menu">Import&#8230;&#8203;</span> from the right-hand menu.

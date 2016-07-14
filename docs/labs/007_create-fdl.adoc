@@ -1,5 +1,5 @@
 	
-:imagesdir: ../images
+:imagesdir: images
 
 == Create a Federated Data Layer
 Now that we have created our Virtual Base Layer (to isolate us from changes in the sources), defined an enterprise data dictionary to semantically reconcile the various terminologies in our disparate data sources, and created an Enterprise Data Layer that captures those mappings, we are ready to integrate some different data sources. And, since we have the ground work already, it could not be simpler.

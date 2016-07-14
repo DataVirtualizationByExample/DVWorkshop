@@ -1,5 +1,5 @@
 
-:imagesdir: ../images
+:imagesdir: images
 == Connecting to a Virtual Database
 
 === JDBC

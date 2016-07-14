@@ -1,5 +1,5 @@
 
-:imagesdir: ../images
+:imagesdir: images
 
 == Create a Virtual Base Layer
 Beyond the obvious advantages of integrating disparate data sources using an intuitive, easy-to-use technology such as JBoss Data Virtualization, another significant advantage of creating a data services abstraction layer is to provide a level of isolation from the physical sources themselves. By creating a layered set of data service models, from fine-grained to more granular data services, the developer can build a stable data integration layer than can easily adapt to changes in the source systems. This is especially advantageous when the consumers of the data are separate from/have no control of the providers of the data. A recommended best practice to begin building this "future-proof" abstraction layer is to create a Virtual Base Layer (VBL), a one-to-one mapping of each physical source that isolates any future changes that may arise in the data source(s) to a specific transformation in the model. These VBL components can then be used as building blocks for higher level services; all of the transformations built on top of them will not need to be changed should the need arise to accommodate a change in the source(s).

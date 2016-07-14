@@ -1,5 +1,5 @@
 
-:imagesdir: ../images
+:imagesdir: images
 
 == Install Red Hat JBoss Developer Studio
 This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.

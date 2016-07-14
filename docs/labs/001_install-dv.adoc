@@ -1,5 +1,5 @@
 
-:imagesdir: ../images
+:imagesdir: images
 
 == Install Red Hat JBoss Data Virtualization 
 There are three different ways to install Red Hat JBoss Data Virtualization:

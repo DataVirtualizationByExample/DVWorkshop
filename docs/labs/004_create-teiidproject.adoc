@@ -1,5 +1,5 @@
 
-:imagesdir: ../images
+:imagesdir: images
 
 == Create a Teiid project and Import Data Source
 

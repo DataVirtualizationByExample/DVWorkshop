@@ -2,6 +2,8 @@
 :doctype: book
 :toc:
 :toclevels: 3
+:sectnums:
+:chapter-label:
 :experimental:
 
 include::pages/acknowledgements.adoc[]

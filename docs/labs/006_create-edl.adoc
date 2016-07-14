@@ -1,5 +1,5 @@
 
-:imagesdir: ./images
+:imagesdir: images
 
 == Create an Enterprise Data Layer
 The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customers and US_Customers database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we've defined using JBoss Data Virtualization's data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two. 

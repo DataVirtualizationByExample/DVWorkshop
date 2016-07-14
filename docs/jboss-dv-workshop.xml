@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?asciidoc-toc maxdepth="3"?>
 <?asciidoc-numbered?>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>JBoss Data Virtualization Workshop</title>
 <date>2015-11-23</date>
@@ -23,8 +23,8 @@
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Author(s)</simpara></entry>
-<entry align="left" valign="top"><simpara>Cojan van Ballegooijen (<link xlink:href="http://twitter.com/cvanball">@cvanball</link>)
-</simpara><simpara>Kenny Peeples (<link xlink:href="http://twitter.com/ossmentor">@ossmentor</link>)</simpara></entry>
+<entry align="left" valign="top"><simpara>Cojan van Ballegooijen (<link xl:href="http://twitter.com/cvanball">@cvanball</link>)
+</simpara><simpara>Kenny Peeples (<link xl:href="http://twitter.com/ossmentor">@ossmentor</link>)</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Contributors</simpara></entry>
@@ -92,13 +92,13 @@
 <simpara>Red Hat JBoss Data Virtualization is based on the following community projects:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>Teiid (<link xlink:href="http://www.jboss.org/teiid">http://www.jboss.org/teiid</link>)</simpara>
+<simpara>Teiid (<link xl:href="http://www.jboss.org/teiid">http://www.jboss.org/teiid</link>)</simpara>
 </listitem>
 <listitem>
-<simpara>Teiid Designer (<link xlink:href="http://www.jboss.org/teiiddesigner">http://www.jboss.org/teiiddesigner</link>)</simpara>
+<simpara>Teiid Designer (<link xl:href="http://www.jboss.org/teiiddesigner">http://www.jboss.org/teiiddesigner</link>)</simpara>
 </listitem>
 <listitem>
-<simpara>ModeShape (<link xlink:href="http://www.jboss.org/modeshape">http://www.jboss.org/modeshape</link>)</simpara>
+<simpara>ModeShape (<link xl:href="http://www.jboss.org/modeshape">http://www.jboss.org/modeshape</link>)</simpara>
 </listitem>
 </itemizedlist>
 <simpara>The figure below depicts the architectural overview of Red Hat JBoss Data Virtualization:</simpara>
@@ -112,8 +112,8 @@
 </informalfigure>
 <informaltable frame="all" rowsep="1" colsep="1">
 <tgroup cols="2">
-<colspec colname="col_1" colwidth="28*"/>
-<colspec colname="col_2" colwidth="71*"/>
+<colspec colname="col_1" colwidth="28.5714*"/>
+<colspec colname="col_2" colwidth="71.4286*"/>
 <thead>
 <row>
 <entry align="left" valign="top">Component</entry>
@@ -191,7 +191,7 @@
 <section xml:id="_setup_postgresql_optional">
 <title>Setup PostgreSQL (Optional)</title>
 <simpara>Installation</simpara>
-<simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
+<simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
 Post-install steps:</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -236,7 +236,7 @@ postgres=# \q</screen>
 <section xml:id="_setup_mariadb_optional">
 <title>Setup MariaDB (Optional)</title>
 <simpara>Installation</simpara>
-<simpara>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="https://downloads.mariadb.org">https://downloads.mariadb.org</link> for more information and downloads. Note: there&#8217;s no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page <link xlink:href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</link></simpara>
+<simpara>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="https://downloads.mariadb.org">https://downloads.mariadb.org</link> for more information and downloads. Note: there&#8217;s no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page <link xl:href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</link></simpara>
 <simpara>Post-install steps</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -280,7 +280,7 @@ Bye</screen>
 <section xml:id="_setup_mysql_optional">
 <title>Setup MySQL (Optional)</title>
 <simpara>Installation</simpara>
-<simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xlink:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.</simpara>
+<simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.</simpara>
 <simpara>Post-install steps</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -362,7 +362,7 @@ Bye</screen>
 </orderedlist>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">
 <title>Installing Red Hat JBoss Data Virtualization through graphical mode</title>
-<simpara>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <link xlink:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
+<simpara>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <link xl:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -381,7 +381,7 @@ $ ./jboss-cli.sh
 You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
 [disconnected /]</programlisting>
 <note>
-<simpara>Skip apply patch 3 step when you have downloaded the software from <link xlink:href="http://jboss.org">jboss.org</link>.</simpara>
+<simpara>Skip apply patch 3 step when you have downloaded the software from <link xl:href="http://jboss.org">jboss.org</link>.</simpara>
 </note>
 <simpara>Apply patch 3 to previously installed JBoss EAP 6.4.0 environment</simpara>
 <programlisting language="bash" linenumbering="unnumbered">[disconnected /] patch apply jboss-eap-6.4.3-patch.zip
@@ -395,7 +395,7 @@ Run the installer using java at the command prompt:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <tip>
-<simpara>If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <link xlink:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.</simpara>
+<simpara>If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <link xl:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.</simpara>
 </tip>
 <simpara>A dialogue box will open followed by the End User License Agreement. If you accept the terms of the agreement, select I accept the terms of this license agreement and then click <inlinemediaobject>
 <imageobject>
@@ -546,7 +546,7 @@ When the installation is complete, navigate to</simpara>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">
 <title>Installing Red Hat JBoss Data Virtualization through automated script mode</title>
 <simpara>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.</simpara>
-<simpara>Download the JBoss Data Virtualization installer binary by clicking the green download button at <link xlink:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
+<simpara>Download the JBoss Data Virtualization installer binary by clicking the green download button at <link xl:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -580,25 +580,25 @@ $ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_loca
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>JBoss EAP Administration console</simpara></entry>
-<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:9990/console">http://localhost:9990/console</link></simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://localhost:9990/console">http://localhost:9990/console</link></simpara></entry>
 <entry align="left" valign="top"><simpara>admin</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Teiid Server</simpara></entry>
-<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:8080/odata/&lt;VDB">http://localhost:8080/odata/&lt;VDB</link> name&gt;</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://localhost:8080/odata/&lt;VDB">http://localhost:8080/odata/&lt;VDB</link> name&gt;</simpara></entry>
 <entry align="left" valign="top"><simpara>teiidUser</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>ModeShape</simpara></entry>
-<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:8080/modeshape-rest">http://localhost:8080/modeshape-rest</link></simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://localhost:8080/modeshape-rest">http://localhost:8080/modeshape-rest</link></simpara></entry>
 <entry align="left" valign="top"><simpara>modeshapeUser</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Dashboard Builder</simpara></entry>
-<entry align="left" valign="top"><simpara><link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link></simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link></simpara></entry>
 <entry align="left" valign="top"><simpara>dashboardAdmin</simpara></entry>
 <entry align="left" valign="top"><simpara>redhat1!</simpara></entry>
 </row>
@@ -617,20 +617,20 @@ $ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_loca
 <textobject><phrase>1.2 DV auto install 2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Browse to <link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use teiidUser/redhat1! as the credentials that were installed as default and click <guibutton>Log In</guibutton>.</simpara>
+<simpara>Browse to <link xl:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> for the Red Hat JBoss Data Virtualization Dashboard to verify the installation and use teiidUser/redhat1! as the credentials that were installed as default and click <guibutton>Log In</guibutton>.</simpara>
 <simpara>Red Hat JBoss Data Virtualization is now successfully installed, configured and started using the automated script mode.</simpara>
 </section>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_custom_scripts">
 <title>Installing Red Hat JBoss Data Virtualization through custom scripts</title>
 <simpara>A colleague of mine Vijay Chintalapati created custom scripts to automates the deployment of all the required components of JBoss Data Virtualization on Windows, Linux and Unix environments for running this workshop.</simpara>
-<simpara>The github repository Vijay created can be found here: <link xlink:href="https://github.com/vchintal/jboss-data-virtualization-setup">https://github.com/vchintal/jboss-data-virtualization-setup</link></simpara>
+<simpara>The github repository Vijay created can be found here: <link xl:href="https://github.com/vchintal/jboss-data-virtualization-setup">https://github.com/vchintal/jboss-data-virtualization-setup</link></simpara>
 <simpara>Follow the instructions mentioned in the repository to full automate the JBoss Data Virtualization installation.</simpara>
 </section>
 <section xml:id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">
 <title>Provision Red Hat JBoss Data Virtualization on OpenShift Online</title>
 <simpara>With OpenShift you can easily deploy and run JBoss Data Virtualization in minutes to connect your applications to data from many different sources. JBoss Data Virtualization on OpenShift Online is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift Online.</simpara>
 <simpara>Get your free OpenShift Online account
-Sign up for your free account OpenShift Online account at <link xlink:href="https://www.openshift.com/app/account/new">https://www.openshift.com/app/account/new</link> and you should see the screen below.</simpara>
+Sign up for your free account OpenShift Online account at <link xl:href="https://www.openshift.com/app/account/new">https://www.openshift.com/app/account/new</link> and you should see the screen below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -711,7 +711,7 @@ The following screen should appear.</simpara>
 <chapter xml:id="_install_red_hat_jboss_developer_studio">
 <title>Install Red Hat JBoss Developer Studio</title>
 <simpara>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</simpara>
-<simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.1.0, download it from <link xlink:href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</link> by clicking the green download button.
+<simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.1.0, download it from <link xl:href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</link> by clicking the green download button.
 You can use either the installer which includes JBoss EAP (jboss-devstudio-8.1.0.GA-installer-eap.jar) or the stand-alone installer (jboss-devstudio-8.1.0.GA-installer-standalone.jar).
 The instructions below is using the installer with EAP.</simpara>
 <informalfigure>
@@ -996,9 +996,9 @@ And, they want to make sure that as they solve this tactical use case they build
 </informalfigure>
 <informaltable frame="none" rowsep="0" colsep="1">
 <tgroup cols="3">
-<colspec colname="col_1" colwidth="33*"/>
-<colspec colname="col_2" colwidth="33*"/>
-<colspec colname="col_3" colwidth="33*"/>
+<colspec colname="col_1" colwidth="33.3333*"/>
+<colspec colname="col_2" colwidth="33.3333*"/>
+<colspec colname="col_3" colwidth="33.3334*"/>
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>01 - Import metadata</simpara></entry>
@@ -1087,10 +1087,10 @@ For this workshop we only expose the All_Customers model for now.</simpara>
 <simpara>If using the embedded H2 database, you are all set.</simpara>
 </listitem>
 <listitem>
-<simpara>If using PostgreSQL database, download the <link xlink:href="http://jdbc.postgresql.org/download.html">PostgreSQL JDBC Driver</link>. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.</simpara>
+<simpara>If using PostgreSQL database, download the <link xl:href="http://jdbc.postgresql.org/download.html">PostgreSQL JDBC Driver</link>. If you are using JDK 1.6 then you should use the JDBC4 version. If you are using JDK 1.7 or JDK 1.8 then you should use the JDBC41 version.</simpara>
 </listitem>
 <listitem>
-<simpara>If using MySQL database, download the <link xlink:href="http://www.mysql.com/products/connector/">MySQL JDBC Driver</link>.</simpara>
+<simpara>If using MySQL database, download the <link xl:href="http://www.mysql.com/products/connector/">MySQL JDBC Driver</link>.</simpara>
 </listitem>
 <listitem>
 <simpara>Save the JDBC driver in a "well-known" directory</simpara>
@@ -2203,7 +2203,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>Create Source</guibutton> to create a data source for the Financials VDB.</simpara>
-<simpara>Now the deployment of the VDB will begin in the running Teiid Server instance. Now, open up a browser and point it to <link xlink:href="http://localhost:8080">http://localhost:8080</link>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</simpara>
+<simpara>Now the deployment of the VDB will begin in the running Teiid Server instance. Now, open up a browser and point it to <link xl:href="http://localhost:8080">http://localhost:8080</link>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2255,7 +2255,7 @@ This is the button located right under the Outline tab. You should see something
 <title>Consuming Web Services as Data Sources</title>
 <simpara>In this lab you will be using the Teiid Designer to consume Web Services. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of Teiid Designer to consume Web Services as a datasource.
 In this lab you will create the CountryInfoService.xmi and CountryInfoServiceView.xmi models. These will be created from the existing WSDL available from the following URL:</simpara>
-<simpara><link xlink:href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</link></simpara>
+<simpara><link xl:href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</link></simpara>
 <section xml:id="_where_are_we_7">
 <title>Where are we?</title>
 <informalfigure>
@@ -2328,7 +2328,7 @@ The WSDL URL dialog box opens.</simpara>
 </mediaobject>
 </informalfigure>
 <simpara>In the WSDL URL field enter in the following URL:</simpara>
-<simpara><link xlink:href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</link></simpara>
+<simpara><link xl:href="http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</link></simpara>
 <simpara>The WSDL has no security so leave the Security Type to default of None. Click the <guibutton>OK</guibutton> button. When you click the <guibutton>OK</guibutton> button the software will validate the URL.</simpara>
 <note>
 <simpara>You will need an internet connection for this to validate correctly.</simpara>
@@ -2495,14 +2495,14 @@ View the SQL Status and Result1 tab to see the results returned from the procedu
 </mediaobject>
 </informalfigure>
 <simpara>Try returning other ISO country codes such as CA, BM, BR, etc. The ISO country codes can be found at the following URL:</simpara>
-<simpara><link xlink:href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</link></simpara>
+<simpara><link xl:href="http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">http://userpage.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</link></simpara>
 <simpara>Save and close the models.</simpara>
 </section>
 <section xml:id="_create_relational_model_from_rest_service">
 <title>Create relational model from REST service</title>
 <simpara>Using the importer for the creation of query-able relational procedures that represent your desired request and response web service structure defined through your REST web service definition.
 You can use an online Weather REST service to get the temperature of a particular city in the world.</simpara>
-<simpara>The Weather Info REST service can be found here: <link xlink:href="http://openweathermap.org/">http://openweathermap.org/</link></simpara>
+<simpara>The Weather Info REST service can be found here: <link xl:href="http://openweathermap.org/">http://openweathermap.org/</link></simpara>
 <note>
 <simpara>Starting from 9 October 2015 the API requires a valid APPID for access.</simpara>
 </note>
@@ -2546,7 +2546,7 @@ Since there are no REST Web Service Sources configured one need to create a new 
 <textobject><phrase>10.2 import rest4</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>In the Connection URL field type: <link xlink:href="http://localhost:8080/jboss-helloworld-rs/rest/json">http://localhost:8080/jboss-helloworld-rs/rest/json</link></simpara>
+<simpara>In the Connection URL field type: <link xl:href="http://localhost:8080/jboss-helloworld-rs/rest/json">http://localhost:8080/jboss-helloworld-rs/rest/json</link></simpara>
 <simpara>No parameters needed.</simpara>
 <simpara>Click <guibutton>Test Connection</guibutton> to test the defined REST service. If successfully click <guibutton>Next &gt;</guibutton> to see the Summary of the Connection Profile we just created.</simpara>
 <informalfigure>
@@ -2671,7 +2671,7 @@ JDBC is very similar to Open Database Connectivity (ODBC).</simpara>
 <section xml:id="_how_to_access_the_data">
 <title>How to access the data</title>
 <simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the JDBC protocol support is provided by the JBoss Data Virtualization server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.7.1.6_2-redhat-6-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.</simpara>
-<simpara>The Teiid JDBC driver can be used in JDBC client tools like <link xlink:href="http://squirrel-sql.sourceforge.net/">Squirrel</link> or <link xlink:href="https://www.dbvis.com/">DBVisualizer</link> etc..</simpara>
+<simpara>The Teiid JDBC driver can be used in JDBC client tools like <link xl:href="http://squirrel-sql.sourceforge.net/">Squirrel</link> or <link xl:href="https://www.dbvis.com/">DBVisualizer</link> etc..</simpara>
 <simpara>The following steps are used to setup the connection using the Teiid JDBC driver in DBVisualizer.</simpara>
 <simpara>Start DBVisualizer</simpara>
 <informalfigure>
@@ -2737,7 +2737,7 @@ Try to connect and if the connection is successfully established you can run que
 <title>OData</title>
 <simpara>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
-For more information on OData see <link xlink:href="http://www.odata.org">http://www.odata.org</link>.</simpara>
+For more information on OData see <link xl:href="http://www.odata.org">http://www.odata.org</link>.</simpara>
 <section xml:id="_where_are_we_9">
 <title>Where are we?</title>
 <informalfigure>
@@ -2752,7 +2752,7 @@ For more information on OData see <link xlink:href="http://www.odata.org">http:/
 <section xml:id="_how_to_access_the_data_2">
 <title>How to access the data</title>
 <simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
-Now, open up a browser and point it to the following URL: <link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</link>.
+Now, open up a browser and point it to the following URL: <link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</link>.
 If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as</simpara>
 <programlisting language="sql" linenumbering="unnumbered">SELECT * FROM All_Customers.customer;</programlisting>
 <simpara>The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</simpara>
@@ -2765,7 +2765,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </mediaobject>
 </informalfigure>
 <simpara>To return the results in JSON format use the following URL as shown below:
-<link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json">http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json</link></simpara>
+<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json">http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json</link></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2780,7 +2780,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 <simpara>To search for customer with customerid='CST01033' which is the SQL equivalent of</simpara>
 <programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer WHERE customerid='CST01033';</programlisting>
 <simpara>use following URL and it should return the results shown below:
-<link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'">http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'</link>)</simpara>
+<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'">http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'</link>)</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2793,7 +2793,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 To search customers from the USA which is the SQL equivalent of</simpara>
 <programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer WHERE country='USA';</programlisting>
 <simpara>use following URL and this should return the results as shown below.
-<link xlink:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</link> eq 'USA'</simpara>
+<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</link> eq 'USA'</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2906,7 +2906,7 @@ The steps of creating a dashboard is described below:</simpara>
 </listitem>
 </orderedlist>
 <simpara>Go to a browser window and type in the following URL</simpara>
-<simpara><link xlink:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> and you should see the following screen:</simpara>
+<simpara><link xl:href="http://localhost:8080/dashboard">http://localhost:8080/dashboard</link> and you should see the following screen:</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>

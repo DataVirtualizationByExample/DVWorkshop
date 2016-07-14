@@ -1,5 +1,5 @@
 
-:imagesdir: ../images
+:imagesdir: images
 
 == Consuming Web Services as Data Sources
 In this lab you will be using the Teiid Designer to consume Web Services. This lab is not a guide on Web Services, on how or when to use or create Web Services, but an instructional approach for some of the capabilities of Teiid Designer to consume Web Services as a datasource. 

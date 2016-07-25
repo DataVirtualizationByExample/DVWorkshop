@@ -14,9 +14,3 @@
 /subsystem=datasources/data-source=productsh2:add(jndi-name=java:/products-ds,  enabled=true, use-java-context=true, driver-name=h2, connection-url="jdbc:h2:mem:productsdb;INIT=RUNSCRIPT FROM '${jboss.home.dir}/teiidfiles/products-h2.sql'\;",user-name=sa, password=sa)
 /subsystem=datasources/data-source=productsh2:enable
 
-/:reload
-
-
-
-
-

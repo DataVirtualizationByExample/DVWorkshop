@@ -1,0 +1,22 @@
+09-01 08:26:53 jdbc[2]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-168]
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:172)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.eclipse.datatools.connectivity.drivers.jdbc.JDBCConnection.createConnection(JDBCConnection.java:328)
+	at org.eclipse.datatools.connectivity.DriverConnectionBase.internalCreateConnection(DriverConnectionBase.java:105)
+	at org.eclipse.datatools.connectivity.DriverConnectionBase.open(DriverConnectionBase.java:54)
+	at org.eclipse.datatools.connectivity.drivers.jdbc.JDBCConnection.open(JDBCConnection.java:96)
+	at org.eclipse.datatools.connectivity.drivers.jdbc.JDBCConnectionFactory.createConnection(JDBCConnectionFactory.java:53)
+	at org.eclipse.datatools.connectivity.internal.ConnectionFactoryProvider.createConnection(ConnectionFactoryProvider.java:83)
+	at org.eclipse.datatools.connectivity.internal.ConnectionProfile.createConnection(ConnectionProfile.java:359)
+	at org.eclipse.datatools.connectivity.ui.PingJob.createTestConnection(PingJob.java:76)
+	at org.eclipse.datatools.connectivity.ui.PingJob.run(PingJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 17 more

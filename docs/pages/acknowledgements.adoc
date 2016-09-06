@@ -6,13 +6,15 @@
 [cols="2"] 
 |===
 |Version Number
-|6.2.0
+|6.3.0
 
 |Final as of
-|Nov 23th, 2015
+|Aug 24th, 2015
 
 |Author(s)
-|Cojan van Ballegooijen (http://twitter.com/cvanball[@cvanball])
+|Chuck Mosner
+
+Cojan van Ballegooijen (http://twitter.com/cvanball[@cvanball])
 
 Kenny Peeples (http://twitter.com/ossmentor[@ossmentor])
 
@@ -21,7 +23,9 @@ Kenny Peeples (http://twitter.com/ossmentor[@ossmentor])
 
 Marco Rabelink
 
-Serhat Dirik 
+Serhat Dirik
+
+Stelios Kousouris 
 
 Vijay Chintalapati
 

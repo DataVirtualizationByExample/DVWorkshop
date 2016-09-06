@@ -1,0 +1,35 @@
+connect
+module add --name=org.postgresql.jdbc --resources=/opt/jboss/jdbc/postgresql-9.4.1208.jar --dependencies=javax.api,javax.transaction.api
+data-source add \
+    --name=eucustomersDS \
+    --jndi-name=java:/eucustomersDS \
+    --use-java-context=true \
+    --use-ccm=true \
+    --connection-url=jdbc:postgresql://financials_db:5432/eucustomers \
+    --driver-name=postgresql \
+    --user-name=postgres \
+    --password= \
+    --check-valid-connection-sql="SELECT 1" \
+    --background-validation=true \
+    --background-validation-millis=60000 \
+    --flush-strategy=IdleConnections \
+    --min-pool-size=10 \
+    --max-pool-size=50 \
+    --pool-prefill=false
+data-source add \
+    --name=uscustomersDS \
+    --jndi-name=java:/uscustomersDS \
+    --use-java-context=true \
+    --use-ccm=true \
+    --connection-url=jdbc:postgresql://financials_db:5432/uscustomers \
+    --driver-name=postgresql \
+    --user-name=postgres \
+    --password= \
+    --check-valid-connection-sql="SELECT 1" \
+    --background-validation=true \
+    --background-validation-millis=60000 \
+    --flush-strategy=IdleConnections \
+    --min-pool-size=10 \
+    --max-pool-size=50 \
+    --pool-prefill=false
+~

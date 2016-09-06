@@ -152,7 +152,7 @@ Add other components in the same way in the page like:
 * "Logout panel" in the HEADER_RIGHT-TOP region
 * "HTML Editor" in the CENTER_1 region
 
-The HTML editor component provides the functionality (free HTML) o create a nice landing page in the dashboard.
+The HTML editor component provides the functionality (free HTML) to create a nice landing page in the dashboard.
 
 [start=7]
 . Add KPI 
@@ -162,13 +162,16 @@ Select component Key Performance Indicator in the Dashboard option and drag and 
 image::11.7-add-kpi.png[]
 
 Select FinancialsData as the Data provider. 
-Type a name in the KPI's name field.
-Select Country for Domain aka X Axis.
-Select CustomerId for Range aka Y Axis.
+Type a name in the KPI's name field i.e. #customers per country.
+Select country for Domain aka X Axis.
+Select customerid for Range aka Y Axis.
+Select NVD3 for Renderer.
 Select Value for Sort Interval By.
 Select Ascendant for Sort Order.
 
 image::11.7-add-kpi2.png[]
+
+image::11.7-dashboard.png[]
 
 
 Now try to add some extra pages/panels yourself.

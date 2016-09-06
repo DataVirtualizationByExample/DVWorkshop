@@ -40,13 +40,13 @@ image::8.1-Teiid-Designer2.png[]
 
 Be sure to "Save All" to save all of the changes to the VDB.
 
-=== Create data sources on the JBoss Data Virtualization server
+=== Create data sources in the JDV server
 
-There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server's deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers and are derived automatically from the Source model name. This column is visible in the illustration below. 
+There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JDV server's deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are Products_DS, MarketData_DS, EU_Customers_DS and US_Customers_DS and are derived automatically from the Source model name. This column is visible in the illustration below. 
 
 image::8.2-Teiid-Designer.png[]
 
-We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called JBoss Data Virtualization 6.2. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below. 
+We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called Red Hat JBoss Data Virtualization 6.3.0. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below. 
 
 image::8.2-Teiid-instance.png[]
 
@@ -62,11 +62,9 @@ Before the VDB will be deployed the Create VDB Data Source dialogue window appea
 
 image::8.2-VDB-Create-DataSource.png[]
 
-After the VDB is deployed one can check the Data Sources in the Server tab of JBDS, see below.
+Click btn:[Create Source] to create a data source for the Financials VDB. After the VDB is deployed one can check the Data Sources in the Server tab of JBDS, see below.
 
 image::8.2-DS-view.png[]
-
-Click btn:[Create Source] to create a data source for the Financials VDB.
 
 Now the deployment of the VDB will begin in the running Teiid Server instance. Now, open up a browser and point it to http://localhost:8080. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.
 
@@ -79,12 +77,12 @@ image::8.2-Admin-console2.png[]
 Upon closer inspection, you will notice that there is a "1" that has been appended to the VDB. This is simply the version number of the VDB. This enables you to deploy multiple versions of a VDB and have them accessible by your applications.
 
 === Dependency Diagrams
-There is a very useful feature for modeling in the Teiid Designer. Right-click on the All_Customers.customer table and select Modeling → Show Dependency Diagram. 
+There is a very useful feature for modeling in the Teiid Designer. Right-click on the All_Customers.CUSTOMER table and select Modeling → Show Dependency Diagram. 
 
 image::8.3-dependency-diagram.png[]
 
 Then, choose the Outline view. This is the tab that is right next to the Model Explorer tab in the left-hand pane of JBDS. If the Outline View is not visible, simply enable it by going to menu:Window[Show View > Outline]. Finally, select the btn:[Show Diagram Overview] button.
-This is the button located right under the Outline tab. You should see something like the following illustration. 
+This is the button located right under the Outline tab. You should see something similar like the following illustration. 
 
 image::8.3-outline-view.png[]
 

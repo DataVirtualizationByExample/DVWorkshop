@@ -6,7 +6,7 @@
 Java Database Connectivity (JDBC) is an application to database connectivity tool. This Application Program Interface (API) enables communication between applications written in Java and data stored in databases providing methods for data querying and updating.
 JDBC is very similar to Open Database Connectivity (ODBC).
 
-JBoss Data Virtualization provides an API that builds on Java Database Connectivity (JDBC), allowing client applications to issue SQL queries against deployed virtual databases (VDBs).
+Red Hat JBoss Data Virtualization (JDV) provides an API that builds on Java Database Connectivity (JDBC), allowing client applications to issue SQL queries against deployed virtual databases (VDBs).
 
 URLs used when establishing a connection using the driver class have the following format:
 
@@ -43,40 +43,40 @@ Note that if the VDB name contains version information, you cannot also use the 
 ==== Where are we?
 
 ==== How to access the data
-When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the JDBC protocol support is provided by the JBoss Data Virtualization server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.7.1.6_2-redhat-6-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.
+When you have successfully deployed the Financials VDB into the JDV server, the JDBC protocol support is provided by the JDV server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.12.5.redhat-8-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.
 
 The Teiid JDBC driver can be used in JDBC client tools like http://squirrel-sql.sourceforge.net/[Squirrel] or https://www.dbvis.com/[DBVisualizer] etc..
 
-The following steps are used to setup the connection using the Teiid JDBC driver in DBVisualizer.
+The following steps are used to setup the connection using the Teiid JDBC driver in Squirrel.
 
-Start DBVisualizer
+Start Squirrel
 
-image::demo-jdbc-dbv.png[] 
+image::demo-jdbc1.png[] 
 
-Select menu:Tools[Driver Manager...]
+Select Drivers tab.
 
-image::demo-jdbc.dm.png[]
+image::demo-jdbc2.png[]
 
-Create a new driver by clicking on Create a new driver button, image:demo-jdbc-dbv-ad-button.png[].
+Create a new driver by clicking on btn:[+].
 
-image::demo-jdbc-dbv-ad.png[]
+image::demo-jdbc3.png[]
 
-Close the Driver Manager windows.
-Since we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.
+Close the Driver windowand click btn:[OK].
+Now we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.
 
-Create a new database connection by clicking on Create a new database connection button, image:demo-jdbc-dbv-dbc-button.png[] and select No Wizard.
+Select Aliases tab. Create a new database connection by clicking on Create a new alias by clicking on btn:[+].
 
-image::demo-jdbc-dbv-dbc.png[]
+image::demo-jdbc4.png[]
 
 Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above.
 Try to connect and if the connection is successfully established you can run queries against the models which are exposed by the VDB. 
 
 image::demo-jdbc-connect.png[]
 
-=== OData
+=== OData v2
 The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
-For more information on OData see http://www.odata.org.
+For more information on OData v2 see http://www.odata.org/documentation/odata-version-2-0/.
 
 ==== Where are we?
 
@@ -84,12 +84,12 @@ image::demo-odata.png[]
 
 ==== How to access the data 
 When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. 
-Now, open up a browser and point it to the following URL: http://localhost:8080/odata/Financials.1/All_Customers.customer. 
+Now, open up a browser and point it to the following URL: http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER. 
 If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as 
 
 [source,sql]
 ----
-SELECT * FROM All_Customers.customer; 
+SELECT * FROM All_Customers.CUSTOMER; 
 ----
 
 The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.
@@ -97,20 +97,20 @@ The returned results from OData query can be in Atom/AtomPub XML format or JSON 
 image::9.1-OData.png[]
 
 To return the results in JSON format use the following URL as shown below:
-http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json
+http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER?$format=json
 
 image::9.1-OData-JSON.png[]
 
 ==== How to query the data
-To search for customer with customerid='CST01033' which is the SQL equivalent of  
+To search for CUSTOMER with CUSTOMERID='CST01033' which is the SQL equivalent of  
 
 [source,sql]
 ----
-SQL> SELECT * FROM All_Customers.customer WHERE customerid='CST01033'; 
+SQL> SELECT * FROM All_Customers.CUSTOMER WHERE CUSTOMERID='CST01033'; 
 ----
 
 use following URL and it should return the results shown below:
-http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033')
+http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER('CST01033')?$format=json
 
 image::9.2-Query.png[]
 
@@ -119,15 +119,72 @@ To search customers from the USA which is the SQL equivalent of
 
 [source,sql]
 ----
-SQL> SELECT * FROM All_Customers.customer WHERE country='USA'; 
+SQL> SELECT * FROM All_Customers.CUSTOMER WHERE COUNTRY='USA'; 
 ----
 
 use following URL and this should return the results as shown below.
-http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country eq 'USA'
+http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER?$filter=COUNTRY eq 'USA'&$format=json
 
 image::9.2-Query2.png[]
 
-Play around with the OData syntax. 
+Play around with the OData v2 syntax. 
+
+=== OData v4
+The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
+OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
+For more information on OData v4 see http://www.odata.org/documentation/.
+
+NOTE: Starting with Red Hat JBoss Data Virtualization 6.3.0 OData v4 is supported.
+==== Where are we?
+
+image::demo-odata.png[]
+
+==== How to access the data 
+When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration. 
+Now, open up a browser and point it to the following URL: http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER. 
+If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as 
+
+[source,sql]
+----
+SELECT * FROM All_Customers.CUSTOMER; 
+----
+
+The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.
+
+image::9.3-OData.png[]
+
+To return the results in JSON format use the following URL as shown below:
+http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$format=json
+
+image::9.3-OData-JSON.png[]
+
+==== How to query the data
+To search for CUSTOMER with CUSTOMERID='CST01033' which is the SQL equivalent of  
+
+[source,sql]
+----
+SQL> SELECT * FROM All_Customers.CUSTOMER WHERE CUSTOMERID='CST01033'; 
+----
+
+use following URL and it should return the results shown below:
+http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER('CST01033')?$format=json
+
+image::9.3-Query.png[]
+
+Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
+To search customers from the USA which is the SQL equivalent of  
+
+[source,sql]
+----
+SQL> SELECT * FROM All_Customers.CUSTOMER WHERE COUNTRY='USA'; 
+----
+
+use following URL and this should return the results as shown below.
+http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$filter=COUNTRY eq 'USA'&$format=json
+
+image::9.3-Query2.png[]
+
+Play around with the OData v4 syntax. 
 
 Congratulations, you have now completed this lab.
 

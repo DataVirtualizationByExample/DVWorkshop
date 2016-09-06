@@ -1,4 +1,4 @@
-= JBoss Data Virtualization Workshop
+= Red Hat JBoss Data Virtualization Workshop
 :doctype: book
 :toc:
 :toclevels: 3
@@ -21,3 +21,4 @@ include::labs/009_vdb-deployment.adoc[]
 include::labs/010_xml-service-src.adoc[]
 include::labs/011_connect_vdb.adoc[]
 include::labs/012_dashboard.adoc[]
+include::pages/resources.adoc[]

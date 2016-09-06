@@ -31,8 +31,7 @@ Click on the btn:[New...] button to create a new Connection Profile. The New Con
 
 image::10.2-new-connection-profile.png[]
 
-Type CountryInfo in the Name field and click the btn:[Next >] button.
-The New Connection Profile dialog box opens. 
+Type CountryInfo in the Name field and click the btn:[Next >] button. The New Connection Profile dialog box opens. 
 
 image::10.2-new-connection-profile3.png[]
 
@@ -65,8 +64,7 @@ image::10.2-new-connection-profile8.png[]
 
 The Summary window will appear. Click btn:[Finish] to go the Source and WSDL Operations Definition.
 
-The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.
-Click on the btn:[Deselect All] button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select. 
+The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures. Click on the btn:[Deselect All] button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select. 
 
 image::10.3-select-wsdl-operations.png[]
 
@@ -76,17 +74,24 @@ The Create Relational Model from Web Service dialog is displayed. This page allo
 
 image::10.3-select-wsdl-operations2.png[]
 
+Select the DataSources folder for the generated source model and VirtualBaseLayer folder for the generated view model and rename the view model to CountryInfo_VBL. Click the btn:[Next >] button and the Data Source Defintion Options dialog window pops up.
+Change the JNDI Name CountryInfoService_DS and click the btn:[Next >] button.
 
-Select the DataSources folder for the generated source model and VirtualBaseLayer folder for the generated view model and rename the view model to CountryInfo_VBL.
+image::10.3-select-wsdl-operations3.png[]
+
+The Operations Type Selection dialog appears, see below.
+
+image::10.3-select-wsdl-operations4.png[]
+
 Choose User-specified Procedures and click the btn:[Next >] button.
 
 In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
 In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
 Select the Operation from the Operations pull-down (CountryInfo and FullCountryInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.
 
-image::10.3-select-wsdl-operations3.png[]
+image::10.3-select-wsdl-operations5.png[]
 
-image::10.3-select-wsdl-operations4.png[]
+image::10.3-select-wsdl-operations6.png[]
 
 image::10.3-select-wsdl-operations7.png[]
 
@@ -96,13 +101,13 @@ image::10.3-select-wsdl-operations9.png[]
 
 image::10.3-select-wsdl-operations10.png[]
 
+image::10.3-select-wsdl-operations11.png[]
+
 NOTE: This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer's legacy create and extract procedures choose the Legacy Procedures option in the lower section and click btn:[Finish].
 
-Click on the btn:[Finish] button.
-A status screen is displayed while the models are being created.
+Click on the btn:[Finish] button. A status screen is displayed while the models are being created.
 The models will appear in the Model Explorer and will be open in the right-hand pane.
 
-image::10.3-select-wsdl-operations11.png[]
 
 Click the btn:[Save All] button to save your models.
 
@@ -114,12 +119,11 @@ Click on the btn:[Preview Data] button to preview the data.
 
 image::10.3-preview-data-iso.png[]
 
-Enter in a country code, such as AU for Australia, to retrieve the data. 
+Enter in a country code, such as AU for Australia, to retrieve the data. The Custom Preview Data dialog appears to customize the SQL Query if necessary.
 
 image::10.3-preview-data-iso2.png[]
 
-Click the btn:[OK] button.
-View the SQL Status and Result1 tab to see the results returned from the procedure.
+Click the btn:[OK] button. View the SQL Status and Result1 tab to see the results returned from the procedure.
 
 image::10.3-SQL-results.png[]
 
@@ -187,14 +191,14 @@ Click btn:[Finish] to complete the creation of the the WeatherInfo view model an
 
 image::10.2-import-rest9.png[]
 
-Click the Running man icon in the Transformation Editor pane. 
+Click the Running man icon in the Transformation Editor pane. The Custom Preview Data dialog appear to customize the SQL Query. 
 
-image::10.2-import-rest10.png[]
+image::10.2-import-rest9a.png[]
 
 Click btn:[Ok] to run the virtual procedure in the HelloWorld_VBL view model to get the results.
 You should a similar screen as shown below:
 
-image::10.2-import-rest12.png[]
+image::10.2-import-rest10.png[]
 
 Save and close the models.
 

@@ -1,0 +1,10 @@
+dv:
+  image: cvanball/dv620
+  ports:
+    - "8080:8080"
+    - "9990:9990"
+    - "31000:31000"
+    - "35432:35432"
+
+financials_db:
+  image: cvanball/psql_financials

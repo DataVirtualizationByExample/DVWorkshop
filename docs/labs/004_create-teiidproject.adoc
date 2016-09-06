@@ -3,7 +3,7 @@
 
 == Create a Teiid project and Import Data Source
 
-Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.
+Make sure that the previous labs have been completed so that a Red Hat JBoss Data Virtualization instance is running and JBDS is connected to the Red Hat JBoss Data Virtualization server.
 
 === Prerequisites
 
@@ -15,30 +15,6 @@ Make sure that the previous labs have been completed so that a JBoss Data Virtua
 === Where are we?
 
 image::demo-cp.png[]
-
-=== Open the Teiid Perspective
-To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
-To open the “Teiid Designer” perspective, first select menu:Window[Open Perspective > Other...] in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
-
-image::3.1-JBDS-perspective.png[]
-
-Select Teiid Designer from the perspective list as shown below.
-
-image::3.1-JBDS-Teiid-designer.png[]
-
-Click btn:[OK]. 
-This will bring you to a screen that looks like this:
-
-image::3.1-JBDS-Teiid-designer2.png[]
-
-Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid. 
-Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.2 server in the Server pane.
-For the name simply use “JBoss Data Virtualization 6.2”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
-As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.
-
-The Teiid View along the bottom of JBDS should look like the following illustration. 
-
-image::3.1-JBDS-Teiid-view.png[]
 
 === Creating a Teiid Project
 Before you can create models of how your data will be exposed or used, you must first create a project. For the purposes of these labs, we will create a project named Financials. This Financials project will be where we create all of our source and view models and Virtual Database (VDB) files. To create the project, from the menu bar on JBDS, select menu:File[New > Teiid Model Project]. 
@@ -75,7 +51,7 @@ Right-click on the “DataSources” folder and select menu:Import...[]. In the 
 image::3.3-importing-metadata.png[]
 
 In the “Import JDBC Database >> Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the btn:[New...] button to create it.
-The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile typei when using the embedded H2 database. 
+The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile type when using the embedded H2 database. 
 
 NOTE: Do you use the other database types then select the appropriate connectionprofile of your database.
 
@@ -91,14 +67,17 @@ Then select the cross-haired icon “New Driver Definition” which is the first
 
 image::3.3-setup-connection-profile2.png[]
 
-In the “New Driver Definition” dialog, select the Generic JDBC driver for H2 database, PostgreSQL or MySQL JDBC Driver. It will indicate that the driver JAR is not found. 
+In the “New Driver Definition” dialog, select the Generic JDBC driver for H2 JDBC Driver. It will indicate that the driver JAR is not found. 
 
 image::3.3-setup-connection-profile3.png[]
 
 Click on the “JAR List” tab in the New Driver Definition wizard and click the btn:[Add JAR/Zip] button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation. Select the H2 JDBC driver file from the directory where this file is created after the installation. 
+
+image::3.3-setup-connection-profile4.png[]
+
 Click on the "Properties" tab to set the properties of the H2 JDBC driver as depicted below.
  
-image::3.3-setup-connection-profile4.png[]
+image::3.3-setup-connection-profile5.png[]
 
 Click btn:[OK]. After clicking btn:[OK], the warning that the JAR file could not be found will go away. Click btn:[OK] to return to the previous wizard.
 
@@ -158,12 +137,16 @@ This will bring us back to the Preview Data window where it should look like the
 
 image::3.3-productdata2.png[]
 
-Once you click btn:[OK], a pop-up window will indicate that there are some temporary artifacts being deployed to the Teiid Server in order to preview the data. Finally, there will be two additional views that will open along the bottom of JBDS. Specifically, the SQL Results and Teiid Execution Plan tab views. A successful execution will yield sample results as indicated in the illustration below.
+Once you click btn:[OK], the Custom Preview Data window will appear and give the possibility to customize the SQL statement. 
+
+image::3.3-custom-preview.png[]
+
+Click btn:[OK]. A dialog window indicate that there are some temporary artifacts being deployed to the Teiid Server in order to preview the data. Finally, there will be two additional views that will open along the bottom of JBDS. Specifically, the SQL Results and Teiid Execution Plan tab views. A successful execution will yield sample results as indicated in the illustration below.
 
 image::3.3-query-results.png[]
 
 === Import Metadata from the uscustomers and eucustomers Databases
-We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the H2 JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables ACCOUNT, ACCOUNTHOLDINGS, and CUSTOMER. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the products database. You will need to create a new Connection Profile for each source but you can reuse the H2 JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.
 
 image::3.4-US_Customers.png[]
@@ -203,10 +186,12 @@ image::3.5-summary.png[]
 Click the btn:[Finish] button to continue. All of the CSV files are listed from the data source folder selected in the previous steps. We want to make sure that the check box is checked beside the marketdata.csv file, the file that you need to connect to. In the Source Model Definition, enter for the model name, MarketData in the Name: field (see image below).
 
 image::3.5-select-csv.png[]
- 
-Click on the btn:[Next >] button to continue. 
 
-The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you need to select. 
+Click on the btn:[Next >] button to continue. The next dialog box that opens allows you can specify the datasource definition. See the image below.
+
+image::3.5-ds-jndi.png[]
+
+Click on the btn:[Next >] button to continue. The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you need to select. 
 
 image::3.5-flat-file-column-format.png[]
 

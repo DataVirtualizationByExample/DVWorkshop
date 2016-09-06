@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <xs:schema xmlns="http://www.metamatrix.com/ACCOUNT_Output" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.metamatrix.com/ACCOUNT_Output">
-  <xs:include schemaLocation="/Users/cvanball/Projects/jbds810/Financials/Schemas/DataDictionary.xsd"/>
+  <xs:include schemaLocation="/Users/cvanball/Projects/jbds910/Financials/Schemas/DataDictionary.xsd"/>
   <xs:element name="ACCOUNT_Output">
     <xs:complexType>
       <xs:sequence>

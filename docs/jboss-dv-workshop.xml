@@ -3,8 +3,8 @@
 <?asciidoc-numbered?>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
-<title>JBoss Data Virtualization Workshop</title>
-<date>2015-11-23</date>
+<title>Red Hat JBoss Data Virtualization Workshop</title>
+<date>2016-09-01</date>
 </info>
 <chapter xml:id="_acknowlegdement">
 <title>Acknowlegdement</title>
@@ -15,15 +15,16 @@
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>Version Number</simpara></entry>
-<entry align="left" valign="top"><simpara>6.2.0</simpara></entry>
+<entry align="left" valign="top"><simpara>6.3.0</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Final as of</simpara></entry>
-<entry align="left" valign="top"><simpara>Nov 23th, 2015</simpara></entry>
+<entry align="left" valign="top"><simpara>Aug 24th, 2015</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Author(s)</simpara></entry>
-<entry align="left" valign="top"><simpara>Cojan van Ballegooijen (<link xl:href="http://twitter.com/cvanball">@cvanball</link>)
+<entry align="left" valign="top"><simpara>Chuck Mosner
+</simpara><simpara>Cojan van Ballegooijen (<link xl:href="http://twitter.com/cvanball">@cvanball</link>)
 </simpara><simpara>Kenny Peeples (<link xl:href="http://twitter.com/ossmentor">@ossmentor</link>)</simpara></entry>
 </row>
 <row>
@@ -31,6 +32,7 @@
 <entry align="left" valign="top"><simpara>Blaine Mincey
 </simpara><simpara>Marco Rabelink
 </simpara><simpara>Serhat Dirik
+</simpara><simpara>Stelios Kousouris
 </simpara><simpara>Vijay Chintalapati</simpara></entry>
 </row>
 </tbody>
@@ -42,22 +44,25 @@
 <simpara>The JBoss Data Virtualization Workshop is based on the following versions:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>JBoss Data Virtualization 6.2.0.GA</simpara>
+<simpara>JBoss Data Virtualization 6.3.0.GA</simpara>
 </listitem>
 <listitem>
-<simpara>JBoss Developer Studio 8.1.0.GA</simpara>
+<simpara>JBoss Developer Studio 9.1.0.GA</simpara>
 </listitem>
 <listitem>
-<simpara>JBoss Developer Studio Integration Stack 8.0.3.GA</simpara>
+<simpara>JBoss Developer Studio Integration Stack 9.0.1.GA</simpara>
 </listitem>
 <listitem>
 <simpara>OpenShift Online v2</simpara>
+</listitem>
+<listitem>
+<simpara>OpenShift Online v3 coming soon&#8230;&#8203;&#8230;&#8203;</simpara>
 </listitem>
 </itemizedlist>
 </chapter>
 <chapter xml:id="_introduction">
 <title>Introduction</title>
-<simpara>Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:</simpara>
+<simpara>Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>Connect: Access data from multiple, heterogeneous data sources.</simpara>
@@ -77,19 +82,19 @@
 <textobject><phrase>0.1 DV Architecture</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Red Hat JBoss Data Virtualization (DV) includes:</simpara>
+<simpara>JDV includes:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>Tools for creating data views that are accessible through standard protocols. For those who are already familiar with Red Hat JBoss Data Virtualization one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).</simpara>
+<simpara>Tools for creating data views that are accessible through standard protocols. For those who are already familiar with JDV one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).</simpara>
 </listitem>
 <listitem>
-<simpara>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).</simpara>
+<simpara>A robust runtime environment that provides enterprise-class performance, data integrity, and security (the JDV Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).</simpara>
 </listitem>
 <listitem>
 <simpara>A repository for storing metadata (ModeShape)</simpara>
 </listitem>
 </itemizedlist>
-<simpara>Red Hat JBoss Data Virtualization is based on the following community projects:</simpara>
+<simpara>JDV is based on the following community projects:</simpara>
 <itemizedlist>
 <listitem>
 <simpara>Teiid (<link xl:href="http://www.jboss.org/teiid">http://www.jboss.org/teiid</link>)</simpara>
@@ -101,7 +106,7 @@
 <simpara>ModeShape (<link xl:href="http://www.jboss.org/modeshape">http://www.jboss.org/modeshape</link>)</simpara>
 </listitem>
 </itemizedlist>
-<simpara>The figure below depicts the architectural overview of Red Hat JBoss Data Virtualization:</simpara>
+<simpara>The figure below depicts the architectural overview of JDV:</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -123,7 +128,7 @@
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>Query Engine</simpara></entry>
-<entry align="left" valign="top"><simpara>The heart of Red Hat JBoss Data Virtualization Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined</simpara></entry>
+<entry align="left" valign="top"><simpara>The heart of JDV Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Embedded</simpara></entry>
@@ -135,18 +140,18 @@
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Connectors</simpara></entry>
-<entry align="left" valign="top"><simpara>Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap.</simpara>
+<entry align="left" valign="top"><simpara>JDV Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap.</simpara>
 <simpara>Need data from a different source? Custom translators and resource adaptors can easily be developed.</simpara></entry>
 </row>
 <row>
 <entry align="left" valign="top"><simpara>Tools</simpara></entry>
-<entry align="left" valign="top"><simpara>Red Hat JBoss Data Virtualization Server includes development and administration tools to</simpara>
+<entry align="left" valign="top"><simpara>JDV Server includes development and administration tools to</simpara>
 <itemizedlist>
 <listitem>
 <simpara>Create - Use Teiid Designer to define virtual databases containing views, procedures or even dynamic XML documents.</simpara>
 </listitem>
 <listitem>
-<simpara>Monitor &amp; Manage - Use the Management Console with  JBoss EAP or use the JBoss Data Virtualization JBoss Operations Network (JON) plugin to control any number of servers.</simpara>
+<simpara>Monitor &amp; Manage - Use the Management Console with  JBoss EAP or use the JDV JBoss Operations Network (JON) plugin to control any number of servers.</simpara>
 </listitem>
 <listitem>
 <simpara>Script - Use the AdminShell to automate administrative and testing tasks.</simpara>
@@ -178,24 +183,25 @@
 <simpara>If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.</simpara>
 </listitem>
 </itemizedlist>
+<simpara>More information on the JDV prerequisites can be be found in the <link xl:href="https://access.redhat.com/documentation/en/red-hat-jboss-data-virtualization/6.3/single/getting-started-guide/#prerequisites">Red Hat JBoss Data Virtualization documentation</link>.</simpara>
 <note>
-<simpara>Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JBoss DV environment by default as part of JBoss EAP for you convenience.</simpara>
+<simpara>Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JDV environment by default as part of JBoss EAP for you convenience.</simpara>
 </note>
 </section>
-<section xml:id="_setup_demo_environment">
-<title>Setup demo environment</title>
+<section xml:id="_setup_demo_database_environment_optional">
+<title>Setup demo database environment (OPTIONAL)</title>
 <simpara>In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.</simpara>
 <tip>
 <simpara>Use the database you prefer, it&#8217;s not required to install one of the databases. By default we will use the H2 embedded database.</simpara>
 </tip>
-<section xml:id="_setup_postgresql_optional">
-<title>Setup PostgreSQL (Optional)</title>
+<section xml:id="_setup_postgresql">
+<title>Setup PostgreSQL</title>
 <simpara>Installation</simpara>
 <simpara>The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</link> for more information and downloads.
 Post-install steps:</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
-<simpara>If *nix or MacOSX switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.</simpara>
+<simpara>If *nix or Mac OS X switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.</simpara>
 </listitem>
 </orderedlist>
 <screen>$ su postgres</screen>
@@ -211,7 +217,7 @@ Post-install steps:</simpara>
 </listitem>
 </orderedlist>
 <screen>$ psql
-psql (9.3.4, server 9.0.13)
+psql (9.4.4, server 9.4.9)
 Type "help" for help.
 
 postgres=# \l
@@ -233,10 +239,13 @@ postgres=# \l
 
 postgres=# \q</screen>
 </section>
-<section xml:id="_setup_mariadb_optional">
-<title>Setup MariaDB (Optional)</title>
+<section xml:id="_setup_mariadb">
+<title>Setup MariaDB</title>
 <simpara>Installation</simpara>
-<simpara>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="https://downloads.mariadb.org">https://downloads.mariadb.org</link> for more information and downloads. Note: there&#8217;s no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page <link xl:href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</link></simpara>
+<simpara>The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="https://downloads.mariadb.org">https://downloads.mariadb.org</link> for more information and downloads.</simpara>
+<note>
+<simpara>there is no binary package available for Mac OS X users, but it is possible to install MariaDB using the homebrew package described on this page <link xl:href="https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/">https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/</link></simpara>
+</note>
 <simpara>Post-install steps</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
@@ -277,14 +286,14 @@ mysql&gt; show databases;
 mysql&gt; exit
 Bye</screen>
 </section>
-<section xml:id="_setup_mysql_optional">
-<title>Setup MySQL (Optional)</title>
+<section xml:id="_setup_mysql">
+<title>Setup MySQL</title>
 <simpara>Installation</simpara>
 <simpara>The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See <link xl:href="http://dev.mysql.com/downloads/mysql/">http://dev.mysql.com/downloads/mysql/</link> for more information and downloads.</simpara>
 <simpara>Post-install steps</simpara>
 <orderedlist numeration="arabic" startingnumber="1">
 <listitem>
-<simpara>If *nix or MacOSX go to the /usr/local/mysql directory and start mysqld_safe</simpara>
+<simpara>If *nix or Mac OS X go to the /usr/local/mysql directory and start mysqld_safe</simpara>
 </listitem>
 </orderedlist>
 <screen>$ cd /usr/local/mysql
@@ -357,12 +366,12 @@ Bye</screen>
 <simpara>Automated script mode: You can install multiple identical instances of Red Hat JBoss Data Virtualization using the automated script. This automated script is generated after the first installation instance. We will explain the graphical mode and automated script mode in more detail in the following paragraphs.</simpara>
 </listitem>
 <listitem>
-<simpara>Custom scripts: You can provide your own script in order to automate the installation of the required components of JBoss Data Virtualization.</simpara>
+<simpara>Custom scripts: You can provide your own script in order to automate the installation of the required components of Red Hat JBoss Data Virtualization.</simpara>
 </listitem>
 </orderedlist>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_graphical_mode">
 <title>Installing Red Hat JBoss Data Virtualization through graphical mode</title>
-<simpara>Download the Red Hat JBoss Data Virtualization installer binary by clicking the green download button at <link xl:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
+<simpara>Download the Red Hat JBoss Data Virtualization installer binary by clicking the red download button at <link xl:href="http://developers.redhat.com/products/datavirt/download/">http://developers.redhat.com/products/datavirt/download/</link>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -371,28 +380,9 @@ Bye</screen>
 <textobject><phrase>1.1 DV download</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<note>
-<simpara>Starting from JBoss Data Virtualization 6.2.0 one need to install JBoss EAP 6.4.0 including patch 3 first before installing JBoss Data Virtualization 6.2.0. In earlier versions of JBoss Data Virtualization the JBoss EAP server was included in the JBoss DV distribution. So we need to install JBoss EAP first, so remember the directory where you downloaded JBoss DV, because we need it later on.</simpara>
-</note>
-<simpara>Install JBoss EAP 6.4.0</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ unzip jboss-eap-6.4.0.zip
-$ cd jboss-eap-6.4/bin
-$ ./jboss-cli.sh
-You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
-[disconnected /]</programlisting>
-<note>
-<simpara>Skip apply patch 3 step when you have downloaded the software from <link xl:href="http://jboss.org">jboss.org</link>.</simpara>
-</note>
-<simpara>Apply patch 3 to previously installed JBoss EAP 6.4.0 environment</simpara>
-<programlisting language="bash" linenumbering="unnumbered">[disconnected /] patch apply jboss-eap-6.4.3-patch.zip
-{
-    "outcome" : "success",
-    "result" : {}
-}
-[disconnected /] exit</programlisting>
 <simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
 Run the installer using java at the command prompt:</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-installer-6.2.0.redhat-2.jar</programlisting>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-6.3.0-installer.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <tip>
 <simpara>If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <link xl:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.</simpara>
@@ -411,7 +401,7 @@ Run the installer using java at the command prompt:</simpara>
 <textobject><phrase>1.1 DV EULA</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JBoss Data Virtualization, click <inlinemediaobject>
+<simpara>A filepath confirmation dialogue box will appear. Choose an existing EAP 6 installation location to install JDV or select a new location to install JDV, click <inlinemediaobject>
 <imageobject>
 <imagedata fileref="images/1.1-DV-NextBTN.png"/>
 </imageobject>
@@ -423,6 +413,15 @@ Run the installer using java at the command prompt:</simpara>
 <imagedata fileref="images/1.1-DV-FilePath.png"/>
 </imageobject>
 <textobject><phrase>1.1 DV FilePath</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>When you select a new new location to install JDV a message dialogue box will appear to notify that a fresh Red Hat JBoss Enterprise Application Platform installation will be placed.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/1.1-DV-FilePath2.png"/>
+</imageobject>
+<textobject><phrase>1.1 DV FilePath2</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>A select the packs dialogue box will appear. Review the packs you want to install and if satisfied, click <inlinemediaobject>
@@ -532,21 +531,27 @@ Run the installer using java at the command prompt:</simpara>
 <textobject><phrase>1.1 DV DoneBTN</phrase></textobject>
 </inlinemediaobject> to complete the installation.</simpara>
 <simpara>Red Hat JBoss Data Virtualization is now successfully installed and configured.
-When the installation is complete, navigate to</simpara>
+When the installation is complete, navigate to for example:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>Unix/Linux: EAP_HOME/bin and run the ./standalone.sh</simpara>
-</listitem>
-<listitem>
-<simpara>Windows: EAP_HOME\bin and run standalone.bat</simpara>
+<simpara>Unix/Linux</simpara>
 </listitem>
 </itemizedlist>
+<programlisting language="bash" linenumbering="unnumbered">$ cd /opt/jboss/dv-6.3.0/bin
+$ ./standalone.sh</programlisting>
+<itemizedlist>
+<listitem>
+<simpara>Windows</simpara>
+</listitem>
+</itemizedlist>
+<programlisting language="bash" linenumbering="unnumbered">C:\&gt; cd \opt\jboss\dv-6.3.0\bin
+C:\opt\jboss\dv-6.3.0&gt; standalone.bat</programlisting>
 <simpara>to start the Red Hat JBoss Data Virtualization server.</simpara>
 </section>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_automated_script_mode">
 <title>Installing Red Hat JBoss Data Virtualization through automated script mode</title>
 <simpara>Installing Red Hat JBoss Data Virtualization by using an automated script provides everything you need to get you started quickly.</simpara>
-<simpara>Download the JBoss Data Virtualization installer binary by clicking the green download button at <link xl:href="http://www.jboss.org/products/datavirt.html">http://www.jboss.org/products/datavirt.html</link>.</simpara>
+<simpara>Download the Red Hat JBoss Data Virtualization installer binary by clicking the red download button at <link xl:href="http://developers.redhat.com/products/datavirt/download/">http://developers.redhat.com/products/datavirt/download/</link>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -556,12 +561,12 @@ When the installation is complete, navigate to</simpara>
 </mediaobject>
 </informalfigure>
 <simpara>Place the software in the software subfolder.</simpara>
-<simpara>Modify the support/installscript_local.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.2.0.</simpara>
+<simpara>Modify the support/installscript_dv630.xml file to contain the full path to the preferred installation directory for JBoss Data Virtualization 6.3.0.</simpara>
 <programlisting language="xml" linenumbering="unnumbered">&lt;installpath&gt;/home/jboss/dv&lt;/installpath&gt;</programlisting>
-<simpara>The script performs the automated install of JBoss Data Virtualization v6.2.0.GA.
+<simpara>The script performs the automated install of JBoss Data Virtualization v6.3.0.GA.
 Run the following java command to install JBoss Data Virtualization in as shown below.</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ cd support
-$ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_local.xml</programlisting>
+$ java -jar ../software/jboss-6.3.0-installer.jar installscript_dv63.xml</programlisting>
 <simpara>The following username/passwords will be installed automatically for access to</simpara>
 <informaltable frame="all" rowsep="1" colsep="1">
 <tgroup cols="4">
@@ -622,13 +627,13 @@ $ java -jar ../software/jboss-dv-installer-6.2.0.redhat-2.jar installscript_loca
 </section>
 <section xml:id="_installing_red_hat_jboss_data_virtualization_through_custom_scripts">
 <title>Installing Red Hat JBoss Data Virtualization through custom scripts</title>
-<simpara>A colleague of mine Vijay Chintalapati created custom scripts to automates the deployment of all the required components of JBoss Data Virtualization on Windows, Linux and Unix environments for running this workshop.</simpara>
+<simpara>We created custom scripts to automates the deployment of all the required components of JBoss Data Virtualization on Windows, Linux and Unix environments for running this workshop.</simpara>
 <simpara>The github repository Vijay created can be found here: <link xl:href="https://github.com/vchintal/jboss-data-virtualization-setup">https://github.com/vchintal/jboss-data-virtualization-setup</link></simpara>
 <simpara>Follow the instructions mentioned in the repository to full automate the JBoss Data Virtualization installation.</simpara>
 </section>
-<section xml:id="_provision_red_hat_jboss_data_virtualization_on_openshift_online">
-<title>Provision Red Hat JBoss Data Virtualization on OpenShift Online</title>
-<simpara>With OpenShift you can easily deploy and run JBoss Data Virtualization in minutes to connect your applications to data from many different sources. JBoss Data Virtualization on OpenShift Online is available as a Developer Preview to allow you to explore the capabilities of the technology running on OpenShift Online.</simpara>
+<section xml:id="_provision_red_hat_jboss_data_virtualization_using_openshift_2_x">
+<title>Provision Red Hat JBoss Data Virtualization using OpenShift 2.x</title>
+<simpara>With OpenShift you can easily deploy and run Red Hat JBoss Data Virtualization in minutes to connect your applications to data from many different sources.</simpara>
 <simpara>Get your free OpenShift Online account
 Sign up for your free account OpenShift Online account at <link xl:href="https://www.openshift.com/app/account/new">https://www.openshift.com/app/account/new</link> and you should see the screen below.</simpara>
 <informalfigure>
@@ -705,26 +710,22 @@ The following screen should appear.</simpara>
 </informalfigure>
 <simpara>Click “Add Cartridge” to add PostgreSQL 9.2 to previously created dv61 environment.</simpara>
 <simpara>You have now a successfully created a Red Hat JBoss Data Virtualization environment with a PostgreSQL 9.2 database in just a matter of seconds.</simpara>
+</section>
+<section xml:id="_provision_red_hat_jboss_data_virtualization_using_openshift_3_x">
+<title>Provision Red Hat JBoss Data Virtualization using OpenShift 3.x</title>
+<simpara>Coming soon&#8230;&#8203;&#8230;&#8203;</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
 <chapter xml:id="_install_red_hat_jboss_developer_studio">
 <title>Install Red Hat JBoss Developer Studio</title>
-<simpara>This lab will guide you how to install Red Hat JBoss Developer Studio and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS) and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</simpara>
-<simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 8.1.0, download it from <link xl:href="https://www.jboss.org/products/jbds.html">https://www.jboss.org/products/jbds.html</link> by clicking the green download button.
-You can use either the installer which includes JBoss EAP (jboss-devstudio-8.1.0.GA-installer-eap.jar) or the stand-alone installer (jboss-devstudio-8.1.0.GA-installer-standalone.jar).
+<simpara>This lab will guide you how to install Red Hat JBoss Developer Studio (JBDS) and the tools for creating data views that are accessible through standard protocols (the Teiid Designer plug-in for JBDS and connect Red Hat JBoss Developer Studio to the Red Hat JBoss Data Virtualization server.</simpara>
+<simpara>If you don&#8217;t already have Red Hat JBoss Developer Studio 9.1.0, download it from  <link xl:href="https://developers.redhat.com/download-manager/file/jboss-devstudio-9.1.0.GA-installer-eap.jar">https://developers.redhat.com/download-manager/file/jboss-devstudio-9.1.0.GA-installer-eap.jar</link>.
+You can use either the installer which includes JBoss EAP (jboss-devstudio-9.1.0.GA-installer-eap.jar) or the stand-alone installer (jboss-devstudio-9.1.0.GA-installer-standalone.jar).
 The instructions below is using the installer with EAP.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/2.1-JBDS-download.png"/>
-</imageobject>
-<textobject><phrase>2.1 JBDS download</phrase></textobject>
-</mediaobject>
-</informalfigure>
 <simpara>Run the JBDS installer using the java command.
-The current available version is 8.1.0.GA, and to run the installer at the command prompt see below.</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-devstudio-8.1.0.GA-installer-eap.jar</programlisting>
+The required JBDS version is 9.1.0.GA to be used with Red Hat JBoss Data Virtualization 6.3.0, and run the installer with the following command see below.</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-devstudio-9.1.0.GA-installer-eap.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <informalfigure>
 <mediaobject>
@@ -809,7 +810,7 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>Done</guibutton> to close the Installer window.</simpara>
-<simpara>When the installation is completed, run JBoss Developer Studio 8.1.0. When the Red Hat JBoss Developer Studio starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</simpara>
+<simpara>When the installation is completed, run JBDS 9.1.0. When JBDS starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -832,10 +833,10 @@ To automatically start JBoss Developer Studio when the Installer window closes, 
 </orderedlist>
 <simpara>The workspace location prompting behavior can be altered at any time by clicking <menuchoice><guimenu>Window</guimenu> <guimenuitem>Preferences</guimenuitem></menuchoice>. Expand <menuchoice><guimenu>General</guimenu> <guisubmenu>Startup and Shutdown</guisubmenu> <guimenuitem>Workspace</guimenuitem></menuchoice>. Select or clear the Prompt for workspace on startup check box to alter the behavior as appropriate.</simpara>
 <note>
-<simpara>After JBoss Developer Studio 8.1.0 you might get a informational message to inform you that there are updates available.
-Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by clicking in the Update balloon message.</simpara>
+<simpara>After starting Red Hat JBoss Developer Studio 9.1.0 you might get a informational message to inform you that there are updates available.
+Please upgrade to the latest patch version of Red Hat JBoss Developer Studio 9.1.0 by clicking in the Update balloon message.</simpara>
 </note>
-<simpara>The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use JBoss Central.</simpara>
+<simpara>The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use Red Hat Central.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -844,7 +845,7 @@ Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by cl
 <textobject><phrase>2.1 JBDS jboss central</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select <menuchoice><guimenu>Help</guimenu> <guimenuitem>JBoss Central</guimenuitem></menuchoice> if JBoss Central isn&#8217;t active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click <guibutton>Install</guibutton>.</simpara>
+<simpara>Select <menuchoice><guimenu>Help</guimenu> <guimenuitem>Red Hat Central</guimenuitem></menuchoice> if Red Hat Central isn&#8217;t active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click <guibutton>Install</guibutton>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -901,8 +902,8 @@ Please upgrade to the latest patch version of JBoss Developer Studio 8.1.0 by cl
 </mediaobject>
 </informalfigure>
 <simpara>With the New Server wizard enabled, be sure you entries look like those above. Select JBoss Enterprise
-Middleware &#8594; JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “Create Runtime Server” is entered for the Server name. Change the Server name into a meaningful name like "JBoss Data Virtualization 6.2". Click the <guibutton>Next</guibutton> button.
-Next, the JBoss Runtime will need to be created. Essentially, this is selecting the “home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.</simpara>
+Middleware &#8594; JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “Create Runtime Server” is entered for the Server name. Change the Server name into a meaningful name like "JBoss Data Virtualization 6.3.0". Click the <guibutton>Next</guibutton> button.
+Next, the JBoss Runtime will need to be created. Essentially, this is selecting the “Home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -958,8 +959,54 @@ Next, the JBoss Runtime will need to be created. Essentially, this is selecting 
 <textobject><phrase>2.2 JBDS menu started</phrase></textobject>
 </mediaobject>
 </informalfigure>
+<section xml:id="_open_the_teiid_perspective">
+<title>Open the Teiid Perspective</title>
+<simpara>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
+To open the “Teiid Designer” perspective, first select <menuchoice><guimenu>Window</guimenu> <guisubmenu>Open Perspective</guisubmenu> <guimenuitem>Other&#8230;&#8203;</guimenuitem></menuchoice> in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/2.3-JBDS-perspective.png"/>
+</imageobject>
+<textobject><phrase>2.3 JBDS perspective</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Select Teiid Designer from the perspective list as shown below.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/2.3-JBDS-Teiid-designer.png"/>
+</imageobject>
+<textobject><phrase>2.3 JBDS Teiid designer</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>OK</guibutton>.
+This will bring you to a screen that looks like this:</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/2.3-JBDS-Teiid-designer2.png"/>
+</imageobject>
+<textobject><phrase>2.3 JBDS Teiid designer2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid.
+In the Server tab open the tree node of Red Hat JBoss Data Virtualization 6.3.0 by clicking on arrow. This will set the Default Server automaticaly.</simpara>
+<simpara>Click on the Red Hat JBoss Data Virtualization 6.3.0 link in the Default Server window and then click tab name Teiid Instance.</simpara>
+<simpara>For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
+As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.</simpara>
+<simpara>JBDS should look like the following illustration.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/2.3-JBDS-Teiid-view.png"/>
+</imageobject>
+<textobject><phrase>2.3 JBDS Teiid view</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <simpara>You can now begin creating your own Red Hat JBoss Data Virtualization projects.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
+</section>
 </chapter>
 <chapter xml:id="_demo_scenario">
 <title>Demo Scenario</title>
@@ -1034,7 +1081,7 @@ And, they want to make sure that as they solve this tactical use case they build
 </listitem>
 </orderedlist>
 <simpara>First, they import in the metadata for all of the various data sources into Designer. For the relational databases, Designer does this by connecting to each database via JDBC and importing such metadata as the names of each table in the database, the columns in each of these tables, and the data types of each of these columns. For this use case our relational databases all happen to only have tables, but if they had views or stored procedures, they would have been imported too.</simpara>
-<simpara>For the stock quote web service, this is done by reading the WSDL for the web service and importing in the schema for the web service request that the service expects, as well as the schema for the response that the web service will retrieve. Since JBoss Data Virtualization uses relational database semantics for both design modeling and its runtime engine, this information appears in Designer as one or more relational tables that represent the the request and response schemas. In this case, a single table is used to represent both the request and response; but more often than not, the importer will create separate tables for the request and response, and if the response has a heirarchical XML schema the response would actually be represented as several tables with primary/foreign key pair relationships – a normalized relational schema.</simpara>
+<simpara>For the stock quote web service, this is done by reading the WSDL for the web service and importing in the schema for the web service request that the service expects, as well as the schema for the response that the web service will retrieve. Since JBoss Data Virtualization uses relational database semantics for both design modeling and its runtime engine, this information appears in Designer as one or more relational tables that represent the the request and response schemas. In this case, a single table is used to represent both the request and response; but more often than not, the importer will create separate tables for the request and response, and if the response has a hierarchical XML schema the response would actually be represented as several tables with primary/foreign key pair relationships – a normalized relational schema.</simpara>
 <simpara><emphasis role="strong">Build view layers on top of source metadata</emphasis></simpara>
 <simpara>Then, they build several layers of view models on top of that data source model. This is a fairly typical JBoss Data Virtualization project, with six layers of view models on top of the data source models – with the transformational logic for each view being fairly simple, and complex data transformations achieved by this use of several layers of such views. Now, in a traditional relational database, such a design would have a fairly heavy performance penalty at runtime to deal with all of these layers of views, which is why in a traditional database you&#8217;d see a use case like this defined as a single view defined with a very lengthy and complex SQL statement, but one of the really nice things about JBoss Data Virtualization is that it compresses all of these layers at run time down to a single layer, so there is not really any such penalty to using layered views with JBoss Data Virtualization.</simpara>
 <orderedlist numeration="arabic" startingnumber="2">
@@ -1079,7 +1126,7 @@ For this workshop we only expose the All_Customers model for now.</simpara>
 </chapter>
 <chapter xml:id="_create_a_teiid_project_and_import_data_source">
 <title>Create a Teiid project and Import Data Source</title>
-<simpara>Make sure that the previous labs have been completed so that a JBoss Data Virtualization instance is running and JBDS is connected to the JBoss Data Virtualization server.</simpara>
+<simpara>Make sure that the previous labs have been completed so that a Red Hat JBoss Data Virtualization instance is running and JBDS is connected to the Red Hat JBoss Data Virtualization server.</simpara>
 <section xml:id="_prerequisites_2">
 <title>Prerequisites</title>
 <itemizedlist>
@@ -1105,51 +1152,6 @@ For this workshop we only expose the All_Customers model for now.</simpara>
 <imagedata fileref="images/demo-cp.png"/>
 </imageobject>
 <textobject><phrase>demo cp</phrase></textobject>
-</mediaobject>
-</informalfigure>
-</section>
-<section xml:id="_open_the_teiid_perspective">
-<title>Open the Teiid Perspective</title>
-<simpara>To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
-To open the “Teiid Designer” perspective, first select <menuchoice><guimenu>Window</guimenu> <guisubmenu>Open Perspective</guisubmenu> <guimenuitem>Other&#8230;&#8203;</guimenuitem></menuchoice> in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/3.1-JBDS-perspective.png"/>
-</imageobject>
-<textobject><phrase>3.1 JBDS perspective</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>Select Teiid Designer from the perspective list as shown below.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/3.1-JBDS-Teiid-designer.png"/>
-</imageobject>
-<textobject><phrase>3.1 JBDS Teiid designer</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>Click <guibutton>OK</guibutton>.
-This will bring you to a screen that looks like this:</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/3.1-JBDS-Teiid-designer2.png"/>
-</imageobject>
-<textobject><phrase>3.1 JBDS Teiid designer2</phrase></textobject>
-</mediaobject>
-</informalfigure>
-<simpara>Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid.
-Select the option "Set the Default JBoss / Teiid instance" and double-click on the JBoss Data Virtualization 6.2 server in the Server pane.
-For the name simply use “JBoss Data Virtualization 6.2”. For the Teiid JDBC Connection Info, enter “localhost” for the host and enter teiidUser / redhat1! for the username / password. Keep the default port number. Also, be sure that the “Save” checkbox is marked. The “SSL” box should not be marked. Keep the default port number. When complete, your Teiid Server Connection Information should look like the illustration below.
-As a “sanity” check, be sure to click the "Test Administration Connection" and "Test JDBC Connection" links. You should get a "OK" message. If you do not, please raise your hand. If it failed, it may be necessary to cancel and retry the steps again.</simpara>
-<simpara>The Teiid View along the bottom of JBDS should look like the following illustration.</simpara>
-<informalfigure>
-<mediaobject>
-<imageobject>
-<imagedata fileref="images/3.1-JBDS-Teiid-view.png"/>
-</imageobject>
-<textobject><phrase>3.1 JBDS Teiid view</phrase></textobject>
 </mediaobject>
 </informalfigure>
 </section>
@@ -1215,7 +1217,7 @@ More information on the Import Wizard (and all of the features in the Teiid Desi
 </mediaobject>
 </informalfigure>
 <simpara>In the “Import JDBC Database &gt;&gt; Source Model” wizard, you will need to select a Connection Profile. If a connection profile does not exist for the database that contains the Product Schema, then select the <guibutton>New&#8230;&#8203;</guibutton> button to create it.
-The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile typei when using the embedded H2 database.</simpara>
+The Connection Profile Wizard will come up. Scroll through the list to see the supported databases, then choose “Generic JDBC” for the connection profile type when using the embedded H2 database.</simpara>
 <note>
 <simpara>Do you use the other database types then select the appropriate connectionprofile of your database.</simpara>
 </note>
@@ -1246,7 +1248,7 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 <textobject><phrase>3.3 setup connection profile2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>In the “New Driver Definition” dialog, select the Generic JDBC driver for H2 database, PostgreSQL or MySQL JDBC Driver. It will indicate that the driver JAR is not found.</simpara>
+<simpara>In the “New Driver Definition” dialog, select the Generic JDBC driver for H2 JDBC Driver. It will indicate that the driver JAR is not found.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1255,14 +1257,22 @@ The Connection Profile Wizard will come up. Scroll through the list to see the s
 <textobject><phrase>3.3 setup connection profile3</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click on the “JAR List” tab in the New Driver Definition wizard and click the <guibutton>Add JAR/Zip</guibutton> button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation. Select the H2 JDBC driver file from the directory where this file is created after the installation.
-Click on the "Properties" tab to set the properties of the H2 JDBC driver as depicted below.</simpara>
+<simpara>Click on the “JAR List” tab in the New Driver Definition wizard and click the <guibutton>Add JAR/Zip</guibutton> button to select the H2 JDBC driver file to use to access the H2 jar that is part of your JDV installation. Select the H2 JDBC driver file from the directory where this file is created after the installation.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
 <imagedata fileref="images/3.3-setup-connection-profile4.png"/>
 </imageobject>
 <textobject><phrase>3.3 setup connection profile4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click on the "Properties" tab to set the properties of the H2 JDBC driver as depicted below.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/3.3-setup-connection-profile5.png"/>
+</imageobject>
+<textobject><phrase>3.3 setup connection profile5</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>OK</guibutton>. After clicking <guibutton>OK</guibutton>, the warning that the JAR file could not be found will go away. Click <guibutton>OK</guibutton> to return to the previous wizard.</simpara>
@@ -1380,7 +1390,16 @@ This will bring up the Preview Data dialogue as indicated below.</simpara>
 <textobject><phrase>3.3 productdata2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Once you click <guibutton>OK</guibutton>, a pop-up window will indicate that there are some temporary artifacts being deployed to the Teiid Server in order to preview the data. Finally, there will be two additional views that will open along the bottom of JBDS. Specifically, the SQL Results and Teiid Execution Plan tab views. A successful execution will yield sample results as indicated in the illustration below.</simpara>
+<simpara>Once you click <guibutton>OK</guibutton>, the Custom Preview Data window will appear and give the possibility to customize the SQL statement.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/3.3-custom-preview.png"/>
+</imageobject>
+<textobject><phrase>3.3 custom preview</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>OK</guibutton>. A dialog window indicate that there are some temporary artifacts being deployed to the Teiid Server in order to preview the data. Finally, there will be two additional views that will open along the bottom of JBDS. Specifically, the SQL Results and Teiid Execution Plan tab views. A successful execution will yield sample results as indicated in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1392,7 +1411,7 @@ This will bring up the Preview Data dialogue as indicated below.</simpara>
 </section>
 <section xml:id="_import_metadata_from_the_uscustomers_and_eucustomers_databases">
 <title>Import Metadata from the uscustomers and eucustomers Databases</title>
-<simpara>We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables account, accountholdings, and customer. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the product database (postgres / postgres). You will need to create a new Connection Profile for each source but you can reuse the H2 JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
+<simpara>We will now create source models that represent the US_Customers and EU_Customers from our databases. We will again import the metadata using the Import Database via JDBC Wizard to create the model. Use the steps from the previous section to import the two schemas. Name the Models US_Customers and EU_Customers and only import the table metadata for the tables ACCOUNT, ACCOUNTHOLDINGS, and CUSTOMER. The database names for these two sources are uscustomers and eucustomers respectively. The username/password combination is the same as for the products database. You will need to create a new Connection Profile for each source but you can reuse the H2 JDBC driver that was previously referenced. Additionally, feel free to preview data for these two additional data sources using the steps that were outlined above.
 When you have completed the imports, the Package Diagram and Model Explorer for US_Customers, for example, will look similar to the following illustration.</simpara>
 <informalfigure>
 <mediaobject>
@@ -1479,8 +1498,16 @@ The new connection profile dialog is displayed.</simpara>
 <textobject><phrase>3.5 select csv</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click on the <guibutton>Next &gt;</guibutton> button to continue.</simpara>
-<simpara>The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you need to select.</simpara>
+<simpara>Click on the <guibutton>Next &gt;</guibutton> button to continue. The next dialog box that opens allows you can specify the datasource definition. See the image below.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/3.5-ds-jndi.png"/>
+</imageobject>
+<textobject><phrase>3.5 ds jndi</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click on the <guibutton>Next &gt;</guibutton> button to continue. The next dialog box that opens allows you to select how the CSV file is formatted. In this case, the file is Character delimited (Delimited with a comma). See the image below for the settings that you need to select.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1581,7 +1608,7 @@ The new connection profile dialog is displayed.</simpara>
 <textobject><phrase>4.1 package diagram window</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Double-click on the customer table in the US_Customer_VBL model. This will open the Transformation Editor.</simpara>
+<simpara>Double-click on the CUSTOMER table in the US_Customer_VBL model. This will open the Transformation Editor.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1591,10 +1618,10 @@ The new connection profile dialog is displayed.</simpara>
 </mediaobject>
 </informalfigure>
 <note>
-<simpara>The transformation has already been created for you, and as noted above it is a simple one-to-one mapping of the underlying physical source. By building up the data services in layers like this, it allows the designer to keep the transformational logic for each view fairly simple, and complex data transformations are achieved by uses several layers of such views. Now, in a traditional relational database, such a design would have a fairly heavy performance penalty at runtime to deal with all of these layers of views, which is why in a traditional database you&#8217;d see a use case like this defined as a single view defined with a very lengthy and complex SQL statement. The reason this is not an issue with JBoss Data Virtualization is because the Query Engine in the JBoss Data Virtualization Server compresses all of these layers at run time down to a single (potentially highly complex) query that is then optimized to run (in parallel if possible) against the backend data sources. Thus there is no penalty to using layered views with JBoss Data Virtualization.</simpara>
+<simpara>The transformation has already been created for you, and as noted above it is a simple one-to-one mapping of the underlying physical source. By building up the data services in layers like this, it allows the designer to keep the transformational logic for each view fairly simple, and complex data transformations are achieved by uses several layers of such views. Now, in a traditional relational database, such a design would have a fairly heavy performance penalty at runtime to deal with all of these layers of views, which is why in a traditional database you&#8217;d see a use case like this defined as a single view defined with a very lengthy and complex SQL statement. The reason this is not an issue with JDV is because the Query Engine in the JDV Server compresses all of these layers at run time down to a single (potentially highly complex) query that is then optimized to run (in parallel if possible) against the backend data sources. Thus there is no penalty to using layered views with JDV.</simpara>
 </note>
 <note>
-<simpara>The "transformation language" in the Transformation Editor is ANSI-standard SQL. We don&#8217;t make you learn a new language to define transformations, you just use normal SQL syntax, which is something that we find most data architects are already fairly comfortable with. We will be spending much more time with the Transformation Editor further on in the lab.</simpara>
+<simpara>The "transformation language" in the Transformation Editor is based on the <link xl:href="http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt">ANSI SQL-92</link> standard. We don&#8217;t make you learn a new language to define transformations, you just use normal SQL syntax, which is something that we find most data architects are already fairly comfortable with. We will be spending much more time with the Transformation Editor further on in the lab.</simpara>
 </note>
 </section>
 <section xml:id="_create_the_eu_customers_vbl_and_products_vbl_models">
@@ -1659,7 +1686,7 @@ Right-click on the Schema folder in the Model Explorer and choose <menuchoice><g
 <textobject><phrase>5.1 import xsd3</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>You may get a warning that the Financials/Schemas already exists. Choose yes to overwrite.</simpara>
+<simpara>You might get a warning that the Financials/Schemas already exists. Choose Yes to overwrite.</simpara>
 </section>
 <section xml:id="_examine_the_data_dictionary">
 <title>Examine the Data Dictionary</title>
@@ -1716,13 +1743,12 @@ Go through this exercise with every column in the Customer table choosing the ap
 <textobject><phrase>5.3 select datatype2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Perform the same process for the other tables (Account, AccountHoldings) in the EU_Customers_EDL model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view.
-Note: however when you save your changes the following warnings appear in the Transformation Editor:
+<simpara>Perform the same process for the other tables (ACCOUNT, ACCOUNTHOLDINGS) in the EU_Customers_EDL model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view. Note however when you save your changes the following warnings appear in the Transformation Editor:
 The SELECT transformation is valid, but NOT fully reconciled:
 The transformation output types do not match the target attribute types.
 This is because some of the enterprise datatypes we have chosen do not match the underlying format of the source data (AccountID, for example we are defining as a long, but it is a bigdecimal in the source).
 To address these type mismatches we will open the Reconciler. This is done by clicking on the small icon just to the right of "Supports Update" in the Transformation Editor.</simpara>
-<simpara>Clicking on the Reconciler for Account brings up the following view.</simpara>
+<simpara>Clicking on the Reconciler for viewmodel ACCOUNT brings up the following figure.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1755,9 +1781,9 @@ Note that there are three different type mappings being handled here: bigdecimal
 <note>
 <simpara>The SQL has been re-written in the transformation to handle all the type conversions. Click <guibutton>OK</guibutton> on the Reconciler to finish the process and to return to the Transformation editor.</simpara>
 </note>
-<simpara>Now go back and perform the same steps with the accountholdings table.
+<simpara>Now go back and perform the same steps with the ACCOUNTHOLDINGS table.
 If we were worried about precision, we could take any number of steps to refine/modify the transformation including coding it by hand in the Transformation Editor, using one of the large set of out-of-the-box functions provided with the product, or by creating our own User-Defined function.</simpara>
-<simpara>When you are finished with the accountholdings table, it will look like the following.</simpara>
+<simpara>When you are finished with the ACCOUNTHOLDINGS table, it will look like the following.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1769,7 +1795,7 @@ If we were worried about precision, we could take any number of steps to refine/
 </section>
 <section xml:id="_create_the_us_customers_edl_enterprise_data_layer">
 <title>Create the US_Customers_EDL Enterprise Data Layer</title>
-<simpara>Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers model. Essentially we are going to use the EU_Customers_EDL model as a template for creating the US_Customers_EDL model, and then replace the sources of the transformations for each of the tables with the correct ones.
+<simpara>Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers_VBL model. We are going to use the EU_Customers_EDL model as a template for creating the US_Customers_EDL model, and then replace the sources of the transformations for each of the tables with the correct ones.
 Here is how to do it:
 Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>New</guimenu> <guimenuitem>Teiid Metadata Model</guimenuitem></menuchoice>. Fill in the wizard with the following fields (below) and click <guibutton>Next</guibutton>.</simpara>
 <informalfigure>
@@ -1789,7 +1815,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 newmodel2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Open the Transformation Editor on US_Customers_EDL.customer. See figure below.</simpara>
+<simpara>Open the Transformation Editor on US_Customers_EDL.CUSTOMER. See figure below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1798,7 +1824,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 newmodel3</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Note that the Source of the transformation is the EU_Customers_EDL.customer table. We want to replace that with the US_Customers_VBL.customer table. Right-click on the Source table and select <guimenu>Remove Transformation Source(s)</guimenu>.</simpara>
+<simpara>Note that the Source of the transformation is the EU_Customers_EDL.CUSTOMER table. We want to replace that with the US_Customers_VBL.CUSTOMER table. Right-click on the Source table and select <guimenu>Remove Transformation Source(s)</guimenu>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1825,7 +1851,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 teiiddesigner</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select the VirtualBaseLayer &#8594; US_Customers_VBL &#8594; customer table and drag &amp; drop the table in the Sources swim lane of the US_Customers_EDL window. This is highlighted in the illustration below.</simpara>
+<simpara>Select the VirtualBaseLayer &#8594; US_Customers_VBL &#8594; CUSTOMER table and drag &amp; drop the table in the Sources swim lane of the US_Customers_EDL window. This is highlighted in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1834,7 +1860,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 VBL</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>There will be an error on our current model, US_Customers_EDL. At this point, we need to add a source model. Simply drag the highlighted customer table indicated in the previous illustration to the sources column on the right-hand side. This will add this table from our VirtualBaseLayer to our US_Customers_EDL model.</simpara>
+<simpara>There will be an error on our current model, US_Customers_EDL. At this point, we need to add a source model. Simply drag the highlighted CUSTOMER table indicated in the previous illustration to the sources column on the right-hand side. This will add this table from our VirtualBaseLayer to our US_Customers_EDL model.</simpara>
 <simpara>As is indicated on the model, the transformation is valid but is not fully reconciled. Click on the reconciler to bring up the wizard. As you can see from the reconciler, we have a bit of work to do.</simpara>
 <informalfigure>
 <mediaobject>
@@ -1850,25 +1876,25 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <simpara>Assign (Bind) variables that do not automatically match. By selecting the source on the left and the target on the right, we can then bind each of the following:</simpara>
 <itemizedlist>
 <listitem>
-<simpara>ssn to customerid</simpara>
+<simpara>SSN to customerid</simpara>
 </listitem>
 <listitem>
-<simpara>middleinitial to middlename</simpara>
+<simpara>MIDDLEINITIAL to MIDDLENAME</simpara>
 </listitem>
 <listitem>
-<simpara>streetaddress1 to streetaddress</simpara>
+<simpara>STREETADDRESS1 to STREETADDRESS</simpara>
 </listitem>
 <listitem>
-<simpara>aptnumber to streetaddress2</simpara>
+<simpara>APTNUMBER to STREETADDRESS2</simpara>
 </listitem>
 <listitem>
-<simpara>state to stateprovince</simpara>
+<simpara>STATE to STATEPROVINCE</simpara>
 </listitem>
 <listitem>
-<simpara>zipcode to postalcode</simpara>
+<simpara>ZIPCODE to POSTALCODE</simpara>
 </listitem>
 <listitem>
-<simpara>phone to phonenumber (be sure to assign this on the left too and not map it to country!)</simpara>
+<simpara>PHONE to PHONENUMBER (be sure to assign this on the left too and not map it to country!)</simpara>
 </listitem>
 </itemizedlist>
 </listitem>
@@ -1876,7 +1902,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <simpara>When we are finished, we have one more step.</simpara>
 <orderedlist numeration="arabic" startingnumber="2">
 <listitem>
-<simpara>Create a (simple) function to assign a value to Country as it does not exist in the source. To do this we will open up the Expression Builder by clicking on the "f(x)" button. This is right under the "&lt; Null" button in the middle area of the wizard. Since all that is needed is a simple (static) assignment, the Expression Builder comes up with the following screen.</simpara>
+<simpara>Create a (simple) function to assign a value to COUNTRY as it does not exist in the source. To do this we will open up the Expression Builder by clicking on the "f(x)" button. This is right under the "&lt; Null" button in the middle area of the wizard. Since all that is needed is a simple (static) assignment, the Expression Builder comes up with the following screen.</simpara>
 </listitem>
 </orderedlist>
 <informalfigure>
@@ -1888,7 +1914,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 </mediaobject>
 </informalfigure>
 <simpara>All we need to do is type "USA" into the Value field, click <guibutton>Apply</guibutton>, then <guibutton>OK</guibutton>. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.</simpara>
-<simpara>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned.</simpara>
+<simpara>When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS COUNTRY) has been properly assigned.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1906,7 +1932,7 @@ Right-click on the EnterpriseDataLayer folder and select <menuchoice><guimenu>Ne
 <textobject><phrase>5.4 expression builder3</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Now perform the same process with the other two tables (account and accountholdings). Delete the EU_Customers_EDL.account &amp; EU_Customers_EDL.accountholdings source and drag &amp; drop the appropriate US_Customers_VBL.account &amp; US_Customers_VBL.accountholdings source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
+<simpara>Now perform the same process with the other two tables (ACCOUNT and ACCOUNT_HOLDINGS). Delete the EU_Customers_EDL.ACCOUNT, EU_Customers_EDL.ACCOUNTHOLDINGS source and drag &amp; drop the appropriate US_Customers_VBL.ACCOUNT, US_Customers_VBL.ACCOUNTHOLDINGS source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
 The Data Dictionary has also enterprise data types defined for Product data. Create a Products_EDL model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the Products_EDL model. Finally, reconcile any datatype conversion issues.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
@@ -1946,7 +1972,7 @@ Create a new Teiid Metadata Model in this folder called “All_Customers". Creat
 <textobject><phrase>6.1 newmodel2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Now, open up the Transformation Editor for All_Customers.customer. In the Model Explorer on the left, open up the FederatedDataLayer &#8594; All_Customers model and highlight the customer table as indicated in the illustration below.</simpara>
+<simpara>Click <guibutton>Finish</guibutton>. Now, open up the Transformation Editor for All_Customers.CUSTOMER. In the Model Explorer on the left, open up the FederatedDataLayer &#8594; All_Customers model and highlight the CUSTOMER table as indicated in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1955,8 +1981,8 @@ Create a new Teiid Metadata Model in this folder called “All_Customers". Creat
 <textobject><phrase>6.1 transformation editor</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select the customer table of the EU_Customers_EDL view model in the Transformation Editor.
-NOTE: Several new icons have been activated in the middle tool bar. Click on the fourth one down on the middle tool bar. If you hover your mouse over the label it reads "Add Union Transformation Source(s)". It is possible that you may have to click this button twice for the action to occur. This will add the customer table from US_Customers_EDL to the All_Customers model. Additionally, the "T" icon will now have a small "U" to the lower-right indicating that there is a union that is responsible for this transformation. Now, all that is required is to save the model. That is it! You now have a union of two tables from two separate databases. In order to view the result, be sure the customer table is highlighted in the Model Explorer under the FederatedDataLayer. This is indicated in the illustration below.</simpara>
+<simpara>Select the CUSTOMER table of the EU_Customers_EDL view model in the Transformation Editor.
+NOTE: Several new icons have been activated in the middle tool bar. Click on the fourth one down on the middle tool bar. If you hover your mouse over the label it reads "Add Union Transformation Source(s)". It is possible that you may have to click this button twice for the action to occur. This will add the customer table from US_Customers_EDL to the All_Customers model. Additionally, the "T" icon will now have a small "U" to the lower-right indicating that there is a union that is responsible for this transformation. Now, all that is required is to save the model. That is it! You now have a union of two tables from two separate databases. In order to view the result, be sure the CUSTOMER table is highlighted in the Model Explorer under the FederatedDataLayer. This is indicated in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -1965,8 +1991,8 @@ NOTE: Several new icons have been activated in the middle tool bar. Click on the
 <textobject><phrase>6.1 transformation editor2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>With the All_Customers.customer table highlighted in the Model Explorer, the "Running Man" icon is now enabled. This icon is located on the toolbar directly below the Model Explorer tab. Click on this icon to preview the data of the combined EU customer and US customer database tables. If for some reason this does not work, select the Preview Data Action on the right-hand side of JBDS that was utilized in earlier labs to preview the data.
-Now that the exercise for federating the customer table is complete, give it a try for the other two tables, account and accountholdings. Clearly, this is a simple example where we assume that the entries in the uscustomers database and the eucustomers database do not overlap. But, JBoss Data Virtualization is capable of very sophisticated modeling and transformations.</simpara>
+<simpara>With the All_Customers.CUSTOMER table highlighted in the Model Explorer, the "Running Man" icon is now enabled. This icon is located on the toolbar directly below the Model Explorer tab. Click on this icon to preview the data of the combined EU customer and US customer database tables. If for some reason this does not work, select the Preview Data Action on the right-hand side of JBDS that was utilized in earlier labs to preview the data.
+Now that the exercise for federating the CUSTOMER table is complete, give it a try for the other two tables, ACCOUNT and ACCOUNTHOLDINGS. Clearly, this is a simple example where we assume that the entries in the uscustomers database and the eucustomers database do not overlap. JDV is capable of very sophisticated modeling and transformations.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </chapter>
@@ -2030,7 +2056,7 @@ Now that the exercise for federating the customer table is complete, give it a t
 <textobject><phrase>7 Teiid designer</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>If not selected, be sure to click on the “getcustomer” operation as indicated below.</simpara>
+<simpara>If not selected, be sure to click on the “getCUSTOMER” operation as indicated below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2039,7 +2065,7 @@ Now that the exercise for federating the customer table is complete, give it a t
 <textobject><phrase>7 Teiid designer2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>With the getcustomer operation highlighted, click the “Running man icon with a diamond T”. This icon is located across the top of the All_Customers_WS.xmi view and to the right of the Operation Editor. Click this icon to bring up the following window.</simpara>
+<simpara>With the getCUSTOMER operation highlighted, click the “Running man icon with a diamond T”. This icon is located across the top of the All_Customers_WS.xmi view and to the right of the Operation Editor. Click this icon to bring up the following window.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2048,7 +2074,16 @@ Now that the exercise for federating the customer table is complete, give it a t
 <textobject><phrase>7 preview data</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>When initially opened, the customerid : CustomerID field will be blank. Enter in the value "CST01033". Then, click <guibutton>OK</guibutton>.</simpara>
+<simpara>When initially opened, the customerid : CustomerID field will be blank. Enter in the value "CST01033". Then, click <guibutton>OK</guibutton> and the Custom Preview Data dialog appears to customize the SQL Query if necessary.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/7-preview-data2.png"/>
+</imageobject>
+<textobject><phrase>7 preview data2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Click <guibutton>OK</guibutton>.</simpara>
 <simpara>Upon inspection of the Result1 tab reveals the XML output of the Web Service invocation as indicated below.</simpara>
 <programlisting language="xml" linenumbering="unnumbered">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;account_Output:customer_Output 		xmlns:account_Output="http://www.metamatrix.com/account_Output" 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
@@ -2146,9 +2181,9 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </informalfigure>
 <simpara>Be sure to "Save All" to save all of the changes to the VDB.</simpara>
 </section>
-<section xml:id="_create_data_sources_on_the_jboss_data_virtualization_server">
-<title>Create data sources on the JBoss Data Virtualization server</title>
-<simpara>There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JBoss Data Virtualization server&#8217;s deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are EU_Customers and US_Customers and are derived automatically from the Source model name. This column is visible in the illustration below.</simpara>
+<section xml:id="_create_data_sources_in_the_jdv_server">
+<title>Create data sources in the JDV server</title>
+<simpara>There is one thing we need to do before we deploy the VDB to the server. We need to install the data sources into the JDV server&#8217;s deploy directory. This can be done in a number of ways. If we have the DataSource-ds.xml file we can simply drop it into the deploy directory. Note however that the JNDI name that the VDB expects must match. The JNDI name the VDB expects is in a column named JNDI Name. For this example, the JNDI names are Products_DS, MarketData_DS, EU_Customers_DS and US_Customers_DS and are derived automatically from the Source model name. This column is visible in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2157,7 +2192,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 <textobject><phrase>8.2 Teiid Designer</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called JBoss Data Virtualization 6.2. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below.</simpara>
+<simpara>We can also use Teiid Designer to pass the data source information that we captured in our model on to the Server. Not doing this automatically is an intentional security feature. To begin creating the required data sources, we need to ensure that the Teiid Panel is open. The panel is located in the Teiid tab along the bottom portion of JBDS. In fact, this is a "view" into the Teiid Instance that we created a connection to in an earlier lab. In the Teiid tab, there will be a top-level folder called Red Hat JBoss Data Virtualization 6.3.0. Again, this name will be the name that you used in an earlier lab when we were connecting to this instance. Below the top-level folder, there are two additional folders, Data Sources and VDBs. The view of this tab can be seen in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2193,7 +2228,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 <textobject><phrase>8.2 VDB Create DataSource</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>After the VDB is deployed one can check the Data Sources in the Server tab of JBDS, see below.</simpara>
+<simpara>Click <guibutton>Create Source</guibutton> to create a data source for the Financials VDB. After the VDB is deployed one can check the Data Sources in the Server tab of JBDS, see below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2202,7 +2237,6 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 <textobject><phrase>8.2 DS view</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click <guibutton>Create Source</guibutton> to create a data source for the Financials VDB.</simpara>
 <simpara>Now the deployment of the VDB will begin in the running Teiid Server instance. Now, open up a browser and point it to <link xl:href="http://localhost:8080">http://localhost:8080</link>. This will open the console for administrative services for the JBoss Data Virtualization server. Click on "Administration Console". This is displayed in the illustration below.</simpara>
 <informalfigure>
 <mediaobject>
@@ -2225,7 +2259,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </section>
 <section xml:id="_dependency_diagrams">
 <title>Dependency Diagrams</title>
-<simpara>There is a very useful feature for modeling in the Teiid Designer. Right-click on the All_Customers.customer table and select Modeling → Show Dependency Diagram.</simpara>
+<simpara>There is a very useful feature for modeling in the Teiid Designer. Right-click on the All_Customers.CUSTOMER table and select Modeling → Show Dependency Diagram.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2235,7 +2269,7 @@ To illustrate this, uncheck the boxes in the second column (annotated with the m
 </mediaobject>
 </informalfigure>
 <simpara>Then, choose the Outline view. This is the tab that is right next to the Model Explorer tab in the left-hand pane of JBDS. If the Outline View is not visible, simply enable it by going to <menuchoice><guimenu>Window</guimenu> <guisubmenu>Show View</guisubmenu> <guimenuitem>Outline</guimenuitem></menuchoice>. Finally, select the <guibutton>Show Diagram Overview</guibutton> button.
-This is the button located right under the Outline tab. You should see something like the following illustration.</simpara>
+This is the button located right under the Outline tab. You should see something similar like the following illustration.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2307,8 +2341,7 @@ The Import dialog box is opened.</simpara>
 <textobject><phrase>10.2 new connection profile</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Type CountryInfo in the Name field and click the <guibutton>Next &gt;</guibutton> button.
-The New Connection Profile dialog box opens.</simpara>
+<simpara>Type CountryInfo in the Name field and click the <guibutton>Next &gt;</guibutton> button. The New Connection Profile dialog box opens.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2369,8 +2402,7 @@ The WSDL URL dialog box opens.</simpara>
 </mediaobject>
 </informalfigure>
 <simpara>The Summary window will appear. Click <guibutton>Finish</guibutton> to go the Source and WSDL Operations Definition.</simpara>
-<simpara>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures.
-Click on the <guibutton>Deselect All</guibutton> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select.</simpara>
+<simpara>The connection to the WSDL will return the WSDL Operations that are available. This first page involves defining your WSDL source connection profile. Select port (if multiple available), service mode (PAYLOAD vs MESSAGE) and check the operations you wish to use to generate your queryable relational procedures. Click on the <guibutton>Deselect All</guibutton> button to deselect all of the WSDL Operations. Click on the Operations: CountryName and the FullCountryInfo, to select.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2389,11 +2421,8 @@ Click on the <guibutton>Deselect All</guibutton> button to deselect all of the W
 <textobject><phrase>10.3 select wsdl operations2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select the DataSources folder for the generated source model and VirtualBaseLayer folder for the generated view model and rename the view model to CountryInfo_VBL.
-Choose User-specified Procedures and click the <guibutton>Next &gt;</guibutton> button.</simpara>
-<simpara>In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
-In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
-Select the Operation from the Operations pull-down (CountryInfo and FullCountryInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</simpara>
+<simpara>Select the DataSources folder for the generated source model and VirtualBaseLayer folder for the generated view model and rename the view model to CountryInfo_VBL. Click the <guibutton>Next &gt;</guibutton> button and the Data Source Defintion Options dialog window pops up.
+Change the JNDI Name CountryInfoService_DS and click the <guibutton>Next &gt;</guibutton> button.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2402,12 +2431,33 @@ Select the Operation from the Operations pull-down (CountryInfo and FullCountryI
 <textobject><phrase>10.3 select wsdl operations3</phrase></textobject>
 </mediaobject>
 </informalfigure>
+<simpara>The Operations Type Selection dialog appears, see below.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
 <imagedata fileref="images/10.3-select-wsdl-operations4.png"/>
 </imageobject>
 <textobject><phrase>10.3 select wsdl operations4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Choose User-specified Procedures and click the <guibutton>Next &gt;</guibutton> button.</simpara>
+<simpara>In the next few steps add in the Element Info for both the CountryInfo and FullCountryInfo operations. Use the Operations combo selector at the top to switch between the operations.
+In the Request tab, select and double-click the schema elements you wish to set as input parameters for your request. These will be added to the Element Info panel and the resulting generated SQL statement will be updated to reflect the new element. If the selected service mode for this procedure is set to MESSAGE, the HEADER tab will be enabled and allow you to define the SOAP header variables utilizing the same schema tree.
+Select the Operation from the Operations pull-down (CountryInfo and FullCountryInfo). Add in the Schema Contents element by selecting the element in the left-hand side and clicking the Add button on the right-hand side. Repeat these actions for both the Request and Response tabs. See image below for further clarification.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations5.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations5</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/10.3-select-wsdl-operations6.png"/>
+</imageobject>
+<textobject><phrase>10.3 select wsdl operations6</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <informalfigure>
@@ -2442,12 +2492,6 @@ Select the Operation from the Operations pull-down (CountryInfo and FullCountryI
 <textobject><phrase>10.3 select wsdl operations10</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<note>
-<simpara>This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer&#8217;s legacy create and extract procedures choose the Legacy Procedures option in the lower section and click <guibutton>Finish</guibutton>.</simpara>
-</note>
-<simpara>Click on the <guibutton>Finish</guibutton> button.
-A status screen is displayed while the models are being created.
-The models will appear in the Model Explorer and will be open in the right-hand pane.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2456,6 +2500,11 @@ The models will appear in the Model Explorer and will be open in the right-hand 
 <textobject><phrase>10.3 select wsdl operations11</phrase></textobject>
 </mediaobject>
 </informalfigure>
+<note>
+<simpara>This wizard generates both request and response procedures that are used in the query-able wrapped procedure. If you wish to generate Designer&#8217;s legacy create and extract procedures choose the Legacy Procedures option in the lower section and click <guibutton>Finish</guibutton>.</simpara>
+</note>
+<simpara>Click on the <guibutton>Finish</guibutton> button. A status screen is displayed while the models are being created.
+The models will appear in the Model Explorer and will be open in the right-hand pane.</simpara>
 <simpara>Click the <guibutton>Save All</guibutton> button to save your models.</simpara>
 <simpara>Double-click on the CountryName procedure to open the transformation view for the procedure.</simpara>
 <informalfigure>
@@ -2475,7 +2524,7 @@ The models will appear in the Model Explorer and will be open in the right-hand 
 <textobject><phrase>10.3 preview data iso</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Enter in a country code, such as AU for Australia, to retrieve the data.</simpara>
+<simpara>Enter in a country code, such as AU for Australia, to retrieve the data. The Custom Preview Data dialog appears to customize the SQL Query if necessary.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2484,8 +2533,7 @@ The models will appear in the Model Explorer and will be open in the right-hand 
 <textobject><phrase>10.3 preview data iso2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click the <guibutton>OK</guibutton> button.
-View the SQL Status and Result1 tab to see the results returned from the procedure.</simpara>
+<simpara>Click the <guibutton>OK</guibutton> button. View the SQL Status and Result1 tab to see the results returned from the procedure.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2596,13 +2644,13 @@ Type in the New View Procedure Name field: GreetProcedure</simpara>
 <textobject><phrase>10.2 import rest9</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Click the Running man icon in the Transformation Editor pane.</simpara>
+<simpara>Click the Running man icon in the Transformation Editor pane. The Custom Preview Data dialog appear to customize the SQL Query.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-import-rest10.png"/>
+<imagedata fileref="images/10.2-import-rest9a.png"/>
 </imageobject>
-<textobject><phrase>10.2 import rest10</phrase></textobject>
+<textobject><phrase>10.2 import rest9a</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Click <guibutton>Ok</guibutton> to run the virtual procedure in the HelloWorld_VBL view model to get the results.
@@ -2610,9 +2658,9 @@ You should a similar screen as shown below:</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/10.2-import-rest12.png"/>
+<imagedata fileref="images/10.2-import-rest10.png"/>
 </imageobject>
-<textobject><phrase>10.2 import rest12</phrase></textobject>
+<textobject><phrase>10.2 import rest10</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Save and close the models.</simpara>
@@ -2625,7 +2673,7 @@ You should a similar screen as shown below:</simpara>
 <title>JDBC</title>
 <simpara>Java Database Connectivity (JDBC) is an application to database connectivity tool. This Application Program Interface (API) enables communication between applications written in Java and data stored in databases providing methods for data querying and updating.
 JDBC is very similar to Open Database Connectivity (ODBC).</simpara>
-<simpara>JBoss Data Virtualization provides an API that builds on Java Database Connectivity (JDBC), allowing client applications to issue SQL queries against deployed virtual databases (VDBs).</simpara>
+<simpara>Red Hat JBoss Data Virtualization (JDV) provides an API that builds on Java Database Connectivity (JDBC), allowing client applications to issue SQL queries against deployed virtual databases (VDBs).</simpara>
 <simpara>URLs used when establishing a connection using the driver class have the following format:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">jdbc:teiid:VDB-NAME@mm[s]://HOSTNAME:PORT;[prop-name=prop-value;]*</programlisting>
 <informaltable frame="all" rowsep="1" colsep="1">
@@ -2670,55 +2718,45 @@ JDBC is very similar to Open Database Connectivity (ODBC).</simpara>
 </section>
 <section xml:id="_how_to_access_the_data">
 <title>How to access the data</title>
-<simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the JDBC protocol support is provided by the JBoss Data Virtualization server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.7.1.6_2-redhat-6-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.</simpara>
+<simpara>When you have successfully deployed the Financials VDB into the JDV server, the JDBC protocol support is provided by the JDV server by using the Teiid JDBC driver. The Teiid JDBC driver which resided in teiid-8.12.5.redhat-8-jdbc.jar can be found in $EAP_HOME/dataVirtualization/jdbc directory.</simpara>
 <simpara>The Teiid JDBC driver can be used in JDBC client tools like <link xl:href="http://squirrel-sql.sourceforge.net/">Squirrel</link> or <link xl:href="https://www.dbvis.com/">DBVisualizer</link> etc..</simpara>
-<simpara>The following steps are used to setup the connection using the Teiid JDBC driver in DBVisualizer.</simpara>
-<simpara>Start DBVisualizer</simpara>
+<simpara>The following steps are used to setup the connection using the Teiid JDBC driver in Squirrel.</simpara>
+<simpara>Start Squirrel</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/demo-jdbc-dbv.png"/>
+<imagedata fileref="images/demo-jdbc1.png"/>
 </imageobject>
-<textobject><phrase>demo jdbc dbv</phrase></textobject>
+<textobject><phrase>demo jdbc1</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Select <menuchoice><guimenu>Tools</guimenu> <guimenuitem>Driver Manager&#8230;&#8203;</guimenuitem></menuchoice></simpara>
+<simpara>Select Drivers tab.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/demo-jdbc.dm.png"/>
+<imagedata fileref="images/demo-jdbc2.png"/>
 </imageobject>
-<textobject><phrase>demo jdbc.dm</phrase></textobject>
+<textobject><phrase>demo jdbc2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Create a new driver by clicking on Create a new driver button, <inlinemediaobject>
-<imageobject>
-<imagedata fileref="images/demo-jdbc-dbv-ad-button.png"/>
-</imageobject>
-<textobject><phrase>demo jdbc dbv ad button</phrase></textobject>
-</inlinemediaobject>.</simpara>
+<simpara>Create a new driver by clicking on <guibutton>+</guibutton>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/demo-jdbc-dbv-ad.png"/>
+<imagedata fileref="images/demo-jdbc3.png"/>
 </imageobject>
-<textobject><phrase>demo jdbc dbv ad</phrase></textobject>
+<textobject><phrase>demo jdbc3</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Close the Driver Manager windows.
-Since we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.</simpara>
-<simpara>Create a new database connection by clicking on Create a new database connection button, <inlinemediaobject>
-<imageobject>
-<imagedata fileref="images/demo-jdbc-dbv-dbc-button.png"/>
-</imageobject>
-<textobject><phrase>demo jdbc dbv dbc button</phrase></textobject>
-</inlinemediaobject> and select No Wizard.</simpara>
+<simpara>Close the Driver windowand click <guibutton>OK</guibutton>.
+Now we have setup the Teiid JDBC driver we can now create a database connection to the Financials VDB using the driver previously created.</simpara>
+<simpara>Select Aliases tab. Create a new database connection by clicking on Create a new alias by clicking on <guibutton>+</guibutton>.</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="images/demo-jdbc-dbv-dbc.png"/>
+<imagedata fileref="images/demo-jdbc4.png"/>
 </imageobject>
-<textobject><phrase>demo jdbc dbv dbc</phrase></textobject>
+<textobject><phrase>demo jdbc4</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Select the Teiid driver in the Driver list box and fill in the approriate settings for connecting to the Financials VDB as depicted in the screenshot above.
@@ -2733,11 +2771,11 @@ Try to connect and if the connection is successfully established you can run que
 </informalfigure>
 </section>
 </section>
-<section xml:id="_odata">
-<title>OData</title>
+<section xml:id="_odata_v2">
+<title>OData v2</title>
 <simpara>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
 OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
-For more information on OData see <link xl:href="http://www.odata.org">http://www.odata.org</link>.</simpara>
+For more information on OData v2 see <link xl:href="http://www.odata.org/documentation/odata-version-2-0/">http://www.odata.org/documentation/odata-version-2-0/</link>.</simpara>
 <section xml:id="_where_are_we_9">
 <title>Where are we?</title>
 <informalfigure>
@@ -2752,9 +2790,9 @@ For more information on OData see <link xl:href="http://www.odata.org">http://ww
 <section xml:id="_how_to_access_the_data_2">
 <title>How to access the data</title>
 <simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
-Now, open up a browser and point it to the following URL: <link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer">http://localhost:8080/odata/Financials.1/All_Customers.customer</link>.
+Now, open up a browser and point it to the following URL: <link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER">http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER</link>.
 If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as</simpara>
-<programlisting language="sql" linenumbering="unnumbered">SELECT * FROM All_Customers.customer;</programlisting>
+<programlisting language="sql" linenumbering="unnumbered">SELECT * FROM All_Customers.CUSTOMER;</programlisting>
 <simpara>The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</simpara>
 <informalfigure>
 <mediaobject>
@@ -2765,7 +2803,7 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </mediaobject>
 </informalfigure>
 <simpara>To return the results in JSON format use the following URL as shown below:
-<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json">http://localhost:8080/odata/Financials.1/All_Customers.customer?$format=json</link></simpara>
+<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER?$format=json">http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER?$format=json</link></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2777,10 +2815,10 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </section>
 <section xml:id="_how_to_query_the_data">
 <title>How to query the data</title>
-<simpara>To search for customer with customerid='CST01033' which is the SQL equivalent of</simpara>
-<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer WHERE customerid='CST01033';</programlisting>
+<simpara>To search for CUSTOMER with CUSTOMERID='CST01033' which is the SQL equivalent of</simpara>
+<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.CUSTOMER WHERE CUSTOMERID='CST01033';</programlisting>
 <simpara>use following URL and it should return the results shown below:
-<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'">http://localhost:8080/odata/Financials.1/All_Customers.customer('CST01033'</link>)</simpara>
+<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER('CST01033')?$format=json">http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER('CST01033')?$format=json</link></simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2791,9 +2829,9 @@ If you are requested to type in a username/password enter teiidUser/redhat1!. Th
 </informalfigure>
 <simpara>Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
 To search customers from the USA which is the SQL equivalent of</simpara>
-<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.customer WHERE country='USA';</programlisting>
+<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.CUSTOMER WHERE COUNTRY='USA';</programlisting>
 <simpara>use following URL and this should return the results as shown below.
-<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country">http://localhost:8080/odata/Financials.1/All_Customers.customer?$filter=country</link> eq 'USA'</simpara>
+<link xl:href="http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER?$filter=COUNTRY">http://localhost:8080/odata/Financials.1/All_Customers.CUSTOMER?$filter=COUNTRY</link> eq 'USA'&amp;$format=json</simpara>
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -2802,7 +2840,80 @@ To search customers from the USA which is the SQL equivalent of</simpara>
 <textobject><phrase>9.2 Query2</phrase></textobject>
 </mediaobject>
 </informalfigure>
-<simpara>Play around with the OData syntax.</simpara>
+<simpara>Play around with the OData v2 syntax.</simpara>
+</section>
+</section>
+<section xml:id="_odata_v4">
+<title>OData v4</title>
+<simpara>The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores. OData is used to expose and access information from a variety of sources including, but not limited to, relational databases, file systems, content management systems and traditional Web sites.
+OData is consistent with the way the Web works, it makes a deep commitment to URIs for resource identification and commits to an HTTP-based, uniform interface for interacting with those resources (just like the Web). This allows OData to enable a new level of data integration and interoperability across a broad range of clients, servers, services, and tools.
+For more information on OData v4 see <link xl:href="http://www.odata.org/documentation/">http://www.odata.org/documentation/</link>.</simpara>
+<note>
+<simpara>Starting with Red Hat JBoss Data Virtualization 6.3.0 OData v4 is supported.
+==== Where are we?</simpara>
+</note>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/demo-odata.png"/>
+</imageobject>
+<textobject><phrase>demo odata</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<section xml:id="_how_to_access_the_data_3">
+<title>How to access the data</title>
+<simpara>When you have successfully deployed the Financials VDB into the JBoss Data Virtualization server, the OData protocol support is implicitly provided by the JBoss Data Virtualization server without any further configuration.
+Now, open up a browser and point it to the following URL: <link xl:href="http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER">http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER</link>.
+If you are requested to type in a username/password enter teiidUser/redhat1!. This is similar to making a JDBC/ODBC connection and issuing a SQL call as</simpara>
+<programlisting language="sql" linenumbering="unnumbered">SELECT * FROM All_Customers.CUSTOMER;</programlisting>
+<simpara>The returned results from OData query can be in Atom/AtomPub XML format or JSON format. By default AtomPub based XML result is returned as shown below.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/9.3-OData.png"/>
+</imageobject>
+<textobject><phrase>9.3 OData</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>To return the results in JSON format use the following URL as shown below:
+<link xl:href="http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$format=json">http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$format=json</link></simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/9.3-OData-JSON.png"/>
+</imageobject>
+<textobject><phrase>9.3 OData JSON</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="_how_to_query_the_data_2">
+<title>How to query the data</title>
+<simpara>To search for CUSTOMER with CUSTOMERID='CST01033' which is the SQL equivalent of</simpara>
+<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.CUSTOMER WHERE CUSTOMERID='CST01033';</programlisting>
+<simpara>use following URL and it should return the results shown below:
+<link xl:href="http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER('CST01033')?$format=json">http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER('CST01033')?$format=json</link></simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/9.3-Query.png"/>
+</imageobject>
+<textobject><phrase>9.3 Query</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Another way to query the data is to use the OData filter system query option using $filter in the URL. The $filter system query option allows clients to filter the set of resources that are addressed by a request URL. $filter specifies conditions that MUST be met by a resource for it to be returned in the set of matching resources.
+To search customers from the USA which is the SQL equivalent of</simpara>
+<programlisting language="sql" linenumbering="unnumbered">SQL&gt; SELECT * FROM All_Customers.CUSTOMER WHERE COUNTRY='USA';</programlisting>
+<simpara>use following URL and this should return the results as shown below.
+<link xl:href="http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$filter=COUNTRY">http://localhost:8080/odata4/Financials.1/All_Customers/CUSTOMER?$filter=COUNTRY</link> eq 'USA'&amp;$format=json</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/9.3-Query2.png"/>
+</imageobject>
+<textobject><phrase>9.3 Query2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Play around with the OData v4 syntax.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
 </section>
@@ -3114,7 +3225,7 @@ After you have specified the query click <guibutton>Attempt data load</guibutton
 <simpara>"HTML Editor" in the CENTER_1 region</simpara>
 </listitem>
 </itemizedlist>
-<simpara>The HTML editor component provides the functionality (free HTML) o create a nice landing page in the dashboard.</simpara>
+<simpara>The HTML editor component provides the functionality (free HTML) to create a nice landing page in the dashboard.</simpara>
 <orderedlist numeration="arabic" startingnumber="7">
 <listitem>
 <simpara>Add KPI</simpara>
@@ -3130,9 +3241,10 @@ After you have specified the query click <guibutton>Attempt data load</guibutton
 </mediaobject>
 </informalfigure>
 <simpara>Select FinancialsData as the Data provider.
-Type a name in the KPI&#8217;s name field.
-Select Country for Domain aka X Axis.
-Select CustomerId for Range aka Y Axis.
+Type a name in the KPI&#8217;s name field i.e. #customers per country.
+Select country for Domain aka X Axis.
+Select customerid for Range aka Y Axis.
+Select NVD3 for Renderer.
 Select Value for Sort Interval By.
 Select Ascendant for Sort Order.</simpara>
 <informalfigure>
@@ -3141,6 +3253,14 @@ Select Ascendant for Sort Order.</simpara>
 <imagedata fileref="images/11.7-add-kpi2.png"/>
 </imageobject>
 <textobject><phrase>11.7 add kpi2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/11.7-dashboard.png"/>
+</imageobject>
+<textobject><phrase>11.7 dashboard</phrase></textobject>
 </mediaobject>
 </informalfigure>
 <simpara>Now try to add some extra pages/panels yourself.</simpara>
@@ -3280,5 +3400,64 @@ Select the Financials Demo workspace as the active workspace. In the navigation 
 <simpara>Navigate through the dashboards and discover how it is setup. Dashboard Builder provides a very easy way to visualize your data.</simpara>
 <simpara>Congratulations, you have now completed this lab.</simpara>
 </section>
+</chapter>
+<chapter xml:id="_resources">
+<title>Resources</title>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33.3333*"/>
+<colspec colname="col_2" colwidth="33.3333*"/>
+<colspec colname="col_3" colwidth="33.3334*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Description</entry>
+<entry align="left" valign="top">Link</entry>
+<entry align="left" valign="top">Resource Type</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>JBoss Data Virtualization Get Started</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://developers.redhat.com/products/datavirt/get-started">http://developers.redhat.com/products/datavirt/get-started</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Website</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>JBoss Data Virtualization Documentation</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="https://access.redhat.com/documentation/en/red-hat-jboss-data-virtualization/">https://access.redhat.com/documentation/en/red-hat-jboss-data-virtualization/</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Website</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>JBoss Data Virtualization Download</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://developers.redhat.com/products/datavirt/download">http://developers.redhat.com/products/datavirt/download</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Website</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>JBoss Data Virtualization Support Configurations</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="https://access.redhat.com/articles/703663">https://access.redhat.com/articles/703663</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Website</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>JBoss Data Virtualization Component Details</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="https://access.redhat.com/articles/703673">https://access.redhat.com/articles/703673</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Website</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Teiid Blog</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="http://teiid.blogspot.com">http://teiid.blogspot.com</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Blog</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Designing a logical data warehouse</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="https://www.redhat.com/en/resources/designing-logical-data-warehouse-whitepaper">https://www.redhat.com/en/resources/designing-logical-data-warehouse-whitepaper</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Whitepaper</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>JBoss Data Virtualization Performance Study</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="https://www.redhat.com/en/resources/jboss-data-virtualization-query-performance-benchmark-study">https://www.redhat.com/en/resources/jboss-data-virtualization-query-performance-benchmark-study</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Whitepaper</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 </chapter>
 </book>

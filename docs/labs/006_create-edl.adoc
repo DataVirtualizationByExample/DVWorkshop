@@ -24,7 +24,7 @@ Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened 
 
 image::5.1-import-xsd3.png[]
 
-You may get a warning that the Financials/Schemas already exists. Choose yes to overwrite.
+You might get a warning that the Financials/Schemas already exists. Choose Yes to overwrite.
 
 === Examine the Data Dictionary
 
@@ -56,14 +56,13 @@ image::5.3-select-datatype.png[]
 
 image::5.3-select-datatype2.png[]
 
-Perform the same process for the other tables (Account, AccountHoldings) in the EU_Customers_EDL model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view.
-Note: however when you save your changes the following warnings appear in the Transformation Editor:
+Perform the same process for the other tables (ACCOUNT, ACCOUNTHOLDINGS) in the EU_Customers_EDL model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view. Note however when you save your changes the following warnings appear in the Transformation Editor:
 The SELECT transformation is valid, but NOT fully reconciled:
 The transformation output types do not match the target attribute types.
 This is because some of the enterprise datatypes we have chosen do not match the underlying format of the source data (AccountID, for example we are defining as a long, but it is a bigdecimal in the source).
 To address these type mismatches we will open the Reconciler. This is done by clicking on the small icon just to the right of "Supports Update" in the Transformation Editor. 
 
-Clicking on the Reconciler for Account brings up the following view.
+Clicking on the Reconciler for viewmodel ACCOUNT brings up the following figure.
 
 image::5.3-reconciler.png[]
 
@@ -78,15 +77,15 @@ image::5.3-reconciler2a.png[]
 
 NOTE: The SQL has been re-written in the transformation to handle all the type conversions. Click btn:[OK] on the Reconciler to finish the process and to return to the Transformation editor.
 
-Now go back and perform the same steps with the accountholdings table.
+Now go back and perform the same steps with the ACCOUNTHOLDINGS table.
 If we were worried about precision, we could take any number of steps to refine/modify the transformation including coding it by hand in the Transformation Editor, using one of the large set of out-of-the-box functions provided with the product, or by creating our own User-Defined function. 
 
-When you are finished with the accountholdings table, it will look like the following.
+When you are finished with the ACCOUNTHOLDINGS table, it will look like the following.
 
 image::5.3-reconciler3.png[]
 
 === Create the US_Customers_EDL Enterprise Data Layer
-Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers model. Essentially we are going to use the EU_Customers_EDL model as a template for creating the US_Customers_EDL model, and then replace the sources of the transformations for each of the tables with the correct ones. 
+Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers_VBL model. We are going to use the EU_Customers_EDL model as a template for creating the US_Customers_EDL model, and then replace the sources of the transformations for each of the tables with the correct ones. 
 Here is how to do it:
 Right-click on the EnterpriseDataLayer folder and select menu:New[Teiid Metadata Model]. Fill in the wizard with the following fields (below) and click btn:[Next].
 
@@ -96,11 +95,11 @@ In the “New Model Wizard” window choose the EU_Customers_EDL.xmi model in th
 
 image::5.4-newmodel2.png[]
 
-Open the Transformation Editor on US_Customers_EDL.customer. See figure below.
+Open the Transformation Editor on US_Customers_EDL.CUSTOMER. See figure below.
 
 image::5.4-newmodel3.png[]
 
-Note that the Source of the transformation is the EU_Customers_EDL.customer table. We want to replace that with the US_Customers_VBL.customer table. Right-click on the Source table and select menu:Remove Transformation Source(s)[].
+Note that the Source of the transformation is the EU_Customers_EDL.CUSTOMER table. We want to replace that with the US_Customers_VBL.CUSTOMER table. Right-click on the Source table and select menu:Remove Transformation Source(s)[].
 
 image::5.4-removetransformsrc.png[]
 
@@ -112,11 +111,11 @@ Click btn:[OK]. The following illustration indicates what your view in Teiid Des
 
 image::5.4-teiiddesigner.png[]
 
-Select the VirtualBaseLayer -> US_Customers_VBL -> customer table and drag & drop the table in the Sources swim lane of the US_Customers_EDL window. This is highlighted in the illustration below.
+Select the VirtualBaseLayer -> US_Customers_VBL -> CUSTOMER table and drag & drop the table in the Sources swim lane of the US_Customers_EDL window. This is highlighted in the illustration below.
 
 image::5.4-VBL.png[]
 
-There will be an error on our current model, US_Customers_EDL. At this point, we need to add a source model. Simply drag the highlighted customer table indicated in the previous illustration to the sources column on the right-hand side. This will add this table from our VirtualBaseLayer to our US_Customers_EDL model.
+There will be an error on our current model, US_Customers_EDL. At this point, we need to add a source model. Simply drag the highlighted CUSTOMER table indicated in the previous illustration to the sources column on the right-hand side. This will add this table from our VirtualBaseLayer to our US_Customers_EDL model.
 
 As is indicated on the model, the transformation is valid but is not fully reconciled. Click on the reconciler to bring up the wizard. As you can see from the reconciler, we have a bit of work to do.
 
@@ -126,23 +125,23 @@ There are two things that we need to do in order to fix this transformation.
 
 . Assign (Bind) variables that do not automatically match. By selecting the source on the left and the target on the right, we can then bind each of the following:
 
-* ssn to customerid
-* middleinitial to middlename
-* streetaddress1 to streetaddress
-* aptnumber to streetaddress2
-* state to stateprovince
-* zipcode to postalcode
-* phone to phonenumber (be sure to assign this on the left too and not map it to country!)
+* SSN to customerid
+* MIDDLEINITIAL to MIDDLENAME
+* STREETADDRESS1 to STREETADDRESS
+* APTNUMBER to STREETADDRESS2
+* STATE to STATEPROVINCE
+* ZIPCODE to POSTALCODE
+* PHONE to PHONENUMBER (be sure to assign this on the left too and not map it to country!)
 
 When we are finished, we have one more step.
 [start=2]
-. Create a (simple) function to assign a value to Country as it does not exist in the source. To do this we will open up the Expression Builder by clicking on the "f(x)" button. This is right under the "< Null" button in the middle area of the wizard. Since all that is needed is a simple (static) assignment, the Expression Builder comes up with the following screen.
+. Create a (simple) function to assign a value to COUNTRY as it does not exist in the source. To do this we will open up the Expression Builder by clicking on the "f(x)" button. This is right under the "< Null" button in the middle area of the wizard. Since all that is needed is a simple (static) assignment, the Expression Builder comes up with the following screen.
 
 image::5.4-expression-builder.png[]
 
 All we need to do is type "USA" into the Value field, click btn:[Apply], then btn:[OK]. However, while you are in the Expression Builder, you may want to select the Function radio button to check out the many out-of-the-box functions and operations that ship with JBoss Data Virtualization. When you are finished, be sure to set it back to Constant and complete the instructions as outlined above.
 
-When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS Country) has been properly assigned. 
+When the Expression Builder exits back into the Reconciler, you will notice that the function ('USA' AS COUNTRY) has been properly assigned. 
 
 image::5.4-expression-builder2.png[]
 
@@ -150,7 +149,7 @@ Click btn:[OK] in the Reconciler and save your changes.
 
 image::5.4-expression-builder3.png[]
 
-Now perform the same process with the other two tables (account and accountholdings). Delete the EU_Customers_EDL.account & EU_Customers_EDL.accountholdings source and drag & drop the appropriate US_Customers_VBL.account & US_Customers_VBL.accountholdings source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
+Now perform the same process with the other two tables (ACCOUNT and ACCOUNT_HOLDINGS). Delete the EU_Customers_EDL.ACCOUNT, EU_Customers_EDL.ACCOUNTHOLDINGS source and drag & drop the appropriate US_Customers_VBL.ACCOUNT, US_Customers_VBL.ACCOUNTHOLDINGS source model and perform any necessary reconciliations. Again, you can go through the required steps to Preview data that was outlined in an earlier lab.
 The Data Dictionary has also enterprise data types defined for Product data. Create a Products_EDL model in the EnterpriseDataLayer folder, source it from the Products_VBL model, and correct the datatypes in the Products_EDL model. Finally, reconcile any datatype conversion issues.
 
 Congratulations, you have now completed this lab.

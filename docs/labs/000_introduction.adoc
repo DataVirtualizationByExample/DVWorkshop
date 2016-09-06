@@ -2,7 +2,7 @@
 :imagesdir: images
 
 == Introduction
-Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
+Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
 
 .	Connect: Access data from multiple, heterogeneous data sources. 
 .	Compose: Create reusable, business-friendly logical data models and views by combining and transforming data. 
@@ -10,19 +10,19 @@ Red Hat JBoss Data Virtualization, formerly known as Red Hat JBoss Enterprise Da
 
 image::0.1-DV-Architecture.png[]
 
-Red Hat JBoss Data Virtualization (DV) includes:
+JDV includes:
 
-* Tools for creating data views that are accessible through standard protocols. For those who are already familiar with Red Hat JBoss Data Virtualization one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).
-* A robust runtime environment that provides enterprise-class performance, data integrity, and security (the Red Hat JBoss Data Virtualization Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).
+* Tools for creating data views that are accessible through standard protocols. For those who are already familiar with JDV one of the tools is the Teiid Designer plug-in for Red Hat JBoss Developer Studio (JBDS).
+* A robust runtime environment that provides enterprise-class performance, data integrity, and security (the JDV Server, which executes as a process within the Red Hat JBoss Enterprise Application Platform (EAP)).
 * A repository for storing metadata (ModeShape)
 
-Red Hat JBoss Data Virtualization is based on the following community projects:
+JDV is based on the following community projects:
 
 * Teiid (http://www.jboss.org/teiid)
 * Teiid Designer (http://www.jboss.org/teiiddesigner)
 * ModeShape (http://www.jboss.org/modeshape)
 
-The figure below depicts the architectural overview of Red Hat JBoss Data Virtualization:
+The figure below depicts the architectural overview of JDV:
 
 image::0.2-DV-Server.png[]
 
@@ -32,7 +32,7 @@ image::0.2-DV-Server.png[]
 |Description
 
 |Query Engine
-|The heart of Red Hat JBoss Data Virtualization Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined 
+|The heart of JDV Server is a high-performance query engine that processes relational, XML, XQuery and procedural queries from federated datasources. Features include support for homogeneous schemas, heterogeneous schemas, transactions, and user defined 
 
 |Embedded
 |An easy-to-use JDBC Driver that can embed the Query Engine in any Java application.
@@ -41,15 +41,15 @@ image::0.2-DV-Server.png[]
 |An enterprise ready, scalable, manageable, runtime for the Query Engine that runs inside JBoss EAP that provides additional security, fault-tolerance, and administrative features.
 
 |Connectors
-|Red Hat JBoss Data Virtualization Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. 
+|JDV Server includes a rich set of Translators and Resource Adapters that enable access to a variety of sources, including most relational databases, web services, text files, and ldap. 
 
 Need data from a different source? Custom translators and resource adaptors can easily be developed.
 
 |Tools
-|Red Hat JBoss Data Virtualization Server includes development and administration tools to
+|JDV Server includes development and administration tools to
 
 * Create - Use Teiid Designer to define virtual databases containing views, procedures or even dynamic XML documents. 
-* Monitor & Manage - Use the Management Console with  JBoss EAP or use the JBoss Data Virtualization JBoss Operations Network (JON) plugin to control any number of servers. 
+* Monitor & Manage - Use the Management Console with  JBoss EAP or use the JDV JBoss Operations Network (JON) plugin to control any number of servers. 
 * Script - Use the AdminShell to automate administrative and testing tasks. 
 |===
 
@@ -67,20 +67,22 @@ Please make sure that the following software is installed and configured:
 * PostgreSQL server, MariaDB server or MySQL server
 * If you are using a remote database the PostgreSQL, MariaDB or MySQL client tools should be used.
 
-NOTE: Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JBoss DV environment by default as part of JBoss EAP for you convenience.
+More information on the JDV prerequisites can be be found in the https://access.redhat.com/documentation/en/red-hat-jboss-data-virtualization/6.3/single/getting-started-guide/#prerequisites[Red Hat JBoss Data Virtualization documentation].
 
-=== Setup demo environment
+NOTE: Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JDV environment by default as part of JBoss EAP for you convenience.
+
+=== Setup demo database environment (OPTIONAL)
 In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
 
 TIP: Use the database you prefer, it's not required to install one of the databases. By default we will use the H2 embedded database.
 
-==== Setup PostgreSQL (Optional)
+==== Setup PostgreSQL
 Installation
 
 The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://www.postgresql.org/download/ for more information and downloads.
 Post-install steps:
 [start=1]
-. If *nix or MacOSX switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
+. If *nix or Mac OS X switch to user postgres or other OS user who is able to use psql command to connect to the PostgreSQL database.
 [source,bash]
 ----
 $ su postgres
@@ -96,7 +98,7 @@ $ psql -a -f financials-psql.sql
 [source,bash]
 ----
 $ psql
-psql (9.3.4, server 9.0.13)
+psql (9.4.4, server 9.4.9)
 Type "help" for help.
 
 postgres=# \l
@@ -118,10 +120,12 @@ postgres=# \l
 
 postgres=# \q
 ----
-==== Setup MariaDB (Optional)
+==== Setup MariaDB 
 Installation
 
-The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads. Note: there's no binary package available for Mac OsX users, but it is possible to install MariaDB using the homebrew package described on this page https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/
+The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads. 
+
+NOTE: there is no binary package available for Mac OS X users, but it is possible to install MariaDB using the homebrew package described on this page https://mariadb.com/kb/en/mariadb/building-mariadb-on-mac-os-x-using-homebrew/
 
 Post-install steps
 [start=1]
@@ -163,14 +167,14 @@ mysql> exit
 Bye
 ----
 
-==== Setup MySQL (Optional)
+==== Setup MySQL
 Installation
 
 The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.
 
 Post-install steps
 [start=1]
-. If *nix or MacOSX go to the /usr/local/mysql directory and start mysqld_safe
+. If *nix or Mac OS X go to the /usr/local/mysql directory and start mysqld_safe
 [source,bash]
 ----
 $ cd /usr/local/mysql

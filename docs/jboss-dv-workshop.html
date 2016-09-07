@@ -2972,35 +2972,33 @@ Now that the exercise for federating the CUSTOMER table is complete, give it a t
 <img src="images/7-Teiid-designer.png" alt="7 Teiid designer">
 </div>
 </div>
-<div class="paragraph">
-<p>If not selected, be sure to click on the “getCUSTOMER” operation as indicated below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/7-Teiid-designer2.png" alt="7 Teiid designer2">
-</div>
-</div>
-<div class="paragraph">
-<p>With the getCUSTOMER operation highlighted, click the “Running man icon with a diamond T”. This icon is located across the top of the All_Customers_WS.xmi view and to the right of the Operation Editor. Click this icon to bring up the following window.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/7-preview-data.png" alt="7 preview data">
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Preview data on Web Services is not activated. Use tools like SoapUI to test SOAP/REST services.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>When initially opened, the customerid : CustomerID field will be blank. Enter in the value "CST01033". Then, click <b class="button">OK</b> and the Custom Preview Data dialog appears to customize the SQL Query if necessary.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/7-preview-data2.png" alt="7 preview data2">
-</div>
+<p>To validate the generated Web Service one have to create a SOAP war file first and deploy the generated SOAP war to the server.</p>
 </div>
 <div class="paragraph">
-<p>Click <b class="button">OK</b>.</p>
+<p>Right-click on the Financials VDB and select <span class="menuseq"><span class="menu">Modeling</span>&#160;&#9656; <span class="menuitem">Generate SOAP War</span></span></p>
 </div>
 <div class="paragraph">
-<p>Upon inspection of the Result1 tab reveals the XML output of the Web Service invocation as indicated below.</p>
+<p>Deploy the generated SOAP war file to $JDV_HOME/standalone/deployments
+The Web Service WSDL should be available <a href="http://localhost:8080/Financials/All_Customers_CUSTOMER?wsdl" class="bare">http://localhost:8080/Financials/All_Customers_CUSTOMER?wsdl</a></p>
+</div>
+<div class="paragraph">
+<p>Use i.e. SoapUI (<a href="http://www.soapui.org" class="bare">http://www.soapui.org</a>) to test the Web Service previously created.</p>
+</div>
+<div class="paragraph">
+<p>Upon inspection the XML output of the Web Service invocation should show similar results as indicated below.</p>
 </div>
 <div class="listingblock">
 <div class="content">

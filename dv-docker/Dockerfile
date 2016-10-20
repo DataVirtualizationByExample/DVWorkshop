@@ -5,16 +5,19 @@ FROM jboss/base-jdk:8
 ENV JDV_VERSION 6.3.0
 ENV JBOSS_HOME /opt/jboss/dv
 
-# Upload required software and unzip DV server
-COPY software/jboss-dv-$JDV_VERSION-installer.jar $HOME  
-COPY software/dv-6.3.0-install.xml $HOME 
+# Switch back to jboss user
+USER jboss
 
-RUN cd $HOME
-RUN java -jar /opt/jboss/jboss-dv-6.3.0-installer.jar /opt/jboss/dv-6.3.0-install.xml  
+RUN mkdir -p ${JBOSS_HOME}
+# Upload required software and unzip DV server
+COPY software/jboss-dv-${JDV_VERSION}-installer.jar ${HOME}  
+COPY software/dv-${JDV_VERSION}-install.xml ${HOME} 
+
+RUN java -jar ${HOME}/jboss-dv-${JDV_VERSION}-installer.jar ${HOME}/dv-${JDV_VERSION}-install.xml  
 # Remove required software binaries
-RUN rm $HOME/jboss-dv-$JDV_VERSION-installer.jar \
-    && rm $HOME/dv-$JDV_VERSION-install.xml \
-    && rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/current
+RUN rm $HOME/jboss-dv-${JDV_VERSION}-installer.jar \
+    && rm $HOME/dv-${JDV_VERSION}-install.xml \
+    && rm -rf ${JBOSS_HOME}/standalone/configuration/standalone_xml_history/current
 
 # Ensure signals are forwarded to the JVM process correctly for graceful shutdown
 ENV LAUNCH_JBOSS_IN_BACKGROUND true

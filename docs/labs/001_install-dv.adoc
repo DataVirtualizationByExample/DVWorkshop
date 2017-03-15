@@ -19,7 +19,7 @@ Run the installer using java at the command prompt:
 
 [source, bash]
 ----
-$ java -jar jboss-dv-6.3.0-installer-1.jar
+$ java -jar jboss-dv-6.3.0-1-installer.jar
 ----
 
 Follow the installer prompts to complete the installation process.

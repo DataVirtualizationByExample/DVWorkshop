@@ -7,25 +7,25 @@ In this lab, you will be utilizing the Teiid Designer and JBDS to create a Web s
 
 === Where are we?
 
-image::demo-ws.png[]
+image:demo-ws.png[]
 
 === Create a Web service
 To begin, right-click on the All_Customers.xmi model in the FederatedDataLayer folder and select option menu:Modeling[Create Web Service]. This is indicated in the illustration below.
 
-image::7-createws.png[]
-image::7-createwsmenuoption.png[]
+image:7-createws.png[]
+image:7-createwsmenuoption.png[]
 
 This will bring up the following wizard.
 
-image::7-createws2.png[]
+image:7-createws2.png[]
 
 In order to keep things organized, be sure to select “Browse” and select the WebServices folder we created in an earlier lab. This will drop all web service artifacts within this folder. Then, click btn:[Finish]. If the generation was successful, the following result will occur.
 
-image::7-generate-ws.png[]
+image:7-generate-ws.png[]
 
 The generated Web Service will open after clicking btn:[OK]. Your Teiid Designer view should resemble that below.
 
-image::7-Teiid-designer.png[]
+image:7-Teiid-designer.png[]
 
 NOTE: Preview data on Web Services is not activated. Use tools like SoapUI to test SOAP/REST services.
 

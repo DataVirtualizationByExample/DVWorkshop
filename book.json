@@ -1,0 +1,14 @@
+{
+    "root": "./docs",
+    "variables" : {
+        "versionNumber" : "6.3.0",
+        "fullVersionNumber": "6.3.0",
+        "asVersionNumber" :  "Red Hat JBoss EAP 6.4.9",
+        "asName" :  "Red Hat JBoss EAP",
+        "copyrightYear" :  "2017",
+        "copyrightHolder" :  "Red Hat, Inc.",
+        "javaVersionUrl" : "https://docs.oracle.com/javase/8",
+        "asDocRoot" : "https://access.redhat.com/documentation/en/red-hat-jboss-enterprise-application-platform/?version=6.4"
+    },
+    "plugins": ["collapsible-menu"]
+}

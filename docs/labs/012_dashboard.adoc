@@ -19,14 +19,14 @@ It features:
 
 === Where are we?
 
-image::demo-dashboard.png[]
+image:demo-dashboard.png[]
 
 === Dashboard Builder Workflow 
 
 We are creating a Financial Dashboard based on the models of the Federated Data Layer.
 The steps of creating a dashboard is described below:
 
-image::11-dashboard-flow.png[Dashboard flow]
+image:11-dashboard-flow.png[Dashboard flow]
 
 * First we need to define an external connection which can be either a flat file or a database
 * Next step is to create a data provider based on the external connection. The data provider contains the definition of the data to be displayed in the dashboard.
@@ -48,11 +48,11 @@ Go to a browser window and type in the following URL
 
 http://localhost:8080/dashboard and you should see the following screen:
 
-image::11.1-dashboard-login.png[Dashboard Builder login page]
+image:11.1-dashboard-login.png[Dashboard Builder login page]
 
 Login with username/password: dashboardAdmin/redhat1!
 
-image::11.2-dashboard.png[]
+image:11.2-dashboard.png[]
 
 By default we provide some sample dashboards in the dashboard. Have a look at these sample dashboards first before creating your own dashboard.
 
@@ -61,29 +61,29 @@ By default we provide some sample dashboards in the dashboard. Have a look at th
 
 First we are going to create an external connection to be able to get the Financial data into the dashboard.
 
-image::11.3-data-provider.png[]
+image:11.3-data-provider.png[]
 
 NOTE: Make sure that the Showcase workspace is the selected workspace. See top-left corner in picture above.
 
 Select the following menu option menu:Administration[External connections] and the following screen should appear.
 
-image::11.3-data-provider.connection.png[]
+image:11.3-data-provider.connection.png[]
 
 Now we have to add a new external connection. Click the btn:[+ Create new DataSource].
 
-image::11.3-data-provider.external-connection2.png[]
+image:11.3-data-provider.external-connection2.png[]
 
 Select JNDI as the type of the datasource and fill in the details of the Financials VDB as shown in the figure above.
 To verify the connection details of the datasource click btn:[Check DataSource]. This will try to connect using the provided connection details.
 If the connection is successfully made the following screen should appear:
 
-image::11.3-data-provider.external-connection3.png[]
+image:11.3-data-provider.external-connection3.png[]
 
 TIP: Make sure that the JNDI entry java:/Financials is configured in the JBoss EAP environment and make sure that the Financials VDB is deployed in order to connect successfully.
 
 Click btn:[Save] to save the external connection.
 
-image::11.3-data-provider.external-connection4.png[]
+image:11.3-data-provider.external-connection4.png[]
 
 
 [start=3]
@@ -91,20 +91,20 @@ image::11.3-data-provider.external-connection4.png[]
 
 Next step is to create a data provider based on the previous created external connection. Select menu:Administration[Data providers] and the following screen should appear.
 
-image::11.3-create-data-provider.png[]
+image:11.3-create-data-provider.png[]
 
 To create a new data provider select btn:[+ Create new data provider]. The following screen should appear:
 
-image::11.3-create-data-provider-query.png[]
+image:11.3-create-data-provider-query.png[]
 
 Enter a name for the data provider and select Financials as the Datasource. Furthermore you have to specify the query to get the relevant data from the Financials VDB.
 After you have specified the query click btn:[Attempt data load] to validate the query. If the query is executed successfully the following screen should appear.
 
-image::11.3-create-data-provider-query2.png[]
+image:11.3-create-data-provider-query2.png[]
 
 Click btn:[Save] to save the data provider definition. The following screen should appear. In this screen one can change the definition of the column names as required by the dashboard.
 
-image::11.3-create-data-provider-query3.png[]
+image:11.3-create-data-provider-query3.png[]
 
 Update the column names as necessary and click btn:[Save].
 
@@ -113,15 +113,15 @@ Update the column names as necessary and click btn:[Save].
 
 The top bar contains several button options to create the dashboard. The picture below explains the buttons in more detail.
 
-image::11-dashboard-menu.png[]
+image:11-dashboard-menu.png[]
 
 We are ready to create a Financials dashboard based on the Financials data we created in the previous labs.
 
-image::11.4-create-workspace.png[]
+image:11.4-create-workspace.png[]
 
 Click btn:[Create workspace] to create the Financials workspace.
 
-image::11.4-create-workspace-completed.png[]
+image:11.4-create-workspace-completed.png[]
 
 Now we have completed the creation of the workspace we can add pages to it to create a full functioning dashboard.
 
@@ -130,22 +130,22 @@ Now we have completed the creation of the workspace we can add pages to it to cr
 
 Now we are going to create our first page in the Financials workspace. 
 
-image::11.5-create-page.png[]
+image:11.5-create-page.png[]
 
 Use the settings as described above.
 
-image::11.5-create-page2.png[]
+image:11.5-create-page2.png[]
 
 Now that the page is successfully created we can add a panel to it.
 
 [start=6]
 . Add a panel
 
-image::11.6-add-panel.png[]
+image:11.6-add-panel.png[]
 
 Select component "Tree menu" in the Navigation option and drag and drop the Create panel to the LEFT_TOP region of the page. The page should look similar to the following screen: 
 
-image::11.6-add-panel2.png[]
+image:11.6-add-panel2.png[]
 
 Add other components in the same way in the page like: 
 
@@ -159,7 +159,7 @@ The HTML editor component provides the functionality (free HTML) to create a nic
 
 Select component Key Performance Indicator in the Dashboard option and drag and drop the Create panel to the CENTER_2 region. The page should look similar to the following screen:
 
-image::11.7-add-kpi.png[]
+image:11.7-add-kpi.png[]
 
 Select FinancialsData as the Data provider. 
 Type a name in the KPI's name field i.e. #customers per country.
@@ -169,9 +169,9 @@ Select NVD3 for Renderer.
 Select Value for Sort Interval By.
 Select Ascendant for Sort Order.
 
-image::11.7-add-kpi2.png[]
+image:11.7-add-kpi2.png[]
 
-image::11.7-dashboard.png[]
+image:11.7-dashboard.png[]
 
 
 Now try to add some extra pages/panels yourself.
@@ -185,23 +185,23 @@ Existing dashboards can exported/imported in Dashboard Builder. To showcase the 
 
 Go to the Showcase workspace as the active workspace. Select menu:Administration[Import and Export] and the following screen appears.
 
-image::11.8-import.png[]
+image:11.8-import.png[]
 
 Click the Export/Import Workspaces tab and the following screen should appear.
 
-image::11.8-import-ws.png[]
+image:11.8-import-ws.png[]
 
 Click the btn:[Choose file] in the Import region. Select the 2-WorkspaceFinancials.cex file in the DVWorkshop/dv-docker/demo/dashboard directory.
 
-image::11.8-import-ws2.png[]
+image:11.8-import-ws2.png[]
 
 Click btn:[Import]. In the next screen you get the Select objects to import step. Make sure WORKSPACE: 0 is selected.
 
-image::11.8-import-ws3.png[]
+image:11.8-import-ws3.png[]
 
 Click btn:[Import] in the Select objects to import region. The import of the workspace should be successful and the screen should look like the following.
 
-image::11.8-import-ws-finish.png[]
+image:11.8-import-ws-finish.png[]
 
 
 [start=2]
@@ -210,11 +210,11 @@ image::11.8-import-ws-finish.png[]
 Select the Showcase workspace as the active workspace. Select menu:Administration[Import and Export] and the following screen appears.
 Click the btn:[Choose file] in the Import dashboards region. Select the 3-CustomerReports.kpiex file in the DVWorkshop/dv-docker/demo/dashboard directory.
 
-image::11.8-import-dash1.png[]
+image:11.8-import-dash1.png[]
 
 Click btn:[Import]. The import of the dashboard should be successful and the screen should like the following.
 
-image::11.8-import-dash1a.png[]
+image:11.8-import-dash1a.png[]
 
 Repeat these steps for the other two dashboards: 
 
@@ -230,18 +230,18 @@ Select the Financials Demo workspace as the active workspace. In the navigation 
 [start=1]
 . Customer Reports
 
-image::11.8-show-custrep.png[]
+image:11.8-show-custrep.png[]
 
 
 [start=2]
 . Account Reports
 
-image::11.8-show-accrep.png[]
+image:11.8-show-accrep.png[]
 
 [start=3]
 . Account Holdings Reports
 
-image::11.8-show-acchrep.png[]
+image:11.8-show-acchrep.png[]
 
 Navigate through the dashboards and discover how it is setup. Dashboard Builder provides a very easy way to visualize your data. 
 

@@ -18,48 +18,48 @@ $ java -jar jboss-devstudio-9.1.0.GA-installer-eap.jar
 
 Follow the installer prompts to complete the installation process.
 
-image::2.1-JBDS-install.png[]
+image:2.1-JBDS-install.png[]
 
 When the Installer window opens, click btn:[Next].
 
-image::2.1-JBDS-install-eula.png[]
+image:2.1-JBDS-install-eula.png[]
 
 After reading and agreeing to the terms of the End User License Agreement, select I accept the terms of this license agreement and click btn:[Next].
 
-image::2.1-JBDS-install-target.png[]
+image:2.1-JBDS-install-target.png[]
 
 In the Select the installation path field, type the path where you want Red Hat JBoss Developer Studio to be installed or click Browse to navigate to the location. When the Select the installation path field shows the correct path, click btn:[Next]. 
 
-image::2.1-JBDS-install-target2.png[]
+image:2.1-JBDS-install-target2.png[]
 
 When you are prompted about the specified location being created or overwritten, review the message and, if satisfied, click btn:[OK] to proceed and click btn:[Next] to continue.
 
-image::2.1-JBDS-install-selectvm.png[]
+image:2.1-JBDS-install-selectvm.png[]
 
 In the Select Java VM step, Default Java VM is automatically selected. Ensure that the disabled text field contains the path of the Java developer kit you want to use. This is based on the default Java developer kit of your system. To change the specified Java developer kit, select Specific Java VM and type the path of the Java developer kit in the text field or use the Browse button to locate the Java developer kit. When the text field shows the correct Java developer kit path, click btn:[Next].
 
-image::2.1-JBDS-install-selectplatform.png[]
+image:2.1-JBDS-install-selectplatform.png[]
 
 In the Select Platforms and Servers step one can install Red Hat JBoss Enterprise Application Server which is included and add server to make use of automatic runtime detection for finding already installed application servers. Select No and skip the option for adding locations for now since we will add servers later. Click btn:[Next] to proceed.
 
-image::2.1-JBDS-install-review.png[]
+image:2.1-JBDS-install-review.png[]
 
 Review the details in the Summary Information window and, if they are correct, click btn:[Next]. The installation commences.
 
-image::2.1-JBDS-install-complete.png[]
+image:2.1-JBDS-install-complete.png[]
 
 When the installation progress bar shows Finished, click btn:[Next]. The installation process is now complete.
 
 To create shortcuts for starting JBoss Developer Studio, select the Create shortcuts in the Start-Menu and Create additional shortcut on the desktop check boxes and click btn:[Next].
 To automatically start JBoss Developer Studio when the Installer window closes, select the Run JBoss Developer Studio after installation check box. 
 
-image::2.1-JBDS-install-complete2.png[]
+image:2.1-JBDS-install-complete2.png[]
 
 Click btn:[Done] to close the Installer window.
 
 When the installation is completed, run JBDS 9.1.0. When JBDS starts, you are asked to choose the workspace folder for the session. The workspace is where your projects are stored.
 
-image::2.1-JBDS-install-workspace.png[]
+image:2.1-JBDS-install-workspace.png[]
 
 To set the workspace location, follow these steps:
 
@@ -74,19 +74,19 @@ Please upgrade to the latest patch version of Red Hat JBoss Developer Studio 9.1
 
 The easiest way to install the JBoss Data Virtualization Development option in Red Hat JBoss Developer Studio is to use Red Hat Central.
 
-image::2.1-JBDS-jboss-central.png[]
+image:2.1-JBDS-jboss-central.png[]
 
 Select menu:Help[Red Hat Central] if Red Hat Central isn't active. Click the tab Software/Update and select the JBoss Data Virtualization Development option and click btn:[Install].
 
-image::2.1-JBDS-add-new-software-review.png[]
+image:2.1-JBDS-add-new-software-review.png[]
 
 Review Install Details and click the btn:[Next >] button.
 
-image::2.1-JBDS-add-new-software-security.png[]
+image:2.1-JBDS-add-new-software-security.png[]
 
 The Security Warning window appears and click the btn:[OK] button to proceed.
 
-image::2.1-JBDS-install-restart.png[]
+image:2.1-JBDS-install-restart.png[]
 
 The Software Updates window appears. Press the btn:[Yes] button to restart Red Hat JBoss Developer Studio to apply the changes to take effect.
 
@@ -94,56 +94,56 @@ Now that you have JBoss Data Virtualization and JBoss Developer Studio successfu
 
 If the Servers pane is not already visible in JBoss Developer Studio, you can open it by menu:Window[Show View > Other > Server > Servers]. The Show View window is presented below.
 
-image::2.2-JBDS-servers.png[]
+image:2.2-JBDS-servers.png[]
 
 Now, click the btn:[OK] button. The Servers pane will now be visible in the lower portion of JBoss Developer Studio and is displayed below.
 
-image::2.2-JBDS.png[]
+image:2.2-JBDS.png[]
 
 Now, it is a matter of clicking through several screens to add the JBoss Data Virtualization server instance that was installed as part of Lab 1. Click the link “No servers are available. Click this link to create a new server...” and following window will appear:
 
-image::2.2-JBDS-add-server.png[]
+image:2.2-JBDS-add-server.png[]
 
 With the New Server wizard enabled, be sure you entries look like those above. Select JBoss Enterprise
 Middleware -> JBoss Enterprise Application Platform 6.1+ as the server type. You can keep the defaults that are selected or enter the values appropriate for your workstation. In this case, “localhost” is entered for Server’s host name and “Create Runtime Server” is entered for the Server name. Change the Server name into a meaningful name like "JBoss Data Virtualization 6.3.0". Click the btn:[Next] button.
 Next, the JBoss Runtime will need to be created. Essentially, this is selecting the “Home” directory for the JBoss Data Virtualization instance that was installed as part of Lab 1. The values to select are illustrated below.
 
-image::2.2-JBDS-setup-runtime.png[]
+image:2.2-JBDS-setup-runtime.png[]
 
 Click btn:[Next]. Select the “home” directory for the JBoss Data Virtualization instance. This will be <path to installed instance>/jboss-eap-6.4. Once this runtime is selected, the available configurations are available. To keep things simple, select the “default” profile. 
 
-image::2.2-JBDS-setup-runtime2.png[]
+image:2.2-JBDS-setup-runtime2.png[]
 
 Click btn:[Finish]. 
 
 The Servers pane will now have the available server available as indicated below.
 
-image::2.2-JBDS-servers-pane.png[]
+image:2.2-JBDS-servers-pane.png[]
 
 At this point, you can right-click on the server and there is a list of available options. Click menu:Start[] from the available options and the server will start up. 
 
-image::2.2-JBDS-menu-start.png[]
+image:2.2-JBDS-menu-start.png[]
 
-image::2.2-JBDS-menu-start2.png[] 
+image:2.2-JBDS-menu-start2.png[] 
 
 NOTE: If JBoss Data Virtualization Server is already started from the command line using standalone.sh or standalone.bat, JBoss Developer Studio will show a warning "Server already running on localhost", select option "Set the server adapter to 'started', without launching a new server."   
 
-image::2.2-JBDS-menu-started.png[]
+image:2.2-JBDS-menu-started.png[]
 
 === Open the Teiid Perspective
 To begin this exercise, launch JBDS (if it is not already open), and open the “Teiid Designer” perspective. This is because the JBoss perspective is the default perspective.
 To open the “Teiid Designer” perspective, first select menu:Window[Open Perspective > Other...] in order for the full list of perspectives to be displayed and the “Teiid Designer” perspective to be selectable.
 
-image::2.3-JBDS-perspective.png[]
+image:2.3-JBDS-perspective.png[]
 
 Select Teiid Designer from the perspective list as shown below.
 
-image::2.3-JBDS-Teiid-designer.png[]
+image:2.3-JBDS-Teiid-designer.png[]
 
 Click btn:[OK]. 
 This will bring you to a screen that looks like this:
 
-image::2.3-JBDS-Teiid-designer2.png[]
+image:2.3-JBDS-Teiid-designer2.png[]
 
 Connecting to a running Server instance is necessary to execute previews of the data services that we will create. In the Teiid Guides window select Teiid. 
 In the Server tab open the tree node of Red Hat JBoss Data Virtualization 6.3.0 by clicking on arrow. This will set the Default Server automaticaly.
@@ -155,7 +155,7 @@ As a “sanity” check, be sure to click the "Test Administration Connection" a
 
 JBDS should look like the following illustration. 
 
-image::2.3-JBDS-Teiid-view.png[]
+image:2.3-JBDS-Teiid-view.png[]
 
 You can now begin creating your own Red Hat JBoss Data Virtualization projects. 
 

@@ -12,14 +12,14 @@ And, they want to make sure that as they solve this tactical use case they build
 
 === Demo Context
 
-image::demo-context.png[Demo Context]
+image:demo-context.png[Demo Context]
 
 === How this is accomplished in JBoss Data Virtualization
 
 Here's how you can do this in JBoss Data Virtualization, using the Teiid Designer graphical design tool:
 
 === Demo Workflow 
-image::demoflow.png[]
+image:demoflow.png[]
 
 [cols="3*",grid="cols", frame="none"]
 |===

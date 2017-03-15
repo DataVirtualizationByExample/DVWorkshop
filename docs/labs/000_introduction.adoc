@@ -8,7 +8,7 @@ Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterpr
 .	Compose: Create reusable, business-friendly logical data models and views by combining and transforming data. 
 .	Consume: Make unified data easily consumable through open standard interfaces.
 
-image::0.1-DV-Architecture.png[]
+image:0.1-DV-Architecture.png[]
 
 JDV includes:
 
@@ -24,7 +24,7 @@ JDV is based on the following community projects:
 
 The figure below depicts the architectural overview of JDV:
 
-image::0.2-DV-Server.png[]
+image:0.2-DV-Server.png[]
 
 [cols="2,5a", options="header"]
 |===

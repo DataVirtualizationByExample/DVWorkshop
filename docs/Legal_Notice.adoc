@@ -1,0 +1,20 @@
+
+== Legal Notice
+
+1801 Varsity Drive
+Raleigh, NC27606-2072USA
+Phone: +1 919 754 3700
+Phone: 888 733 4281
+Fax: +1 919 754 3701
+PO Box 13588 Research Triangle Park, NC27709USA
+
+Copyright © {{ book.copyrightYear }} by Red Hat, Inc. This copyrighted material is made available to anyone wishing to use, modify, copy, or redistribute it subject to the terms and conditions of the GNU Lesser General Public License, as published by the Free Software Foundation.
+
+Red Hat and the Red Hat "Shadow Man" logo are registered trademarks of Red Hat, Inc. in the United States and other countries.
+
+All other trademarks referenced herein are the property of their respective owners.
+
+The GPG fingerprint of the security@redhat.com key is:
+
+CA 20 86 86 2B D6 9D FC 65 F6 EC C4 21 91 80 CD DB 42 A6 0E 
+

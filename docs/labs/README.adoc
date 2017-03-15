@@ -1,0 +1,55 @@
+
+
+link:./Legal_Notice.adoc[Legal Notice]
+
+image::cover_small.jpg[Red Hat JBoss Data Virtualization Logo]
+
+== Contribute to Red Hat JBoss Data Virtualization Workshop
+
+The pages themselves have commenting enabled.  You should be able to click on any text area to add a comment.
+
+The documentation project is hosted on GitHub at (https://github.com/DataVirtualizationByExample/DVWorkshop/tree/master/docs[DVWorkshop/docs]).
+
+For simple changes you can just use the online editing capabilities of GitHub by navigating to the appropriate source file and selecting fork/edit.
+
+For larger changes follow these 3 steps:
+
+*Step.1* clone the sources
+
+----
+git clone https://github.com/DataVirtualizationByExample/DVWorkshop.git
+---- 
+
+*Step.2* do edit
+
+Use any text editor to edit the adoc files, http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference] can help you in AsciiDoc Syntax.
+
+*Step.3* submit your change
+
+Once you finished this steps, the content of https://teiid.gitbooks.io/documents/content/[documents] will updated automatically.
+
+== Test locally
+
+You may need test locally, to make sure the changes are correct, to do this install https://github.com/GitbookIO/gitbook[gitbook], then execute the following commands from the checkout location:
+
+----
+$ gitbook install
+$ gitbook serve -w
+----
+
+Once above commands executes successfully, the http format document can be test locally via `http://localhost:4000/`.
+
+== Generate html/pdf/epub/mobi 
+
+You may locally create rendered forms of the documentation. To do this install https://github.com/GitbookIO/gitbook[gitbook] and https://help.gitbook.com/build/ebookconvert.html[ebook-convert], then execute the following commands from the checkout location:
+
+----
+$ gitbook build ./ jdvworkshop
+$ gitbook pdf ./jdvworkshop jdvworkshop.pdf
+$ gitbook epub ./jdvworkshop jdvworkshop.epub
+$ gitbook mobi ./jdvworkshop jdvworkshop.mobi
+----
+
+Once above commands executes successfully, the `jdvworkshop` folder, `jdvworkshop.pdf`, `jdvworkshop.epub`, and `jdvworkshop.mobi` will be generated.
+
+

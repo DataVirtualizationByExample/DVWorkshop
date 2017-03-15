@@ -20,3 +20,24 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-168]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
 	... 17 more
+11-05 20:48:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1384)
+	at org.h2.jdbc.JdbcConnection.checkClosedForWrite(JdbcConnection.java:1369)
+	at org.h2.jdbc.JdbcConnection.rollback(JdbcConnection.java:459)
+	at org.jboss.jca.adapters.jdbc.BaseWrapperManagedConnection.destroy(BaseWrapperManagedConnection.java:482)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.doDestroy(SemaphoreArrayListManagedConnectionPool.java:899)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.flush(SemaphoreArrayListManagedConnectionPool.java:642)
+	at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreArrayListManagedConnectionPool.shutdown(SemaphoreArrayListManagedConnectionPool.java:753)
+	at org.jboss.jca.core.connectionmanager.pool.AbstractPool.shutdown(AbstractPool.java:675)
+	at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.shutdown(AbstractConnectionManager.java:158)
+	at org.jboss.as.connector.subsystems.datasources.AbstractDataSourceService.stopService(AbstractDataSourceService.java:170)
+	at org.jboss.as.connector.subsystems.datasources.AbstractDataSourceService$1.run(AbstractDataSourceService.java:142)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)

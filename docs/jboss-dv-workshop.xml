@@ -566,7 +566,7 @@ C:\opt\jboss\dv-6.3.0&gt; standalone.bat</programlisting>
 <simpara>The script performs the automated install of JBoss Data Virtualization v6.3.0.GA.
 Run the following java command to install JBoss Data Virtualization in as shown below.</simpara>
 <programlisting language="bash" linenumbering="unnumbered">$ cd support
-$ java -jar ../software/jboss-6.3.0-installer.jar installscript_dv63.xml</programlisting>
+$ java -jar ../software/jboss-6.3.0-1-installer.jar installscript_dv63.xml</programlisting>
 <simpara>The following username/passwords will be installed automatically for access to</simpara>
 <informaltable frame="all" rowsep="1" colsep="1">
 <tgroup cols="4">

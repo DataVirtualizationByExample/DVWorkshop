@@ -115,7 +115,7 @@ Run the following java command to install JBoss Data Virtualization in as shown 
 [source, bash]
 ----
 $ cd support
-$ java -jar ../software/jboss-6.3.0-installer.jar installscript_dv63.xml
+$ java -jar ../software/jboss-6.3.0-1-installer.jar installscript_dv63.xml
 ----
 
 The following username/passwords will be installed automatically for access to 

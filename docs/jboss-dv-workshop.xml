@@ -382,7 +382,7 @@ Bye</screen>
 </informalfigure>
 <simpara>Open a terminal window and navigate to the location where the GUI installer was downloaded.
 Run the installer using java at the command prompt:</simpara>
-<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-6.3.0-installer.jar</programlisting>
+<programlisting language="bash" linenumbering="unnumbered">$ java -jar jboss-dv-6.3.0-installer-1.jar</programlisting>
 <simpara>Follow the installer prompts to complete the installation process.</simpara>
 <tip>
 <simpara>If needed you can also take a look at the video "Getting Started with Red Hat JBoss Data Virtualization Installation and Configuration". See <link xl:href="http://vimeo.com/76457404">http://vimeo.com/76457404</link> for more details.</simpara>

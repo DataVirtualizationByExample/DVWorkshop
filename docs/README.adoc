@@ -3,6 +3,9 @@
 link:./Legal_Notice.adoc[Legal Notice]
 
 image::cover_small.jpg[Red Hat JBoss Data Virtualization Logo]
+== Red Hat JBoss Data Virtualization Workshop documentation
+
+https://cvanball.gitbooks.io/dvworkshop/content/[Workshop Documentation]
 
 == Contribute to Red Hat JBoss Data Virtualization Workshop
 

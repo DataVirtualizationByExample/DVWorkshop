@@ -16,4 +16,6 @@
 . link:labs/010_xml-service-src.adoc[Consuming Web Services as Data Sources]
 . link:labs/011_connect_vdb.adoc[Connecting to a Virtual Database]
 . link:labs/012_dashboard.adoc[Dashboard Builder]
+. link:labs/013_dv_caching.adoc[Caching Results]
+. link:labs/014_dv_rbac_access.adoc[Applying Role Based Access (vdb, columns, rows etc.)]
 . link:pages/resources.adoc[Resources]

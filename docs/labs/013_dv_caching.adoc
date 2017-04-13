@@ -1,0 +1,121 @@
+
+:imagesdir: ./images
+
+== Caching in JBoss Data Virtualization
+
+We have been setting up models and have been doing querying directly or via federated queries to the undrelying datasources, we will now look at how we can do caching in JDV.
+
+=== Where are we?
+
+image::13.1-demo-vdb-caching.png[]
+
+=== Prerequisites
+
+* Sample Teiid project
+* One or more source models created
+* One or more view models created and the views (virtual tables) that require caching/materialization identified
+
+=== Result Set Caching
+
+
+Straight from the https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Virtualization/6.1/html-single/Development_Guide_Volume_5_Caching_Guide/index.html#chap-Result_Set_Caching[documentation] the definition of Result Set Caching is
+
+_"User query result set caching will cache result sets based on an exact match of the incoming SQL string and PreparedStatement parameter values if present. Caching only applies to SELECT, set query, and stored procedure execution statements; it does not apply to SELECT INTO statements, or INSERT, UPDATE, or DELETE statements."_
+
+*_Key points to remember_*
+
+* Result set caching is *enabled by default* (with a default ttl)
+* The client must *explicitly* choose to use result set caching by passing : resultSetCacheMode=true in the JDBC URL to the VDB
+* The exact SQL string, including the cache hint if present, must match the cached entry for the results to be reused.
+* Result set caching is *not* transactional
+* From the web management console, one can choose to clear the result set cache of a specific VDB
+* Result set caching is *not limited to memory*.
+
+Consult the https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Virtualization/6.1/html-single/Development_Guide_Volume_5_Caching_Guide/index.html#chap-Result_Set_Caching[documentation] for more in-depth information about result set caching.
+
+
+==== Testing Result Set Caching
+
+*Step 1:* Deploy a sample VDB for testing purposes. Virtual database dvdemo.vdb will be used in this example.
+
+image::13.2-rsc-deploy-vdb.png[]
+
+*Step 2:* Configure the JDBC connection to the VDB from any SQL client. We will use Database Development perspective of JBoss Developer Studio for this purpose.
+
+1. Right-click on the Database Connections and create a new connection profil
+
+image::13.3-rsc-create-new-connection-profile.png[]
+
+2. Create a new Teiid connection profile as shown in the image below and click on Next
+
+image::13.4-rsc-teiid-connection-profile.png[]
+
+3. Fill in the connection details to the VDB. Ensure to populate the URL property resultSetCacheMode=true. We will be using the teiidUser login for this purpose and click on Finish
+
+image::13.5-rsc-teiid-jdbc-details-financials.png[]
+
+Explore the Teiid connection just established and open an new SQL scrapbook to run queries
+
+image::13.6-rsc-teiid-scrapbook.png[]
+
+*Step 3:* Run queries against the VDB without any customization (such as cache hints)
+
+1. Try a plain, simple/sample query without any customization and review the status to see how long it took to run the query
+
+image::13.7-rsc-vdb-query-without-caching.png[]
+
+Note in the image below, the status says that query took 1 sec and 36 ms
+
+image::13.8-rsc-vdb-query-without-caching-status-financials.png[]
+
+2. Re-execute the same query and check on how long it took to run the same query with default caching enabled. Based on the image below we saved 28 ms. The time saved widens as the result sets gets larger and larger. 
+
+image::13.9-rsc-vdb-query-with-caching-status-financials.png[]
+
+*Step 4:* Run queries against the VDB with cache hints
+
+
+The format of the cache hint is:
+
+
+    /*+ cache[([pref_mem] [ttl:n] [updatable])] [scope:(session|user|vdb)] */ select * from sample 
+
+The official documentation is more effective in explaining cache hints and options. The following images show the usage of cache hints and options.
+
+1.  Using Cache Hint 
+
+image::13.10-rsc-cache-hints-usage.png[]
+
+2. Overriding the use of cache results by appending OPTION NOCACHE to the end of the SQL query. Pay attention to the run time of the query to realize the cached results are not used 
+
+image::13.11-rsc-cache-option-nocache.png[]
+
+
+
+
+=== Internal Materialization
+Internal materialization is caching of all records of a specific view (virtual table). Enabling Internal Materialization on a specific view is done in the Teiid Designer and *_before the view is packed into a VDB_*, as shown in the image below. Focus on the field the Yellow tool-tip is pointing to; the Materialized property of the view is a drop-down with two options true/false. Enabling Internal Materialization is as simple as setting this property to true. 
+
+image::13.12-internal-mat-enabling-financials.png[]
+
+*_Key points about Internal Materialization_*
+
+1. If the tranformation query behind the view has no cache hints, *then the results are cached for the lifetime of the JVM*
+2. One can assign a cache hint to the transformation query behind the view to enable *cache expiry* after a defined *ttl (time to live)* is prepended to the Virtual Model transformation (eg. /*+ cache (pref_mem ttl:6000)*/ SELECT ...") . Note : If a new query arrives after the cache contents have expired, *an asynchronous job* refreshes the cache, till that job is complete the query *will not* be blocked and stale entries will be served 
+
+3. One can invalidate the cache on demand using one of the two ways below. Invalidation will block the queries until the cache is refreshed.
+
+    ** Using the web based admin console of the DV runtime server. Focus on all the selected/highlighted entries in the image 
+
+image::13.13-internal-mat-admin-console-financials.png[]
+
+    ** Connecting to the deployed VDB via a SQL client and executing the command of the following form:
+
+  EXEC SYSADMIN.refreshMatView(viewname=>'Customer.customers', invalidate=>true)
+  
+
+
+==== Testing Internal Materialization
+Testing internal materialization is only possible *after bundling the materialized into a VDB and deploying it*. Once deployed, just as shown above with any SQL client, any kind of SELECT query (with whatever WHERE clause conditions) against the view will fully populate the cache.
+
+Subsequent queries then take advantage of the cached records.

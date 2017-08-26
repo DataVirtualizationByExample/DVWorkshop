@@ -1,12 +1,19 @@
 
 :imagesdir: images
 
-== Introduction
+= Introduction
+:toc: manual
+:toc-placement: preamble
+
+This section contains the introduction of JDV and JDV workshop. 
+
+== What is JDV
+
 Red Hat JBoss Data Virtualization (JDV), formerly known as Red Hat JBoss Enterprise Data Services Platform (EDS), is a complete data provisioning, federation, integration and management solution that enables organizations to gain actionable and unified information. Red Hat JBoss Data Virtualization enables agile data utilization in three steps:
 
-.	Connect: Access data from multiple, heterogeneous data sources. 
-.	Compose: Create reusable, business-friendly logical data models and views by combining and transforming data. 
-.	Consume: Make unified data easily consumable through open standard interfaces.
+. Connect: Access data from multiple, heterogeneous data sources. 
+. Compose: Create reusable, business-friendly logical data models and views by combining and transforming data. 
+. Consume: Make unified data easily consumable through open standard interfaces.
 
 image:0.1-DV-Architecture.png[]
 
@@ -54,12 +61,14 @@ Need data from a different source? Custom translators and resource adaptors can 
 |===
 
 
-=== What is expected of you
+== What is expected of you
+
 Please know that all care was made in creating this user guide, but all screen shots and steps along the way might be off by just a little so please be patient with any issues.
 
 Please feel free to raise your hands if you have any questions. Also feel free to ask why it is you are doing something, or if something doesn't feel right.
 
-=== Prerequisites
+== Prerequisites
+
 Please make sure that the following software is installed and configured:
 
 * Minimal version 1.7 of OpenJDK or Oracle JDK
@@ -71,12 +80,14 @@ More information on the JDV prerequisites can be be found in the https://access.
 
 NOTE: Prerequisites with respect to PostgreSQL server, MariaDB server or MySQL server are optional. We will use the embedded H2 database which is installed in the JDV environment by default as part of JBoss EAP for you convenience.
 
-=== Setup demo database environment (OPTIONAL)
+== Setup demo database environment (OPTIONAL)
+
 In order to use the labs we need to prepare one database. Out of the box we provide H2 embedded databases for your convinience. We provide some database SQL scripts as well for PostgreSQL, MariaDB and MySQL to load initial data into the database of your choice. In the next paragraph we will describe how to install the database and how to load the demo data into the database.
 
 TIP: Use the database you prefer, it's not required to install one of the databases. By default we will use the H2 embedded database.
 
-==== Setup PostgreSQL
+=== Setup PostgreSQL
+
 Installation
 
 The easiest way to install PostgreSQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://www.postgresql.org/download/ for more information and downloads.
@@ -120,7 +131,9 @@ postgres=# \l
 
 postgres=# \q
 ----
-==== Setup MariaDB 
+
+=== Setup MariaDB 
+
 Installation
 
 The easiest way to install MariaDB is to use the pre-built binary packages which are available for a number of different operating systems. See https://downloads.mariadb.org for more information and downloads. 
@@ -167,7 +180,8 @@ mysql> exit
 Bye
 ----
 
-==== Setup MySQL
+=== Setup MySQL
+
 Installation
 
 The easiest way to install MySQL is to use the pre-built binary packages which are available for a number of different operating systems. See http://dev.mysql.com/downloads/mysql/ for more information and downloads.

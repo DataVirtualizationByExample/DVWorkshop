@@ -1,0 +1,7 @@
+{
+    "variables" : {
+        "copyrightYear" :  "2017",
+        "copyrightHolder" :  "Red Hat Inc"
+    },
+    "plugins": ["collapsible-menu"]
+}

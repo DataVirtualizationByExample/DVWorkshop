@@ -1,18 +1,29 @@
 
 :imagesdir: images
 
-== Create an Enterprise Data Layer
+= Create an Enterprise Data Layer
+:toc: manual
+:toc-placement: preamble
+
+This section is for create Enterprise Data Layer
+
+== Why Enterprise Data Layer
+
 The next layer to build are the models in the EnterpriseDataLayer folder. What these models do is resolve the slight semantic differences between the EU_Customers and US_Customers database tables – for example, the US version includes a field for middle initial only in the customer table where the EU version of the customer table has a corresponding field for middle name. Now, one technique we use here to make resolving the semantic differences a little bit easier here is to convert all of the data types for these tables from the standard SQL datatypes to one of a set of custom datatypes we've defined using JBoss Data Virtualization's data dictionary capabilities. This way we can ensure that we get all data for a particular field into the same datatype. It also gives us a guide to resolving any differences in field names between the two. 
 
 NOTE: Note that using a domain-specific (or enterprise-wide standard) data dictionary is only a recommendation. There is no hard requirement to define or use a data dictionary but instead do this semantic mediation without one (by manually comparing datatypes and field lengths between the two data sources). Our goal with JBoss Data Virtualization is to not impose any roadblocks for those users that want to get their use cases addressed as rapidly as possible – so we don't force any requirement on users to define a data dictionary or a taxonomy or anything like that.
 
-=== Where are we?
+== Where are we?
 
 image:demo-edl.png[]
 
-=== Import the Data Dictionary Schema
-An XML schema containing the definitions of a number of datatypes applicable to the Financial domain used by this lab is located in DVWorkshop/dv_docker/demo. The name of the file is DataDictionary.xsd. We want to import the schema into the Schemas folder that was created in an earlier lab. Perform the following steps.
-Right-click on the Schema folder in the Model Explorer and choose menu:Import[Teiid Designer > XML Schemas]. Then click the btn:[Next >] button.
+== Import the Data Dictionary Schema
+
+An XML schema containing the definitions of a number of datatypes applicable to the Financial domain used by this lab is located in `DVWorkshop/dv_docker/demo`. The name of the file is DataDictionary.xsd. We want to import the schema into the Schemas folder that was created in an earlier lab. 
+
+Perform the following steps. Right-click on the Schema folder in the Model Explorer and choose menu:Import[Teiid Designer > XML Schemas]. 
+
+Then click the btn:[Next >] button.
 
 image:5.1-import-xsd.png[]
 
@@ -20,7 +31,9 @@ Choose to import the schema from the file system and click btn:[Next >].
 
 image:5.1-import-xsd2.png[]
 
-Browse to the DVWorkshop/dv_docker/demo directory. Once the directory is opened in the “From Directory” field, you will be able to select the DataDictionary.xsd file. Then click btn:[Finish].
+Browse to the `DVWorkshop/dv_docker/demo` directory. Once the directory is opened in the “From Directory” field, you will be able to select the DataDictionary.xsd file. 
+
+Then click btn:[Finish].
 
 image:5.1-import-xsd3.png[]
 
@@ -32,8 +45,11 @@ Double-click on the DataDictionary.xsd file you just imported to open the XML Sc
 
 image:5.2-Data-Dictionary.png[]
 
-=== Create the EU_Customers_EDL Enterprise Data Layer
-Create a new virtual metadata model called EU_Customers_EDL in the EnterpriseDataLayer folder. Right-click on the folder EnterpriseDataLayer and select menu:New[Teiid Metadata Model] to bring up the New Model Wizard and make the following selections as indicated in the illustration below.
+== Create the EU_Customers_EDL Enterprise Data Layer
+
+Create a new virtual metadata model called EU_Customers_EDL in the EnterpriseDataLayer folder. 
+
+Right-click on the folder EnterpriseDataLayer and select menu:New[Teiid Metadata Model] to bring up the New Model Wizard and make the following selections as indicated in the illustration below.
 
 image:5.3-new-model.png[]
 
@@ -43,22 +59,31 @@ This time, use the EU_Customers_VBL.xmi as the model as the basis for the EU_Cus
 
 image:5.3-new-model2.png[]
 
-We are going to use the database schema of the eucustomers database as the standard upon which to base our enterprise model. Therefore we won't be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. When we get to the transformations for the US_Customers_EDL and EU_Customers_EDL models we will see that more changes will be necessary to make them semantically align with our enterprise model.
+We are going to use the database schema of the eucustomers database as the standard upon which to base our enterprise model. Therefore we won't be changing any of the table names or column names, but we will be modifying the transformation to incorporate our Data Dictionary. 
+
+When we get to the transformations for the US_Customers_EDL and EU_Customers_EDL models we will see that more changes will be necessary to make them semantically align with our enterprise model.
+
 Open the transformation Editor for the customer table of EU_Customers_EDL by double-clicking on it. Select CustomerID and note that there is a Datatype field in the Properties Panel on the lower left.
 
 Click on the value field to the right of datatype in the Properties Panel in the lower left-hand side of JBDS.
 When clicking in this field in the Properties Panel, the Select a Datatype Wizard is presented. The User-Defined Types were populated when we imported the DataDictionary.xsd schema. Browse through the datatypes, check and un-check the boxes to see which types are built-in and which are user-defined.
 
-In the “Select a Datatype” window choose CustomerID user-defined type for the CustomerID column and click btn:[OK]. You can begin typing the name of the datatype in the top window to filter the selection types displayed.
+In the *Select a Datatype* window choose CustomerID user-defined type for the CustomerID column and click btn:[OK]. 
+
+You can begin typing the name of the datatype in the top window to filter the selection types displayed.
+
 Go through this exercise with every column in the Customer table choosing the appropriate datatype for each. Be sure to save your work. At the completion of the exercise, your Customer table should look like the one below.
 
 image:5.3-select-datatype.png[]
 
 image:5.3-select-datatype2.png[]
 
-Perform the same process for the other tables (ACCOUNT, ACCOUNTHOLDINGS) in the EU_Customers_EDL model. A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view. Note however when you save your changes the following warnings appear in the Transformation Editor:
-The SELECT transformation is valid, but NOT fully reconciled:
-The transformation output types do not match the target attribute types.
+Perform the same process for the other tables (ACCOUNT, ACCOUNTHOLDINGS) in the EU_Customers_EDL model. 
+
+A way to "go back" to the parent model is to right-click on the teal background surrounding the View model and select "Show Parent Diagram". Alternatively, you can select the table you want to work with by double-clicking on it in the Model Explorer tree-view. 
+
+Note however when you save your changes the following warnings appear in the Transformation Editor: The SELECT transformation is valid, but NOT fully reconciled: The transformation output types do not match the target attribute types.
+
 This is because some of the enterprise datatypes we have chosen do not match the underlying format of the source data (AccountID, for example we are defining as a long, but it is a bigdecimal in the source).
 To address these type mismatches we will open the Reconciler. This is done by clicking on the small icon just to the right of "Supports Update" in the Transformation Editor. 
 
@@ -71,6 +96,7 @@ NOTE: The highlighted fields indicate some problems. We can address all of these
 image:5.3-reconciler2.png[]
 
 Select each mapping at the top and see that the proposed transformation at the bottom changes. This is under the SQL Symbol panel; we want to convert to the datatype that is assigned to the enterprise datatype. (The Virtual Target Attribute section of the wizard above lets you modify that datatype; we don't want to do that here.)
+
 Note that there are three different type mappings being handled here: bigdecimal to long, timestamp to date, and bigdecimal to float. We are not worried about precision in this case, so we can simply press the btn:[Convert all source SQL symbol datatypes], followed by clicking btn:[OK]. This will return you to the Reconciler. 
 
 image:5.3-reconciler2a.png[]
@@ -84,7 +110,8 @@ When you are finished with the ACCOUNTHOLDINGS table, it will look like the foll
 
 image:5.3-reconciler3.png[]
 
-=== Create the US_Customers_EDL Enterprise Data Layer
+== Create the US_Customers_EDL Enterprise Data Layer
+
 Now that we have finished with building the first enterprise data service layer in our model, we can take a short-cut to creating the same type of model for the US_Customers_VBL model. We are going to use the EU_Customers_EDL model as a template for creating the US_Customers_EDL model, and then replace the sources of the transformations for each of the tables with the correct ones. 
 Here is how to do it:
 Right-click on the EnterpriseDataLayer folder and select menu:New[Teiid Metadata Model]. Fill in the wizard with the following fields (below) and click btn:[Next].
